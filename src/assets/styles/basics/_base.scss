@@ -1,32 +1,32 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 ::selection {
-    background-color: $clr1;
-    color: $clr6;
+  background-color: $clr1;
+  color: $clr6;
 }
 
 html {
-    font-family: montserrat;
-    line-height: 1.6;
-    color: $clr2;
+  font-family: montserrat;
+  line-height: 1.6;
+  color: $clr2;
 }
 
 body {
-    font-size: rem(18px);
-    margin: 0;
+  font-size: rem(18px);
+  margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: caveat;
-    margin: 0 0 0.6em;
-    line-height: 1;
-}
-
-
-section, main, footer {
-    padding: 5px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: caveat;
+  margin: 0 0 0.6em;
+  line-height: 1;
 }
 
 // img {
@@ -34,14 +34,13 @@ section, main, footer {
 // }
 
 p {
-    margin: 0 0 1em;
-    max-width: 40ch;
+  margin: 0 0 1em;
+  max-width: 40ch;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
-

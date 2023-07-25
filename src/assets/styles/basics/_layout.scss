@@ -1,11 +1,13 @@
-.container {
-  max-width: 1500px;
-  padding: 10px;
-}
+// .container {
+//   max-width: 1500px;
+//   padding: 10px;
+// }
 
 .main-container {
   display: grid;
-  grid-template-columns: 20px 1fr 20px;
+  grid-template-columns: 235px 1fr 235px;
+  grid-template-rows: 105px 1fr 85px;
+  padding: 0;
 
   > * {
     grid-column: 2;
@@ -15,28 +17,28 @@
     }
   }
 
-  @include for-narrow-layout {
-    grid-template-columns:
-      minmax(20px, 1fr)
-      minmax(auto, $mobile-breakpoint)
-      minmax(20px, 1fr);
-  }
-  @include for-normal-layout {
-    grid-template-columns:
-      minmax(20px, 1fr)
-      minmax(auto, $narrow-breakpoint)
-      minmax(20px, 1fr);
-  }
-  @include for-wide-layout {
-    grid-template-columns:
-      minmax(20px, 1fr)
-      minmax(auto, $normal-breakpoint)
-      minmax(20px, 1fr);
-  }
+  // @include for-narrow-layout {
+  //   grid-template-columns:
+  //     minmax(20px, 1fr)
+  //     minmax(auto, $mobile-breakpoint)
+  //     minmax(20px, 1fr);
+  // }
+  // @include for-normal-layout {
+  //   grid-template-columns:
+  //     minmax(20px, 1fr)
+  //     minmax(auto, $narrow-breakpoint)
+  //     minmax(20px, 1fr);
+  // }
+  // @include for-wide-layout {
+  //   grid-template-columns:
+  //     minmax(20px, 1fr)
+  //     minmax(auto, $normal-breakpoint)
+  //     minmax(20px, 1fr);
+  // }
 }
 
-.gigd-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 20px;
-}
+// .gigd-grid {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+//   grid-gap: 20px;
+// }

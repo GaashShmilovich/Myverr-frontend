@@ -99,74 +99,74 @@ function getLoggedinUser() {
 }
 
 // Initial data
-; (async () => {
-    await userService.signup({
-        _id: "u101",
-        fullname: "User 1",
-        imgUrl: "/img/img1.jpg",
-        username: "user1",
-        password: "secret",
-        level: "basic/premium",
-        reviews: [
-            {
-                id: "madeId",
-                gig: "{optional-mini-gig}",
-                txt: "Very kind and works fast",
-                rate: 4,
-                by: {
-                    _id: "u102",
-                    fullname: "user2",
-                    imgUrl: "/img/img2.jpg"
-                }
-            }
-        ]
-    }
+// ; (async () => {
+//     await userService.signup({
+//         _id: "u101",
+//         fullname: "User 1",
+//         imgUrl: "/img/img1.jpg",
+//         username: "user1",
+//         password: "secret",
+//         level: "basic/premium",
+//         reviews: [
+//             {
+//                 id: "madeId",
+//                 gig: "{optional-mini-gig}",
+//                 txt: "Very kind and works fast",
+//                 rate: 4,
+//                 by: {
+//                     _id: "u102",
+//                     fullname: "user2",
+//                     imgUrl: "/img/img2.jpg"
+//                 }
+//             }
+//         ]
+//     }
 
-    )
-    await userService.signup({
-        _id: "u102",
-        fullname: "User 2",
-        imgUrl: "/img/img2.jpg",
-        username: "user2",
-        password: "topsecret",
-        level: "premium",
-        reviews: [
-            {
-                id: "madeId",
-                gig: "{optional-mini-gig}",
-                txt: "Excellent work and great communication!",
-                rate: 5,
-                by: {
-                    _id: "u103",
-                    fullname: "User 3",
-                    imgUrl: "/img/img3.jpg"
-                }
-            }
-        ]
-    }
+//     )
+//     await userService.signup({
+//         _id: "u102",
+//         fullname: "User 2",
+//         imgUrl: "/img/img2.jpg",
+//         username: "user2",
+//         password: "topsecret",
+//         level: "premium",
+//         reviews: [
+//             {
+//                 id: "madeId",
+//                 gig: "{optional-mini-gig}",
+//                 txt: "Excellent work and great communication!",
+//                 rate: 5,
+//                 by: {
+//                     _id: "u103",
+//                     fullname: "User 3",
+//                     imgUrl: "/img/img3.jpg"
+//                 }
+//             }
+//         ]
+//     }
 
-    )
-    await userService.signup({
-        _id: "u103",
-        fullname: "User 3",
-        imgUrl: "/img/img3.jpg",
-        username: "user3",
-        password: "hidden",
-        level: "basic",
-        reviews: [
-            {
-                id: "madeId",
-                gig: "{optional-mini-gig}",
-                txt: "Great communication and quality work!",
-                rate: 5,
-                by: {
-                    _id: "u101",
-                    fullname: "User 1",
-                    imgUrl: "/img/img1.jpg"
-                }
-            }
-        ]
-    }
+//     )
+//     await userService.signup({
+//         _id: "u103",
+//         fullname: "User 3",
+//         imgUrl: "/img/img3.jpg",
+//         username: "user3",
+//         password: "hidden",
+//         level: "basic",
+//         reviews: [
+//             {
+//                 id: "madeId",
+//                 gig: "{optional-mini-gig}",
+//                 txt: "Great communication and quality work!",
+//                 rate: 5,
+//                 by: {
+//                     _id: "u101",
+//                     fullname: "User 1",
+//                     imgUrl: "/img/img1.jpg"
+//                 }
+//             }
+//         ]
+//     }
 
-    )
-})()
+//     )
+// })()
