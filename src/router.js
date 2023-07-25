@@ -14,7 +14,7 @@ const routes = [
     component: Home
   },
   {
-    path: '/gig',
+    path: '/explore',
     name: 'GigIndex',
     component: GigIndex
   },

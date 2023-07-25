@@ -31,7 +31,7 @@ function remove(userId) {
     return storageService.remove('user', userId)
 }
 
-async function update({_id, score}) {
+async function update({ _id, score }) {
     const user = await storageService.get('user', _id)
     user.score = score
     await storageService.put('user', user)
@@ -69,8 +69,28 @@ async function changeScore(by) {
 }
 
 function saveLocalUser(user) {
-    user = {_id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, score: user.score}
-    sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
+    user = {
+        _id: user._id,
+        fullname: user.fullname,
+        imgUrl: user.imgUrl,
+        username: user.username,
+        password: user.password,
+        level: user.level,
+        reviews: [
+            {
+                id: user.reviews[0]._id,
+                gig: user.reviews[0].gig,
+                txt: user.reviews[0].txt,
+                rate: user.reviews[0].rate,
+                by: {
+                    _id: user.reviews[0].by._id,
+                    fullname: user.reviews[0].by.fullname,
+                    imgUrl: user.reviews[0].by.imgUrl
+                }
+            }
+        ],
+    },
+        sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
 
@@ -79,8 +99,74 @@ function getLoggedinUser() {
 }
 
 // Initial data
-// ;(async ()=>{
-//     await userService.signup({fullname: 'Puki Norma', username: 'puki', password:'123',score: 10000, isAdmin: false})
-//     await userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123', score: 10000, isAdmin: true})
-//     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000})
-// })()
+; (async () => {
+    await userService.signup({
+        _id: "u101",
+        fullname: "User 1",
+        imgUrl: "/img/img1.jpg",
+        username: "user1",
+        password: "secret",
+        level: "basic/premium",
+        reviews: [
+            {
+                id: "madeId",
+                gig: "{optional-mini-gig}",
+                txt: "Very kind and works fast",
+                rate: 4,
+                by: {
+                    _id: "u102",
+                    fullname: "user2",
+                    imgUrl: "/img/img2.jpg"
+                }
+            }
+        ]
+    }
+
+    )
+    await userService.signup({
+        _id: "u102",
+        fullname: "User 2",
+        imgUrl: "/img/img2.jpg",
+        username: "user2",
+        password: "topsecret",
+        level: "premium",
+        reviews: [
+            {
+                id: "madeId",
+                gig: "{optional-mini-gig}",
+                txt: "Excellent work and great communication!",
+                rate: 5,
+                by: {
+                    _id: "u103",
+                    fullname: "User 3",
+                    imgUrl: "/img/img3.jpg"
+                }
+            }
+        ]
+    }
+
+    )
+    await userService.signup({
+        _id: "u103",
+        fullname: "User 3",
+        imgUrl: "/img/img3.jpg",
+        username: "user3",
+        password: "hidden",
+        level: "basic",
+        reviews: [
+            {
+                id: "madeId",
+                gig: "{optional-mini-gig}",
+                txt: "Great communication and quality work!",
+                rate: 5,
+                by: {
+                    _id: "u101",
+                    fullname: "User 1",
+                    imgUrl: "/img/img1.jpg"
+                }
+            }
+        ]
+    }
+
+    )
+})()
