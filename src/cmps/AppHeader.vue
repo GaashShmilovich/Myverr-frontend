@@ -4,7 +4,7 @@
       <RouterLink to="/">
         <span role="img" aria-label="logo">🙏</span>
       </RouterLink>
-      <RouterLink to="/car">Cars</RouterLink>
+      <RouterLink to="/gig">Gigs</RouterLink>
       <RouterLink to="/review">Reviews</RouterLink>
       <RouterLink to="/chat">Chat</RouterLink>
       <RouterLink to="/login">Login / Signup</RouterLink>
@@ -22,8 +22,8 @@
 export default {
   computed: {
     loggedInUser() {
-      return this.$store.getters.loggedinUser
+      return this.$store.getters.loggedinUser;
     },
-  }
-}
+  },
+};
 </script>
