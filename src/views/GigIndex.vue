@@ -36,6 +36,7 @@ export default {
       gigToAdd: gigService.getEmptyGig(),
     };
   },
+ 
   computed: {
     loggedInUser() {
       return this.$store.getters.loggedinUser;
