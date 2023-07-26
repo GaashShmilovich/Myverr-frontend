@@ -3,7 +3,7 @@
 		<div class="gig-preview">
 			<div class="gig-preview__img-container">
 				<img
-					src="https://picsum.photos/330/220"
+					:src="gig.imgUrls"
 					alt="gig.title"
 					class="gig-preview__img"
 				/>
@@ -12,8 +12,8 @@
 				<div class="owner-preview-container">
 					<img
 						class="gig-owner-img"
-						src="https://picsum.photos/24/24"
-						alt=""
+						:src="gig.owner.imgUrl"
+						alt="owner-image"
 					/>
 					<h3 class="gig-preview-owner">
 						{{ gig.owner.fullname }}<br /><span>{{
@@ -22,7 +22,10 @@
 					</h3>
 				</div>
 				<h4 class="gig-preview__title">{{ gig.title }}</h4>
-				<p class="gig-preview-rate">⭐{{ gig.owner.rate }}</p>
+				<p class="gig-preview-rate">
+					⭐{{ gig.owner.rate }}
+					<span>({{ gig.reviews.length }})</span>
+				</p>
 				<hr />
 				<div class="gig-preview-footer-container">
 					<p class="gig-like-btn">❤</p>

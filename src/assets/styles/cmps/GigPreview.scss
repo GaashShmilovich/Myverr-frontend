@@ -1,8 +1,9 @@
 .gig-preview-container {
-	width: 100%;
+	width: 300px;
 	margin: 10px;
 
 	.gig-preview {
+		cursor: pointer;
 		border: 1px solid #e8e8e8;
 		border-radius: 4px;
 		box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
@@ -63,9 +64,17 @@
 			}
 
 			.gig-preview-rate {
+				display: flex;
 				font-size: 1em;
 				color: #ffd700;
 				margin: 6px 0;
+			}
+
+			.gig-preview-rate span {
+				//q how can i make it start from the same line height as the star using flex? //a
+				font-size: 0.8em;
+				color: rgb(170, 167, 167);
+				margin-inline-start: 3px;
 			}
 
 			hr {
