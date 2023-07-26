@@ -1,6 +1,9 @@
 <template>
-  <header>
-    <nav>
+  <header
+    ref="header"
+    :class="{ openHeader: isSearchShown, 'main-container': isSearchShown }"
+  >
+    <nav ref="nav">
       <RouterLink to="/">
         <svg
           width="89"
@@ -22,32 +25,79 @@
         </svg>
       </RouterLink>
       <!-- <SearchBar /> -->
+      <div class="search" :class="{ shown: isSearchShown }">
+        <SearchBar />
+      </div>
       <div class="route-container">
         <RouterLink to="/explore">Explore</RouterLink>
         <RouterLink to="/review">Reviews</RouterLink>
         <RouterLink to="/chat">Chat</RouterLink>
         <RouterLink to="/login">Login / Signup</RouterLink>
+        <RouterLink to="/explore/edit/:gigId?">Edit</RouterLink>
       </div>
     </nav>
-    <section class="loggedin-user" v-if="loggedInUser">
+    <!-- <section class="loggedin-user" v-if="loggedInUser">
       <RouterLink :to="`/user/${loggedInUser._id}`">
         {{ loggedInUser.fullname }}
       </RouterLink>
       <span>{{ loggedInUser.score?.toLocaleString() }}</span>
       <img :src="loggedInUser.imgUrl" />
-    </section>
+    </section> -->
   </header>
 </template>
 <script>
 import SearchBar from "./SearchBar.vue";
 export default {
+  data() {
+    return {
+      windowTop: window.top.scrollY,
+      isSearchShown: false,
+      modalOpen: false,
+      orderOpen: false,
+      menuOpen: false,
+    };
+  },
+  methods: {
+    onScroll(e) {
+      if (this.$route.path !== "/") return;
+      if (window.scrollY < 10) this.isSearchShown = false;
+      if (window.scrollY > 10) {
+        this.isSearchShown = true;
+      }
+    },
+  },
   computed: {
     loggedInUser() {
       return this.$store.getters.loggedinUser;
     },
+    currRoutePath() {
+      return this.$route.path;
+    },
+  },
+
+  created() {
+    window.addEventListener("scroll", this.onScroll);
+  },
+
+  unmounted() {
+    window.removeEventListener("scroll", this.onScroll);
   },
   components: {
     SearchBar,
   },
 };
 </script>
+<style>
+.openHeader {
+  position: fixed;
+
+  background-color: red;
+}
+
+.search {
+  display: none;
+}
+.shown {
+  display: block;
+}
+</style>

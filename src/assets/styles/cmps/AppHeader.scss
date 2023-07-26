@@ -2,6 +2,7 @@ header {
   background-color: transparent;
   align-items: center;
   z-index: 1;
+  transition: background-color 0.5s;
 
   .loggedin-user {
     background-color: $clr1;
@@ -36,13 +37,14 @@ header {
       flex-basis: em(415px);
       align-items: center;
       justify-content: space-between;
-    }
-    a {
-      font-size: rem(16px);
-      color: #fff;
-      font-family: macanSemibold;
-      &:hover {
-        color: #1dbf73;
+      a {
+        font-size: rem(16px);
+        color: #fff;
+        font-family: macanSemibold;
+
+        &:hover {
+          color: #1dbf73;
+        }
       }
     }
   }

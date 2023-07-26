@@ -25,6 +25,11 @@ const routes = [
     component: GigDetails
   },
   {
+    path: '/explore/edit/:gigId?',
+    name: 'GigEdit',
+    component: GigEdit
+  },
+  {
     path: '/review',
     name: 'ReviewIndex',
     component: ReviewIndex
@@ -47,7 +52,7 @@ const routes = [
 ]
 
 export const router = createRouter({
-	routes,
-	history: createWebHashHistory(),
-	// base: process.env.BASE_URL,
+  routes,
+  history: createWebHashHistory(),
+  // base: process.env.BASE_URL,
 })

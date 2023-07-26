@@ -2,7 +2,6 @@
   <section class="main-container">
     <AppHeader />
     <RouterView />
-    <!-- <AppFooter /> -->
     <UserMsg />
   </section>
 </template>
@@ -22,7 +21,6 @@ export default {
   },
   components: {
     AppHeader,
-    // AppFooter,
     UserMsg,
   },
 };
