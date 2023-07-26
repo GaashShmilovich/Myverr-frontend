@@ -1,6 +1,6 @@
 <template>
-    <section v-if="gig">
-        <h5 class="gig-category"></h5>
+    <section v-if="gig" class="gig-details">
+        <!-- <h5 class="gig-category"> {{ filterby.category }}</h5> --> //recive prop from explore
         <h1 class="gig-title"> {{ gig.title }}</h1>
         <h5 class="gig-owner-details">
           <img :src="gig.owner.imgUrl" alt="">
@@ -13,7 +13,7 @@
         <p> Details: {{ gig.description }}</p>
 
       <PackageType />
-      <ReviewList :gig.reviews="reviews" />
+      <ReviewList :reviews="gig.reviews" />
     </section>
     <section v-else>
       Gig wasnt found
@@ -32,6 +32,11 @@
         gig: null,
       }
     },
+
+    // props: {
+    //   filterBy: String
+    // },
+
   //   watch: {
   //   gigId: {
   //     handler() {
