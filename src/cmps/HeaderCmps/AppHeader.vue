@@ -1,7 +1,7 @@
 <template>
   <header
     ref="header"
-    :class="{ transparent: windowTop === 0 && currRoutePath === '/' }"
+    :class="{ openHeader: isSearchShown, 'main-container': isSearchShown }"
   >
     <nav ref="nav">
       <RouterLink to="/">
@@ -33,6 +33,7 @@
         <RouterLink to="/review">Reviews</RouterLink>
         <RouterLink to="/chat">Chat</RouterLink>
         <RouterLink to="/login">Login / Signup</RouterLink>
+        <RouterLink to="/explore/edit/:gigId?">Edit</RouterLink>
       </div>
     </nav>
     <!-- <section class="loggedin-user" v-if="loggedInUser">
@@ -59,8 +60,10 @@ export default {
   methods: {
     onScroll(e) {
       if (this.$route.path !== "/") return;
-      this.windowTop = window.top.scrollY;
-      this.isSearchShown = this.windowTop > 150 ? true : false;
+      if (window.scrollY < 10) this.isSearchShown = false;
+      if (window.scrollY > 10) {
+        this.isSearchShown = true;
+      }
     },
   },
   computed: {
@@ -72,11 +75,11 @@ export default {
     },
   },
 
-  mounted() {
+  created() {
     window.addEventListener("scroll", this.onScroll);
   },
 
-  beforeDestroy() {
+  unmounted() {
     window.removeEventListener("scroll", this.onScroll);
   },
   components: {
@@ -84,4 +87,17 @@ export default {
   },
 };
 </script>
-<style></style>
+<style>
+.openHeader {
+  position: fixed;
+
+  background-color: red;
+}
+
+.search {
+  display: none;
+}
+.shown {
+  display: block;
+}
+</style>

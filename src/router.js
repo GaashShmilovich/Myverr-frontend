@@ -7,6 +7,7 @@ import ReviewIndex from './views/ReviewIndex.vue'
 import LoginSignup from './views/LoginSignup.vue'
 import UserDetails from './views/UserDetails.vue'
 import gigDetails from './views/GigDetails/GigDetails.vue'
+import GigEdit from './views/GigEdit.vue'
 
 const routes = [
   {
@@ -23,6 +24,11 @@ const routes = [
     path: '/explore/:gigId',
     name: 'GigDetails',
     component: gigDetails
+  },
+  {
+    path: '/explore/edit/:gigId?',
+    name: 'GigEdit',
+    component: GigEdit
   },
   {
     path: '/review',
@@ -47,7 +53,7 @@ const routes = [
 ]
 
 export const router = createRouter({
-	routes,
-	history: createWebHashHistory(),
-	// base: process.env.BASE_URL,
+  routes,
+  history: createWebHashHistory(),
+  // base: process.env.BASE_URL,
 })
