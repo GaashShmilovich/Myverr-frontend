@@ -2,9 +2,10 @@
     display: flex;
     // align-items: flex-start;
     flex-direction: row;
-    padding: 32px 24px 0;
     .main {
         width: 59%;
+        margin-right: 50px;
+        // make this mov with media query //
     .gig-category {
         font-size: rem(14px);
         color: $clr4;
@@ -33,6 +34,7 @@
             // object-fit: cover;
             font-stretch: 100%;
             border-radius: 50%;
+            margin-right: 10px;
         }
 
         .name {
@@ -41,6 +43,8 @@
             line-height: rem(26px);
             margin-right: rem(8px);
             color: $clr4;
+            align-self: center;
+
             &:hover {
                 cursor: pointer;
             }
@@ -52,6 +56,7 @@
             color: $clr5;
             font-family: macanRegular; 
             margin-right: rem(8px);
+            align-self: center;
             &:hover{
                 cursor: pointer;
             } 
@@ -60,7 +65,20 @@
             font-family: macanRegular; 
             line-height: rem(21px);
             color: $clr2;
+            font-size: rem(14px);
             margin-right: 8px;
+            align-self: center;
+        }
+        .gig-owner-rate {
+            align-self: center;
+            translate: 0 -6px;
+        }
+        .rate-number {
+            margin-left: 8px;
+            translate: 0 8px;
+            span{
+                color: $clr2;
+            }
         }
     }
 
@@ -70,15 +88,16 @@
         margin-block-end: 1em;
         margin-inline-start: 40px;
         margin-inline-end: 40px;
-        img{
-            max-width: 100%;
+        img {
+            max-width: 90%;
             max-height: 427px;
             justify-content: center;
             position: relative;
             transition-duration: 0.4s, 0.4s;
-
+            overflow: hidden;
             &:hover{
                 cursor: pointer;
+                scale: 1.1;
             }
         }
     }

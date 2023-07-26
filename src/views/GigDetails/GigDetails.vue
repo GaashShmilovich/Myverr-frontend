@@ -1,24 +1,28 @@
 <template>
     <section v-if="gig" class="gig-details">
       <div class="main">
-        <!-- <h5 class="gig-category"> {{ filterby.category }}</h5> --> //recive prop from explore
+        <!-- <h5 class="gig-category"> {{ filterby.category }}</h5> -->
+        <h5 class="gig-category">/ logo-design / artisitic</h5>
         <h1 class="gig-title"> {{ gig.title }}</h1>
         <h5 class="gig-owner-details">
           <img :src="gig.owner.imgUrl" alt="">
           <p class="name">{{ gig.owner.fullname }}</p>
           <p class="instagram">{{ gig.owner.instagram }}</p>
-          <p class="level">{{ gig.owner.level }}</p>
+          <p class="level">{{ gig.owner.level }}  |</p>
+          <section class="gig-owner-rate">
           <span v-for="i in gig.owner.rate || 1">
             <font-awesome-icon
             :style="{ color: '#ffb33e' }"
             icon="fa-solid fa-star"
             />
           </span>
-          <p class="rate-number" :style="{ color: '#ffb33e' }">{{ gig.owner.rate }} </p>
-        </h5>
+        </section>
+        <p class="rate-number" :style="{ color: '#ffb33e' }">{{ gig.owner.rate }} <span>(592)</span></p>
+      </h5>
 
         <figure class="gig-gallery">
-          <img :src="gig.imgUrls" alt="">
+          <!-- <img :src="gig.imgUrls" alt=""> -->
+          <GigDetailsCarusela :gig="gig" />
         </figure>
         <h2>About this gig: </h2>
         <p> {{ gig.description }}</p>
@@ -40,6 +44,7 @@
 
   import ReviewList from '../../cmps/GigDetailsCmps/ReviewList.vue'
   import PackageType from '../../cmps/GigDetailsCmps/PackageType.vue'
+  import  GigDetailsCarusela from '../../cmps/GigDetailsCmps/GigDetailsCarusela.vue'
 
   import { gigService } from '../../services/gig.service.local.js'
   
@@ -95,6 +100,7 @@
       ReviewList,
       PackageType,
       gigService,
+      GigDetailsCarusela,
     },
   }
   </script>

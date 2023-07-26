@@ -7,8 +7,13 @@
     border-top: 1px solid $clr6 ;
     .review-by {
         display: flex;
+        row-gap: 2px;
+        height: 53px;
         .review-by-name {
-            padding-left: 20px;
+            p{
+                padding-left: 20px;
+                margin-bottom: 0;
+            }
         }
     }
     img {
@@ -16,8 +21,10 @@
         width: 48px;
         border-radius: 50%;
     }
-    p{
-
+    .review-rate-time {
+        margin-top: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 
 }
