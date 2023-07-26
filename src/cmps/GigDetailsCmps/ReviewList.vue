@@ -1,10 +1,13 @@
 <template lang="">
-    <section class="review-list">
-      <h2>Reviews</h2>
+    <section class="reviews">
+      <h2>Reviews</h2> 
+      <h3>{{ reviews?.length }} reviews for this Gig</h3>
+      <!-- <input type="text" v-model="review.txt" placeholder="Search reviews"> -->
+
       <ul class="clean-list">
         <li
           v-for="review in reviews"
-          class="review-container flex justify-between items-center"
+          class="reviews-list"
           :key="review._id"
         >
           <ReviewPreview :review="review" />
