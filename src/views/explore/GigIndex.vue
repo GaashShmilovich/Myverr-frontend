@@ -22,7 +22,6 @@ export default {
 	},
 	created() {
 		this.loadGigs()
-		console.log(this.gigs)
 	},
 	methods: {
 		loadGigs() {
