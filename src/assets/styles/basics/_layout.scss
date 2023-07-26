@@ -1,12 +1,11 @@
-// .container {
-//   max-width: 1500px;
-//   padding: 10px;
-// }
-
 .main-container {
   display: grid;
-  grid-template-columns: 235px 1fr 235px;
-  grid-template-rows: 105px 1fr 85px;
+  grid-template-columns:
+    minmax(33px, rem(235px))
+    minmax(auto, 100vw)
+    minmax(33px, rem(235px));
+  grid-template-rows: 120px 1fr 85px;
+  margin: 0;
   padding: 0;
 
   > * {

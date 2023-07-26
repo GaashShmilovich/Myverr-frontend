@@ -13,7 +13,11 @@
 
 // Components
 @import "cmps/AppHeader";
-// @import "cmps/"
 @import "cmps/UserMsg";
 @import "cmps/ReviewList";
 @import "cmps/GigList";
+
+@import "cmps/SearchBar.scss";
+
+// Views
+@import "views/HomePage.scss";

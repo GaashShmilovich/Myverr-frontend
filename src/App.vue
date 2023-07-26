@@ -11,7 +11,7 @@
 import { userService } from "./services/user.service";
 import { store } from "./store/store";
 
-import AppHeader from "./cmps/AppHeader.vue";
+import AppHeader from "./cmps/HeaderCmps/AppHeader.vue";
 import UserMsg from "./cmps/UserMsg.vue";
 
 export default {

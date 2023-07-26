@@ -1,8 +1,7 @@
 header {
-  background-color: $clr1;
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
+  background-color: transparent;
+  align-items: center;
+  z-index: 1;
 
   .loggedin-user {
     background-color: $clr1;
@@ -22,19 +21,32 @@ header {
       border-radius: 50%;
     }
   }
+  .logo {
+    width: 70px;
+  }
   nav {
-    background-color: $clr1;
-    padding: 5px 0;
+    background-color: transparent;
+    height: rem(80px);
+    display: flex;
+    align-items: center;
+    flex-basis: 100%;
+    justify-content: space-between;
+    .route-container {
+      display: flex;
+      flex-basis: em(415px);
+      align-items: center;
+      justify-content: space-between;
+    }
     a {
-      color: $clr2;
+      font-size: rem(16px);
+      color: #fff;
+      font-family: macanSemibold;
+      &:hover {
+        color: #1dbf73;
+      }
     }
   }
 
-  nav a:not(:first-child) {
-    border-top: 1px solid $clr1;
-    padding: 0 5px;
-    margin: 10px;
-  }
   nav .active {
     color: $clr1;
   }
