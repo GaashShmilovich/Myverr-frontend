@@ -1,6 +1,9 @@
 <template>
-  <header>
-    <nav>
+  <header
+    ref="header"
+    :class="{ transparent: windowTop === 0 && currRoutePath === '/' }"
+  >
+    <nav ref="nav">
       <RouterLink to="/">
         <svg
           width="89"
@@ -22,6 +25,9 @@
         </svg>
       </RouterLink>
       <!-- <SearchBar /> -->
+      <div class="search" :class="{ shown: isSearchShown }">
+        <SearchBar />
+      </div>
       <div class="route-container">
         <RouterLink to="/explore">Explore</RouterLink>
         <RouterLink to="/review">Reviews</RouterLink>
@@ -29,25 +35,53 @@
         <RouterLink to="/login">Login / Signup</RouterLink>
       </div>
     </nav>
-    <section class="loggedin-user" v-if="loggedInUser">
+    <!-- <section class="loggedin-user" v-if="loggedInUser">
       <RouterLink :to="`/user/${loggedInUser._id}`">
         {{ loggedInUser.fullname }}
       </RouterLink>
       <span>{{ loggedInUser.score?.toLocaleString() }}</span>
       <img :src="loggedInUser.imgUrl" />
-    </section>
+    </section> -->
   </header>
 </template>
 <script>
 import SearchBar from "./SearchBar.vue";
 export default {
+  data() {
+    return {
+      windowTop: window.top.scrollY,
+      isSearchShown: false,
+      modalOpen: false,
+      orderOpen: false,
+      menuOpen: false,
+    };
+  },
+  methods: {
+    onScroll(e) {
+      if (this.$route.path !== "/") return;
+      this.windowTop = window.top.scrollY;
+      this.isSearchShown = this.windowTop > 150 ? true : false;
+    },
+  },
   computed: {
     loggedInUser() {
       return this.$store.getters.loggedinUser;
     },
+    currRoutePath() {
+      return this.$route.path;
+    },
+  },
+
+  mounted() {
+    window.addEventListener("scroll", this.onScroll);
+  },
+
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onScroll);
   },
   components: {
     SearchBar,
   },
 };
 </script>
+<style></style>
