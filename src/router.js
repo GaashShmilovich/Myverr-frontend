@@ -6,7 +6,7 @@ import GigIndex from './views/explore/GigIndex.vue'
 import ReviewIndex from './views/ReviewIndex.vue'
 import LoginSignup from './views/LoginSignup.vue'
 import UserDetails from './views/UserDetails.vue'
-import gigDetails from './views/GigDetails/GigDetails.vue'
+import GigDetails from './views/GigDetails/GigDetails.vue'
 
 const routes = [
   {
@@ -22,7 +22,7 @@ const routes = [
   {
     path: '/explore/:gigId',
     name: 'GigDetails',
-    component: gigDetails
+    component: GigDetails
   },
   {
     path: '/review',

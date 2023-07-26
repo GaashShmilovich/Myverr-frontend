@@ -1,14 +1,15 @@
 <template lang="">
   <article class="m-1">
+  <img :src="review.by.imgUrl" alt="">
+  <p> {{ review.by.fullname }}</p>
+  <p> {{ review.by.country }}</p>
     <span v-for="i in review.rate || 1">
       <font-awesome-icon
-        :style="{ color: '#f8cc2d' }"
+        :style="{ color: '#ffb33e' }"
         icon="fa-solid fa-star"
-      />
-    </span>
-    <!-- <p>{{ review.byUser.fullname }}</p>
-    <p>{{ review.content }}</p> -->
-    <pre> {{ review }}</pre>
+      /> 
+    </span> || <span> {{ review.createdAt }}</span>
+    <p> {{ review.txt }}</p>
   </article>
 </template>
 <script>
