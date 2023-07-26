@@ -82,58 +82,10 @@ function getEmptyGig() {
 }
 
 // Initial data
-// ;(async () => {
-// 	await storageService.post(STORAGE_KEY, {
-// 		_id: 'i101',
-// 		title: 'I will design your logo',
-// 		price: 12,
-// 		owner: {
-// 			_id: 'u101',
-// 			fullname: 'Dudu Da',
-// 			imgUrl: 'url',
-// 			level: 'basic/premium',
-// 			rate: 4,
-// 		},
-// 		daysToMake: 3,
-// 		description: 'Make unique logo...',
-// 		imgUrls: [''],
-// 		tags: ['logo-design', 'artisitic', 'proffesional', 'accessible'],
-// 		likedByUsers: ['mini-user'],
-// 	})
-// 	await storageService.post(STORAGE_KEY, {
-// 		_id: 'i102',
-// 		title: 'I can do sprint 4 4 u!!',
-// 		price: 220,
-// 		owner: {
-// 			_id: 'u102',
-// 			fullname: 'Dima',
-// 			imgUrl: 'url',
-// 			level: 'basic/premium',
-// 			rate: 5,
-// 		},
-// 		daysToMake: 10,
-// 		description: 'Pay me up and go have fun...',
-// 		imgUrls: [''],
-// 		tags: ['artisitic', 'proffesional'],
-// 		likedByUsers: ['mini-user'],
-// 	})
-// 	await storageService.post(STORAGE_KEY, {
-// 		_id: 'i103',
-// 		title: 'I make fake Coding Academy certifications',
-// 		price: 190,
-// 		owner: {
-// 			_id: 'u102',
-// 			fullname: 'Dima',
-// 			imgUrl: 'url',
-// 			level: 'basic/premium',
-// 			rate: 3,
-// 		},
-// 		daysToMake: 1,
-// 		description: 'No one will ever know...',
-// 		imgUrls: [''],
-// 		tags: ['artisitic', 'proffesional'],
-// 		likedByUsers: ['mini-user'],
-// 	})
+// ;(async ()=>{
+//     await storageService.post(STORAGE_KEY, { _id: "i101",title: "I will design your logo",price: 12,owner: {"_id": "u101","fullname": "Dudu Da","imgUrl": "url","level": "basic/premium","rate": 4},daysToMake: 3,description: "Make unique logo...", imgUrls: [""],tags: [ "logo-design", "artisitic",  "proffesional", "accessible" ],  likedByUsers: ['mini-user'] })
+//     await storageService.post(STORAGE_KEY, { _id: "i102",title: "I can do sprint 4 4 u!!",price: 220,owner: {"_id": "u102","fullname": "Dima","imgUrl": "url","level": "basic/premium","rate": 5},daysToMake: 10,description: "Pay me up and go have fun...", imgUrls: [""],tags: [ "artisitic",  "proffesional" ],  likedByUsers: ['mini-user'] })
+//     await storageService.post(STORAGE_KEY, { _id: "i103",title: "I make fake Coding Academy certifications",price: 190,owner: {"_id": "u102","fullname": "Dima","imgUrl": "url","level": "basic/premium","rate": 3},daysToMake: 1,description: "No one will ever know...", imgUrls: [""],tags: [ "artisitic",  "proffesional" ],  likedByUsers: ['mini-user'] })
 // })()
 
 // const gig = {
