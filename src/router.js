@@ -7,6 +7,7 @@ import ReviewIndex from './views/ReviewIndex.vue'
 import LoginSignup from './views/LoginSignup.vue'
 import UserDetails from './views/UserDetails.vue'
 import GigDetails from './views/GigDetails/GigDetails.vue'
+import GigEdit from './views/GigEdit.vue'
 
 const routes = [
   {
