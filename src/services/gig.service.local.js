@@ -105,14 +105,14 @@ function getEmptyGig() {
 //         {"id": utilService.makeId(),"txt": "I love his work!", "rate": 5, "createdAt":  new Date(),"by": {"_id": "u102","fullname": "Juliuos Keysar","imgUrl": "/img/img2.jpg", "country": "Netherlands"} }
 //     ]})
 //     await storageService.post(STORAGE_KEY, { _id: "i102",title: "I can do sprint 4 4 u!!",price: 220,
-//     owner: {"_id": "u102","fullname": "Dima","instagram": "@DimaKing123","imgUrl": "url","level": "basic/premium","rate": 5},
-//     daysToMake: 10,description: "Pay me up and go have fun...", imgUrls: [""],tags: [ "artisitic",  "proffesional" ],  likedByUsers: ['mini-user'],
+//     owner: {"_id": "u102","fullname": "Dima","instagram": "@DimaKing123","imgUrl": "https://ca.slack-edge.com/T04U05NLZ2M-U056VBMJLKG-51a0b5aa8bbe-512","level": "basic/premium","rate": 5},
+//     daysToMake: 10,description: "Pay me up and go have fun...", imgUrls: ["https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/109611151/original/42d4814c676b9f4320152d541bb6c8be7cd83d39/design-3-professional-logo-for-you-in-24-hours.jpg"],tags: [ "artisitic",  "proffesional" ],  likedByUsers: ['mini-user'],
 //     reviews: [{"id": utilService.makeId(),"txt": "Ok job, not the best to work with", "rate": 3, "createdAt": new Date() ,"by": {"_id": "u103","fullname": "Jerry Fisher","imgUrl": "/img/img2.jpg", "country": "Canada"} },
 //         {"id": utilService.makeId(),"txt": "The best there is! way better than my expectations!", "rate": 5, "createdAt":  new Date(),"by": {"_id": "u104","fullname": "Kulun Mbaba","imgUrl": "/img/img2.jpg", "country": "Sangha"} }
 //     ] })
 //     await storageService.post(STORAGE_KEY, { _id: "i103",title: "I make fake Coding Academy certifications",price: 190,
-//     owner: {"_id": "u102","fullname": "Dima","instagram": "@DimaKing123","imgUrl": "url","level": "basic/premium","rate": 3},
-//     daysToMake: 1,description: "No one will ever know...", imgUrls: [""],tags: [ "artisitic",  "proffesional" ],  likedByUsers: ['mini-user'],
+//     owner: {"_id": "u102","fullname": "Dima","instagram": "@DimaKing123","imgUrl": "https://ca.slack-edge.com/T04U05NLZ2M-U056VBMJLKG-51a0b5aa8bbe-512","level": "basic/premium","rate": 3},
+//     daysToMake: 1,description: "No one will ever know...", imgUrls: ["https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/9377852/original/7fa1ab489ad31ef89c2f5c7eea6870cadd4fe27d/design-an-awesome-vintage-or-retro-logo-88d601db-60fd-43f1-9778-0bd57e615805.jpg"],tags: [ "artisitic",  "proffesional" ],  likedByUsers: ['mini-user'],
 //     reviews: [{"id": utilService.makeId(),"txt": "Amazing work, and beautiful person", "rate": 4, "createdAt": new Date() ,"by": {"_id": "u107","fullname": "California love","imgUrl": "/img/img2.jpg", "country": "United-States"} },
 //         {"id": utilService.makeId(),"txt": "Bad service", "rate": 2, "createdAt":  new Date(),"by": {"_id": "u108","fullname": "Moshe Simha","imgUrl": "/img/img2.jpg", "country": "Israel"} }
 //     ]})
