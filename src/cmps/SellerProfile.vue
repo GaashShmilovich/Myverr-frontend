@@ -1,5 +1,7 @@
 <template>
     <div class="container home">
+
+      
       <ul class="gig-list">
         <li v-for="gig in gigs" :key="gig._id">
           <p>
