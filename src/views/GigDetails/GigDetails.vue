@@ -9,12 +9,19 @@
           <p class="instagram">{{ gig.owner.instagram }}</p>
           <p class="level">{{ gig.owner.level }}</p>
           <p class="rate">{{ gig.owner.rate }}</p>
+          <span v-for="i in gig.owner.rate || 1">
+      <font-awesome-icon
+        :style="{ color: '#f8cc2d' }"
+        icon="fa-solid fa-star"
+      />
+    </span>
         </h5>
 
         <figure class="gig-gallery">
           <img :src="gig.imgUrls" alt="">
         </figure>
-        <p> Details: {{ gig.description }}</p>
+        <h2>About this gig: </h2>
+        <p> {{ gig.description }}</p>
 
       <ReviewList :reviews="gig.reviews" />
     </div>
