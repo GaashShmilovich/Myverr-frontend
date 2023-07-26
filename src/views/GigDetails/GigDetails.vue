@@ -1,20 +1,30 @@
 <template>
     <section v-if="gig" class="gig-details">
+      <div class="main">
         <!-- <h5 class="gig-category"> {{ filterby.category }}</h5> --> //recive prop from explore
         <h1 class="gig-title"> {{ gig.title }}</h1>
         <h5 class="gig-owner-details">
           <img :src="gig.owner.imgUrl" alt="">
           <p class="name">{{ gig.owner.fullname }}</p>
+          <p class="instagram">{{ gig.owner.instagram }}</p>
           <p class="level">{{ gig.owner.level }}</p>
           <p class="rate">{{ gig.owner.rate }}</p>
         </h5>
 
-        <img :src="gig.imgUrls" alt="">
+        <figure class="gig-gallery">
+          <img :src="gig.imgUrls" alt="">
+        </figure>
         <p> Details: {{ gig.description }}</p>
 
-      <PackageType />
       <ReviewList :reviews="gig.reviews" />
+    </div>
+
+    <div class="sticky-packages">
+      <PackageType />
+      
+    </div>
     </section>
+ 
     <section v-else>
       Gig wasnt found
     </section>

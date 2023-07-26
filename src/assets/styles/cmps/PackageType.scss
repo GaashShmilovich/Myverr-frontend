@@ -1,0 +1,26 @@
+.package-type {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $clr6;
+
+    .headers {
+        display: flex;
+        justify-content: space-around;
+        font-size: rem(16px);
+        font-family: mocanBold;
+        height: 26px;
+        padding: 16px;
+        line-height: 24px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .price {
+        align-items: flex-start;
+        display: flex;
+        font-size: 28px;
+        font-family: mocanBold;
+        line-height: 36.4px;
+
+    }
+}
