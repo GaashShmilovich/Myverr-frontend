@@ -78,14 +78,44 @@ function getEmptyGig() {
 		imgUrls: [''],
 		tags: [],
 		likedByUsers: [],
+		reviews: [
+			{
+				id: '',
+				txt: '',
+				rate: null,
+				createdAt: null,
+				by: {
+					_id: 'u102',
+					fullname: 'user2',
+					imgUrl: '/img/img2.jpg',
+					country: '',
+				},
+			},
+		],
 	}
 }
 
 // Initial data
 // ;(async ()=>{
-//     await storageService.post(STORAGE_KEY, { _id: "i101",title: "I will design your logo",price: 12,owner: {"_id": "u101","fullname": "Dudu Da","imgUrl": "url","level": "basic/premium","rate": 4},daysToMake: 3,description: "Make unique logo...", imgUrls: [""],tags: [ "logo-design", "artisitic",  "proffesional", "accessible" ],  likedByUsers: ['mini-user'] })
-//     await storageService.post(STORAGE_KEY, { _id: "i102",title: "I can do sprint 4 4 u!!",price: 220,owner: {"_id": "u102","fullname": "Dima","imgUrl": "url","level": "basic/premium","rate": 5},daysToMake: 10,description: "Pay me up and go have fun...", imgUrls: [""],tags: [ "artisitic",  "proffesional" ],  likedByUsers: ['mini-user'] })
-//     await storageService.post(STORAGE_KEY, { _id: "i103",title: "I make fake Coding Academy certifications",price: 190,owner: {"_id": "u102","fullname": "Dima","imgUrl": "url","level": "basic/premium","rate": 3},daysToMake: 1,description: "No one will ever know...", imgUrls: [""],tags: [ "artisitic",  "proffesional" ],  likedByUsers: ['mini-user'] })
+//     await storageService.post(STORAGE_KEY, { _id: "i101",title: "I will design your logo",price: 12,
+//     owner: {"_id": "u101","fullname": "Dudu Da","imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/2f1f82bbc1e2b7b7585b4c1afaaf69d8-1648815612653/f6c26d4e-10b8-4e67-ac62-3c9d39dcead1.jpg","level": "basic/premium","rate": 4},
+//     daysToMake: 3,description: "Make unique logo...", imgUrls: ["https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/290928503/original/46338c22812e3d72eb57485406c886313b8be338/provide-professional-german-seo-blog-articles.png"],
+//     tags: [ "logo-design", "artisitic",  "proffesional", "accessible" ],  likedByUsers: ['mini-user'],
+//     reviews: [{"id": utilService.makeId(),"txt": "Very kind and works fast", "rate": 4, "createdAt": new Date() ,"by": {"_id": "u101","fullname": "Mamaba Boy","imgUrl": "/img/img2.jpg", "country": "Belgium"} },
+//         {"id": utilService.makeId(),"txt": "I love his work!", "rate": 5, "createdAt":  new Date(),"by": {"_id": "u102","fullname": "Juliuos Keysar","imgUrl": "/img/img2.jpg", "country": "Netherlands"} }
+//     ]})
+//     await storageService.post(STORAGE_KEY, { _id: "i102",title: "I can do sprint 4 4 u!!",price: 220,
+//     owner: {"_id": "u102","fullname": "Dima","imgUrl": "url","level": "basic/premium","rate": 5},
+//     daysToMake: 10,description: "Pay me up and go have fun...", imgUrls: [""],tags: [ "artisitic",  "proffesional" ],  likedByUsers: ['mini-user'],
+//     reviews: [{"id": utilService.makeId(),"txt": "Ok job, not the best to work with", "rate": 3, "createdAt": new Date() ,"by": {"_id": "u103","fullname": "Jerry Fisher","imgUrl": "/img/img2.jpg", "country": "Canada"} },
+//         {"id": utilService.makeId(),"txt": "The best there is! way better than my expectations!", "rate": 5, "createdAt":  new Date(),"by": {"_id": "u104","fullname": "Kulun Mbaba","imgUrl": "/img/img2.jpg", "country": "Sangha"} }
+//     ] })
+//     await storageService.post(STORAGE_KEY, { _id: "i103",title: "I make fake Coding Academy certifications",price: 190,
+//     owner: {"_id": "u102","fullname": "Dima","imgUrl": "url","level": "basic/premium","rate": 3},
+//     daysToMake: 1,description: "No one will ever know...", imgUrls: [""],tags: [ "artisitic",  "proffesional" ],  likedByUsers: ['mini-user'],
+//     reviews: [{"id": utilService.makeId(),"txt": "Amazing work, and beautiful person", "rate": 4, "createdAt": new Date() ,"by": {"_id": "u107","fullname": "California love","imgUrl": "/img/img2.jpg", "country": "United-States"} },
+//         {"id": utilService.makeId(),"txt": "Bad service", "rate": 2, "createdAt":  new Date(),"by": {"_id": "u108","fullname": "Moshe Simha","imgUrl": "/img/img2.jpg", "country": "Israel"} }
+//     ]})
 // })()
 
 // const gig = {
@@ -103,5 +133,9 @@ function getEmptyGig() {
 //     description: "Make unique logo...",
 //     imgUrls: [""],
 //     tags: [ "logo-design", "artisitic",  "proffesional", "accessible" ],
-//     likedByUsers: ['mini-user']
+//     likedByUsers: ['mini-user'] ,
+//     reviews: [
+//         {"id": utilService.makeId(),"txt": "Very kind and works fast", "rate": 4, "createdAt": new Date() ,"by": {"_id": "u101","fullname": "Mamaba Boy","imgUrl": "/img/img2.jpg", "country": "Belgium"} },
+//         {"id": utilService.makeId(),"txt": "I love his work!", "rate": 5, "createdAt":  new Date(),"by": {"_id": "u102","fullname": "Juliuos Keysar","imgUrl": "/img/img2.jpg", "country": "Netherlands"} }
+//     ]
 //   }
