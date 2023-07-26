@@ -1,0 +1,20 @@
+.gig-details {
+
+    .gig-category{
+        font-size: rem(14px);
+        color: $clr4;
+    }
+    .gig-title{
+        font-size: rem(28px);
+        padding-bottom: 16px;
+        line-height: 130%;
+
+        margin-block-start: 0.67em;
+        margin-block-end: 0.67em;
+
+        font-family: macanBold;
+        color: $clr3;
+        overflow-wrap: break-word;
+
+}
+}
