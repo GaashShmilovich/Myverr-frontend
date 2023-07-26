@@ -33,7 +33,7 @@
         <RouterLink to="/review">Reviews</RouterLink>
         <RouterLink to="/chat">Chat</RouterLink>
         <RouterLink to="/login">Login / Signup</RouterLink>
-        <RouterLink to="/explore/edit/:gigId?">Edit</RouterLink>
+        <RouterLink to="/explore/edit?">Edit</RouterLink>
       </div>
     </nav>
     <!-- <section class="loggedin-user" v-if="loggedInUser">
