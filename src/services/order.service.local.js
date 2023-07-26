@@ -73,15 +73,15 @@ function getEmptyOrder() {
 
 // Initial data
 // ;(async ()=>{
-//     await storageService.post(STORAGE_KEY, { _id: "i101",title: "I will design your logo",price: 12,owner: {"_id": "u101","fullname": "Dudu Da","imgUrl": "url","level": "basic/premium","rate": 4},daysToMake: 3,description: "Make unique logo...", imgUrls: [""],tags: [ "logo-design", "artisitic",  "proffesional", "accessible" ],  likedByUsers: ['mini-user'] })
-//     await storageService.post(STORAGE_KEY, { _id: "i102",title: "I can do sprint 4 4 u!!",price: 220,owner: {"_id": "u102","fullname": "Dima","imgUrl": "url","level": "basic/premium","rate": 5},daysToMake: 10,description: "Pay me up and go have fun...", imgUrls: [""],tags: [ "artisitic",  "proffesional" ],  likedByUsers: ['mini-user'] })
-//     await storageService.post(STORAGE_KEY, { _id: "i103",title: "I make fake Coding Academy certifications",price: 190,owner: {"_id": "u102","fullname": "Dima","imgUrl": "url","level": "basic/premium","rate": 3},daysToMake: 1,description: "No one will ever know...", imgUrls: [""],tags: [ "artisitic",  "proffesional" ],  likedByUsers: ['mini-user'] })
+//     await storageService.post(STORAGE_KEY,  {"_id": "o1225","buyer": "mini-user","seller": "mini-user","gig": {"_id": "i101","name": "Design Logo","imgUrl": "","price": 20},"status": "pending"})
+//     await storageService.post(STORAGE_KEY,  {"_id": "o1226","buyer": "mini-user","seller": "mini-user","gig": {"_id": "i102","name": "Design Logo","imgUrl": "","price": 20},"status": "inProgress"})
+//     await storageService.post(STORAGE_KEY,  {"_id": "o1227","buyer": "mini-user","seller": "mini-user","gig": {"_id": "i103","name": "Design Logo","imgUrl": "","price": 20},"status": "pending"})
+//     await storageService.post(STORAGE_KEY,  {"_id": "o1228","buyer": "mini-user","seller": "mini-user","gig": {"_id": "i104","name": "Design Logo","imgUrl": "","price": 20},"status": "complited"})
 // })()
 
 
 
 const orders = [
-    {
-      "_id": "o1225","buyer": "mini-user","seller": "mini-user","gig": {"_id": "i101","name": "Design Logo","imgUrl": "","price": 20},"status": "pending"}
+    {"_id": "o1225","buyer": "mini-user","seller": "mini-user","gig": {"_id": "i101","name": "Design Logo","imgUrl": "","price": 20},"status": "pending"}
   ]
   
