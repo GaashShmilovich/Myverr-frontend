@@ -1,5 +1,6 @@
 <template>
 	<div class="gig-list-container">
+		<GigFilter></GigFilter>
 		<GigList :gigs="gigs"></GigList>
 	</div>
 </template>
@@ -7,6 +8,7 @@
 <script>
 // import { mapState } from 'vuex'
 import GigList from './GigList.vue'
+import GigFilter from './GigFilter.vue'
 
 export default {
 	data() {
@@ -16,6 +18,7 @@ export default {
 	},
 	components: {
 		GigList,
+		GigFilter,
 	},
 	computed: {
 		// ...mapState(['gigs']),
