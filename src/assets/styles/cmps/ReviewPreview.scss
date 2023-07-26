@@ -1,0 +1,23 @@
+.review-preview{
+    // padding: 40px 0;
+    padding-left: 0;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid $clr6 ;
+    .review-by {
+        display: flex;
+        .review-by-name {
+            padding-left: 20px;
+        }
+    }
+    img {
+        height: 48px;
+        width: 48px;
+        border-radius: 50%;
+    }
+    p{
+
+    }
+
+}
