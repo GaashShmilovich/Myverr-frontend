@@ -8,13 +8,13 @@
           <p class="name">{{ gig.owner.fullname }}</p>
           <p class="instagram">{{ gig.owner.instagram }}</p>
           <p class="level">{{ gig.owner.level }}</p>
-          <p class="rate">{{ gig.owner.rate }}</p>
           <span v-for="i in gig.owner.rate || 1">
-      <font-awesome-icon
-        :style="{ color: '#f8cc2d' }"
-        icon="fa-solid fa-star"
-      />
-    </span>
+            <font-awesome-icon
+            :style="{ color: '#ffb33e' }"
+            icon="fa-solid fa-star"
+            />
+          </span>
+          <p class="rate-number" :style="{ color: '#ffb33e' }">{{ gig.owner.rate }} </p>
         </h5>
 
         <figure class="gig-gallery">
