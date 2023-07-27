@@ -1,5 +1,5 @@
 <template>
-  <section class="home-container main-container">
+  <section class="home-container main-layout">
     <Hero />
     <StripBelowHero />
     <PopularCarousel />

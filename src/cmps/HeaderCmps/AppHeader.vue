@@ -3,7 +3,7 @@
     ref="header"
     :class="{
       openHeader: isSearchShown,
-      'main-container': isSearchShown,
+      'main-layout': isSearchShown,
       'nav-main-app': isNotHomePage,
     }"
   >

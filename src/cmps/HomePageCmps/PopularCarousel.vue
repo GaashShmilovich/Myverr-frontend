@@ -1,5 +1,5 @@
 <template>
-  <section class="carousel-container main-container">
+  <section class="carousel-container main-layout">
     <h2>Popular services</h2>
     <vueper-slides
       class="no-shadow"
