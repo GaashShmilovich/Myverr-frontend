@@ -35,7 +35,7 @@
 .filter-btn span::before,
 .budget-btn span::before,
 .delivery-btn span::before {
-	content: '↑';
+	content: '↓';
 	display: inline-block;
 	margin-right: 8px;
 	transition: transform 0.3s ease-in-out;
@@ -45,4 +45,32 @@
 .budget-btn:hover span::before,
 .delivery-btn:hover span::before {
 	transform: scaleY(-1);
+}
+
+.modal {
+	position: absolute;
+	left: 50%;
+	background-color: white;
+	padding: 10px;
+	border: 1px solid black;
+	width: 316px;
+	height: 210px;
+	border-radius: 8px;
+	z-index: 10;
+	border-color: rgb(228, 229, 231);
+	border-width: 0.8px;
+	box-shadow: rgba(0, 0, 0, 0.14) 0px 12px 18px 0px;
+	margin-top: 8px;
+}
+
+.apply-btn,
+.clear-btn {
+	color: rgb(98, 100, 106);
+	font-size: 1em;
+	font-weight: 600;
+}
+
+.min-btn,
+.max-btn {
+	color: rgb(149, 151, 157);
 }
