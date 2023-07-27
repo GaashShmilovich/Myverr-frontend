@@ -133,27 +133,91 @@
 
     .title {
         font-family: macanBold;
-        padding-bottom: rem(25px);
         font-size: rem(20px);
     }
-    
+
     .about-the-seller {
         display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        margin-bottom: rem(40px);
+        flex-direction: row;
 
         img {
-            // overflow-clip-margin: content-box;
             height: 110px;
             width: 110px;
-            // line-height: rem(21px);
-            // font-stretch: 100%;
             border-radius: 50%;
-            // margin-right: 10px;
         }
+
         .details {
             padding-left: rem(15px);
         }
+
+        .name {
+            font-size: rem(18px);
+            font-family: macanBold;
+            color: $clr3;
+        }
+
+        .instagram {
+            margin-left: 8px;
+            font-family: macanRegular;
+            color: $clr5;
+            margin-right: 8px;
+            font-size: rem(16px);
+
+        }
+
+        .moto {
+            line-height: rem(21px);
+            padding-top: 5px;
+            margin-bottom: 5px;
+            color: $clr3;
+            font-size: rem(16px);
+            font-family: macanRegular;
+
+        }
+
+        .gig-owner-rate {
+            font-size: 14px;
+        }
+
+        .rate-number {
+            padding-left: 5px;
+        }
+
+        .btn-contact {
+            color: $clr2;
+            font-size: rem(14px);
+            font-family: macanSemibold;
+            margin-top: rem(20px);
+            border: 1px solid $clr2;
+            border-radius: rem(4px);
+            padding: 10px 24px;
+        }
     }
+    .information{
+        padding: rem(24px);
+        border: 1px solid $clr6;
+        .titles {
+            display: grid;
+            // grid-template-columns: 1fr 1fr;
+            grid-column: 2;
+            grid-template-areas: 
+            "1 2"
+            "3 4" ;
+            padding-top: rem(24px);
+            border-bottom: 1px solid $clr6;
+            span {
+                font-family: macanBold;
+            }
+        }
+        .text {
+            padding-top: rem(24px);
+            margin: 0;
+        }
+    }
+    
+}
+
+.darkmode {
+    background-color: black;
+    color: antiquewhite;
 }
