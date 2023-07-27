@@ -23,17 +23,32 @@
     }
 }
 // put input relative//
-.search-input{
+.input-form {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: row;
+    
+    // justify-content: flex-start;
+    // justify-self: flex-start;
+}
+.search-input {
+    height: 41px;
     position: relative;
+    width: 55%;
+    padding-right: 40px;
+    border: 1px solid $clr8;
+    border-radius: 4px;
+    transition: .15s ease-in-out;
+    color: $clr2;
+    font-family: macanThin;
+    padding: 8px 40px 8px 12px;
 }
 .fa-magnifying-glass {
-    height: 42px;
+    height: 41px;
     width: 48px;
     padding: 13px 16px;
     border-radius: 0 4px 4px 0;
     background-color: $blue1;
     fill: $clr1;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    color: $clr1;    
 }

@@ -11,9 +11,9 @@
     </span>
       </h3>
 
-      <form @submit.prevent="searchReview">
-      <input class="search-input" type="text" placeholder="Search reviews" v-model="searchTxt">
-      <button class="fa-regular fa-magnifying-glass">search</button>
+      <form @submit.prevent="searchReview" class="input-form">
+        <input class="search-input" type="text" placeholder="Search reviews" v-model="searchTxt">
+        <button class="fa-regular fa-magnifying-glass">search</button>
       </form>
 
       <ul class="review-list">
