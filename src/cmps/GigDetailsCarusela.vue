@@ -45,6 +45,7 @@ export default {
     data() {
         return {
             slides: [
+                { image:  this.gig.imgUrls },
                 { image: 'https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/86f818eae5827fb14a0e173f5dec8d7c-1690012278/texas-gun-runners/design-clean-and-responsive-wordpress-website.jpg' },
                 { image: 'https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/d89245dc082181e053fb71cb68b85ad8-1690021556/Screenshot%202023-07-22%20at%2015-25-06%20Miro%20Wittwer/design-clean-and-responsive-wordpress-website.png' },
                 { image: 'https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/8660a9c07ee72ed3bd97784e08a596a1-1688751024/david-cavill/design-clean-and-responsive-wordpress-website.jpg' }

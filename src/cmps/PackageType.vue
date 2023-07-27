@@ -1,9 +1,9 @@
 <template>
     <div class="package-type" ref="packageType" :style="{ position: stickyModal ? 'fixed' : 'static' }">
         <section class="headers">
-            <label @click="basic" :class="{ picked: type = 'basic' }">Basic</label>
-            <label @click="standard" :class="{ picked: type = 'standard' }">Standard</label>
-            <label @click="premium" :class="{ picked: type = 'premium' }">Premium</label>
+            <label @click="setType('basic')" :class="{ picked: type = 'basic' }">Basic</label>
+            <label @click="setType('standard')" :class="{ picked: type = 'standard' }">Standard</label>
+            <label @click="setType('premium')" :class="{ picked: type = 'premium' }">Premium</label>
         </section>
 
         <section class="price">
@@ -37,7 +37,7 @@
             </p>
         </section>
 
-        <button @click="toPayment">Continue</button>
+        <RouterLink class="to-payment" to="/">Continue</RouterLink>
     </div>
 </template>
 
@@ -52,21 +52,13 @@ export default {
         }
     },
     methods: {
-        basic() {
-            this.type = 'basic'
-        },
-        standard() {
-            this.type = 'standard'
-        },
-        premium() {
-            this.type = 'premium'
-        },
-        toPayment() {
-            this.$router.push('/')
+        setType(type) {
+            this.type = type
         },
         onModalObserved(entries) {
             entries.forEach((entry) => {
-                this.stickyModal = entry.isIntersecting ? false : true;
+                // this.stickyModal = entry.isIntersecting ? false : true;
+                this.stickyModal = !entry.isIntersecting
             });
         },
     },

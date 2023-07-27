@@ -56,7 +56,8 @@
             }
         }
     }
-    button {
+}
+    .to-payment {
         display: inline-block;
         font-size: 16px;
         font-weight: 600;
@@ -67,8 +68,8 @@
         border-radius: 4px;
         color: $clr1;
         background-color: $clr7;
+        
         &:hover {
             cursor: pointer;
         }
     }
-}

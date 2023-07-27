@@ -1,4 +1,3 @@
-
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.local.js'
@@ -11,7 +10,6 @@ export const orderService = {
     save,
     remove,
     getEmptyOrder,
-    // addOrderMsg
 }
 window.cs = orderService
 
@@ -81,11 +79,11 @@ function getEmptyOrder() {
 
 
 
-const orders = [
-    {"_id": "o1225",
-    "buyer": "mini-user",
-    "seller": "mini-user",
-    "gig": {"_id": "i101","name": "Design Logo","imgUrl": "","price": 20},
-    "status": "pending"}
-  ]
+// const orders = [
+//     {"_id": "o1225",
+//     "buyer": "mini-user",
+//     "seller": "mini-user",
+//     "gig": {"_id": "i101","name": "Design Logo","imgUrl": "","price": 20},
+//     "status": "pending"}
+//   ]
   
