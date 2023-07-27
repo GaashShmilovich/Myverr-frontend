@@ -1,10 +1,9 @@
 .gig-details {
-    display: flex;
-    // align-items: flex-start;
-    flex-direction: row;
+    // display: flex;
+    display: grid;
+    grid-template-columns: 1fr 200px;
 
     .main {
-        width: 59%;
         margin-right: 50px;
 
         // make this mov with media query //
@@ -94,11 +93,12 @@
 
         .gig-gallery {
             display: flex;
-            margin-block-start: 1em;
-            margin-block-end: 1em;
-            margin-inline-start: 40px;
-            margin-inline-end: 40px;
-
+            // margin-block-start: 1em;
+            // margin-block-end: 1em;
+            // margin-inline-start: 40px;
+            // margin-inline-end: 40px;
+            
+            
             img {
                 max-width: 90%;
                 max-height: 427px;
@@ -116,7 +116,7 @@
     }
 
     .sticky-packages {
-        height: 790px;
-        width: 35%;
+        // height: 790px;
+        // width: 35%;
     }
 }

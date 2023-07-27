@@ -4,6 +4,8 @@
     flex-wrap: wrap;
     border: 1px solid $clr6;
     padding: 0 24px;
+    position: sticky;
+    top: 20px;
 
     &:not(:first-child) {
         padding: 0 24px;
