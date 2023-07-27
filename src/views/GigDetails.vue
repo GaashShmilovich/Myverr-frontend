@@ -5,11 +5,11 @@
       <h5 class="gig-category">/ logo-design / artisitic</h5>
       <h1 class="gig-title"> {{ gig.title }}</h1>
 
-      <h5 class="gig-owner-details">
+      <section class="gig-owner-details">
         <img :src="gig.owner.imgUrl" alt="">
-        <p class="name">{{ gig.owner.fullname }}</p>
-        <p class="instagram">{{ gig.owner.instagram }}</p>
-        <p class="level">{{ gig.owner.level }} |</p>
+        <span class="name">{{ gig.owner.fullname }}</span>
+        <span class="instagram">{{ gig.owner.instagram }}</span>
+        <span class="level">{{ gig.owner.level }} |</span>
 
         <section class="gig-owner-rate">
           <span v-for="i in gig.owner.rate || 1">
@@ -18,14 +18,33 @@
         </section>
 
         <p class="rate-number" :style="{ color: '#ffb33e' }">{{ gig.owner.rate }} <span>(592)</span></p>
-      </h5>
+      </section>
+
 
       <figure class="gig-gallery">
         <GigDetailsCarusela :gig="gig" />
       </figure>
 
-      <h2>About this gig: </h2>
-      <p> {{ gig.description }}</p>
+      <p class="about-title">About this gig </p>
+      <div class="about"> {{ gig.description }}</div>
+
+      <p class="title">About the seller</p>
+      <section class="about-the-seller">
+        <img :src="gig.owner.imgUrl" alt="">
+        <section class="details">
+        <span class="name">{{ gig.owner.fullname }}</span>
+        <span class="instagram">{{ gig.owner.instagram }}</span>
+        <span class="instagram">{{ gig.owner?.moto }}</span>
+
+        <section class="gig-owner-rate">
+          <span v-for="i in gig.owner.rate || 1">
+            <font-awesome-icon :style="{ color: '#ffb33e' }" icon="fa-solid fa-star" />
+          </span>
+        </section>
+
+        <p class="rate-number" :style="{ color: '#ffb33e' }">{{ gig.owner.rate }} <span>(592)</span></p>
+      </section>
+    </section>
 
       <ReviewList :reviews="gig.reviews" />
     </div>

@@ -102,8 +102,8 @@ function getEmptyGig() {
 // 		daysToMake: 3, description: "Hello, Hi There, I am Bruce - talented, experienced graphic designer and most important positive person. With 11.000+ successfully completed orders, here on Fiverr. This is my Retro Vintage Logo style gig, only on Fiverr. I believe in the importance of logos and branding in a company's success, and nothing gives me more pride than to see one of my logos at the top.All graphic and Logo Design work will be of very High Quality Standards and always adjusted to meet your needs from which I have accumulated exceptional custom reviews.You will Get: Delivery time within 24 hours. I do Modern Vintage Retro Logo, Clothing brand, Gaming, Minimalist, y2k, Signature... for Your Business or Persional. Deliverable files will be JPG and PNG with transparent background. High Quality image (3000px x 3000px). Black & White or color. Friendly communication and fast response. Unique & custom made Wordmark / Logotype designs without any reused cheesy icons.Full assistance until you're satisfied .",
 // 		imgUrls: ["https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/290928503/original/46338c22812e3d72eb57485406c886313b8be338/provide-professional-german-seo-blog-articles.png"],
 // 		tags: ["logo-design", "artisitic", "proffesional", "accessible"],chosenTag: "", likedByUsers: ['mini-user'],
-// 		reviews: [{ "id": utilService.makeId(), "txt": "Very kind and works fast", "rate": 4, "createdAt": new Date(), "by": { "_id": "u101", "fullname": "Mamaba Boy", "imgUrl": "/img/img2.jpg", "country": "Belgium" } },
-// 		{ "id": utilService.makeId(), "txt": "I love his work!", "rate": 5, "createdAt": new Date(), "by": { "_id": "u102", "fullname": "Juliuos Keysar", "imgUrl": "/img/img2.jpg", "country": "Netherlands" } }
+// 		reviews: [{ "id": utilService.makeId(), "txt": "Very kind and works fast", "rate": 4, "createdAt": new Date(), "by": { "_id": "u101", "fullname": "Mamaba Boy", "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/343cbc5a4144649085a4e957a46671b5-1683638733243/eaf94025-da9a-4cdd-95d5-4b65362cbe9c.JPG", "country": "Belgium" } },
+// 		{ "id": utilService.makeId(), "txt": "I love his work!", "rate": 5, "createdAt": new Date(), "by": { "_id": "u102", "fullname": "Juliuos Keysar", "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/30544a9820b9cc72a3f3c46e260091cc-1642546839079/42396a49-d576-4cdc-a5a6-f61678941743.jpg", "country": "Netherlands" } }
 // 		]
 // 	})
 // 	await storageService.post(STORAGE_KEY, {
@@ -113,7 +113,7 @@ function getEmptyGig() {
 // 		imgUrls: ["https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/109611151/original/42d4814c676b9f4320152d541bb6c8be7cd83d39/design-3-professional-logo-for-you-in-24-hours.jpg"], 
 // 		tags: ["artisitic", "proffesional"], chosenTag: "", likedByUsers: ['mini-user'],
 // 		reviews: [{ "id": utilService.makeId(), "txt": "Ok job, not the best to work with", "rate": 3, "createdAt": new Date(), "by": { "_id": "u103", "fullname": "Jerry Fisher", "imgUrl": "https://ca.slack-edge.com/T04U05NLZ2M-U055TJHS215-337363a46142-512", "country": "Canada" } },
-// 		{ "id": utilService.makeId(), "txt": "The best there is! way better than my expectations!", "rate": 5, "createdAt": new Date(), "by": { "_id": "u104", "fullname": "Kulun Mbaba", "imgUrl": "/img/img2.jpg", "country": "Sangha" } }
+// 		{ "id": utilService.makeId(), "txt": "The best there is! way better than my expectations!", "rate": 5, "createdAt": new Date(), "by": { "_id": "u104", "fullname": "Kulun Mbaba", "imgUrl": "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/bbd1f53f682ecbab77c063dc65e3079a-1680337212293/d37a8b71-25e3-4162-a4ba-d9db9b2e89a0.jpg", "country": "Sangha" } }
 // 		]
 // 	})
 // 	await storageService.post(STORAGE_KEY, {

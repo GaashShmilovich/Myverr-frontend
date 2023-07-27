@@ -1,43 +1,30 @@
 <template>
-    <div class="package-type" ref="packageType" :style="{ position: stickyModal ? 'fixed' : 'static' }">
+    <div class="package-type">
         <section class="headers">
-            <label @click="setType('basic')" :class="{ picked: type = 'basic' }">Basic</label>
-            <label @click="setType('standard')" :class="{ picked: type = 'standard' }">Standard</label>
-            <label @click="setType('premium')" :class="{ picked: type = 'premium' }">Premium</label>
+            <label @click="setType('basic')" :class="{ picked: type === 'basic' }">Basic</label>
+            <label @click="setType('standard')" :class="{ picked: type === 'standard' }">Standard</label>
+            <label @click="setType('premium')" :class="{ picked: type === 'premium' }">Premium</label>
         </section>
 
         <section class="price">
-            <h1 v-if="type = 'basic'">58.50</h1>
-            <h1 v-else="type='standard'">156</h1>
-            <h1 v-else>292.50</h1>
-            <p>Save up to 15% with <span>Subscribe to Save</span></p>
+            <span> {{ getType.price }} </span>
+            <span class="save-up">Save up to 15% with <span>Subscribe to Save</span></span>
         </section>
 
         <section class="package-descreption">
-            <p v-if="type = 'basic'"><span>The Gold Fish - Basic</span> Start-up and basic logos included. Good for Social
-                media & small business owners (ex: Nike logo)</p>
-            <p v-else="type='standard'"><span>The Dolphin - Recommended</span> Mid-Segment variants of logo. Highly
-                recommended for pro business and printing (ex: AirBnb) </p>
-            <p v-else><span>The Blue Whale - Premium</span> Ultimate and deep conceptual logo design. Must for premium
-                business & high-end users (ex: Mercedes)</p>
+            <span><span class="title"> {{ getType.title }}</span> {{ getType.description }}</span>
         </section>
 
         <section class="benefits">
-            <p v-if="type = 'basic'">
-            <p>1 Day Delivery</p>
-            <p>5 Revisions</p>
-            </p>
-            <p v-else="type='standard'">
-            <p>1 Day Delivery</p>
-            <p>7 Revisions</p>
-            </p>
-            <p v-else>
-            <p>2 Days Delivery</p>
-            <p>Unlimited Revisions</p>
-            </p>
+            <span>{{ getType.benefit1 }}</span>
+            <span>{{ getType.benefit2 }}</span>
         </section>
 
-        <RouterLink class="to-payment" to="/">Continue</RouterLink>
+        <ul class="specials">
+            <li v-for="special in getType.specials">{{ special }}</li>
+        </ul>
+
+        <RouterLink class="to-payment" to="/payment">Continue</RouterLink>
     </div>
 </template>
 
@@ -47,26 +34,29 @@ export default {
     data() {
         return {
             type: 'basic',
-            modalObserver: null,
-            stickyModal: false
+            // modalObserver: null,
+            // stickyModal: false
         }
     },
     methods: {
-        setType(type) {
-            this.type = type
+        setType(chosenType) {
+            console.log(chosenType);
+            this.type = chosenType
+            console.log(this.type);
         },
-        onModalObserved(entries) {
-            entries.forEach((entry) => {
-                // this.stickyModal = entry.isIntersecting ? false : true;
-                this.stickyModal = !entry.isIntersecting
-            });
-        },
+
     },
-    mounted() {
-        this.modalObserver = new IntersectionObserver(this.onModalObserved, {
-            rootMargin: "-300px 0px 0px", threshold: 1,
-        });
-        this.modalObserver.observe(this.$refs.packageType);
-    },
+    computed: {
+        getType() {
+            switch (this.type) {
+                case 'basic':
+                    return { price: 58, title: 'The Gold Fish - Basic', specials: ['Product imagery', '1 length variation', '20 seconds running time'], benefit1: '5 Day Delivery', benefit2: '2 Revisions', description: 'Start-up and basic logos included. Good for Socialmedia & small business owners (ex: Nike logo)' };
+                case 'standard':
+                    return { price: 120, title: 'The Dolphin - Recommended', specials: ['Voice over recording', 'Product imagery writing', '20 seconds running time'], benefit1: '2 Day Delivery', benefit2:'4 Revisions', description: 'Mid-Segment variants of logo. Highlyrecommended for pro business and printing (ex: AirBnb) ' };
+                case 'premium':
+                    return { price: 240, title: 'The Blue Whale - Premium', specials: ['Video editing', 'Script writing', '20 seconds running time'], benefit1: '1 Day Delivery' ,benefit2: '5 Revisions', description: 'Ultimate and deep conceptual logo design. Must for premiumbusiness & high-end users (ex: Mercedes)' };
+            }
+        }
+    }
 }
 </script>

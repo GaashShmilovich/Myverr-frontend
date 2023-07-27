@@ -1,7 +1,7 @@
 .gig-details {
     // display: flex;
     display: grid;
-    grid-template-columns: 1fr 200px;
+    grid-template-columns: 1fr 33%;
 
     .main {
         margin-right: 50px;
@@ -28,14 +28,13 @@
         .gig-owner-details {
             display: flex;
             flex-wrap: wrap;
-
+            align-items: center;
 
             img {
                 // overflow-clip-margin: content-box;
                 height: 30px;
+                width: 30px;
                 line-height: rem(24px);
-                // position: absolute;
-                // object-fit: cover;
                 font-stretch: 100%;
                 border-radius: 50%;
                 margin-right: 10px;
@@ -78,7 +77,6 @@
 
             .gig-owner-rate {
                 align-self: center;
-                translate: 0 -6px;
             }
 
             .rate-number {
@@ -97,8 +95,8 @@
             // margin-block-end: 1em;
             // margin-inline-start: 40px;
             // margin-inline-end: 40px;
-            
-            
+
+
             img {
                 max-width: 90%;
                 max-height: 427px;
@@ -115,8 +113,47 @@
         }
     }
 
-    .sticky-packages {
-        // height: 790px;
-        // width: 35%;
+    .about-title {
+        font-size: rem(20px);
+        line-height: rem(28px);
+        padding-bottom: rem(25px);
+        font-family: macanBold;
+
+    }
+
+    .about {
+        font-size: rem(16px);
+        font-stretch: 100%;
+        word-wrap: break-word;
+        line-height: rem(24px);
+        padding-bottom: rem(20px);
+        border-bottom: 1px solid $clr6;
+        margin-bottom: rem(20px);
+    }
+
+    .title {
+        font-family: macanBold;
+        padding-bottom: rem(25px);
+        font-size: rem(20px);
+    }
+    
+    .about-the-seller {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: rem(40px);
+
+        img {
+            // overflow-clip-margin: content-box;
+            height: 110px;
+            width: 110px;
+            // line-height: rem(21px);
+            // font-stretch: 100%;
+            border-radius: 50%;
+            // margin-right: 10px;
+        }
+        .details {
+            padding-left: rem(15px);
+        }
     }
 }
