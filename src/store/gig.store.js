@@ -30,10 +30,17 @@ export function getActionAddGigMsg(gigId) {
 export const gigStore = {
 	state: {
 		gigs: [],
+		filterBy: {
+			budget: { min: 0, max: 10000 },
+			delivery: null,
+		},
 	},
 	getters: {
 		gigs({ gigs }) {
 			return gigs
+		},
+		filterBy({ filterBy }) {
+			return filterBy
 		},
 	},
 	mutations: {
@@ -54,6 +61,14 @@ export const gigStore = {
 			const gig = state.gigs.find((gig) => gig._id === gigId)
 			if (!gig.msgs) gig.msgs = []
 			gig.msgs.push(msg)
+		},
+		setFilterBy(state, { filter }) {
+			if (filter.type === 'budget') {
+				state.filterBy.price.min = filter.min
+				state.filterBy.price.max = filter.max
+			} else if (filter.type === 'delivery') {
+				state.filterBy.delivery = filter.delivery
+			}
 		},
 	},
 	actions: {
@@ -77,15 +92,16 @@ export const gigStore = {
 				throw err
 			}
 		},
-		async loadGigs(context) {
+		async loadGigs(context, { filterBy } = {}) {
 			try {
-				const gigs = await gigService.query()
+				const gigs = await gigService.query(filterBy)
 				context.commit({ type: 'setGigs', gigs })
 			} catch (err) {
 				console.log('gigStore: Error in loadGigs', err)
 				throw err
 			}
 		},
+
 		async removeGig(context, { gigId }) {
 			try {
 				await gigService.remove(gigId)

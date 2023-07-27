@@ -1,4 +1,5 @@
 .filter-btns-container {
+	position: relative;
 	display: flex;
 	align-items: center;
 	background-color: #fff;
@@ -8,6 +9,11 @@
 	font-family: 'Macan', sans-serif;
 	gap: 10px;
 	padding: 5px;
+}
+
+.filter-group {
+	position: relative;
+	display: inline-block;
 }
 
 .filter-btn,
@@ -24,32 +30,30 @@
 	font-weight: 600;
 	cursor: pointer;
 	transition: all 0.3s ease-in-out;
-}
 
-.filter-btn:hover,
-.budget-btn:hover,
-.delivery-btn:hover {
-	background-color: #f8f9fa;
-}
+	&:hover {
+		background-color: #f8f9fa;
 
-.filter-btn span::before,
-.budget-btn span::before,
-.delivery-btn span::before {
-	content: '↓';
-	display: inline-block;
-	margin-right: 8px;
-	transition: transform 0.3s ease-in-out;
-}
+		span::before {
+			transform: scaleY(-1);
+		}
+	}
 
-.filter-btn:hover span::before,
-.budget-btn:hover span::before,
-.delivery-btn:hover span::before {
-	transform: scaleY(-1);
+	span::before {
+		content: '↓';
+		display: inline-block;
+		margin-right: 8px;
+		transition: transform 0.3s ease-in-out;
+	}
 }
 
 .modal {
+	display: flex;
+	flex-direction: column;
 	position: absolute;
+	top: 100%;
 	left: 50%;
+	transform: translateX(-50%);
 	background-color: white;
 	padding: 10px;
 	border: 1px solid black;
@@ -63,14 +67,27 @@
 	margin-top: 8px;
 }
 
-.apply-btn,
-.clear-btn {
-	color: rgb(98, 100, 106);
-	font-size: 1em;
-	font-weight: 600;
+.input-labels,
+.input-fields {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	gap: 10px;
 }
 
-.min-btn,
-.max-btn {
-	color: rgb(149, 151, 157);
+.input-fields input {
+	width: calc(33% - 10px);
+}
+
+.divider {
+	width: 100%;
+	border: none;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	margin: 8px 0;
+}
+
+.actions {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
 }
