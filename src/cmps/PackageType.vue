@@ -37,7 +37,7 @@
             </p>
         </section>
 
-        <RouterLink class="to-payment">Continue</RouterLink>
+        <RouterLink class="to-payment" to="/">Continue</RouterLink>
     </div>
 </template>
 
