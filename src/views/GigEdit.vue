@@ -38,39 +38,39 @@ export default {
       selectedLabels: [],
     };
   },
-  created() {
-    // if (!this.user || !this.user.isAdmin) this.$router.push("/explore");
-
-    const { gigId } = this.$route.params;
-    if (gigId) {
-      gigService.getById(gigId).then((gig) => {
+  async created() {
+    try {
+      const { gigId } = this.$route.params;
+      if (gigId) {
+        const gig = await gigService.getById(gigId);
         this.gigToEdit = gig;
-        // this.selectedLabels = gig.labels.map((label) => label.title);
-      });
-    } else this.gigToEdit = gigService.getEmptyGig();
+      } else {
+        this.gigToEdit = gigService.getEmptyGig();
+      }
+    } catch (error) {
+      console.error("Error occurred:", error);
+    }
   },
   methods: {
     goBack() {
       this.$router.push("/");
     },
-    saveGig() {
-      // const newLabels = this.labels.filter((label) =>
-      //   this.selectedLabels.includes(label.title)
-      // );
-      // this.gigToEdit.labels = newLabels;
-      this.$store
-        .dispatch({ type: "updateGig", gig: this.gigToEdit })
-        .then(() => {
-          this.$router.push("/explore");
-        });
+    async saveGig() {
+      try {
+        await this.$store.dispatch({ type: "updateGig", gig: this.gigToEdit });
+
+        this.$router.push("/explore");
+      } catch (error) {
+        console.error("Error occurred:", error);
+      }
     },
-  },
-  computed: {
-    labels() {
-      return this.$store.getters.labels;
-    },
-    user() {
-      return this.$store.getters.loggedInUser;
+    computed: {
+      labels() {
+        return this.$store.getters.labels;
+      },
+      user() {
+        return this.$store.getters.loggedInUser;
+      },
     },
   },
 };

@@ -1,7 +1,11 @@
 <template>
   <header
     ref="header"
-    :class="{ openHeader: isSearchShown, 'main-container': isSearchShown }"
+    :class="{
+      openHeader: isSearchShown,
+      'main-container': isSearchShown,
+      'nav-main-app': isNotHomePage,
+    }"
   >
     <nav ref="nav">
       <RouterLink to="/">
@@ -73,6 +77,9 @@ export default {
     currRoutePath() {
       return this.$route.path;
     },
+    isNotHomePage() {
+      return this.$route.path !== "/";
+    },
   },
 
   created() {
@@ -87,7 +94,7 @@ export default {
   },
 };
 </script>
-<style>
+<style lang="scss">
 .openHeader {
   position: fixed;
 
