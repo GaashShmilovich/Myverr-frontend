@@ -12,6 +12,7 @@
 @import "basics/forms";
 
 // Components
+<<<<<<< HEAD
 @import 'cmps/AppHeader';
 @import 'cmps/ReviewList';
 @import 'cmps/ReviewPreview';
@@ -23,6 +24,22 @@
 @import 'cmps/SearchBar.scss';
 @import 'cmps/PackageType.scss';
 @import 'cmps/GigDetailsCarusela';
+=======
+@import "cmps/AppHeader";
+@import "cmps/UserMsg";
+@import "cmps/ReviewList";
+@import "cmps/ReviewPreview";
+@import "cmps/GigList";
+@import "cmps/GigDetails";
+@import "cmps/GigPreview.scss";
+@import "cmps/GigIndex.scss";
+@import "cmps/GigFilter.scss";
+@import "cmps/SearchBar.scss";
+@import "cmps/PackageType.scss";
+@import "cmps/BelowHeroStrip.scss";
+@import "cmps/PopularCarousel.scss";
+@import "cmps/Hero.scss";
+>>>>>>> 97eca3eea99b838c82aa6c7ad9a2df3e2f8d886f
 
 // Views
 @import "views/HomePage.scss";

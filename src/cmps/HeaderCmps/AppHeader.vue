@@ -95,16 +95,16 @@ export default {
 };
 </script>
 <style lang="scss">
-.openHeader {
-  position: fixed;
+// .openHeader {
+//   position: fixed;
 
-  background-color: red;
-}
+//   background-color: red;
+// }
 
-.search {
-  display: none;
-}
-.shown {
-  display: block;
-}
+// .search {
+//   display: none;
+// }
+// .shown {
+//   display: block;
+// }
 </style>

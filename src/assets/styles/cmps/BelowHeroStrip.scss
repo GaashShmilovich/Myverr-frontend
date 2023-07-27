@@ -1,0 +1,32 @@
+.strip-container {
+  background-color: $clr8;
+  height: 95px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  //   grid-row: ;
+
+  span {
+    font-family: macanSemibold;
+    font-size: rem(16px);
+    padding-inline-end: rem(20px);
+    color: $clr9;
+  }
+
+  .branding {
+    display: flex;
+    list-style-type: none;
+    height: rem(95px);
+    align-items: center;
+    li {
+      padding-inline-end: rem(60px);
+      height: 60px;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+}
