@@ -10,12 +10,15 @@
       />
     </span>
       </h3>
-      <input type="text" placeholder="Search reviews">
-      <button></button>
+
+      <form @submit.prevent="searchReview">
+      <input type="text" placeholder="Search reviews" v-model="searchTxt">
+      <button class="fa-regular fa-magnifying-glass">search</button>
+      </form>
 
       <ul class="review-list">
         <li
-          v-for="review in reviews"
+          v-for="review in filteredReviews"
           class="reviews-list"
           :key="review._id"
         >
@@ -30,10 +33,30 @@ export default {
   props: {
     reviews: Array,
   },
+  data() {
+    return {
+      searchTxt: '',
+      filteredReviews: []
+    }
+  },
+  async created() {
+    console.log(this.reviews);
+    this.filteredReviews = this.reviews
+  },
   components: {
     ReviewPreview,
   },
   methods: {
+    searchReview() {
+      console.log(this.searchTxt);
+      const regex = new RegExp(this.searchTxt, 'i')
+      this.filteredReviews = this.reviews.filter(review => 
+      regex.test(review.txt) ||
+      regex.test(review.by.fullname) ||
+      regex.test(review.by.country) ||
+      regex.test(review.rate))
+      this.searchTxt = ''
+    }
   },
 }
 </script>
