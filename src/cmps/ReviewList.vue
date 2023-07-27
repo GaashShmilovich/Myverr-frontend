@@ -1,7 +1,8 @@
 <template lang="">
-    <section class="">
-      <h2>Reviews</h2> 
-      <h3>{{ reviews?.length }} reviews for this Gig
+    <section class="reviews">
+      <p class="title">Reviews</p> 
+
+      <p class="sub-title">{{ reviews?.length }} reviews for this Gig
         <span v-for="i in reviews.rate || 1"> 
           <!-- // how to make average of review rates? -->
       <font-awesome-icon
@@ -9,7 +10,7 @@
         icon="fa-solid fa-star"
       />
     </span>
-      </h3>
+  </p>
 
       <!-- <form class="input-form" @submit.prevent="earchReview">
     <input v-model="searchQuery" type="text" class="search-input" placeholder="Search reviews" v-model="searchTxt" />
