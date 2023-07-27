@@ -7,13 +7,14 @@
         <p>
           About
           <RouterLink :to="`user/${review.aboutUser._id}`">
-            {{review.aboutUser.fullname}}
-          </RouterLink> 
+            {{ review.aboutUser.fullname }}
+          </RouterLink>
         </p>
-        <pre>{{review.txt}}</pre>
-        <p>By 
+        <pre>{{ review.txt }}</pre>
+        <p>
+          By
           <RouterLink :to="`user/${review.byUser._id}`">
-            {{review.byUser.fullname}}
+            {{ review.byUser.fullname }}
           </RouterLink>
         </p>
       </li>
@@ -22,54 +23,57 @@
     <form v-if="loggedInUser" @submit.prevent="addReview()">
       <h2>Your gossip:</h2>
       <select v-model="reviewToEdit.aboutUserId">
-        <option v-for="user in users" :key="user._id" :value="user._id" >
-          {{user.fullname}}
+        <option v-for="user in users" :key="user._id" :value="user._id">
+          {{ user.fullname }}
         </option>
       </select>
-      <textarea placeholder="Your Opinion Matters..." v-model="reviewToEdit.txt"></textarea>
+      <textarea
+        placeholder="Your Opinion Matters..."
+        v-model="reviewToEdit.txt"
+      ></textarea>
       <button>Save</button>
     </form>
   </div>
 </template>
 
 <script>
-
-import {showErrorMsg, showSuccessMsg} from '../services/event-bus.service'
-import { reviewService } from '../services/review.service.local'
+import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
+import { reviewService } from "../services/review.service.local";
 
 export default {
   data() {
     return {
-      reviewToEdit: reviewService.getEmptyReview()
-    }
+      reviewToEdit: reviewService.getEmptyReview(),
+    };
   },
   computed: {
     reviews() {
-      return this.$store.getters.reviews
+      return this.$store.getters.reviews;
     },
     users() {
-      return this.$store.getters.usersExcludeMe
+      return this.$store.getters.usersExcludeMe;
     },
     loggedInUser() {
-      return this.$store.getters.loggedinUser
-    }
+      return this.$store.getters.loggedinUser;
+    },
   },
   created() {
-    this.$store.dispatch({type: 'loadUsers'})
-    this.$store.dispatch({type: 'loadReviews'})
+    this.$store.dispatch({ type: "loadUsers" });
+    this.$store.dispatch({ type: "loadReviews" });
   },
   methods: {
     async addReview() {
       try {
-        await this.$store.dispatch({type: 'addReview', review: this.reviewToEdit})
-        showSuccessMsg('Review added')
-        this.reviewToEdit = reviewService.getEmptyReview()
-      } catch(err) {
-        showErrorMsg('Cannot add review')
+        await this.$store.dispatch({
+          type: "addReview",
+          review: this.reviewToEdit,
+        });
+        showSuccessMsg("Review added");
+        this.reviewToEdit = reviewService.getEmptyReview();
+      } catch (err) {
+        showErrorMsg("Cannot add review");
       }
-    }
-  }
-
-  
-}
+    },
+  },
+};
 </script>

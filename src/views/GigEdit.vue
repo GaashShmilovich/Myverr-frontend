@@ -1,13 +1,22 @@
 <template>
-  <section v-if="gigToEdit" class="gig-edit flex">
-    <form class="gig-edit__form grid" @submit.prevent="saveGig">
-      <div class="gig-edit__input-box">
+  <section v-if="gigToEdit" class="gig-edit">
+    <form class="gig-edit_form" @submit.prevent="saveGig">
+      <div class="gig-edit_title-container">
         <label for="txt" class="gig-edit__label">Gig Name</label>
         <el-input
           v-model="gigToEdit.title"
           id="txt"
           type="text"
           placeholder="Enter your gig name here..."
+        />
+      </div>
+      <div class="gig-edit__input-box">
+        <label for="txt" class="gig-edit__label">Description</label>
+        <el-input
+          v-model="gigToEdit.description"
+          id="txt"
+          type="text"
+          placeholder="Enter your gig description here..."
         />
       </div>
       <div>
