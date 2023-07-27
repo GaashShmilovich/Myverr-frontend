@@ -8,7 +8,7 @@
 }
 
 html {
-  font-family: montserrat;
+  font-family: macanRegular;
   line-height: 1.6;
   color: $clr2;
 }
@@ -29,9 +29,9 @@ h6 {
   line-height: 1;
 }
 
-// img {
-//     width: 100%;
-// }
+img {
+  width: 100%;
+}
 
 p {
   margin: 0 0 1em;
@@ -40,4 +40,8 @@ p {
 
 a {
   text-decoration: none;
+}
+
+ul {
+  margin: 0;
 }
