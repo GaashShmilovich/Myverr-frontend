@@ -12,7 +12,7 @@
       </h3>
 
       <form @submit.prevent="searchReview">
-      <input type="text" placeholder="Search reviews" v-model="searchTxt">
+      <input class="search-input" type="text" placeholder="Search reviews" v-model="searchTxt">
       <button class="fa-regular fa-magnifying-glass">search</button>
       </form>
 

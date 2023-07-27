@@ -1,7 +1,7 @@
 <template>
   <section v-if="gig" class="gig-details">
     <div class="main">
-      <!-- <h5 class="gig-category"> {{ filterby.category }}</h5> -->
+      <!-- <h5 class="gig-category"> {{ gig.chosenTag }}</h5> -->
       <h5 class="gig-category">/ logo-design / artisitic</h5>
       <h1 class="gig-title"> {{ gig.title }}</h1>
 
@@ -42,11 +42,11 @@
 </template>
 <script>
 
-import ReviewList from '../../cmps/GigDetailsCmps/ReviewList.vue'
-import PackageType from '../../cmps/GigDetailsCmps/PackageType.vue'
-import GigDetailsCarusela from '../../cmps/GigDetailsCmps/GigDetailsCarusela.vue'
+import ReviewList from '../cmps/ReviewList.vue'
+import PackageType from '../cmps/PackageType.vue'
+import GigDetailsCarusela from '../cmps/GigDetailsCarusela.vue'
 
-import { gigService } from '../../services/gig.service.local.js'
+import { gigService } from '../services/gig.service.local.js'
 
 export default {
   data() {
