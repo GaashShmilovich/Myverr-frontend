@@ -6,7 +6,6 @@
 </template>
 
 <script>
-// import { mapState } from 'vuex'
 import GigList from './GigList.vue'
 import GigFilter from './GigFilter.vue'
 
@@ -21,7 +20,9 @@ export default {
 		GigFilter,
 	},
 	computed: {
-		// ...mapState(['gigs']),
+		gigs() {
+			return this.$store.state.gigStore.gigs
+		},
 	},
 	created() {
 		this.loadGigs()
@@ -29,8 +30,6 @@ export default {
 	methods: {
 		loadGigs() {
 			this.$store.dispatch({ type: 'loadGigs' })
-			const gigs = this.$store.getters.gigs
-			this.gigs = gigs
 		},
 	},
 }
