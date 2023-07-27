@@ -2,10 +2,11 @@
     list-style: none;
     display: flex;
     flex-wrap: wrap;
+    margin-inline-start: -40px;
     li {
         color: $clr3;
         // padding: 5px;
-        margin: 5px;
+        // margin: 5px;
     }
     a {
         color: $clr1;

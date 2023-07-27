@@ -12,11 +12,7 @@
 import GigPreview from './GigPreview.vue'
 
 export default {
-	computed: {
-		// gigs() {
-		// 	return this.$store.state.gigStore.gigs
-		// },
-	},
+	computed: {},
 	components: {
 		GigPreview,
 	},
