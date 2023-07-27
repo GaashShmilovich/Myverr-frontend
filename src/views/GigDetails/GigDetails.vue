@@ -1,107 +1,86 @@
 <template>
-    <section v-if="gig" class="gig-details">
-      <div class="main">
-        <!-- <h5 class="gig-category"> {{ filterby.category }}</h5> -->
-        <h5 class="gig-category">/ logo-design / artisitic</h5>
-        <h1 class="gig-title"> {{ gig.title }}</h1>
-        <h5 class="gig-owner-details">
-          <img :src="gig.owner.imgUrl" alt="">
-          <p class="name">{{ gig.owner.fullname }}</p>
-          <p class="instagram">{{ gig.owner.instagram }}</p>
-          <p class="level">{{ gig.owner.level }}  |</p>
-          <section class="gig-owner-rate">
+  <section v-if="gig" class="gig-details">
+    <div class="main">
+      <!-- <h5 class="gig-category"> {{ filterby.category }}</h5> -->
+      <h5 class="gig-category">/ logo-design / artisitic</h5>
+      <h1 class="gig-title"> {{ gig.title }}</h1>
+      <h5 class="gig-owner-details">
+        <img :src="gig.owner.imgUrl" alt="">
+        <p class="name">{{ gig.owner.fullname }}</p>
+        <p class="instagram">{{ gig.owner.instagram }}</p>
+        <p class="level">{{ gig.owner.level }} |</p>
+        <section class="gig-owner-rate">
           <span v-for="i in gig.owner.rate || 1">
-            <font-awesome-icon
-            :style="{ color: '#ffb33e' }"
-            icon="fa-solid fa-star"
-            />
+            <font-awesome-icon :style="{ color: '#ffb33e' }" icon="fa-solid fa-star" />
           </span>
         </section>
         <p class="rate-number" :style="{ color: '#ffb33e' }">{{ gig.owner.rate }} <span>(592)</span></p>
       </h5>
 
-        <figure class="gig-gallery">
-          <!-- <img :src="gig.imgUrls" alt=""> -->
-          <GigDetailsCarusela :gig="gig" />
-        </figure>
-        <h2>About this gig: </h2>
-        <p> {{ gig.description }}</p>
+      <figure class="gig-gallery">
+        <!-- <img :src="gig.imgUrls" alt=""> -->
+        <GigDetailsCarusela :gig="gig" />
+      </figure>
+      <h2>About this gig: </h2>
+      <p> {{ gig.description }}</p>
 
       <ReviewList :reviews="gig.reviews" />
     </div>
 
     <div class="sticky-packages">
       <PackageType />
-      
+
     </div>
-    </section>
- 
-    <section v-else>
-      Gig wasnt found
-    </section>
-  </template>
-  <script>
+  </section>
 
-  import ReviewList from '../../cmps/GigDetailsCmps/ReviewList.vue'
-  import PackageType from '../../cmps/GigDetailsCmps/PackageType.vue'
-  import  GigDetailsCarusela from '../../cmps/GigDetailsCmps/GigDetailsCarusela.vue'
+  <section v-else>
+    loading..
+  </section>
+</template>
+<script>
 
-  import { gigService } from '../../services/gig.service.local.js'
-  
-  export default {
-    data() {
-      return {
-        gig: null,
+import ReviewList from '../../cmps/GigDetailsCmps/ReviewList.vue'
+import PackageType from '../../cmps/GigDetailsCmps/PackageType.vue'
+import GigDetailsCarusela from '../../cmps/GigDetailsCmps/GigDetailsCarusela.vue'
+
+import { gigService } from '../../services/gig.service.local.js'
+
+export default {
+  data() {
+    return {
+      gig: null,
+    }
+  },
+
+  async created() {
+    try {
+      this.loadGig()
+    } catch (err) {
+      console.error('Could not load gig')
+    }
+  },
+  methods: {
+    async loadGig() {
+      try {
+        const { gigId } = this.$route.params
+        const gig = await gigService.getById(gigId)
+        this.gig = gig
+      } catch (err) {
+        console.error('Failed to load gig', err)
       }
     },
-
-    // props: {
-    //   filterBy: String
-    // },
-
-  //   watch: {
-  //   gigId: {
-  //     handler() {
-  //       this.loadGig()
-  //     },
-  //     immediate: true,
-  //   },
-  // },
-    async created() {
-      try{
-        this.loadGig()
-      } catch(err){
-        console.log('Could not load gig')
-      }
+  },
+  computed: {
+    reviews() {
+      return this.$store.getters.reviews
     },
-    methods: {
-      async loadGig() {
-        try {
-          const { gigId } = this.$route.params
-          console.log(gigId);
-          const gig = await gigService.getById(gigId)
-          this.gig = gig
-          console.log(gig);
-        } catch(err){
-          console.error('Failed to load gig', err)
-        }
-      },
-    },
-    computed: {
-    //   gigId() {
-    //   return this.$route.params.id
-    // },
-
-      reviews() {
-        return this.$store.getters.reviews // filter of this gig or user
-      },
-    },
-    components: {
-      ReviewList,
-      PackageType,
-      gigService,
-      GigDetailsCarusela,
-    },
-  }
-  </script>
+  },
+  components: {
+    ReviewList,
+    PackageType,
+    gigService,
+    GigDetailsCarusela,
+  },
+}
+</script>
   

@@ -2,106 +2,118 @@
     display: flex;
     // align-items: flex-start;
     flex-direction: row;
+
     .main {
         width: 59%;
         margin-right: 50px;
+
         // make this mov with media query //
-    .gig-category {
-        font-size: rem(14px);
-        color: $clr4;
-    }
-    .gig-title {
-        font-size: rem(28px);
-        padding-bottom: 16px;
-        line-height: 130%;
-
-        margin-block-start: 0.67em;
-        margin-block-end: 0.67em;
-
-        font-family: macanBold;
-        color: $clr3;
-        overflow-wrap: break-word;
-    }
-    .gig-owner-details {
-        display: flex;
-        
-
-        img {
-            // overflow-clip-margin: content-box;
-            height: 30px;
-            line-height: rem(24px);
-            // position: absolute;
-            // object-fit: cover;
-            font-stretch: 100%;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-
-        .name {
-            font-size: rem(18px);
-            font-family: macanBold;
-            line-height: rem(26px);
-            margin-right: rem(8px);
+        .gig-category {
+            font-size: rem(14px);
             color: $clr4;
-            align-self: center;
+        }
 
-            &:hover {
-                cursor: pointer;
+        .gig-title {
+            font-size: rem(28px);
+            padding-bottom: 16px;
+            line-height: 130%;
+
+            margin-block-start: 0.67em;
+            margin-block-end: 0.67em;
+
+            font-family: macanBold;
+            color: $clr3;
+            overflow-wrap: break-word;
+        }
+
+        .gig-owner-details {
+            display: flex;
+            flex-wrap: wrap;
+
+
+            img {
+                // overflow-clip-margin: content-box;
+                height: 30px;
+                line-height: rem(24px);
+                // position: absolute;
+                // object-fit: cover;
+                font-stretch: 100%;
+                border-radius: 50%;
+                margin-right: 10px;
             }
-        }
-        
-        .instagram{
-            font-size: rem(14px);
-            line-height: rem(21px);
-            color: $clr5;
-            font-family: macanRegular; 
-            margin-right: rem(8px);
-            align-self: center;
-            &:hover{
-                cursor: pointer;
-            } 
-        }
-        .level {
-            font-family: macanRegular; 
-            line-height: rem(21px);
-            color: $clr2;
-            font-size: rem(14px);
-            margin-right: 8px;
-            align-self: center;
-        }
-        .gig-owner-rate {
-            align-self: center;
-            translate: 0 -6px;
-        }
-        .rate-number {
-            margin-left: 8px;
-            translate: 0 8px;
-            span{
+
+            .name {
+                font-size: rem(18px);
+                font-family: macanBold;
+                line-height: rem(26px);
+                margin-right: rem(8px);
+                color: $clr4;
+                align-self: center;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            .instagram {
+                font-size: rem(14px);
+                line-height: rem(21px);
+                color: $clr5;
+                font-family: macanRegular;
+                margin-right: rem(8px);
+                align-self: center;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            .level {
+                font-family: macanRegular;
+                line-height: rem(21px);
                 color: $clr2;
+                font-size: rem(14px);
+                margin-right: 8px;
+                align-self: center;
             }
-        }
-    }
 
-    .gig-gallery {
-        display: flex;
-        margin-block-start: 1em;
-        margin-block-end: 1em;
-        margin-inline-start: 40px;
-        margin-inline-end: 40px;
-        img {
-            max-width: 90%;
-            max-height: 427px;
-            justify-content: center;
-            position: relative;
-            transition-duration: 0.4s, 0.4s;
-            overflow: hidden;
-            &:hover{
-                cursor: pointer;
-                scale: 1.1;
+            .gig-owner-rate {
+                align-self: center;
+                translate: 0 -6px;
+            }
+
+            .rate-number {
+                margin-left: 8px;
+                translate: 0 8px;
+
+                span {
+                    color: $clr2;
+                }
+            }
+        }
+
+        .gig-gallery {
+            display: flex;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 40px;
+            margin-inline-end: 40px;
+
+            img {
+                max-width: 90%;
+                max-height: 427px;
+                justify-content: center;
+                position: relative;
+                transition-duration: 0.4s, 0.4s;
+                overflow: hidden;
+
+                &:hover {
+                    cursor: pointer;
+                    scale: 1.1;
+                }
             }
         }
     }
-}
 
     .sticky-packages {
         height: 790px;
