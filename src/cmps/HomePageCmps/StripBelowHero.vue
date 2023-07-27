@@ -1,5 +1,5 @@
 <template>
-  <section class="strip-container">
+  <section class="strip-container main-container">
     <span>Trusted by:</span>
     <ul class="branding">
       <li>
