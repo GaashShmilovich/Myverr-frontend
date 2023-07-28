@@ -1,14 +1,14 @@
 <template>
-  <section class="inside-hero-container hero-container main-layout">
+  <section class="inside-hero-container hero-container">
     <h1>Find the right <i>freelance</i> service, right away</h1>
-    <div class="search-bar-wrapper">
+    <!-- <span class="search-bar-wrapper">
       <SearchBar />
-    </div>
+    </span> -->
   </section>
 </template>
 
 <script>
-import SearchBar from "../HeaderCmps/SearchBar";
+import SearchBar from "../HeaderCmps/SearchBar.vue";
 export default {
   name: "hero-search",
   components: {
