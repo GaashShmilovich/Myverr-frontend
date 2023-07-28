@@ -67,6 +67,21 @@
 	margin-top: 8px;
 }
 
+.delivery-modal {
+	overflow-y: scroll;
+	padding: 24px;
+	transition: all 0.24s cubic-bezier(0.215, 0.61, 0.355, 1);
+	transition-delay: 0.24s;
+	border: 0;
+	margin: 0;
+	outline: 0;
+	font-size: 14px;
+	line-height: 22px;
+	font-weight: 600;
+	height: 315px;
+	width: 255px;
+}
+
 .input-labels,
 .input-fields {
 	display: flex;
@@ -79,15 +94,70 @@
 	width: calc(33% - 10px);
 }
 
-.divider {
+.divider-delivery {
 	width: 100%;
 	border: none;
 	border-top: 1px solid rgba(0, 0, 0, 0.1);
-	margin: 8px 0;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 234px;
 }
 
 .actions {
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
+}
+
+.apply-btn {
+	color: white;
+	background-color: black;
+	border-radius: 4px;
+	font-weight: 600;
+	font-size: 1em;
+	padding: 12px 24px;
+	border: 1px solid transparent;
+	transition: 70ms cubic-bezier(0.75, 0, 0.25, 1);
+	position: absolute;
+	bottom: 12px;
+	right: 12px;
+}
+
+.apply-btn:hover {
+	background-color: #404145;
+}
+
+.apply-btn:active {
+	background-color: #222325;
+}
+
+.clear-btn {
+	font-size: 1em;
+	font-weight: 600;
+	color: $clr2;
+	transition: 70ms cubic-bezier(0.75, 0, 0.25, 1);
+	position: absolute;
+	bottom: 0;
+	bottom: 21px;
+}
+
+.clear-btn:hover {
+	color: $clr5;
+}
+
+.delivery-input {
+	padding: 12px;
+	width: 100%;
+	border-radius: 8px;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 12px;
+}
+
+.delivery-input:hover {
+	background-color: #40414507;
+	cursor: pointer;
 }
