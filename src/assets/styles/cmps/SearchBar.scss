@@ -1,16 +1,11 @@
 .search-form {
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex: 1;
-  background-color: transparent;
 
   input {
     padding: 10px;
     margin: 0;
     font-size: 16px;
-    // max-width: rem(520px);
-    // min-width: rem(75px);
     height: em(42px);
     border: 1px solid #ccc;
     border-radius: 5px 0 0 5px;
@@ -19,16 +14,9 @@
 
   button {
     padding: 10px 15px;
-    // margin: 0;
-    // font-size: 16px;
     background-color: $clr4;
     width: rem(50px);
     height: rem(42px);
     border-radius: 0 5px 5px 0;
-    // color: #fff;
-    // border: none;
-    // border-radius: 0 5px 5px 0;
-    // cursor: pointer;
-    // outline: none;
   }
 }

@@ -1,3 +1,38 @@
 .carousel-container {
-  grid-column: 2/3;
+  // grid-column: 2/3;
+  margin-block-end: rem(96px);
+
+  .vueperslide {
+    border-radius: 4px;
+    // height: 345px;
+    width: 240px;
+  }
+  /* Style the arrow icon */
+  svg {
+    /* Change the arrow icon color */
+    stroke: black;
+    background-color: white;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    padding: 15px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
+  }
+
+  h2 {
+    color: $clr3;
+    font-size: rem(32px);
+    font-family: macanSemibold;
+    padding-block-end: rem(24px);
+    margin: 0;
+  }
+}
+.vueperslides__arrow {
+  opacity: 1;
+  &.vueperslides__arrow--prev {
+    translate: (-70%);
+  }
+  &.vueperslides__arrow--next {
+    translate: (70%);
+  }
 }

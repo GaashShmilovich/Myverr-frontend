@@ -2,7 +2,34 @@ header {
   background-color: transparent;
   align-items: center;
   z-index: 1;
-  transition: background-color 0.5s;
+  grid-row: 1/2;
+  transition: background-color 0.2s ease-out;
+
+  .search {
+    width: 250px;
+
+    &.hidden {
+      display: none;
+    }
+    &.shown {
+      display: block;
+    }
+  }
+
+  .categories {
+    &.hidden {
+      display: none;
+    }
+    &.shown {
+      display: block;
+    }
+  }
+
+  &.openHeader {
+    position: sticky;
+    top: 0;
+    background-color: $clr1;
+  }
 
   .loggedin-user {
     background-color: $clr1;
@@ -23,33 +50,91 @@ header {
     }
   }
   .logo {
-    width: 70px;
-  }
-  nav {
-    background-color: transparent;
-    height: rem(80px);
-    display: flex;
-    align-items: center;
-    flex-basis: 100%;
-    justify-content: space-between;
-    .route-container {
-      display: flex;
-      flex-basis: em(415px);
-      align-items: center;
-      justify-content: space-between;
+    &.open-nav-logo {
       a {
-        font-size: rem(16px);
-        color: #fff;
-        font-family: macanSemibold;
+        color: $clr3;
+      }
+    }
+  }
+  .logo {
+    a {
+      font-family: chunkRegular;
+      color: $clr1;
+      font-size: 30px;
+      span {
+        color: $green1;
+      }
+    }
+  }
 
-        &:hover {
-          color: #1dbf73;
+  .nav-container {
+    &.open-nav-border {
+      border-bottom: 1px solid rgb(228, 229, 231);
+    }
+
+    nav {
+      background-color: transparent;
+      height: rem(80px);
+      display: flex;
+      align-items: center;
+      flex-basis: 100%;
+      justify-content: space-between;
+      flex: 1;
+
+      .route-container {
+        display: flex;
+        flex-basis: em(415px);
+        align-items: center;
+        justify-content: space-between;
+
+        &.open-nav-links {
+          a {
+            color: $clr2;
+            &:hover {
+              color: #1dbf73;
+            }
+          }
+        }
+        a {
+          font-size: rem(16px);
+          color: #fff;
+          font-family: macanSemibold;
         }
       }
     }
   }
 
-  nav .active {
-    color: $clr1;
+  .category-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    font-size: rem(16px);
+    font-family: macanRegular;
+    margin: 0;
+    padding: 0;
+    height: 40px;
+    // white-space: nowrap; // Prevents text from wrapping to the next line
+    flex-wrap: nowrap; // Ensures all flex items stay in a single row
+    a {
+      color: $clr2;
+      padding: rem(8px) 0 rem(8px) 0;
+      // padding: 0;
+    }
+
+    li {
+      padding-inline: rem(10px);
+      &:first-child {
+        padding-inline-end: rem(10px);
+        padding-inline-start: 0; // Applies padding only at inline-end (right)
+        // padding-right: rem(10px); // Alternative for older browsers
+      }
+
+      &:last-child {
+        padding-inline-start: rem(10px);
+        padding-inline-end: 0; // Applies padding only at inline-start (left)
+        // padding-left: rem(10px); // Alternative for older browsers
+      }
+    }
   }
 }

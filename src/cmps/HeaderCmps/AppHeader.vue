@@ -1,52 +1,75 @@
 <template>
   <header
     ref="header"
+    class="full"
     :class="{
-      openHeader: isSearchShown,
-      'main-layout': isSearchShown,
+      openHeader: isFirstNavShown,
+      'main-layout': isFirstNavShown,
       'nav-main-app': isNotHomePage,
     }"
   >
-    <nav ref="nav">
-      <RouterLink to="/">
-        <svg
-          width="89"
-          height="27"
-          viewBox="0 0 89 27"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+    <div
+      class="nav-container full main-layout"
+      :class="{
+        'open-nav-border': isFirstNavShown,
+      }"
+    >
+      <nav>
+        <RouterLink to="/">
+          <div
+            class="logo"
+            :class="{
+              'open-nav-logo': isFirstNavShown,
+            }"
+          >
+            <a href="#"> fiverr <span>.</span></a>
+          </div>
+        </RouterLink>
+        <!-- <SearchBar /> -->
+        <div
+          class="search hidden"
+          :class="{
+            hidden: isHidden,
+            shown: modalOpen,
+          }"
         >
-          <g fill="#fff">
-            <path
-              d="m81.6 13.1h-3.1c-2 0-3.1 1.5-3.1 4.1v9.3h-6v-13.4h-2.5c-2 0-3.1 1.5-3.1 4.1v9.3h-6v-18.4h6v2.8c1-2.2 2.3-2.8 4.3-2.8h7.3v2.8c1-2.2 2.3-2.8 4.3-2.8h2zm-25.2 5.6h-12.4c.3 2.1 1.6 3.2 3.7 3.2 1.6 0 2.7-.7 3.1-1.8l5.3 1.5c-1.3 3.2-4.5 5.1-8.4 5.1-6.5 0-9.5-5.1-9.5-9.5 0-4.3 2.6-9.4 9.1-9.4 6.9 0 9.2 5.2 9.2 9.1 0 .9 0 1.4-.1 1.8zm-5.7-3.5c-.1-1.6-1.3-3-3.3-3-1.9 0-3 .8-3.4 3zm-22.9 11.3h5.2l6.6-18.3h-6l-3.2 10.7-3.2-10.8h-6zm-24.4 0h5.9v-13.4h5.7v13.4h5.9v-18.4h-11.6v-1.1c0-1.2.9-2 2.2-2h3.5v-5h-4.4c-4.3 0-7.2 2.7-7.2 6.6v1.5h-3.4v5h3.4z"
-            ></path>
-          </g>
-          <g fill="#1dbf73">
-            <path
-              d="m85.3 27c2 0 3.7-1.7 3.7-3.7s-1.7-3.7-3.7-3.7-3.7 1.7-3.7 3.7 1.7 3.7 3.7 3.7z"
-            ></path>
-          </g>
-        </svg>
-      </RouterLink>
-      <!-- <SearchBar /> -->
-      <div class="search" :class="{ shown: isSearchShown }">
-        <SearchBar />
-      </div>
-      <div class="route-container">
-        <RouterLink to="/explore">Explore</RouterLink>
-        <RouterLink to="/review">Reviews</RouterLink>
-        <RouterLink to="/chat">Chat</RouterLink>
-        <RouterLink to="/login">Login / Signup</RouterLink>
-        <RouterLink to="/explore/edit?">Edit</RouterLink>
-      </div>
+          <SearchBar />
+        </div>
+        <div
+          class="route-container full"
+          :class="{
+            'open-nav-links': isFirstNavShown,
+          }"
+        >
+          <RouterLink to="/explore">Explore</RouterLink>
+          <RouterLink to="/review">Reviews</RouterLink>
+          <RouterLink to="/chat">Chat</RouterLink>
+          <RouterLink to="/login">Login / Signup</RouterLink>
+          <RouterLink to="/explore/edit?">Edit</RouterLink>
+          <RouterLink to="/explore/edit?">Filler</RouterLink>
+        </div>
+      </nav>
+    </div>
+    <nav
+      class="categories"
+      :class="{
+        hidden: isHidden,
+        shown: modalOpen,
+      }"
+    >
+      <ul class="category-container main-layout">
+        <li><a href="#">Graphics & Design</a></li>
+        <li><a href="#">Programming & Tech</a></li>
+        <li><a href="#">Digital Marketing</a></li>
+        <li><a href="#">Video & Animation</a></li>
+        <li><a href="#">Writing & Translation</a></li>
+        <li><a href="#">Music & Audio</a></li>
+        <li><a href="#">Business</a></li>
+        <li><a href="#">Data</a></li>
+        <li><a href="#">Photography</a></li>
+        <li><a href="#">AI Services</a></li>
+      </ul>
     </nav>
-    <!-- <section class="loggedin-user" v-if="loggedInUser">
-      <RouterLink :to="`/user/${loggedInUser._id}`">
-        {{ loggedInUser.fullname }}
-      </RouterLink>
-      <span>{{ loggedInUser.score?.toLocaleString() }}</span>
-      <img :src="loggedInUser.imgUrl" />
-    </section> -->
   </header>
 </template>
 <script>
@@ -55,18 +78,33 @@ export default {
   data() {
     return {
       windowTop: window.top.scrollY,
-      isSearchShown: false,
+      isFirstNavShown: false,
       modalOpen: false,
       orderOpen: false,
       menuOpen: false,
+      isHidden: true,
+      // isShown: false,
     };
   },
   methods: {
     onScroll(e) {
       if (this.$route.path !== "/") return;
-      if (window.scrollY < 10) this.isSearchShown = false;
+      if (window.scrollY < 10) this.isFirstNavShown = false;
       if (window.scrollY > 10) {
-        this.isSearchShown = true;
+        this.isFirstNavShown = true;
+      }
+      if (window.scrollY < 160) {
+        this.modalOpen = false;
+        this.isHidden = true;
+      }
+      if (window.scrollY > 160) {
+        this.modalOpen = true;
+        this.isHidden = false;
+      }
+      if (this.isNotHomePage) {
+        this.isFirstNavShown = true;
+        this.modalOpen = true;
+        this.isHidden = false;
       }
     },
   },
@@ -95,12 +133,6 @@ export default {
 };
 </script>
 <style lang="scss">
-// .openHeader {
-//   position: fixed;
-
-//   background-color: red;
-// }
-
 // .search {
 //   display: none;
 // }

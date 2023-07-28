@@ -1,11 +1,10 @@
 .strip-container {
   background-color: $clr8;
-  height: 95px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
-  //   grid-row: ;
+  grid-column: 1/-1;
+  margin-block-end: rem(65px);
 
   span {
     font-family: macanSemibold;
