@@ -12,12 +12,13 @@
     </span>
   </p>
 
-      <!-- <form class="input-form" @submit.prevent="earchReview">
-    <input v-model="searchQuery" type="text" class="search-input" placeholder="Search reviews" v-model="searchTxt" />
-    <button type="submit" class="fa-regular fa-magnifying-glass"></button>
-      </form> -->
+      <ReviewRateBar />
+      <form class="search-form" @submit.prevent="searchReview">
+    <input type="text" class="input" placeholder="Search reviews" v-model="searchTxt" />
+    <button type="submit" ><i class="search-icon" v-html="$getSvg('search-icon')"></i></button>
+      </form>
 
-      <input @input.prevent="searchReview" class="input-form search-input" type="text" placeholder="Search reviews" v-model="searchTxt">
+      <!-- <input @input.prevent="searchReview" class="input-form search-input" type="text" placeholder="Search reviews" v-model="searchTxt"> -->
       <!-- <button class="fa-regular fa-magnifying-glass">search</button> -->
 
       <ul class="review-list">
@@ -33,6 +34,7 @@
   </template>
 <script>
 import ReviewPreview from './ReviewPreview.vue'
+import ReviewRateBar from './ReviewRateBar.vue'
 export default {
   props: {
     reviews: Array,
@@ -49,6 +51,7 @@ export default {
   },
   components: {
     ReviewPreview,
+    ReviewRateBar,
   },
   methods: {
     searchReview() {
