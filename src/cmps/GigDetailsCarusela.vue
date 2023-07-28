@@ -1,16 +1,21 @@
 <template>
-  <section class="carusela">
+  <section class="gig-details-carusela">
     <vueper-slides ref="vueperslides1" class="container" :touchable="false" fade :autoplay="false" :bullets="false"
       @slide="$refs.vueperslides2.goToSlide($event.currentSlide.index, { emit: false })">
-      <!-- fixed-height="200px" -->
-      <!-- fixed-width="300px" -->
       <vueper-slide class="big-img" v-for="(slide, i) in slides" :key="i" :image="slide.image">
       </vueper-slide>
     </vueper-slides>
 
     <vueper-slides class="no-shadow thumbnails" ref="vueperslides2"
       @slide="$refs.vueperslides1.goToSlide($event.currentSlide.index, { emit: false })" :visible-slides="slides.length"
-      fixed-height="75px" :bullets="false" :touchable="false" :gap="2.5" :arrows="false">
+      fixed-height="75px" :infinite="false" :bullets="false" :touchable="false" :gap="2.5" :arrows="true">
+      <template #arrow-left>
+    <i class="icon icon-arrow-left" />
+  </template>
+
+  <template #arrow-right>
+    <i class="icon icon-arrow-right" />
+  </template>
       <vueper-slide v-for="(slide, i) in slides" :key="i" :image="slide.image"
         @click.native="$refs.vueperslides2.goToSlide(i)">
       </vueper-slide>

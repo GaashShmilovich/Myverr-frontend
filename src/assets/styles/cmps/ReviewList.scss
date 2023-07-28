@@ -1,70 +1,70 @@
-.reviews{
+.reviews {
     margin-top: 60px;
-    .title{
+
+    .title {
         font-size: rem(20px);
         font-family: macanBold;
-        margin-bottom: 16px;
+        margin-bottom: rem(12px);
         color: $clr3;
     }
+
     .sub-title {
         color: $clr3;
         font-size: rem(16px);
         font-family: macanBold;
     }
 
-.review-list {
-    // margin-top: 40px;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    margin-inline-start: -40px;
+    .review-list {
+        // margin-top: 40px;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        margin-inline-start: -40px;
 
-    li {
-        color: $clr3;
-        // padding: 5px;
-        // margin: 5px;
+        li {
+            color: $clr3;
+            // padding: 5px;
+            // margin: 5px;
+        }
+
+        a {
+            color: $clr1;
+            // padding: 10px;
+        }
+
+        pre {
+            background-color: #ddd;
+            color: #333;
+            padding: 10px 5px;
+            margin: 5px;
+        }
     }
 
-    a {
-        color: $clr1;
-        // padding: 10px;
+    .search-form {
+        display: flex;
+        align-items: center;
+        
+        input {
+            width: 307px;
+            padding: 10px;
+            margin: 0;
+            font-size: 16px;
+            height: em(42px);
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: $clr4;
+            width: rem(50px);
+            height: rem(42px);
+            border-radius: 0 5px 5px 0;
+            fill: $clr1;
+            font-weight: 400;
+        }
     }
 
-    pre {
-        background-color: #ddd;
-        color: #333;
-        padding: 10px 5px;
-        margin: 5px;
-    }
-}
-// put input relative//
-.input-form {
-    margin-bottom: 16px;
-    display: flex;
-    flex-direction: row;
-    
-    // justify-content: flex-start;
-    // justify-self: flex-start;
-}
-.search-input {
-    height: 41px;
-    position: relative;
-    width: 55%;
-    padding-right: 40px;
-    border: 1px solid $clr8;
-    border-radius: 4px;
-    transition: .15s ease-in-out;
-    color: $clr2;
-    font-family: macanThin;
-    padding: 8px 40px 8px 12px;
-}
-.fa-magnifying-glass {
-    height: 41px;
-    width: 48px;
-    padding: 13px 16px;
-    border-radius: 0 4px 4px 0;
-    background-color: $blue1;
-    fill: $clr1;
-    color: $clr1;    
-}
+
 }

@@ -20,6 +20,11 @@ async function query(filterBy) {
 			return gig.price >= filterBy.min && gig.price <= filterBy.max
 		})
 	}
+	if (gigs && filterBy && filterBy.type === 'delivery') {
+		gigs = gigs.filter((gig) => {
+			return gig.daysToMake <= filterBy.delivery
+		})
+	}
 	return gigs
 }
 

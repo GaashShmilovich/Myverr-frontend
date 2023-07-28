@@ -7,7 +7,7 @@
         </section>
 
         <section class="price">
-            <span> {{ getType.price }} </span>
+            <span> ${{ getType.price }} </span>
             <span class="save-up">Save up to 15% with <span>Subscribe to Save</span></span>
         </section>
 
@@ -21,7 +21,9 @@
         </section>
 
         <ul class="specials">
-            <li v-for="special in getType.specials">{{ special }}</li>
+            <li v-for="special in getType.specials">
+                <i class="v-check" v-html="$getSvg('v-check')"></i>
+                {{ special }}</li>
         </ul>
 
         <RouterLink class="to-payment" to="/payment">Continue</RouterLink>

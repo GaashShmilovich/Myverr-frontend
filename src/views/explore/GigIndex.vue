@@ -33,6 +33,7 @@ export default {
 		},
 		onFilterChanged(filterBy) {
 			this.$store.dispatch({ type: 'loadGigs', filterBy })
+
 			// This method is called when the filter is changed in the GigFilter component.
 			// It dispatches an action to the store to load the gigs with the new filter.
 			// The filterBy parameter is an object that contains the filter options.

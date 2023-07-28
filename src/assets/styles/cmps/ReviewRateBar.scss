@@ -1,0 +1,35 @@
+.rate-bars {
+  display: flex;
+  flex-direction: column;
+
+  tr {
+    display: flex;
+    font-size: rem(16px);
+    font-family: macanSemibold;
+    margin: rem(10px) 0;
+    color: $blue2;
+    line-height: rem(16px);
+    padding: rem(2px);
+    margin: 0;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .progress-bar-container {
+    display: flex;
+    width: 22%;
+    height: 8px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    margin: 10px;
+    /* Optional: Add some box-shadow to make the progress bar stand out */
+  }
+
+  .progress-bar {
+    height: 100%;
+    background-color: $yellow1;
+    /* Change this to your desired progress bar color */
+    border-radius: 8px;
+  }
+}
