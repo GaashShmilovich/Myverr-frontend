@@ -19,18 +19,13 @@
 
         <section class="information">
           <section class="titles">
-            <p class="1">From <br><span>USA</span> </p>
-            <p class="2">Avg. response time <br><span>1 hour</span> </p>
-            <p class="3">Languages <br><span>English</span> </p>
-            <p class="4">Member since <br><span>Dec 2015</span> </p>
-            <p class="5">Last delivery <br><span>1 day ago</span> </p>
+            <p class="1">From <br><span>{{ gig.owner.country }}</span> </p>
+            <p class="2">Avg. response time <br><span>{{ gig.owner.averageResponse }}</span> </p>
+            <p class="3">Languages <br><span>{{ gig.owner.language.join(', ') }}</span> </p>
+            <p class="4">Member since <br><span>{{ gig.owner.since }}</span> </p>
+            <p class="5">Last delivery <br><span>{{ gig.owner.lastDelivery }}</span> </p>
           </section>
-          <p class="text">Hello! I'm an enthusiastic and creative graphic artist who
-            is passionate about Logo and Banner Design! And have many more skills!
-
-            I'm a fun loving guy who loves nature, pets and dressing up! I'm also a bit of a perfectionist!
-
-            I freelance exclusively on Fiverr!</p>
+          <p class="text">{{ gig.owner.about }}</p>
         </section>
 
 </template>
@@ -39,6 +34,11 @@
 export default {
     props: {
         gig: Object
+    },
+    computed: {
+        getLanguages() {
+
+        }
     }
 }
 </script>

@@ -20,7 +20,7 @@
       </form>
 
       <section class="sort">
-        <p>Sort By <span>M</span></p>
+        <p>Sort By <span>Rate</span></p>
       </section>
 
       <ul class="review-list">
