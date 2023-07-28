@@ -43,6 +43,8 @@
     .search-form {
         display: flex;
         align-items: center;
+
+        margin: rem(25px) 0 rem(20px);
         
         input {
             width: 307px;
