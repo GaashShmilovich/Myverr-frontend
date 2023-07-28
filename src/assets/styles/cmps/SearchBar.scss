@@ -1,6 +1,9 @@
 .search-form {
   display: flex;
   align-items: center;
+  // flex: 1;
+  justify-content: center;
+  margin-inline: rem(30px);
 
   input {
     padding: 10px;
@@ -10,6 +13,7 @@
     border: 1px solid #ccc;
     border-radius: 5px 0 0 5px;
     outline: none;
+    flex: 1;
   }
 
   button {

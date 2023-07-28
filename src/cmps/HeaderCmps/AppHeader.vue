@@ -5,7 +5,7 @@
     :class="{
       openHeader: isFirstNavShown,
       'main-layout': isFirstNavShown,
-      'nav-main-app': isNotHomePage,
+      // 'nav-main-app': isNotHomePage,
     }"
   >
     <div
@@ -25,7 +25,6 @@
             <a href="#"> fiverr <span>.</span></a>
           </div>
         </RouterLink>
-        <!-- <SearchBar /> -->
         <div
           class="search hidden"
           :class="{
@@ -88,7 +87,7 @@ export default {
   },
   methods: {
     onScroll(e) {
-      if (this.$route.path !== "/") return;
+      // if (this.$route.path !== "/") return;
       if (window.scrollY < 10) this.isFirstNavShown = false;
       if (window.scrollY > 10) {
         this.isFirstNavShown = true;
@@ -101,7 +100,7 @@ export default {
         this.modalOpen = true;
         this.isHidden = false;
       }
-      if (this.isNotHomePage) {
+      if (this.$route.path !== "/") {
         this.isFirstNavShown = true;
         this.modalOpen = true;
         this.isHidden = false;
@@ -116,7 +115,11 @@ export default {
       return this.$route.path;
     },
     isNotHomePage() {
-      return this.$route.path !== "/";
+      if (this.$route.path !== "/") {
+        this.isFirstNavShown = true;
+        this.modalOpen = true;
+        this.isHidden = false;
+      }
     },
   },
 

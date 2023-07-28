@@ -8,12 +8,18 @@
       :key="currentImageIndex"
       class="image-transition"
     />
+    <div class="inside-hero-search-wrapper main-layout">
+      <InsideHeroSearch />
+    </div>
   </section>
 </template>
 
 <script>
+import InsideHeroSearch from "./insideHeroSearch.vue";
+
 export default {
   name: "hero",
+  components: { InsideHeroSearch },
   data() {
     return {
       images: [
