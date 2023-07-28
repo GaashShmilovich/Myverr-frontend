@@ -35,12 +35,13 @@
 		border: 1px solid $clr4;
 
 		span::before {
-			transform: scaleY(-1);
+			transform: rotate(90deg);
 		}
 	}
 
 	span::before {
-		content: '↓';
+		content: '〱';
+		transform: rotate(270deg);
 		display: inline-block;
 		margin-right: 8px;
 		transition: transform 0.3s ease-in-out;
