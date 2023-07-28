@@ -2,9 +2,9 @@
   display: grid;
   grid-template-columns:
     minmax(33px, 1fr)
-    minmax(auto, 1240px)
+    minmax(auto, 1400px)
     minmax(33px, 1fr);
-  grid-template-rows: 120px 1fr 85px;
+  // grid-template-rows: 120px 1fr 85px;
   margin: 0;
   padding: 0;
 

@@ -1,8 +1,8 @@
 <template>
-  <section class="carousel-container main-layout">
+  <section class="carousel-container">
     <h2>Popular services</h2>
     <vueper-slides
-      class="no-shadow"
+      class="no-shadow carousel-slides"
       :visible-slides="5"
       slide-multiple
       :gap="3"
@@ -10,6 +10,8 @@
       :dragging-distance="200"
       :breakpoints="{ 800: { visibleSlides: 5, slideMultiple: 5 } }"
       :arrows-outside="false"
+      :bullets="false"
+      fixed-height="345px"
     >
       <vueper-slide
         v-for="(slide, i) in slides"

@@ -1,8 +1,10 @@
 <template>
   <section class="home-container main-layout">
+    <!-- <div class="homepage-layout"> -->
     <Hero />
     <StripBelowHero />
     <PopularCarousel />
+    <!-- </div> -->
   </section>
 </template>
 
