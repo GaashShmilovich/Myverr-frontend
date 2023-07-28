@@ -1,6 +1,6 @@
 <template>
   <section class="carusela">
-    <vueper-slides ref="vueperslides1" :touchable="false" fade :autoplay="false" :bullets="false"
+    <vueper-slides ref="vueperslides1" class="container" :touchable="false" fade :autoplay="false" :bullets="false"
       @slide="$refs.vueperslides2.goToSlide($event.currentSlide.index, { emit: false })">
       <!-- fixed-height="200px" -->
       <!-- fixed-width="300px" -->
@@ -42,29 +42,5 @@ export default {
 </script>
 
 <style>
-.thumbnails {
-  margin: auto;
-  width: 100%;
-  margin-top: 20px;
-}
 
-.thumbnails .vueperslide {
-  box-sizing: border-box;
-  border: 1px solid #fff;
-  transition: 0.3s ease-in-out;
-  opacity: 0.7;
-  cursor: pointer;
-}
-
-.thumbnails .vueperslide--active {
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
-  opacity: 1;
-  border-color: #000;
-}
-
-.carusela {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
 </style>

@@ -96,4 +96,14 @@
     &:hover {
         cursor: pointer;
     }
+    .btn-contact {
+        color: $clr2;
+        font-size: rem(14px);
+        font-family: macanSemibold;
+        margin-top: rem(20px);
+        margin-bottom: rem(20px);
+        border: 1px solid $clr2;
+        border-radius: rem(4px);
+        padding: 10px 24px;
+    }
 }

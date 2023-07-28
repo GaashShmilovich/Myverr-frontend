@@ -3,7 +3,9 @@
     <div class="main">
       <button @click="onDarkMode">Dark Mode</button>
       <!-- <h5 class="gig-category"> {{ gig.chosenTag }}</h5> -->
-      <h5 class="gig-category">/ logo-design / artisitic</h5>
+      <p class="gig-category">  
+        <i class="home-icon" v-html="$getSvg('home-icon')"></i> <p>/</p><p>logo-design</p>
+        <p>/</p><p>artisitic</p></p>
       <h1 class="gig-title"> {{ gig.title }}</h1>
 
       <section class="gig-owner-details">

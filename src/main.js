@@ -15,6 +15,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import './assets/styles/main.scss'
 import './assets/styles/setup/_typography.scss'
+import svgPlugin from './plugins/svgPlugin'
 import App from './App.vue'
 
 const app = createApp(App)
@@ -25,4 +26,6 @@ app.use(store)
 
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.use(ElementPlus)
+app.use(svgPlugin)
+
 app.mount('#app')

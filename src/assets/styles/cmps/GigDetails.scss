@@ -8,8 +8,15 @@
 
         // make this mov with media query //
         .gig-category {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            column-gap: rem(16px);
             font-size: rem(14px);
             color: $clr4;
+            font-family: macanRegular;
+            line-height: rem(21px);
+
         }
 
         .gig-title {
@@ -90,26 +97,9 @@
         }
 
         .gig-gallery {
-            display: flex;
-            // margin-block-start: 1em;
-            // margin-block-end: 1em;
-            // margin-inline-start: 40px;
-            // margin-inline-end: 40px;
-
-
-            img {
-                max-width: 90%;
-                max-height: 427px;
-                justify-content: center;
-                position: relative;
-                transition-duration: 0.4s, 0.4s;
-                overflow: hidden;
-
-                &:hover {
-                    cursor: pointer;
-                    scale: 1.1;
-                }
-            }
+            width: 100%;
+            height: 500px ;
+            margin-left: 0;
         }
     }
 

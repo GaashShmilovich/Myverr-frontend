@@ -25,6 +25,7 @@
         </ul>
 
         <RouterLink class="to-payment" to="/payment">Continue</RouterLink>
+
     </div>
 </template>
 
