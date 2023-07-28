@@ -1,11 +1,14 @@
 .inside-hero-container {
   display: flex;
+  flex-direction: column;
   justify-content: start;
+  align-items: start;
   z-index: 100;
-  position: sticky;
-  top: 0;
+  position: absolute;
+  //   left: 50%;
+  //   transform: translatex(-50%);
+  height: fit-content;
   color: $clr1;
-  max-width: 1174px;
 
   .search-bar-wrapper {
     z-index: 1000;

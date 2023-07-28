@@ -13,13 +13,15 @@
   </p>
 
       <ReviewRateBar />
+
       <form class="search-form" @submit.prevent="searchReview">
     <input type="text" class="input" placeholder="Search reviews" v-model="searchTxt" />
     <button type="submit" ><i class="search-icon" v-html="$getSvg('search-icon')"></i></button>
       </form>
 
-      <!-- <input @input.prevent="searchReview" class="input-form search-input" type="text" placeholder="Search reviews" v-model="searchTxt"> -->
-      <!-- <button class="fa-regular fa-magnifying-glass">search</button> -->
+      <section class="sort">
+        <p>Sort By <span>M</span></p>
+      </section>
 
       <ul class="review-list">
         <li

@@ -8,7 +8,7 @@
 			:key="currentImageIndex"
 			class="image-transition"
 		/>
-		<div class="inside-hero-search-wrapper main-layout">
+		<div class="inside-hero-search-wrapper">
 			<InsideHeroSearch />
 		</div>
 	</section>
