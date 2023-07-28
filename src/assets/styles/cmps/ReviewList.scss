@@ -1,4 +1,19 @@
+.reviews{
+    margin-top: 60px;
+    .title{
+        font-size: rem(20px);
+        font-family: macanBold;
+        margin-bottom: 16px;
+        color: $clr3;
+    }
+    .sub-title {
+        color: $clr3;
+        font-size: rem(16px);
+        font-family: macanBold;
+    }
+
 .review-list {
+    // margin-top: 40px;
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -51,4 +66,5 @@
     background-color: $blue1;
     fill: $clr1;
     color: $clr1;    
+}
 }

@@ -43,6 +43,9 @@ export default {
     userId() {
       return this.$route.params.id
     },
+    user() {
+
+    },
     isMe() {
       return this.userId === this.$store.getters.loggedinUser._id
     },

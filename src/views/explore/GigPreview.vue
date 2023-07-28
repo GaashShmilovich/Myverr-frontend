@@ -1,5 +1,5 @@
 <template>
-	<div class="gig-preview-container" @click="goToGigId">
+	<div class="gig-preview-container" @click="goToGig">
 		<div class="gig-preview">
 			<div class="gig-preview__img-container">
 				<img
@@ -46,7 +46,7 @@ export default {
 		gig: Object,
 	},
 	methods: {
-		goToGigId() {
+		goToGig() {
 			this.$router.push(`/explore/${this.gig._id}`)
 		},
 	},

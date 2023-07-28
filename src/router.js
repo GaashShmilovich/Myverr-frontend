@@ -8,6 +8,7 @@ import LoginSignup from './views/LoginSignup.vue'
 import UserDetails from './views/UserDetails.vue'
 import GigDetails from './views/GigDetails.vue'
 import GigEdit from './views/GigEdit.vue'
+import Payment from '../src/cmps/Payment.vue'
 
 const routes = [
   {
@@ -49,6 +50,11 @@ const routes = [
     path: '/user/:id',
     name: 'UserDetails',
     component: UserDetails
+  },
+  {
+    path: '/payment',
+    name: 'Payment',
+    component: Payment
   }
 ]
 

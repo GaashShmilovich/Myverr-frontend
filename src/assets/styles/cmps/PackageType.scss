@@ -1,47 +1,47 @@
 .package-type {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     border: 1px solid $clr6;
-    padding: 0 24px;
     position: sticky;
-    top: 20px;
+    margin-top: 100px;
+    top: 0;
 
     &:not(:first-child) {
         padding: 0 24px;
     }
 
     .headers {
-        display: flex;
-        justify-content: space-around;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
         font-size: rem(16px);
         font-family: macanBold;
         color: $clr5;
-        // padding: 16px;
-        // height: 26px;
-        flex-basis: 0%;
-        flex-grow: 1;
-        flex-shrink: 1;
-        border-image-width: 1;
-        > * {
+        text-align: center;
+
+        >* {
             line-height: 24px;
             padding: 16px;
             border-bottom: 1px solid $clr6;
+
             &:hover {
                 cursor: pointer;
             }
-            &:not(:first-child){
+
+            &:not(:first-child) {
                 border-left: 1px solid $clr6;
             }
         }
 
     }
+
     .picked {
         color: $green1;
         border-bottom: 3px solid #1dbf73;
     }
 
     .price {
+        padding: 20px 24px 0;
         align-items: flex-start;
         display: flex;
         flex-direction: column;
@@ -49,29 +49,51 @@
         font-family: macanBold;
         line-height: 24px;
 
-        p{
+        .save-up {
             font-family: macanRegular;
             font-size: 16px;
+
             span {
                 color: $green2;
                 font-weight: 600;
             }
         }
     }
-}
-    .to-payment {
-        display: inline-block;
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 100%;
-        padding: 12px 24px;
-        position: relative;
-        text-align: center; 
-        border-radius: 4px;
-        color: $clr1;
-        background-color: $clr7;
-        
-        &:hover {
-            cursor: pointer;
+
+    .package-descreption {
+        padding: 20px 24px 0;
+        .title {
+            font-family: macanBold;
         }
+
     }
+
+    .benefits {
+        padding: 20px 24px ;
+        font-family: macanBold;
+        display: flex;
+        justify-content: space-around;
+
+    }
+    .specials {
+        list-style: none;
+    }
+}
+
+.to-payment {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 100%;
+    margin: 18px 24px;
+    padding: 12px 24px;
+    position: relative;
+    text-align: center;
+    border-radius: 4px;
+    color: $clr1;
+    background-color: $clr7;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
