@@ -4,9 +4,10 @@ header {
   z-index: 1;
   grid-row: 1/2;
   transition: background-color 0.2s ease-out;
+  flex: 1;
 
   .search {
-    width: 250px;
+    flex: 1;
 
     &.hidden {
       display: none;
@@ -68,6 +69,7 @@ header {
   }
 
   .nav-container {
+    flex: 1;
     &.open-nav-border {
       border-bottom: 1px solid rgb(228, 229, 231);
     }
@@ -79,7 +81,7 @@ header {
       align-items: center;
       flex-basis: 100%;
       justify-content: space-between;
-      flex: 1;
+      // flex: 1;
 
       .route-container {
         display: flex;
@@ -111,11 +113,12 @@ header {
     list-style-type: none;
     font-size: rem(16px);
     font-family: macanRegular;
+    line-height: 24px;
     margin: 0;
     padding: 0;
     height: 40px;
-    // white-space: nowrap; // Prevents text from wrapping to the next line
-    flex-wrap: nowrap; // Ensures all flex items stay in a single row
+    // white-space: nowrap;
+    flex-wrap: nowrap;
     a {
       color: $clr2;
       padding: rem(8px) 0 rem(8px) 0;
