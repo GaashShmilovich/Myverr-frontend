@@ -6,23 +6,38 @@
         display: flex;
         flex-direction: column;
         color: $clr2;
-    }
-    div:not(.questions){
+        &:first-child {
+            border-top: none;
+            }
+        }
+        div:not(.questions){
+        border-top: 1px solid $clr2;
         display: flex;
         justify-content: space-between;
         width: 100%;
         margin-right: 0;
-        border-bottom: 1px solid $clr2;
         padding: rem(20px) 0;
         font-size: rem(16px);
         font-family: macanSemibold;
-
+        
         &:hover {
             cursor: pointer;
         }
     }
     
     i {
+        transition: 200ms;
         rotate: 90deg;
+    }
+    p{
+        display: none;
+    }
+    .exposed {
+        display: block;
+    }
+    .open {
+        i {
+            rotate: 270deg;
+        }
     }
 }
