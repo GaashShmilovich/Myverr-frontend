@@ -1,11 +1,14 @@
 <template>
   <section v-if="gig" class="gig-details" :class="{ darkmode: darkMode }">
     <div class="main">
+
       <button @click="onDarkMode">Dark Mode</button>
-      <!-- <h5 class="gig-category"> {{ gig.chosenTag }}</h5> -->
+
       <p class="gig-category">  
         <i class="home-icon" v-html="$getSvg('home-icon')"></i> <p>/</p><p>logo-design</p>
-        <p>/</p><p>artisitic</p></p>
+        <p>/</p><p>artisitic</p>
+      </p>
+
       <h1 class="gig-title"> {{ gig.title }}</h1>
 
       <section class="gig-owner-details">
@@ -23,7 +26,6 @@
         <p class="rate-number" :style="{ color: '#ffb33e' }">{{ gig.owner.rate }} <span>(592)</span></p>
       </section>
 
-
       <figure class="gig-gallery">
         <GigDetailsCarusela :gig="gig" />
       </figure>
@@ -32,39 +34,9 @@
       <div class="about"> {{ gig.description }}</div>
 
       <p class="title">About the seller</p>
-      <section class="about-the-seller">
-        <img :src="gig.owner.imgUrl" alt="">
-        <section class="details">
-          <span class="name">{{ gig.owner.fullname }}</span>
-          <span class="instagram">{{ gig.owner.instagram }}</span>
-          <p class="moto">{{ gig.owner?.moto }}</p>
-
-          <section class="gig-owner-rate">
-            <span v-for="i in gig.owner.rate || 1">
-              <font-awesome-icon :style="{ color: '#ffb33e' }" icon="fa-solid fa-star" />
-            </span>
-            <span class="rate-number" :style="{ color: '#ffb33e' }">{{ gig.owner.rate }} <span>(592)</span></span>
-          </section>
-
-          <button class="btn-contact">Contact Me</button>
-        </section>
-
-      </section>
-        <section class="information">
-          <section class="titles">
-            <p class="1">From <br><span>USA</span> </p>
-            <p class="2">Avg. response time <br><span>1 hour</span> </p>
-            <p class="3">Languages <br><span>English</span> </p>
-            <p class="4">Member since <br><span>Dec 2015</span> </p>
-            <p class="5">Last delivery <br><span>1 day ago</span> </p>
-          </section>
-          <p class="text">Hello! I'm an enthusiastic and creative graphic artist who
-            is passionate about Logo and Banner Design! And have many more skills!
-
-            I'm a fun loving guy who loves nature, pets and dressing up! I'm also a bit of a perfectionist!
-
-            I freelance exclusively on Fiverr!</p>
-        </section>
+      <AboutSeller :gig="gig"/>
+      
+        <FAQ />
 
       <ReviewList :reviews="gig.reviews" />
     </div>
@@ -84,6 +56,8 @@
 import ReviewList from '../cmps/ReviewList.vue'
 import PackageType from '../cmps/PackageType.vue'
 import GigDetailsCarusela from '../cmps/GigDetailsCarusela.vue'
+import FAQ from '../cmps/FAQ.vue'
+import AboutSeller from '../cmps/AboutSeller.vue'
 
 import { gigService } from '../services/gig.service.local.js'
 
@@ -122,6 +96,8 @@ export default {
     ReviewList,
     PackageType,
     GigDetailsCarusela,
+    FAQ,
+    AboutSeller,
   },
 }
 </script>
