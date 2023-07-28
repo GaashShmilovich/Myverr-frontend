@@ -1,6 +1,7 @@
 <template>
 	<div class="gig-list-container">
 		<GigFilter @filterChanged="onFilterChanged"></GigFilter>
+		<SortGigs></SortGigs>
 		<GigList :gigs="gigs"></GigList>
 	</div>
 </template>
@@ -8,6 +9,7 @@
 <script>
 import GigList from './GigList.vue'
 import GigFilter from './GigFilter.vue'
+import SortGigs from './SortGigs.vue'
 
 export default {
 	data() {
@@ -18,6 +20,7 @@ export default {
 	components: {
 		GigList,
 		GigFilter,
+		SortGigs,
 	},
 	computed: {
 		gigs() {
