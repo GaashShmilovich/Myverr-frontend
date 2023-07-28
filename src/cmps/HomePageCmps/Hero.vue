@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import InsideHeroSearch from './insideHeroSearch.vue'
+import InsideHeroSearch from './InsideHeroSearch.vue'
 
 export default {
 	name: 'hero',
