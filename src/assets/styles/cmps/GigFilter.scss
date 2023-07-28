@@ -32,7 +32,7 @@
 	transition: all 0.3s ease-in-out;
 
 	&:hover {
-		background-color: #f8f9fa;
+		border: 1px solid $clr4;
 
 		span::before {
 			transform: scaleY(-1);
@@ -47,12 +47,16 @@
 	}
 }
 
+.budget-btn.active,
+.delivery-btn.active {
+	background-color: #f5f5f5;
+}
+
 .modal {
 	display: flex;
 	flex-direction: column;
 	position: absolute;
 	top: 100%;
-	left: 50%;
 	transform: translateX(-50%);
 	background-color: white;
 	padding: 10px;
@@ -65,6 +69,24 @@
 	border-width: 0.8px;
 	box-shadow: rgba(0, 0, 0, 0.14) 0px 12px 18px 0px;
 	margin-top: 8px;
+	left: 4px;
+	transform: none;
+}
+
+.budget-modal {
+	overflow-y: scroll;
+	padding: 24px;
+	transition: all 0.24s cubic-bezier(0.215, 0.61, 0.355, 1);
+	transition-delay: 0.24s;
+	border: 0;
+	margin: 0;
+	outline: 0;
+	font-size: 14px;
+	line-height: 22px;
+	font-weight: 600;
+	height: 210px;
+	width: 310px;
+	color: $clr10;
 }
 
 .delivery-modal {
@@ -78,8 +100,12 @@
 	font-size: 14px;
 	line-height: 22px;
 	font-weight: 600;
-	height: 315px;
+	height: 300px;
 	width: 255px;
+}
+
+input::placeholder {
+	font-weight: 600;
 }
 
 .input-labels,
@@ -103,7 +129,10 @@
 	position: absolute;
 	left: 0;
 	right: 0;
-	top: 234px;
+	top: 220px;
+}
+
+.divider-budget {
 }
 
 .actions {
@@ -146,6 +175,28 @@
 
 .clear-btn:hover {
 	color: $clr5;
+}
+
+.budget-input {
+	min-height: 36px;
+	min-width: 120px;
+	transition: border-color 0.35s ease;
+	border: 1px solid #c5c6c9;
+	border-radius: 4px;
+	padding: 8px 12px;
+	box-shadow: none;
+}
+
+.budget-input:hover,
+.budget-input:focus {
+	border-color: $clr5;
+	transition: border-color 0.35s ease;
+	outline: none;
+}
+
+.budget-input:focus {
+	border-color: $clr5;
+	transition: border-color 0.35s ease;
 }
 
 .delivery-input {

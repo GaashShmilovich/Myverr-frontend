@@ -2,7 +2,11 @@
 	<section class="filter-btns-container">
 		<!-- Budget Button and Modal -->
 		<div class="filter-group">
-			<button class="budget-btn filter-btn" @click="setFilter('budget')">
+			<button
+				class="budget-btn filter-btn"
+				:class="{ active: filterBy === 'budget' }"
+				@click="setFilter('budget')"
+			>
 				Budget <span></span>
 			</button>
 			<div v-if="filterBy === 'budget'" class="modal budget-modal">
@@ -12,17 +16,19 @@
 				</div>
 				<div class="input-fields">
 					<input
+						class="budget-input"
 						type="number"
 						placeholder="Any"
 						v-model="minBudget"
 					/>
 					<input
+						class="budget-input"
 						type="number"
 						placeholder="Any"
 						v-model="maxBudget"
 					/>
 				</div>
-				<hr class="divider" />
+				<hr class="divider-budget" />
 				<div class="actions">
 					<button class="clear-btn" @click="clearBudget">
 						Clear All
@@ -38,6 +44,7 @@
 		<div class="filter-group">
 			<button
 				class="delivery-btn filter-btn"
+				:class="{ active: filterBy === 'delivery' }"
 				@click="setFilter('delivery')"
 			>
 				Delivery Time <span></span>
