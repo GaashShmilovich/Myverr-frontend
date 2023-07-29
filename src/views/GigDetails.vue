@@ -97,7 +97,6 @@ export default {
     PackageType,
     GigDetailsCarusela,
     FAQ,
-    FAQ2,
     AboutSeller,
   },
 }
