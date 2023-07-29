@@ -1,0 +1,77 @@
+.current-sort {
+	color: $clr4;
+	cursor: pointer;
+	padding: 10px 8px;
+	font-size: 1em;
+	font-weight: 600;
+	border-radius: 8px;
+}
+
+.current-sort span::before {
+	content: '〱';
+	transform: rotate(270deg);
+	display: inline-block;
+	margin-right: 8px;
+	color: $clr4;
+	cursor: pointer;
+	padding: 10px 8px;
+	font-size: 1em;
+	font-weight: 600;
+	transition: transform 0.3s ease-in-out;
+}
+
+.current-sort:hover span::before {
+	transform: rotate(90deg);
+}
+
+.current-sort:hover {
+	background-color: #f5f5f5;
+}
+
+.sort-modal-container {
+	position: absolute;
+	top: calc(35%);
+	left: 5%;
+	z-index: 10;
+	opacity: 1;
+	height: 150px;
+	width: 215px;
+	overflow-y: scroll;
+	padding: 20px;
+	transition: all 0.24s cubic-bezier(0.215, 0.61, 0.355, 1);
+	transition-delay: 0.24s;
+	border: 0;
+	margin: 0;
+	outline: 0;
+	font-size: 14px;
+	line-height: 22px;
+	font-weight: 600;
+	color: $clr2;
+	background-color: white;
+}
+
+.sort-modal-option {
+	font-size: 1.1em;
+	font-weight: 400;
+	line-height: 24px;
+	color: $clr3;
+	cursor: pointer;
+	border: 0;
+	margin: 0;
+	outline: 0;
+	margin-top: 15px;
+	width: 150px;
+	height: 35px;
+	border-radius: 4px;
+	padding: 5px;
+}
+
+.sort-modal-option:hover {
+	background-color: #4041450e;
+}
+
+.sort-modal-option.selected::before {
+	content: '\2714';
+	margin-right: 8px;
+	display: inline-block;
+}
