@@ -20,7 +20,7 @@
       </form>
       
       <div>
-      <p class="sortBy">Sort By <span class="place-holder" @click="openModal">{{ sortBy.placeHolder }}</span><span :class="{ 'arrow-up': sortBy.isOpen, 'arrow-down': !sortBy.isOpen }" v-html="$getSvg('arrow-down')"></span></p>  
+      <p class="sortBy">Sort By <span class="place-holder" @click="openModal">{{ sortBy.placeHolder }}</span><span :class="{ 'arrow-up': sortBy.isOpen, 'arrow-down': !sortBy.isOpen }" v-html="$getSvg('arrow-down')"  @click="openModal"></span></p>  
       <p class="sortByModal" :class="{'hidden': !sortBy.isOpen}">
       <a @click="setSort('Most recent')"><i :class="{'hidden': sortBy.placeHolder !== 'Most recent'}" class="v-check" v-html="$getSvg('v-check')"></i>Most recent</a>
       <a @click="setSort('Highest rate')"><i :class="{'hidden': sortBy.placeHolder !== 'Highest rate'}" class="v-check" v-html="$getSvg('v-check')"></i>Highest rate</a>

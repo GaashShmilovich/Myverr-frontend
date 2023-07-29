@@ -99,7 +99,7 @@ function getEmptyGig() {
 	}
 }
 
-// Initial data
+
 // ;(async () => {
 // 	await storageService.post(STORAGE_KEY, {
 // 		_id: 'i101',
@@ -413,7 +413,7 @@ function getEmptyGig() {
 // 				isOpen: false,
 // 			},
 // 		],
-// 		likedByUsers: ['user-z', 'user-x'],
+// 		likedByUsers: ['mini-user'],
 // 		reviews: [
 // 			{
 // 				id: utilService.makeId(),

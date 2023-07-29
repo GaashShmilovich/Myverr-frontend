@@ -19,7 +19,7 @@
 
         <section class="gig-owner-rate">
           <span v-for="i in gig.owner.rate || 1">
-            <font-awesome-icon :style="{ color: '#ffb33e' }" icon="fa-solid fa-star" />
+            <font-awesome-icon class="yellow" icon="fa-solid fa-star" />
           </span>
         </section>
 

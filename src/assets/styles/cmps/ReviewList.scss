@@ -67,11 +67,6 @@
             font-weight: 400;
         }
     }
-    // .sortBy {
-    //     display: flex;
-    //     align-content: space-around;
-    //     justify-content: space-between;
-    // }
 
     .sortByModal {
         display: flex;
@@ -125,8 +120,15 @@
     .hidden {
         display: none;
     }
+    .sortBy {
+        color: $clr3;
+        font-size: rem(16px);
+        font-family: macanRegular;
+    }
     .place-holder {
-        font-family: macanBold;
+        font-family: macanSemibold;
+        font-size: rem(16px);
+        color: $clr3;
         margin-right: 10px;
         &:hover {
             cursor: pointer;
