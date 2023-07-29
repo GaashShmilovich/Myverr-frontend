@@ -13,18 +13,40 @@ export const gigService = {
 }
 window.cs = gigService
 
-async function query(filterBy) {
+async function query(filterBy, sortBy) {
 	var gigs = await storageService.query(STORAGE_KEY)
-	if (gigs && filterBy && filterBy.type === 'budget') {
-		gigs = gigs.filter((gig) => {
-			return gig.price >= filterBy.min && gig.price <= filterBy.max
+
+	if (gigs && filterBy) {
+		if (filterBy.type === 'budget') {
+			gigs = gigs.filter((gig) => {
+				return gig.price >= filterBy.min && gig.price <= filterBy.max
+			})
+		}
+		if (filterBy.type === 'delivery') {
+			gigs = gigs.filter((gig) => {
+				return gig.daysToMake <= filterBy.delivery
+			})
+		}
+	}
+
+	if (gigs && sortBy === 'Highest Rating') {
+		gigs = gigs.sort((a, b) => {
+			const avgRatingA =
+				a.reviews.reduce((acc, review) => acc + review.rate, 0) /
+				a.reviews.length
+			const avgRatingB =
+				b.reviews.reduce((acc, review) => acc + review.rate, 0) /
+				b.reviews.length
+			return avgRatingB - avgRatingA
 		})
 	}
-	if (gigs && filterBy && filterBy.type === 'delivery') {
-		gigs = gigs.filter((gig) => {
-			return gig.daysToMake <= filterBy.delivery
+
+	if (gigs && sortBy === 'Most Reviews') {
+		gigs = gigs.sort((a, b) => {
+			return b.reviews.length - a.reviews.length
 		})
 	}
+
 	return gigs
 }
 
@@ -93,7 +115,7 @@ function getEmptyGig() {
 }
 
 // Initial data
-// ; (async () => {
+// ;(async () => {
 // 	await storageService.post(STORAGE_KEY, {
 // 		_id: 'i101',
 // 		title: 'I will design your logo',
@@ -121,8 +143,18 @@ function getEmptyGig() {
 // 		],
 // 		tags: ['logo-design', 'artisitic', 'proffesional', 'accessible'],
 // 		chosenTag: '',
-// 		faqs: [{ question: "Why is a logo so important?", answer: "Every business has a logo to represent its values and attributes in the market and public. But not all the logos are capable of taking the business effectively to the people. Design of a logo usually plays a major role in the marketing of an organization and its business in the competitive market.", isOpen: false },
-// 		{ question: "What you can expect from working with me?", answer: "I am obsessed with helping businesses find their visual voice! My approach goes beyond aesthetics, shapes, and colors... and starts with a clear understanding of your business, the competitive landscape, and the vision you have for your product.", isOpen: false }],
+// 		faqs: [
+// 			{
+// 				question: 'Why is a logo so important?',
+// 				answer: 'Every business has a logo to represent its values and attributes in the market and public. But not all the logos are capable of taking the business effectively to the people. Design of a logo usually plays a major role in the marketing of an organization and its business in the competitive market.',
+// 				isOpen: false,
+// 			},
+// 			{
+// 				question: 'What you can expect from working with me?',
+// 				answer: 'I am obsessed with helping businesses find their visual voice! My approach goes beyond aesthetics, shapes, and colors... and starts with a clear understanding of your business, the competitive landscape, and the vision you have for your product.',
+// 				isOpen: false,
+// 			},
+// 		],
 // 		likedByUsers: ['mini-user'],
 // 		reviews: [
 // 			{
@@ -178,8 +210,18 @@ function getEmptyGig() {
 // 		],
 // 		tags: ['artisitic', 'proffesional'],
 // 		chosenTag: '',
-// 		faqs: [{ question: "Do you work with other different styles?", answer: "Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.", isOpen: false },
-// 		{ question: "What do i need to get started?", answer: "It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.", isOpen: false }],
+// 		faqs: [
+// 			{
+// 				question: 'Do you work with other different styles?',
+// 				answer: 'Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.',
+// 				isOpen: false,
+// 			},
+// 			{
+// 				question: 'What do i need to get started?',
+// 				answer: 'It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.',
+// 				isOpen: false,
+// 			},
+// 		],
 // 		likedByUsers: ['mini-user'],
 // 		reviews: [
 // 			{
@@ -208,63 +250,6 @@ function getEmptyGig() {
 // 			},
 // 		],
 // 	}),
-// 		await storageService.post(STORAGE_KEY, {
-// 			_id: 'i102',
-// 			title: 'I will develop a responsive website for you',
-// 			price: 25,
-// 			owner: {
-// 				_id: 'u103',
-// 				fullname: 'Sara Lynn',
-// 				moto: 'Code like you mean it!',
-// 				instagram: '@SaraWebDev',
-// 				imgUrl: 'https://res.cloudinary.com/djm30uwim/image/upload/v1690559779/user_profiles/alqve5asx2kfyuayqccx.jpg',
-// 				level: 'premium',
-// 				rate: 5,
-// 				country: 'USA',
-// 				language: ['English', 'Spanish'],
-// 				since: 'January 2022',
-// 				lastDelivery: '2 hours ago',
-// 				averageResponse: '30 minutes',
-// 				about: "I'm Sara, a passionate web developer with over 5 years of experience. I specialize in creating modern, interactive, and responsive web applications. I've had the privilege to work with numerous clients globally, ensuring their web presence is top-notch. Looking forward to assisting you!",
-// 			},
-// 			daysToMake: 5,
-// 			description:
-// 				'I will design and develop a responsive website tailored to your needs. I specialize in HTML, CSS, and JavaScript, ensuring your website is fast, user-friendly, and looks great on all devices. Services include: Custom design, Mobile responsive, SEO optimized, Speed optimization, and more! Deliverable files will be the whole web project and documentation. I provide unlimited revisions to guarantee 100% satisfaction.',
-// 			imgUrls: [
-// 				'https://res.cloudinary.com/djm30uwim/image/upload/v1690559804/freelancer_profiles/uxvw06fxoyglddjlmiwt.jpg',
-// 			],
-// 			tags: ['web-design', 'responsive', 'modern', 'interactive'],
-// 			chosenTag: '',
-// 			faqs: [{ question: "Do you work with other different styles?", answer: "Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.", isOpen: false },
-// 			{ question: "What do i need to get started?", answer: "It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.", isOpen: false }],
-// 			likedByUsers: ['some-user'],
-// 			reviews: [
-// 				{
-// 					id: utilService.makeId(),
-// 					txt: 'Outstanding experience. Love the design!',
-// 					rate: 5,
-// 					createdAt: new Date(),
-// 					by: {
-// 						_id: 'u104',
-// 						fullname: 'Michael Scott',
-// 						imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/sampleimg_michaelscott.jpg',
-// 						country: 'USA',
-// 					},
-// 				},
-// 				{
-// 					id: utilService.makeId(),
-// 					txt: 'Sara was prompt and delivered exactly what I wanted.',
-// 					rate: 4,
-// 					createdAt: new Date(),
-// 					by: {
-// 						_id: 'u105',
-// 						fullname: 'Pam Beesly',
-// 						imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/sampleimg_pambeesly.jpg',
-// 						country: 'USA',
-// 					},
-// 				},
-// 			],
-// 		}),
 // 		await storageService.post(STORAGE_KEY, {
 // 			_id: 'i103',
 // 			title: 'I will create professional video animations',
@@ -297,9 +282,19 @@ function getEmptyGig() {
 // 				'custom-graphics',
 // 			],
 // 			chosenTag: '',
-// 			faqs: [{ question: "Do you work with other different styles?", answer: "Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.", isOpen: false },
-// 		{ question: "What do i need to get started?", answer: "It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.", isOpen: false }],
-// 		likedByUsers: ['user-x'],
+// 			faqs: [
+// 				{
+// 					question: 'Do you work with other different styles?',
+// 					answer: 'Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.',
+// 					isOpen: false,
+// 				},
+// 				{
+// 					question: 'What do i need to get started?',
+// 					answer: 'It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.',
+// 					isOpen: false,
+// 				},
+// 			],
+// 			likedByUsers: ['user-x'],
 // 			reviews: [
 // 				{
 // 					id: utilService.makeId(),
@@ -354,8 +349,18 @@ function getEmptyGig() {
 // 		],
 // 		tags: ['content-writing', 'blog-post', 'SEO-optimized', 'researched'],
 // 		chosenTag: '',
-// 		faqs: [{ question: "Do you work with other different styles?", answer: "Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.", isOpen: false },
-// 		{ question: "What do i need to get started?", answer: "It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.", isOpen: false }],
+// 		faqs: [
+// 			{
+// 				question: 'Do you work with other different styles?',
+// 				answer: 'Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.',
+// 				isOpen: false,
+// 			},
+// 			{
+// 				question: 'What do i need to get started?',
+// 				answer: 'It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.',
+// 				isOpen: false,
+// 			},
+// 		],
 // 		likedByUsers: ['user-y'],
 // 		reviews: [
 // 			{
@@ -411,8 +416,18 @@ function getEmptyGig() {
 // 		],
 // 		tags: ['UI-design', 'UX-design', 'web-app', 'responsive'],
 // 		chosenTag: '',
-// 		faqs: [{ question: "Do you work with other different styles?", answer: "Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.", isOpen: false },
-// 		{ question: "What do i need to get started?", answer: "It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.", isOpen: false }],
+// 		faqs: [
+// 			{
+// 				question: 'Do you work with other different styles?',
+// 				answer: 'Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.',
+// 				isOpen: false,
+// 			},
+// 			{
+// 				question: 'What do i need to get started?',
+// 				answer: 'It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.',
+// 				isOpen: false,
+// 			},
+// 		],
 // 		likedByUsers: ['user-z', 'user-x'],
 // 		reviews: [
 // 			{
@@ -462,8 +477,18 @@ function getEmptyGig() {
 // 			'web-development',
 // 		],
 // 		chosenTag: '',
-// 		faqs: [{ question: "Do you work with other different styles?", answer: "Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.", isOpen: false },
-// 		{ question: "What do i need to get started?", answer: "It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.", isOpen: false }],
+// 		faqs: [
+// 			{
+// 				question: 'Do you work with other different styles?',
+// 				answer: 'Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.',
+// 				isOpen: false,
+// 			},
+// 			{
+// 				question: 'What do i need to get started?',
+// 				answer: 'It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.',
+// 				isOpen: false,
+// 			},
+// 		],
 // 		likedByUsers: ['user-y'],
 // 		reviews: [
 // 			{
@@ -480,52 +505,6 @@ function getEmptyGig() {
 // 			},
 // 		],
 // 	})
-// 	await storageService.post(STORAGE_KEY, {
-// 		_id: 'i107',
-// 		title: 'I will illustrate character designs for your project',
-// 		price: 60,
-// 		owner: {
-// 			_id: 'u116',
-// 			fullname: 'Maya Suzuki',
-// 			moto: 'Bringing characters to life.',
-// 			instagram: '@MayaSketches',
-// 			imgUrl: 'https://res.cloudinary.com/djm30uwim/image/upload/v1690559772/user_profiles/o7ggpfze9ygyrxic7qxz.jpg',
-// 			level: 'premium',
-// 			rate: 5,
-// 			country: 'Japan',
-// 			language: ['English', 'Japanese'],
-// 			since: 'March 2020',
-// 			lastDelivery: '1 week ago',
-// 			averageResponse: '3 hours',
-// 			about: "Professional illustrator with a specialization in character design. From whimsical to realistic, I've got you covered.",
-// 		},
-// 		daysToMake: 5,
-// 		description:
-// 			'Offering character design services for your game, book, or animation. I provide sketches, line art, and colored illustrations.',
-// 		imgUrls: [
-// 			'https://res.cloudinary.com/djm30uwim/image/upload/v1690559802/freelancer_profiles/zrse8ht8zhf4m7a1amsd.jpg',
-// 		],
-// 		tags: ['illustration', 'character-design', 'sketch', 'coloring'],
-// 		chosenTag: '',
-// 		faqs: [{ question: "Do you work with other different styles?", answer: "Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.", isOpen: false },
-// 		{ question: "What do i need to get started?", answer: "It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.", isOpen: false }],
-// 		likedByUsers: ['user-a', 'user-b'],
-// 		reviews: [
-// 			{
-// 				id: utilService.makeId(),
-// 				txt: 'Amazing designs! Maya captured my vision perfectly.',
-// 				rate: 5,
-// 				createdAt: new Date(),
-// 				by: {
-// 					_id: 'u117',
-// 					fullname: 'Diego Garcia',
-// 					imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_original/q_auto,f_auto/attachments/profile/photo/sampleimg_diegogarcia.jpg',
-// 					country: 'Mexico',
-// 				},
-// 			},
-// 		],
-// 	})
-
 // 	await storageService.post(STORAGE_KEY, {
 // 		_id: 'i108',
 // 		title: 'I will mix and master your music track to perfection',
@@ -553,8 +532,18 @@ function getEmptyGig() {
 // 		],
 // 		tags: ['mixing', 'mastering', 'music-production', 'sound-engineering'],
 // 		chosenTag: '',
-// 		faqs: [{ question: "Do you work with other different styles?", answer: "Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.", isOpen: false },
-// 		{ question: "What do i need to get started?", answer: "It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.", isOpen: false }],
+// 		faqs: [
+// 			{
+// 				question: 'Do you work with other different styles?',
+// 				answer: 'Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.',
+// 				isOpen: false,
+// 			},
+// 			{
+// 				question: 'What do i need to get started?',
+// 				answer: 'It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.',
+// 				isOpen: false,
+// 			},
+// 		],
 // 		likedByUsers: ['user-c'],
 // 		reviews: [
 // 			{
@@ -567,97 +556,6 @@ function getEmptyGig() {
 // 					fullname: 'Khalid Al-Farouq',
 // 					imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_original/q_auto,f_auto/attachments/profile/photo/sampleimg_khalidalfarouq.jpg',
 // 					country: 'UAE',
-// 				},
-// 			},
-// 		],
-// 	}),
-// 		await storageService.post(STORAGE_KEY, {
-// 			_id: 'i109',
-// 			title: 'I will write captivating content for your blog or website',
-// 			price: 25,
-// 			owner: {
-// 				_id: 'u120',
-// 				fullname: 'Nina Bergman',
-// 				moto: 'Words that engage and inspire.',
-// 				instagram: '@NinaWrites',
-// 				imgUrl: 'https://res.cloudinary.com/djm30uwim/image/upload/v1690559771/user_profiles/sid0pxxyxl7v4tozocje.jpg',
-// 				level: 'premium',
-// 				rate: 4.7,
-// 				country: 'Canada',
-// 				language: ['English', 'French'],
-// 				since: 'June 2019',
-// 				lastDelivery: '1 day ago',
-// 				averageResponse: '2 hours',
-// 				about: 'Experienced content writer with a knack for crafting compelling stories and informative articles.',
-// 			},
-// 			daysToMake: 2,
-// 			description:
-// 				'From blog posts to website content, I provide writing services that are SEO-friendly and tailored to your audience.',
-// 			imgUrls: [
-// 				'https://res.cloudinary.com/djm30uwim/image/upload/v1690559802/freelancer_profiles/zrse8ht8zhf4m7a1amsd.jpg',
-// 			],
-// 			tags: ['writing', 'content-creation', 'blogging', 'seo'],
-// 			chosenTag: '',
-// 			faqs: [{ question: "Do you work with other different styles?", answer: "Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.", isOpen: false },
-// 		{ question: "What do i need to get started?", answer: "It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.", isOpen: false }],
-// 		likedByUsers: ['user-d', 'user-e'],
-// 			reviews: [
-// 				{
-// 					id: utilService.makeId(),
-// 					txt: "Nina's articles always keep my audience engaged.",
-// 					rate: 5,
-// 					createdAt: new Date(),
-// 					by: {
-// 						_id: 'u121',
-// 						fullname: 'Ricardo Santos',
-// 						imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_original/q_auto,f_auto/attachments/profile/photo/sampleimg_ricardosantos.jpg',
-// 						country: 'Portugal',
-// 					},
-// 				},
-// 			],
-// 		})
-
-// 	await storageService.post(STORAGE_KEY, {
-// 		_id: 'i110',
-// 		title: 'I will create an animated explainer video for your product',
-// 		price: 150,
-// 		owner: {
-// 			_id: 'u122',
-// 			fullname: 'Samira Khan',
-// 			moto: 'Bringing ideas to life through animation.',
-// 			instagram: '@SamiraAnimations',
-// 			imgUrl: 'https://res.cloudinary.com/djm30uwim/image/upload/v1690559771/user_profiles/qtgqmydgbd4xoccczqu3.jpg',
-// 			level: 'premium',
-// 			rate: 4.9,
-// 			country: 'India',
-// 			language: ['English', 'Hindi'],
-// 			since: 'February 2020',
-// 			lastDelivery: '5 days ago',
-// 			averageResponse: '12 hours',
-// 			about: 'Dedicated animator with a love for storytelling. I can help convey your message through captivating animations.',
-// 		},
-// 		daysToMake: 7,
-// 		description:
-// 			'I create high-quality explainer videos to highlight the features and benefits of your product or service.',
-// 		imgUrls: [
-// 			'https://res.cloudinary.com/djm30uwim/image/upload/v1690559802/freelancer_profiles/zrse8ht8zhf4m7a1amsd.jpg',
-// 		],
-// 		tags: ['animation', 'explainer-video', 'motion-graphics', 'storytelling'],
-// 		chosenTag: '',
-// 		faqs: [{ question: "Do you work with other different styles?", answer: "Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.", isOpen: false },
-// 		{ question: "What do i need to get started?", answer: "It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.", isOpen: false }],
-// 		likedByUsers: ['user-f'],
-// 		reviews: [
-// 			{
-// 				id: utilService.makeId(),
-// 				txt: "Samira's animation skills are top-notch. The video was exactly what we needed.",
-// 				rate: 4.8,
-// 				createdAt: new Date(),
-// 				by: {
-// 					_id: 'u123',
-// 					fullname: 'Li Wei',
-// 					imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_original/q_auto,f_auto/attachments/profile/photo/sampleimg_liwei.jpg',
-// 					country: 'China',
 // 				},
 // 			},
 // 		],
@@ -689,9 +587,19 @@ function getEmptyGig() {
 // 			],
 // 			tags: ['social-media', 'management', 'marketing', 'branding'],
 // 			chosenTag: '',
-// 			faqs: [{ question: "Do you work with other different styles?", answer: "Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.", isOpen: false },
-// 		{ question: "What do i need to get started?", answer: "It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.", isOpen: false }],
-// 		likedByUsers: [],
+// 			faqs: [
+// 				{
+// 					question: 'Do you work with other different styles?',
+// 					answer: 'Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.',
+// 					isOpen: false,
+// 				},
+// 				{
+// 					question: 'What do i need to get started?',
+// 					answer: 'It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.',
+// 					isOpen: false,
+// 				},
+// 			],
+// 			likedByUsers: [],
 // 			reviews: [
 // 				{
 // 					id: utilService.makeId(),
@@ -703,18 +611,6 @@ function getEmptyGig() {
 // 						fullname: 'Carlos Herrera',
 // 						imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_original/q_auto,f_auto/attachments/profile/photo/sampleimg_carlosherrera.jpg',
 // 						country: 'Spain',
-// 					},
-// 				},
-// 				{
-// 					id: utilService.makeId(),
-// 					txt: 'Worst experience on Fiverr. Not recommended at all.',
-// 					rate: 1.5,
-// 					createdAt: new Date(),
-// 					by: {
-// 						_id: 'u126',
-// 						fullname: 'Elise Lambert',
-// 						imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_original/q_auto,f_auto/attachments/profile/photo/sampleimg_eliselambert.jpg',
-// 						country: 'France',
 // 					},
 // 				},
 // 				{
@@ -758,9 +654,19 @@ function getEmptyGig() {
 // 			],
 // 			tags: ['graphic-design', 'branding', 'visuals', 'artistry'],
 // 			chosenTag: '',
-// 			faqs: [{ question: "Do you work with other different styles?", answer: "Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.", isOpen: false },
-// 		{ question: "What do i need to get started?", answer: "It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.", isOpen: false }],
-// 		likedByUsers: ['user-g', 'user-h'],
+// 			faqs: [
+// 				{
+// 					question: 'Do you work with other different styles?',
+// 					answer: 'Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.',
+// 					isOpen: false,
+// 				},
+// 				{
+// 					question: 'What do i need to get started?',
+// 					answer: 'It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.',
+// 					isOpen: false,
+// 				},
+// 			],
+// 			likedByUsers: ['user-g', 'user-h'],
 // 			reviews: [
 // 				{
 // 					id: utilService.makeId(),
@@ -804,8 +710,18 @@ function getEmptyGig() {
 // 		],
 // 		tags: ['nodejs', 'backend', 'optimization', 'performance'],
 // 		chosenTag: '',
-// 		faqs: [{ question: "Do you work with other different styles?", answer: "Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.", isOpen: false },
-// 		{ question: "What do i need to get started?", answer: "It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.", isOpen: false }],
+// 		faqs: [
+// 			{
+// 				question: 'Do you work with other different styles?',
+// 				answer: 'Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.',
+// 				isOpen: false,
+// 			},
+// 			{
+// 				question: 'What do i need to get started?',
+// 				answer: 'It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.',
+// 				isOpen: false,
+// 			},
+// 		],
 // 		likedByUsers: ['user-i', 'user-j'],
 // 		reviews: [
 // 			{
@@ -834,7 +750,6 @@ function getEmptyGig() {
 // 			},
 // 		],
 // 	})
-
 // })()
 
 const gig = {
@@ -861,9 +776,19 @@ const gig = {
 	imgUrls: [''],
 	tags: ['logo-design', 'artisitic', 'proffesional', 'accessible'],
 	chosenTag: '',
-	faqs: [{ question: "Do you work with other different styles?", answer: "Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.", isOpen: false },
-		{ question: "What do i need to get started?", answer: "It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.", isOpen: false }],
-		likedByUsers: ['mini-user'],
+	faqs: [
+		{
+			question: 'Do you work with other different styles?',
+			answer: 'Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.',
+			isOpen: false,
+		},
+		{
+			question: 'What do i need to get started?',
+			answer: 'It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.',
+			isOpen: false,
+		},
+	],
+	likedByUsers: ['mini-user'],
 	reviews: [
 		{
 			id: utilService.makeId(),

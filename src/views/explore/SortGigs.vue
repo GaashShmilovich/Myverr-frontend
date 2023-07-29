@@ -1,8 +1,18 @@
 <template>
 	<div class="gig-sort-container">
-		<div class="sort-by-container" @click="showModal = !showModal">
-			<span>Sort by: {{ currentSort }}</span>
-			<span class="sort-arrow"> 〱</span>
+		<div class="sort-by-container">
+			<span>Sort by:</span>
+			<span class="current-sort" @click="showModal = !showModal"
+				>{{ currentSort }}<span> </span
+			></span>
+		</div>
+		<div v-if="showModal" class="sort-modal-container">
+			<div class="sort-modal-option" @click="setSort('Highest Rating')">
+				Highest Rating
+			</div>
+			<div class="sort-modal-option" @click="setSort('Most Reviews')">
+				Most Reviews
+			</div>
 		</div>
 	</div>
 </template>
@@ -11,11 +21,16 @@
 export default {
 	data() {
 		return {
-			currentSort: 'Best Selling',
+			currentSort: 'Highest Rating',
+			showModal: false,
 		}
 	},
 	methods: {
-		changeSort(sortType) {},
+		setSort(sortType) {
+			this.currentSort = sortType
+			this.showModal = false
+			this.$emit('sortChanged', sortType)
+		},
 	},
 }
 </script>

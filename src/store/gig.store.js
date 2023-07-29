@@ -92,9 +92,9 @@ export const gigStore = {
 				throw err
 			}
 		},
-		async loadGigs(context, { filterBy } = {}) {
+		async loadGigs(context, { filterBy, sortBy = 'Highest Rating' }) {
 			try {
-				const gigs = await gigService.query(filterBy)
+				const gigs = await gigService.query(filterBy, sortBy)
 				context.commit({ type: 'setGigs', gigs })
 			} catch (err) {
 				console.log('gigStore: Error in loadGigs', err)

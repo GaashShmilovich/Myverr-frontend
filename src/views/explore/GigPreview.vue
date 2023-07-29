@@ -25,7 +25,7 @@
 				</div>
 				<h4 class="gig-preview__title">{{ gig.title }}</h4>
 				<p v-if="gig.owner" class="gig-preview-rate">
-					⭐{{ gig.owner.rate }}
+					⭐ {{ avgRating }}
 					<span>({{ gig.reviews.length }})</span>
 				</p>
 				<hr />
@@ -48,6 +48,15 @@ export default {
 	methods: {
 		goToGig() {
 			this.$router.push(`/explore/${this.gig._id}`)
+		},
+	},
+	computed: {
+		avgRating() {
+			if (!this.gig.reviews.length) return 0
+			const totalRating = this.gig.reviews.reduce((acc, review) => {
+				return acc + review.rate
+			}, 0)
+			return (totalRating / this.gig.reviews.length).toFixed(2)
 		},
 	},
 }
