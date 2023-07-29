@@ -1,0 +1,54 @@
+.best-part-wrapper {
+  margin-block-end: rem(95px);
+  padding: rem(96px) rem(32px);
+  background-color: $green3;
+  height: rem(730px);
+}
+
+.best-part-container {
+  display: flex;
+  background-color: $green3;
+  .selling-video {
+    display: flex;
+    align-items: center;
+    img {
+      width: rem(580px);
+    }
+  }
+  .selling-text {
+    padding-inline-end: 11%;
+    max-width: 46.6667%;
+    p {
+      margin: 0;
+    }
+    h2 {
+      font-family: macanBold;
+      font-size: rem(32px);
+      color: $clr3;
+      line-height: rem(38px);
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      li {
+        padding-block-end: rem(24px);
+        &:last-of-type {
+          padding-block-end: 0;
+        }
+      }
+    }
+    h6 {
+      display: flex;
+      gap: rem(8px);
+      align-items: center;
+      font-family: macanBold;
+      font-size: rem(18px);
+      color: $clr3;
+      span {
+        fill: $clr5;
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}

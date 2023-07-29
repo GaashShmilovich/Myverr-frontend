@@ -1,26 +1,90 @@
 .inside-hero-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: start;
-  z-index: 100;
+  //   display: flex;
+  grid-column: 2 / 3;
+  width: rem(650px);
+  width: 650px;
   position: absolute;
-  //   left: 50%;
-  //   transform: translatex(-50%);
-  height: fit-content;
-  color: $clr1;
-
+  top: 44%;
+  transform: translateY(-50%);
+  z-index: 100;
   .search-bar-wrapper {
     z-index: 1000;
+    margin-bottom: 1rem; /* Add some spacing between the lines of text */
+    margin-inline-start: 0;
+  }
+  .lines {
+    width: 100%;
+    max-width: rem(600px); /* Set the maximum width for the lines container */
+    align-items: center;
+
+    .first-line {
+      padding-block-end: 0;
+    }
+
+    h1 {
+      color: #fff;
+      font-family: macanBold;
+      font-size: rem(48px);
+      width: auto;
+      margin: 0;
+      padding-block-end: rem(24px);
+      line-height: rem(56px);
+      @media (max-width: 1160px) {
+        font-size: rem(40px);
+      }
+    }
+
+    i {
+      font-family: domainDisplay;
+      font-size: rem(48px);
+    }
   }
 
-  h1 {
-    font-family: macanBold;
-    font-size: rem(48px);
+  .popular {
+    // display: flex;
+    font-family: macanSemibold;
+    font-size: rem(14px);
+    grid-column: 2/ 3;
+    color: $clr1;
+
+    ul {
+      display: flex;
+      list-style-type: none;
+      justify-content: center;
+      align-items: center;
+    }
+    li {
+      transition: all 0.2s ease-in-out;
+      margin-inline-end: rem(12px);
+      border: 1px solid $clr1;
+      border-radius: 15px;
+      padding: 1px 10px 0 10px;
+      cursor: pointer;
+      &:hover {
+        color: #404145;
+        background-color: white;
+      }
+    }
   }
 
-  i {
-    font-family: domainDisplay;
-    font-size: rem(48px);
+  .search-bar-wrapper {
+    .search-form {
+      margin-inline: 0;
+      input {
+        height: rem(48px);
+        width: auto;
+        border: none;
+      }
+      button {
+        height: rem(48px);
+        width: rem(66px);
+        background-color: $green1;
+        fill: $clr1;
+        border: none;
+        &:hover {
+          background-color: $green4;
+        }
+      }
+    }
   }
 }

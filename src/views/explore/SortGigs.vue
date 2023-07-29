@@ -2,15 +2,27 @@
 	<div class="gig-sort-container">
 		<div class="sort-by-container">
 			<span>Sort by:</span>
-			<span class="current-sort" @click="showModal = !showModal"
-				>{{ currentSort }}<span> </span
-			></span>
+			<span class="current-sort" @click="showModal = !showModal">
+				{{ currentSort }}<span> </span>
+			</span>
 		</div>
 		<div v-if="showModal" class="sort-modal-container">
-			<div class="sort-modal-option" @click="setSort('Highest Rating')">
+			<div
+				:class="[
+					'sort-modal-option',
+					{ selected: currentSort === 'Highest Rating' },
+				]"
+				@click="setSort('Highest Rating')"
+			>
 				Highest Rating
 			</div>
-			<div class="sort-modal-option" @click="setSort('Most Reviews')">
+			<div
+				:class="[
+					'sort-modal-option',
+					{ selected: currentSort === 'Most Reviews' },
+				]"
+				@click="setSort('Most Reviews')"
+			>
 				Most Reviews
 			</div>
 		</div>

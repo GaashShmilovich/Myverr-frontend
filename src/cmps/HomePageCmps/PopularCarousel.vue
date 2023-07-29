@@ -27,7 +27,7 @@ import { VueperSlides, VueperSlide } from "vueperslides";
 import "vueperslides/dist/vueperslides.css";
 
 export default {
-  name: "strip",
+  name: "carousel",
   components: {
     VueperSlides,
     VueperSlide,

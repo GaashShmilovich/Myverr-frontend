@@ -4,8 +4,12 @@
 
   .vueperslide {
     border-radius: 4px;
+    transition: all 0.2s ease-in-out;
     // height: 345px;
     width: 240px;
+    &:hover {
+      filter: brightness(1.2);
+    }
   }
   /* Style the arrow icon */
   svg {
