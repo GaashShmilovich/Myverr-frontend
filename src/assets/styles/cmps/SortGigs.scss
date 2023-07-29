@@ -1,3 +1,10 @@
+.gig-sort-container {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
 .current-sort {
 	color: $clr4;
 	cursor: pointer;
@@ -30,13 +37,12 @@
 
 .sort-modal-container {
 	position: absolute;
-	top: calc(35%);
-	left: 5%;
+	top: 100%;
+	right: 0;
 	z-index: 10;
 	opacity: 1;
-	height: 150px;
+	height: 110px;
 	width: 215px;
-	overflow-y: scroll;
 	padding: 20px;
 	transition: all 0.24s cubic-bezier(0.215, 0.61, 0.355, 1);
 	transition-delay: 0.24s;
@@ -48,6 +54,12 @@
 	font-weight: 600;
 	color: $clr2;
 	background-color: white;
+	box-shadow: rgba(0, 0, 0, 0.14) 0px 12px 18px 0px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	border-radius: 8px;
 }
 
 .sort-modal-option {
@@ -59,8 +71,8 @@
 	border: 0;
 	margin: 0;
 	outline: 0;
-	margin-top: 15px;
-	width: 150px;
+	margin: 5px;
+	width: 180px;
 	height: 35px;
 	border-radius: 4px;
 	padding: 5px;
@@ -70,8 +82,13 @@
 	background-color: #4041450e;
 }
 
-.sort-modal-option.selected::before {
-	content: '\2714';
-	margin-right: 8px;
+.sort-modal-option::before {
+	content: '\00a0'; /* Non-breaking space */
 	display: inline-block;
+	width: 14px; /* Width of checkmark */
+}
+
+.sort-modal-option.selected::before {
+	content: '\2714'; /* Checkmark */
+	margin-right: 1px;
 }
