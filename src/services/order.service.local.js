@@ -10,6 +10,7 @@ export const orderService = {
     save,
     remove,
     getEmptyOrder,
+    add
 }
 window.cs = orderService
 
@@ -59,9 +60,14 @@ async function addOrderMsg(orderId, txt) {
     return msg
 }
 
+function add(order) {
+    orders.push(order)
+}
+
 function getEmptyOrder() {
     return {
-        _id: '',
+        _id: utilService.makeId(),
+        createdAt: new Date(),
         buyer: '',
         seller: '',
         gig: {},
@@ -79,11 +85,11 @@ function getEmptyOrder() {
 
 
 
-// const orders = [
-//     {"_id": "o1225",
-//     "buyer": "mini-user",
-//     "seller": "mini-user",
-//     "gig": {"_id": "i101","name": "Design Logo","imgUrl": "","price": 20},
-//     "status": "pending"}
-//   ]
+const orders = [
+    {"_id": "o1225",
+    "buyer": "mini-user",
+    "seller": "mini-user",
+    "gig": {"_id": "i101","name": "Design Logo","imgUrl": "","price": 20},
+    "status": "pending"}
+  ]
   

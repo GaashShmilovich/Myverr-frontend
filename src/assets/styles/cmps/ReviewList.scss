@@ -68,5 +68,47 @@
         }
     }
 
+    .sortByModal {
+        display: flex;
+        flex-direction: column;
+        border-radius: 4px;
+        border: 1px solid $clr11;
+        color: $clr2;
+        font-size: rem(16px);
+        line-height: rem(24px);
+        padding: 8px 0;
+        height: min-content;
+        width: rem(170px);
+        margin-left: 65px ;
+        position: absolute;
+        background-color: $clr1;
+        transition: 1500ms;
+        a {
+            padding: 13px 30px 13px 15px;
+            text-align: center;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        .v-check{
+            // position: absolute;
+            text-align: left;
+            margin-left: -20px;
+            padding-right: 6px;
+            height: 11px;
+        }
+        .arrow-down {
+            transition: 200ms;
+            rotate: 90deg;
+        }
+        
+        .arrow-up {
+            rotate: 270deg;
+            position: absolute;
+        }
+    }
+    .hidden {
+        display: none;
+    }
 
 }

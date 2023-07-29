@@ -26,7 +26,8 @@
                 {{ special }}</li>
         </ul>
 
-        <RouterLink class="to-payment" to="/payment">Continue</RouterLink>
+        <RouterLink class="to-payment" to="/payment" :gig="gig">Continue</RouterLink>
+        <!-- <RouterLink class="to-user-profile" :to="'/user' + user._id" :gig="gig">Continue</RouterLink> -->
 
     </div>
 </template>
@@ -36,6 +37,7 @@
 export default {
     data() {
         return {
+            user: null,
             type: 'basic',
             // modalObserver: null,
             // stickyModal: false
@@ -60,6 +62,19 @@ export default {
                     return { price: 240, title: 'The Blue Whale - Premium', specials: ['Video editing', 'Script writing', '20 seconds running time'], benefit1: '1 Day Delivery' ,benefit2: '5 Revisions', description: 'Ultimate and deep conceptual logo design. Must for premiumbusiness & high-end users (ex: Mercedes)' };
             }
         }
+    },
+    async created() {
+    try {
+      const user = userService.getLoggedinUser()
+      if (user) {
+        this.$store.commit({ type: 'setLoggedinUser', user })
+      }
+      this.user = user
+    //   this.loadToy()
+    //   this.loadReviews()
+    } catch (err) {
+      console.error(err)
     }
+  },
 }
 </script>

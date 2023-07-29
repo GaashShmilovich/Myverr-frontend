@@ -25,13 +25,13 @@
   </template>
   
   <script>
-  import { showErrorMsg, showSuccessMsg } from "../../services/event-bus.service";
-  import { gigService } from "../../services/gig.service.local";
+  import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
+  import { gigService } from "../services/gig.service.local";
   import {
     getActionRemoveGig,
     getActionUpdateGig,
     getActionAddGigMsg,
-  } from "../../store/gig.store";
+  } from "../store/gig.store";
   export default {
     data() {
       return {

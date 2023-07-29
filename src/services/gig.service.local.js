@@ -70,21 +70,6 @@ async function save(gig) {
 	return savedGig
 }
 
-async function addGigMsg(gigId, txt) {
-	// Later, this is all done by the backend
-	const gig = await getById(gigId)
-	if (!gig.msgs) gig.msgs = []
-
-	const msg = {
-		id: utilService.makeId(),
-		by: userService.getLoggedinUser(),
-		txt,
-	}
-	gig.msgs.push(msg)
-	await storageService.put(STORAGE_KEY, gig)
-
-	return msg
-}
 
 function getEmptyGig() {
 	return {

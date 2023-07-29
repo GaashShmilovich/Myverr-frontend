@@ -5,7 +5,8 @@ import Chat from './views/Chat.vue'
 import GigIndex from './views/explore/GigIndex.vue'
 import ReviewIndex from './views/ReviewIndex.vue'
 import LoginSignup from './views/LoginSignup.vue'
-import UserDetails from './views/UserDetails.vue'
+// import UserDetails from './views/UserDetails.vue'
+import UserProfile from '../src/cmps/UserProfile.vue'
 import GigDetails from './views/GigDetails.vue'
 import GigEdit from './views/GigEdit.vue'
 import Payment from '../src/cmps/Payment.vue'
@@ -46,10 +47,15 @@ const routes = [
     name: 'LoginSignup',
     component: LoginSignup
   },
+  // {
+  //   path: '/user/:id',
+  //   name: 'UserDetails',
+  //   component: UserDetails
+  // },
   {
     path: '/user/:id',
-    name: 'UserDetails',
-    component: UserDetails
+    name: 'UserProfile',
+    component: UserProfile
   },
   {
     path: '/payment',

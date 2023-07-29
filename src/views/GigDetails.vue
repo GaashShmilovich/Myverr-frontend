@@ -42,7 +42,7 @@
     </div>
 
     <div class="sticky-packages">
-      <PackageType />
+      <PackageType :gig="gig"/>
     </div>
 
   </section>
