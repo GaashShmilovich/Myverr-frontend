@@ -1,7 +1,9 @@
 <template>
   <form @submit.prevent="submitSearch" class="search-form">
     <input v-model="searchQuery" type="text" placeholder="Search..." />
-    <button type="submit"></button>
+    <button type="submit">
+      <i class="search" v-html="$getSvg('white-search')"></i>
+    </button>
   </form>
 </template>
 

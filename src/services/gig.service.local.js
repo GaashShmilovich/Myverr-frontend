@@ -862,8 +862,8 @@ const gig = {
 	tags: ['logo-design', 'artisitic', 'proffesional', 'accessible'],
 	chosenTag: '',
 	faqs: [{ question: "Do you work with other different styles?", answer: "Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.", isOpen: false },
-		{ question: "What do i need to get started?", answer: "It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.", isOpen: false }],
-		likedByUsers: ['mini-user'],
+	{ question: "What do i need to get started?", answer: "It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.", isOpen: false }],
+	likedByUsers: ['mini-user'],
 	reviews: [
 		{
 			id: utilService.makeId(),

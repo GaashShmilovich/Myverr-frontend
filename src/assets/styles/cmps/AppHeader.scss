@@ -8,6 +8,9 @@ header {
 
   .search {
     flex: 1;
+    button {
+      fill: $clr1;
+    }
 
     &.hidden {
       display: none;
@@ -93,7 +96,7 @@ header {
           a {
             color: $clr2;
             &:hover {
-              color: #1dbf73;
+              color: $green1;
             }
           }
         }
@@ -120,17 +123,20 @@ header {
     // white-space: nowrap;
     flex-wrap: nowrap;
     a {
+      position: relative;
       color: $clr2;
       padding: rem(8px) 0 rem(8px) 0;
-      // padding: 0;
+      // &:hover {
+      //   border-bottom: 3px solid $green1;
+      //   // padding: 0;
+      // }
     }
 
     li {
       padding-inline: rem(10px);
       &:first-child {
         padding-inline-end: rem(10px);
-        padding-inline-start: 0; // Applies padding only at inline-end (right)
-        // padding-right: rem(10px); // Alternative for older browsers
+        padding-inline-start: 0;
       }
 
       &:last-child {
