@@ -36,8 +36,8 @@
       <p class="title">About the seller</p>
       <AboutSeller :gig="gig"/>
       
-        <FAQ />
-        <FAQ2 />
+        <!-- <FAQ /> -->
+        <FAQ2 :gig="gig" />
 
       <ReviewList :reviews="gig.reviews" />
     </div>

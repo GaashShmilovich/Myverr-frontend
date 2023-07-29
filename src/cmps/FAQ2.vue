@@ -1,5 +1,7 @@
 <template>
     <div class="faq-section">
+        <h2>FAQ</h2>
+
       <div
         v-for="(faq, index) in faqs"
         :key="index"
@@ -10,9 +12,11 @@
           @click="toggleAnswer(index)"
         >
           {{ faq.question }}
-          <span :class="{ 'open-icon': faq.isOpen, 'close-icon': !faq.isOpen }">
-            {{ faq.isOpen ? '-' : '+' }}
-          </span>
+          <!-- <span :class="{ 'open-icon': faq.isOpen, 'close-icon': !faq.isOpen }"> -->
+            <!-- {{ faq.isOpen ? '-' : '+' }} -->
+            <i :class="{ 'arrow-up': faq.isOpen, 'arrow-down': !faq.isOpen }" v-html="$getSvg('arrow-down')"></i>
+            <!-- <i v-else class="arrow-up" v-html="$getSvg('arrow-down')"></i> -->
+          <!-- </span> -->
         </div>
         <div v-if="faq.isOpen" class="answer">
           {{ faq.answer }}
@@ -23,21 +27,26 @@
 
 <script>
 export default {
+    props: {
+        gig: Object
+    },
   data() {
     return {
-      faqs: [
-        {
-          question: 'What is Vue.js?',
-          answer: 'Vue.js is a progressive JavaScript framework for building user interfaces.',
-          isOpen: false,
-        },
-        {
-          question: 'How do I get started with Vue?',
-          answer: 'To get started with Vue, you need to install it using npm or yarn and create a new Vue instance.',
-          isOpen: false,
-        },
-        // Add more FAQs as needed...
-      ],
+        faqs: this.gig.faqs
+    //   faqs: [
+    //     {
+    //       question: 'What is Vue.js?',
+    //       answer: 'Vue.js is a progressive JavaScript framework for building user interfaces.',
+    //       isOpen: false,
+    //     },
+    //     {
+    //       question: 'How do I get started with Vue?',
+    //       answer: 'To get started with Vue, you need to install it using npm or yarn and create a new Vue instance.',
+    //       isOpen: false,
+    //     },
+    //     // Add more FAQs as needed...
+    //   ],
+    
     };
   },
   methods: {
@@ -49,39 +58,5 @@ export default {
 </script>
 
 <style>
-.faq-section {
-  /* Add your FAQ section styles here */
-}
 
-.faq-item {
-  /* Add your individual FAQ item styles here */
-  margin-bottom: 10px;
-  cursor: pointer;
-}
-
-.question {
-  /* Add your question styles here */
-  font-weight: bold;
-}
-
-.open-icon::before,
-.close-icon::before {
-  /* Add your icon styles here */
-  content: '';
-  margin-right: 5px;
-}
-
-.open-icon::before {
-  /* Styles for the open icon (e.g., a minus sign) */
-  /* content: '-'; */
-}
-
-.close-icon::before {
-  /* Styles for the close icon (e.g., a plus sign) */
-  /* content: '+'; */
-}
-.answer {
-  /* Add your answer styles here */
-  margin-top: 5px;
-}
 </style>

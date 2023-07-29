@@ -1,16 +1,19 @@
-.faq {
+.faq-section {
     h2 {
         margin-top: rem(40px);
     }
-    .questions{
+
+    .faq-item {
         display: flex;
         flex-direction: column;
         color: $clr2;
+
         &:first-child {
             border-top: none;
-            }
         }
-        div:not(.questions){
+    }
+
+    .question {
         border-top: 1px solid $clr2;
         display: flex;
         justify-content: space-between;
@@ -19,25 +22,19 @@
         padding: rem(20px) 0;
         font-size: rem(16px);
         font-family: macanSemibold;
-        
+
         &:hover {
             cursor: pointer;
         }
     }
-    
-    i {
+
+    .arrow-down {
         transition: 200ms;
         rotate: 90deg;
     }
-    p{
-        display: none;
+
+    .arrow-up {
+        rotate: 270deg;
     }
-    .exposed {
-        display: block;
-    }
-    .open {
-        i {
-            rotate: 270deg;
-        }
-    }
+
 }
