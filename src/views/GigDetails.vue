@@ -36,8 +36,7 @@
       <p class="title">About the seller</p>
       <AboutSeller :gig="gig"/>
       
-        <!-- <FAQ /> -->
-        <FAQ2 :gig="gig" />
+        <FAQ :gig="gig" />
 
       <ReviewList :reviews="gig.reviews" />
     </div>
@@ -58,7 +57,6 @@ import ReviewList from '../cmps/ReviewList.vue'
 import PackageType from '../cmps/PackageType.vue'
 import GigDetailsCarusela from '../cmps/GigDetailsCarusela.vue'
 import FAQ from '../cmps/FAQ.vue'
-import FAQ2 from '../cmps/FAQ2.vue'
 import AboutSeller from '../cmps/AboutSeller.vue'
 
 import { gigService } from '../services/gig.service.local.js'
