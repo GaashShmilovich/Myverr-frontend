@@ -67,6 +67,11 @@
             font-weight: 400;
         }
     }
+    // .sortBy {
+    //     display: flex;
+    //     align-content: space-around;
+    //     justify-content: space-between;
+    // }
 
     .sortByModal {
         display: flex;
@@ -93,22 +98,38 @@
         .v-check{
             // position: absolute;
             text-align: left;
-            margin-left: -20px;
+            margin-left: -25px;
             padding-right: 6px;
-            height: 11px;
+            
         }
-        .arrow-down {
-            transition: 200ms;
-            rotate: 90deg;
+    }
+    .arrow-down {
+        transition: 200ms;
+        position: absolute;
+        translate: 0 2px;
+        rotate: 90deg;
+        &:hover {
+            cursor: pointer;
         }
-        
-        .arrow-up {
-            rotate: 270deg;
-            position: absolute;
+    }
+    
+    .arrow-up {
+        translate: 0 2px;
+        transition: 200ms;
+        rotate: 270deg;
+        position: absolute;
+        &:hover {
+            cursor: pointer;
         }
     }
     .hidden {
         display: none;
     }
-
+    .place-holder {
+        font-family: macanBold;
+        margin-right: 10px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
 }

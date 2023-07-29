@@ -20,7 +20,7 @@
       </form>
       
       <div>
-      <p class="sortBy">Sort By <span @click="openModal">{{ sortBy.placeHolder }}</span></p><i :class="{ 'arrow-up': sortBy.isOpen, 'arrow-down': !sortBy.isOpen }" v-html="$getSvg('arrow-down')"></i>  
+      <p class="sortBy">Sort By <span class="place-holder" @click="openModal">{{ sortBy.placeHolder }}</span><span :class="{ 'arrow-up': sortBy.isOpen, 'arrow-down': !sortBy.isOpen }" v-html="$getSvg('arrow-down')"></span></p>  
       <p class="sortByModal" :class="{'hidden': !sortBy.isOpen}">
       <a @click="setSort('Most recent')"><i :class="{'hidden': sortBy.placeHolder !== 'Most recent'}" class="v-check" v-html="$getSvg('v-check')"></i>Most recent</a>
       <a @click="setSort('Highest rate')"><i :class="{'hidden': sortBy.placeHolder !== 'Highest rate'}" class="v-check" v-html="$getSvg('v-check')"></i>Highest rate</a>
@@ -76,21 +76,18 @@ export default {
         regex.test(review.rate))
     },
     setSort(by) {
-      if(by === 'highestRate') {
+      if(by === 'Highest rate') {
         this.filteredReviews.sort((a,b) => b.rate - a.rate)
-      } else if(by === 'lowestRate') {
+      } else if(by === 'Lowest rate') {
         this.filteredReviews.sort((a,b) => a.rate - b.rate)
-      } else if(by === 'mostRecent') {
+      } else if(by === 'Most recent') {
         this.filteredReviews.sort((a,b) => a.createdAt - b.createdAt)
       }
       this.sortBy.placeHolder = by
       this.sortBy.isOpen = false
-      console.log(this.sortBy.isOpen);
-      console.log(by);
     },
     openModal() {
       this.sortBy.isOpen = !this.sortBy.isOpen
-      console.log(this.sortBy.isOpen);
     }
   },
 }
