@@ -2,15 +2,18 @@
   //   display: flex;
   grid-column: 2 / 3;
   width: rem(650px);
-  width: 650px;
   position: absolute;
-  top: 44%;
+  top: 35%;
+  left: 0;
   transform: translateY(-50%);
   z-index: 100;
   .search-bar-wrapper {
     z-index: 1000;
     margin-bottom: 1rem; /* Add some spacing between the lines of text */
     margin-inline-start: 0;
+  }
+  .main-layout {
+    width: rem(650px);
   }
   .lines {
     width: 100%;
@@ -64,6 +67,9 @@
         color: #404145;
         background-color: white;
       }
+    }
+    p {
+      margin: 0;
     }
   }
 

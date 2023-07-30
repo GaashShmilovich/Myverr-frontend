@@ -1,10 +1,11 @@
 <template>
   <header
     ref="header"
-    class="full"
+    class="full main-layout"
     :class="{
       openHeader: isFirstNavShown,
       'main-layout': isFirstNavShown,
+      'is-sticky': isSticky,
       // 'nav-main-app': isNotHomePage,
     }"
   >
@@ -12,6 +13,7 @@
       class="nav-container full main-layout"
       :class="{
         'open-nav-border': isFirstNavShown,
+        'is-sticky': isSticky,
       }"
     >
       <nav>
@@ -20,9 +22,10 @@
             class="logo"
             :class="{
               'open-nav-logo': isFirstNavShown,
+              'is-sticky': isSticky,
             }"
           >
-            <a href="#"> fiverr <span>.</span></a>
+            fiverr <span>.</span>
           </div>
         </RouterLink>
         <div
@@ -38,14 +41,13 @@
           class="route-container full"
           :class="{
             'open-nav-links': isFirstNavShown,
+            'is-sticky': isSticky,
           }"
         >
           <RouterLink to="/explore">Explore</RouterLink>
-          <RouterLink to="/review">Reviews</RouterLink>
           <RouterLink to="/chat">Chat</RouterLink>
           <RouterLink to="/login">Login / Signup</RouterLink>
           <RouterLink to="/explore/edit?">Edit</RouterLink>
-          <RouterLink to="/explore/edit?">Filler</RouterLink>
         </div>
       </nav>
     </div>
@@ -57,16 +59,38 @@
       }"
     >
       <ul class="category-container main-layout">
-        <li><a href="#">Graphics & Design</a></li>
-        <li><a href="#">Programming & Tech</a></li>
-        <li><a href="#">Digital Marketing</a></li>
-        <li><a href="#">Video & Animation</a></li>
-        <li><a href="#">Writing & Translation</a></li>
-        <li><a href="#">Music & Audio</a></li>
-        <li><a href="#">Business</a></li>
-        <li><a href="#">Data</a></li>
-        <li><a href="#">Photography</a></li>
-        <li><a href="#">AI Services</a></li>
+        <li>
+          <a @click="navigateToExplore('Graphics & Design')"
+            >Graphics & Design</a
+          >
+        </li>
+        <li>
+          <a @click="navigateToExplore('Programming & Tech')"
+            >Programming & Tech</a
+          >
+        </li>
+        <li>
+          <a @click="navigateToExplore('Digital Marketing')"
+            >Digital Marketing</a
+          >
+        </li>
+        <li>
+          <a @click="navigateToExplore('Video & Animation')"
+            >Video & Animation</a
+          >
+        </li>
+        <li>
+          <a @click="navigateToExplore('Writing & Translation')"
+            >Writing & Translation</a
+          >
+        </li>
+        <li>
+          <a @click="navigateToExplore('Music & Audio')">Music & Audio</a>
+        </li>
+        <li><a @click="navigateToExplore('Business')">Business</a></li>
+        <li><a @click="navigateToExplore('Data')">Data</a></li>
+        <li><a @click="navigateToExplore('Photography')">Photography</a></li>
+        <li><a @click="navigateToExplore('AI Services')">AI Services</a></li>
       </ul>
     </nav>
   </header>
@@ -82,15 +106,20 @@ export default {
       orderOpen: false,
       menuOpen: false,
       isHidden: true,
+      isSticky: true,
       // isShown: false,
     };
   },
   methods: {
+    navigateToExplore(category) {
+      this.$router.push({ path: "/explore", query: { category } });
+    },
     onScroll(e) {
       // if (this.$route.path !== "/") return;
       if (window.scrollY < 10) this.isFirstNavShown = false;
       if (window.scrollY > 10) {
         this.isFirstNavShown = true;
+        this.isSticky = true;
       }
       if (window.scrollY < 160) {
         this.modalOpen = false;
@@ -99,11 +128,13 @@ export default {
       if (window.scrollY > 160) {
         this.modalOpen = true;
         this.isHidden = false;
+        this.isSticky = true;
       }
       if (this.$route.path !== "/") {
         this.isFirstNavShown = true;
         this.modalOpen = true;
         this.isHidden = false;
+        this.isSticky = false;
       }
     },
   },
@@ -129,6 +160,15 @@ export default {
 
   unmounted() {
     window.removeEventListener("scroll", this.onScroll);
+  },
+  watch: {
+    $route(to) {
+      if (to.path === "/") {
+        this.isFirstNavShown = false;
+        this.modalOpen = false;
+        this.isHidden = true;
+      }
+    },
   },
   components: {
     SearchBar,

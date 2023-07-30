@@ -2,10 +2,10 @@
   <section class="home-container main-layout">
     <!-- <div class="homepage-layout"> -->
     <Hero />
-    <InsideHeroSearch />
+    <!-- <InsideHeroSearch /> -->
     <StripBelowHero />
     <PopularCarousel />
-    <div class="best-part-wrapper full">
+    <div class="best-part-wrapper full main-layout">
       <BestPart />
     </div>
     <MainCategories />

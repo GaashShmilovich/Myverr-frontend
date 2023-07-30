@@ -10,9 +10,9 @@
 </template>
 
 <script>
-import GigList from './GigList.vue'
-import GigFilter from './GigFilter.vue'
-import SortGigs from './SortGigs.vue'
+import GigList from '../cmps/ExploreCmps/GigList.vue'
+import GigFilter from '../cmps/ExploreCmps/GigFilter.vue'
+import SortGigs from '../cmps/ExploreCmps/SortGigs.vue'
 
 export default {
 	data() {

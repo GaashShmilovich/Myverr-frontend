@@ -70,7 +70,6 @@ async function save(gig) {
 	return savedGig
 }
 
-
 function getEmptyGig() {
 	return {
 		_id: '',
@@ -98,7 +97,6 @@ function getEmptyGig() {
 		],
 	}
 }
-
 
 // ;(async () => {
 // 	await storageService.post(STORAGE_KEY, {
@@ -140,20 +138,20 @@ function getEmptyGig() {
 // 				isOpen: false,
 // 			},
 // 			{
-// 				question: "What is your refund policy?",
-// 				answer: "I offer a refund if you are not satisfied with the final result and we are unable to reach a resolution. However, I strive to ensure all my clients are happy with the work delivered.",
+// 				question: 'What is your refund policy?',
+// 				answer: 'I offer a refund if you are not satisfied with the final result and we are unable to reach a resolution. However, I strive to ensure all my clients are happy with the work delivered.',
 // 				isOpen: false,
-// 			  },
-// 			  {
-// 				question: "Do you offer expedited delivery?",
+// 			},
+// 			{
+// 				question: 'Do you offer expedited delivery?',
 // 				answer: "Yes, I offer expedited delivery options for an additional fee. If you have a tight deadline, I can prioritize your project to ensure it's completed on time.",
 // 				isOpen: false,
-// 			  },
-// 			  {
-// 				question: "Can you provide references from past clients?",
-// 				answer: "Yes, I can provide references from past clients upon request. Many of my clients have been satisfied with my work and are happy to share their experience with you.",
+// 			},
+// 			{
+// 				question: 'Can you provide references from past clients?',
+// 				answer: 'Yes, I can provide references from past clients upon request. Many of my clients have been satisfied with my work and are happy to share their experience with you.',
 // 				isOpen: false,
-// 			  },
+// 			},
 // 		],
 // 		likedByUsers: ['mini-user'],
 // 		reviews: [
@@ -222,20 +220,20 @@ function getEmptyGig() {
 // 				isOpen: false,
 // 			},
 // 			{
-// 				question: "Do you offer revisions?",
+// 				question: 'Do you offer revisions?',
 // 				answer: "Yes, I offer a certain number of revisions based on the package you choose. Client satisfaction is my top priority, and I'm always open to making adjustments to ensure you are happy with the final result.",
 // 				isOpen: false,
-// 			  },
-// 			  {
-// 				question: "What payment methods do you accept?",
-// 				answer: "I accept payments through PayPal and credit/debit cards. All payments are securely processed to protect your financial information.",
+// 			},
+// 			{
+// 				question: 'What payment methods do you accept?',
+// 				answer: 'I accept payments through PayPal and credit/debit cards. All payments are securely processed to protect your financial information.',
 // 				isOpen: false,
-// 			  },
-// 			  {
-// 				question: "Can I see samples of your previous work?",
-// 				answer: "Absolutely! I have a portfolio showcasing some of my previous projects. Please feel free to check it out to get an idea of my style and the quality of my work.",
+// 			},
+// 			{
+// 				question: 'Can I see samples of your previous work?',
+// 				answer: 'Absolutely! I have a portfolio showcasing some of my previous projects. Please feel free to check it out to get an idea of my style and the quality of my work.',
 // 				isOpen: false,
-// 			  },
+// 			},
 // 		],
 // 		likedByUsers: ['mini-user'],
 // 		reviews: [
@@ -309,20 +307,20 @@ function getEmptyGig() {
 // 					isOpen: false,
 // 				},
 // 				{
-// 					question: "How long does it take to complete a project?",
-// 					answer: "The project completion time varies depending on the complexity of the project. However, I strive to deliver high-quality work within the agreed-upon timeframe.",
+// 					question: 'How long does it take to complete a project?',
+// 					answer: 'The project completion time varies depending on the complexity of the project. However, I strive to deliver high-quality work within the agreed-upon timeframe.',
 // 					isOpen: false,
-// 				  },
-// 				  {
-// 					question: "Do you offer revisions?",
+// 				},
+// 				{
+// 					question: 'Do you offer revisions?',
 // 					answer: "Yes, I offer a certain number of revisions based on the package you choose. Client satisfaction is my top priority, and I'm always open to making adjustments to ensure you are happy with the final result.",
 // 					isOpen: false,
-// 				  },
-// 				  {
-// 					question: "What payment methods do you accept?",
-// 					answer: "I accept payments through PayPal and credit/debit cards. All payments are securely processed to protect your financial information.",
+// 				},
+// 				{
+// 					question: 'What payment methods do you accept?',
+// 					answer: 'I accept payments through PayPal and credit/debit cards. All payments are securely processed to protect your financial information.',
 // 					isOpen: false,
-// 				  },
+// 				},
 // 			],
 // 			likedByUsers: ['user-x'],
 // 			reviews: [
@@ -391,15 +389,15 @@ function getEmptyGig() {
 // 				isOpen: false,
 // 			},
 // 			{
-// 				question: "Can I see samples of your previous work?",
-// 				answer: "Absolutely! I have a portfolio showcasing some of my previous projects. Please feel free to check it out to get an idea of my style and the quality of my work.",
+// 				question: 'Can I see samples of your previous work?',
+// 				answer: 'Absolutely! I have a portfolio showcasing some of my previous projects. Please feel free to check it out to get an idea of my style and the quality of my work.',
 // 				isOpen: false,
-// 			  },
-// 			  {
-// 				question: "How can I contact you?",
+// 			},
+// 			{
+// 				question: 'How can I contact you?',
 // 				answer: "You can contact me through the messaging system on my Fiverr profile. I'm always available to discuss your project and answer any questions you may have.",
 // 				isOpen: false,
-// 			  },
+// 			},
 // 		],
 // 		likedByUsers: ['user-y'],
 // 		reviews: [

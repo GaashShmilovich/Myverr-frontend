@@ -1,10 +1,13 @@
 .gig-list {
-	display: flex;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	width: 100%;
+	grid-gap: 16px;
+	margin-top: 16px;
 	line-height: 24px;
 	list-style: none;
-	margin: 0;
+	border: 0;
+	outline: 0;
 	padding: 0;
-	justify-content: center;
-	font-family: 'Macan', sans-serif;
+	font-family: macanBold, sans-serif;
 }
