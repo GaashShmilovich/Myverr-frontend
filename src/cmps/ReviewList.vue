@@ -28,6 +28,13 @@
       </p>
     </div>
 
+    <!-- <div>
+      <p class="sortBy">Sort By <span class="place-holder" @click="openModal">{{ sortBy.placeHolder }}</span><span :class="{ 'arrow-up': sortBy.isOpen, 'arrow-down': !sortBy.isOpen }" v-html="$getSvg('arrow-down')"  @click="openModal"></span></p>  
+      <p class="sortByModal" :class="{'hidden': !sortBy.isOpen}">
+      <a v-for="type in sortBy.types" @click="setSort(`${type}`)"><i :class="{'hidden': sortBy.placeHolder !== `${type}`}" class="v-check" v-html="$getSvg('v-check')"></i>{{type}}</a>
+      </p>
+    </div> -->
+
       <ul class="review-list">
         <li
           v-for="review in filteredReviews"
@@ -53,7 +60,8 @@ export default {
       filteredReviews: [],
       sortBy: {
       isOpen: false,
-      placeHolder: 'Most recent'
+      placeHolder: 'Most recent',
+      types: ['Most recent','Highest rate','Lowest rate']
     },
     }
   },
