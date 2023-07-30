@@ -69,7 +69,7 @@ export default {
     getAverageRate() {
       const totalRates = this.reviews.reduce((sum, review) => sum + review.rate, 0);
       const averageRate = totalRates / this.reviews.length;
-      return averageRate
+      return averageRate.toFixed(1)
     },
     getAverageRateRounded() {
       const averageRate = this.getAverageRate
