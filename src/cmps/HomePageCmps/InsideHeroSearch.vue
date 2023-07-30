@@ -1,5 +1,5 @@
 <template>
-  <section class="inside-hero-container">
+  <section class="inside-hero-container main-layout">
     <div class="lines">
       <h1 class="first-line">Find the right <i>freelance</i></h1>
       <h1 class="second-line">service, right away</h1>
