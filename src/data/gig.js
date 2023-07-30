@@ -427,3 +427,154 @@
 // 	})
 // ]
 
+// {
+//     		_id: 'i101',
+//     		title: 'I will design your logo2',
+//     		price: 12,
+//     		owner: {
+//     			_id: 'u101',
+//     			fullname: 'Dudu Da',
+//     			moto: 'Nothing beats the Experience!',
+//     			instagram: '@DuduCharm123',
+//     			imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/2f1f82bbc1e2b7b7585b4c1afaaf69d8-1648815612653/f6c26d4e-10b8-4e67-ac62-3c9d39dcead1.jpg',
+//     			level: 'basic/premium',
+//     			rate: 4,
+//     			country: 'Sount Africa',
+//     			language: ['Zulu', 'English', 'Swati'],
+//     			since: 'September 2021',
+//     			lastDelivery: '6 hours ago',
+//     			averageResponse: '50 minutes',
+//     			about: 'Hey! My name is Vasily Kichigin, and I am excited to connect with you here on Fiverr! Since 2015, I have worked with over 11,000 customers and completed more than 20,000 orders on the platform. I am super passionate about Instagram and eager to help you with every aspect of it. Over the years, I have worked with a diverse range of creators, small businesses, celebrities, and Fortune 500 companies here on Fiverr. If you have any questions, please feel free to send me a message here, and I will be happy to help you! 🙂',
+//     		},
+//     		daysToMake: 3,
+//     		description:
+//     			"Hello, Hi There, I am Bruce - talented, experienced graphic designer and most important positive person. With 11.000+ successfully completed orders, here on Fiverr. This is my Retro Vintage Logo style gig, only on Fiverr. I believe in the importance of logos and branding in a company's success, and nothing gives me more pride than to see one of my logos at the top.All graphic and Logo Design work will be of very High Quality Standards and always adjusted to meet your needs from which I have accumulated exceptional custom reviews.You will Get: Delivery time within 24 hours. I do Modern Vintage Retro Logo, Clothing brand, Gaming, Minimalist, y2k, Signature... for Your Business or Persional. Deliverable files will be JPG and PNG with transparent background. High Quality image (3000px x 3000px). Black & White or color. Friendly communication and fast response. Unique & custom made Wordmark / Logotype designs without any reused cheesy icons.Full assistance until you're satisfied .",
+//     		imgUrls: [
+//     			'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/290928503/original/46338c22812e3d72eb57485406c886313b8be338/provide-professional-german-seo-blog-articles.png',
+//     		],
+//     		tags: ['logo-design', 'artisitic', 'proffesional', 'accessible'],
+//     		chosenTag: '',
+//     		faqs: [
+//     			{
+//     				question: 'Why is a logo so important?',
+//     				answer: 'Every business has a logo to represent its values and attributes in the market and public. But not all the logos are capable of taking the business effectively to the people. Design of a logo usually plays a major role in the marketing of an organization and its business in the competitive market.',
+//     				isOpen: false,
+//     			},
+//     			{
+//     				question: 'What you can expect from working with me?',
+//     				answer: 'I am obsessed with helping businesses find their visual voice! My approach goes beyond aesthetics, shapes, and colors... and starts with a clear understanding of your business, the competitive landscape, and the vision you have for your product.',
+//     				isOpen: false,
+//     			},
+//     			{
+//     				question: 'What is your refund policy?',
+//     				answer: 'I offer a refund if you are not satisfied with the final result and we are unable to reach a resolution. However, I strive to ensure all my clients are happy with the work delivered.',
+//     				isOpen: false,
+//     			},
+//     			{
+//     				question: 'Do you offer expedited delivery?',
+//     				answer: "Yes, I offer expedited delivery options for an additional fee. If you have a tight deadline, I can prioritize your project to ensure it's completed on time.",
+//     				isOpen: false,
+//     			},
+//     			{
+//     				question: 'Can you provide references from past clients?',
+//     				answer: 'Yes, I can provide references from past clients upon request. Many of my clients have been satisfied with my work and are happy to share their experience with you.',
+//     				isOpen: false,
+//     			},
+//     		],
+//     		likedByUsers: ['mini-user'],
+//     		reviews: [
+//     			{
+//     				id: utilService.makeId(),
+//     				txt: 'Very kind and works fast',
+//     				rate: 4,
+//     				createdAt: new Date(),
+//     				by: {
+//     					_id: 'u101',
+//     					fullname: 'Mamaba Boy',
+//     					imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/343cbc5a4144649085a4e957a46671b5-1683638733243/eaf94025-da9a-4cdd-95d5-4b65362cbe9c.JPG',
+//     					country: 'Belgium',
+//     				},
+//     			},
+//     			{
+//     				id: utilService.makeId(),
+//     				txt: 'I love his work!',
+//     				rate: 5,
+//     				createdAt: new Date(),
+//     				by: {
+//     					_id: 'u102',
+//     					fullname: 'Juliuos Keysar',
+//     					imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/30544a9820b9cc72a3f3c46e260091cc-1642546839079/42396a49-d576-4cdc-a5a6-f61678941743.jpg',
+//     					country: 'Netherlands',
+//     				},
+//     			},
+//     		],
+//     	}
+
+
+
+
+
+const gig = {
+	_id: 'i101',
+	title: 'I will design your logo',
+	price: 12,
+	owner: {
+		_id: 'u101',
+		fullname: 'Dudu Da',
+		instagram: '@DuduCharm123',
+		moto: 'Nothing beats the Experience!',
+		imgUrl: 'url',
+		level: 'basic/premium',
+		rate: 4,
+		country: 'Israel',
+		language: [],
+		since: '',
+		lastDelivery: '',
+		averageResponse: '',
+		about: '',
+	},
+	daysToMake: 3,
+	description: 'Make unique logo...',
+	imgUrls: [''],
+	tags: ['logo-design', 'artisitic', 'proffesional', 'accessible'],
+	chosenTag: '',
+	faqs: [
+		{
+			question: 'Do you work with other different styles?',
+			answer: 'Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.',
+			isOpen: false,
+		},
+		{
+			question: 'What do i need to get started?',
+			answer: 'It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.',
+			isOpen: false,
+		},
+	],
+	likedByUsers: ['mini-user'],
+	reviews: [
+		{
+			id: utilService.makeId(),
+			txt: 'Very kind and works fast',
+			rate: 4,
+			createdAt: new Date(),
+			by: {
+				_id: 'u101',
+				fullname: 'Mamaba Boy',
+				imgUrl: '/img/img2.jpg',
+				country: 'Belgium',
+			},
+		},
+		{
+			id: utilService.makeId(),
+			txt: 'I love his work!',
+			rate: 5,
+			createdAt: new Date(),
+			by: {
+				_id: 'u102',
+				fullname: 'Juliuos Keysar',
+				imgUrl: '/img/img2.jpg',
+				country: 'Netherlands',
+			},
+		},
+	],
+}

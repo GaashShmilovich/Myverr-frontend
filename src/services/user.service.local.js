@@ -45,6 +45,7 @@ async function login(userCred) {
     const users = await storageService.query('user')
     console.log(users);
     const user = users.find(user => user.username === userCred.username)
+    console.log(user);
     if (user) {
         return saveLocalUser(user)
     }

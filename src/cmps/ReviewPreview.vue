@@ -3,8 +3,9 @@
     <section class="review-by">
   <img :src="review.by.imgUrl" alt="">
       <section class="review-by-name">
-  <p> {{ review.by.fullname }}</p>
-  <p> {{ review.by.country }}</p>
+  <p class="fullname"> {{ review.by.fullname }}</p>
+  <img :src="review.by.country.img" alt="">
+  <p class="country-img"> {{ review.by.country.name }}</p>
       </section>
     </section>
     <section class="review-rate-time">

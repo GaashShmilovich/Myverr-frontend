@@ -13,7 +13,8 @@
         <label for="cvv">CVV</label>
         <input type="text" id="cvv" v-model="cvv" />
       </div>
-      <RouterLink :to="'/user/' + user._id" >Process Payment</RouterLink>
+      <RouterLink v-if="user" :to="'/user/' + user._id" >Process Payment</RouterLink>
+      <RouterLink v-else="!user" to='/' >Process Payment</RouterLink>
     </div>
 
 

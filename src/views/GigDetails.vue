@@ -95,8 +95,9 @@ export default {
       try{
         const Order = orderService.getEmptyOrder()
         const loggenInUser = await userService.getLoggedinUser()
+        console.log(loggenInUser);
         const newOrder = {
-          _id: Order._id,
+          // _id: Order._id,
           buyer: {
             _id: loggenInUser._id,
             fullname: loggenInUser.fullname,
@@ -111,7 +112,7 @@ export default {
           gig: {
             _id: this.gig._id,
             name: this.gig.title,
-            imgUrl: this.gig.imgUrl,
+            imgUrls: this.gig.imgUrls,
             price: this.gig.price },
             status: "pending"
           }
