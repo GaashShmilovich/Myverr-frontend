@@ -10,7 +10,6 @@ export const orderService = {
     save,
     remove,
     getEmptyOrder,
-    add
 }
 window.cs = orderService
 
@@ -42,26 +41,6 @@ async function save(order) {
         savedOrder = await storageService.post(STORAGE_KEY, order)
     }
     return savedOrder
-}
-
-async function addOrderMsg(orderId, txt) {
-    // Later, this is all done by the backend
-    const order = await getById(orderId)
-    if (!order.msgs) order.msgs = []
-
-    const msg = {
-        id: utilService.makeId(),
-        by: userService.getLoggedinUser(),
-        txt
-    }
-    order.msgs.push(msg)
-    await storageService.put(STORAGE_KEY, order)
-
-    return msg
-}
-
-function add(order) {
-    orders.push(order)
 }
 
 function getEmptyOrder() {

@@ -26,7 +26,7 @@
                 {{ special }}</li>
         </ul>
 
-        <RouterLink class="to-payment" to="/payment" :gig="gig">Continue</RouterLink>
+        <RouterLink class="to-payment" to="/payment" @click="addOrder">Continue</RouterLink>
         <!-- <RouterLink class="to-user-profile" :to="'/user' + user._id" :gig="gig">Continue</RouterLink> -->
 
     </div>
@@ -49,7 +49,9 @@ export default {
             this.type = chosenType
             console.log(this.type);
         },
-
+        addOrder() {
+            this.$emit('addOrder')
+        }
     },
     computed: {
         getType() {
@@ -70,8 +72,6 @@ export default {
         this.$store.commit({ type: 'setLoggedinUser', user })
       }
       this.user = user
-    //   this.loadToy()
-    //   this.loadReviews()
     } catch (err) {
       console.error(err)
     }

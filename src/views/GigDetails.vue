@@ -42,7 +42,7 @@
     </div>
 
     <div class="sticky-packages">
-      <PackageType :gig="gig"/>
+      <PackageType @addOrder="addOrder"/>
     </div>
 
   </section>
@@ -60,6 +60,8 @@ import FAQ from '../cmps/FAQ.vue'
 import AboutSeller from '../cmps/AboutSeller.vue'
 
 import { gigService } from '../services/gig.service.local.js'
+import { orderService } from '../services/order.service.local.js'
+import { userService } from '../services/user.service.local'
 
 export default {
   data() {
@@ -88,7 +90,42 @@ export default {
     },
     onDarkMode() {
       this.darkMode = !this.darkMode
-    }
+    },
+    async addOrder() {
+      try{
+        const Order = orderService.getEmptyOrder()
+        const loggenInUser = await userService.getLoggedinUser()
+        const newOrder = {
+          _id: Order._id,
+          buyer: {
+            _id: loggenInUser._id,
+            fullname: loggenInUser.fullname,
+            username: loggenInUser.username,
+            imgUrl: loggenInUser.imgUrl,
+          },
+          seller: {
+            _id: this.gig.owner._id,
+            fullname: this.gig.owner.fullname,
+            imgUrl: this.gig.owner.imgUrl,
+          },
+          gig: {
+            _id: this.gig._id,
+            name: this.gig.title,
+            imgUrl: this.gig.imgUrl,
+            price: this.gig.price },
+            status: "pending"
+          }
+          console.log(newOrder);
+
+          await this.$store.dispatch({type: 'addOrder', newOrder})
+          
+          console.log(this.$store.getters.orders);
+          
+        } catch(err) {
+          console.error(err)
+          console.log(err)
+        }
+      }
   },
   computed: {
   },

@@ -22,7 +22,7 @@ export const orderStore = {
     actions: {
         async addOrder(context, { order }) {
             try {
-                order = await orderService.add(order)
+                order = await orderService.save(order)
                 context.commit({ type: 'addOrder', order })
                 return order
             } catch (err) {
