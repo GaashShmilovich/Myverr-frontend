@@ -7,7 +7,7 @@
 }
 
 @mixin for-narrow-layout {
-    @media (min-width: calc($mobile-breakpoint + 40px)) {
+    @media (max-width: calc($narrow-breakpoint + 40px)) {
         @content;
     }
 }
@@ -23,6 +23,10 @@
         @content;
     }
 }
+
+// $mobile-breakpoint: 560px;
+// $narrow-breakpoint: 860px;
+// $normal-breakpoint: 960px;
 
 /* Media  Mixins */
 @mixin aspect-ratio($width, $height) {

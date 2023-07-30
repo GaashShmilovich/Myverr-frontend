@@ -6,6 +6,7 @@
     position: sticky;
     margin-top: 100px;
     top: 95px;
+    background-color: $clr1;
 
     &:not(:first-child) {
         padding: 0 24px;

@@ -2,8 +2,31 @@
     // display: flex;
     display: grid;
     grid-template-columns: 1fr 33%;
-    @include for-normal-layout {
+
+    
+    @include for-mobile-layout {
         // background-color: aqua;
+    }
+    @include for-narrow-layout {
+        .packages {
+            position: absolute;
+            top: 880px;
+            margin-right: 60px;
+            margin-bottom: 100px;
+        }
+        .gig-gallery {
+            width: 120%;
+        }
+        .after-package {
+            position: absolute;
+            top: 1380px;
+        }
+        grid-template-columns: 1fr;
+        // grid-template-rows: 750px 2500px 1000px;
+        // grid-template-areas: 
+        // "1"
+        // "packages"
+        // "after-package";
     }
     .main {
         margin-right: 60px;

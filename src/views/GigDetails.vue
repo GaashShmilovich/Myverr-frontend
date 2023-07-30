@@ -3,7 +3,7 @@
     <div class="main">
 
       <button @click="onDarkMode">Dark Mode</button>
-
+      <section class="1">
       <p class="gig-category">  
         <i class="home-icon" v-html="$getSvg('home-icon')"></i> <span>/</span><p>logo-design</p>
         <span>/</span><p>artisitic</p><span>/</span>
@@ -29,7 +29,8 @@
       <figure class="gig-gallery">
         <GigDetailsCarusela :gig="gig" />
       </figure>
-
+    </section>
+    <div class="after-package">
       <p class="about-title">About this gig </p>
       <div class="about"> {{ gig.description }}</div>
 
@@ -40,8 +41,9 @@
 
       <ReviewList :reviews="gig.reviews" />
     </div>
+  </div>
 
-    <div class="sticky-packages">
+    <div class="packages" >
       <PackageType @addOrder="addOrder"/>
     </div>
 
