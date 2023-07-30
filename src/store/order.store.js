@@ -12,18 +12,18 @@ export const orderStore = {
         setOrders(state, { orders }) {
             state.orders = orders
         },
-        addOrder(state, { order }) {
-            state.orders.push(order)
+        addOrder(state, { newOrder }) {
+            state.orders.push(newOrder)
         },
         removeOrder(state, { orderId }) {
             state.orders = state.orders.filter(order => order._id !== orderId)
         },
     },
     actions: {
-        async addOrder(context, { order }) {
+        async addOrder(context, { newOrder }) {
             try {
-                order = await orderService.add(order)
-                context.commit({ type: 'addOrder', order })
+                const order = await orderService.save(newOrder)
+                context.commit({ type: 'addOrder', newOrder })
                 return order
             } catch (err) {
                 console.log('orderStore: Error in addOrder', err)
