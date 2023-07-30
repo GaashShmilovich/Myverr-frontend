@@ -13,7 +13,6 @@
     </div>
   </section>
 </template>
-
 <script>
 import InsideHeroSearch from "./insideHeroSearch.vue";
 
