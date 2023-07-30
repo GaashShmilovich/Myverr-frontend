@@ -70,22 +70,6 @@ async function save(gig) {
 	return savedGig
 }
 
-async function addGigMsg(gigId, txt) {
-	// Later, this is all done by the backend
-	const gig = await getById(gigId)
-	if (!gig.msgs) gig.msgs = []
-
-	const msg = {
-		id: utilService.makeId(),
-		by: userService.getLoggedinUser(),
-		txt,
-	}
-	gig.msgs.push(msg)
-	await storageService.put(STORAGE_KEY, gig)
-
-	return msg
-}
-
 function getEmptyGig() {
 	return {
 		_id: '',
@@ -114,7 +98,6 @@ function getEmptyGig() {
 	}
 }
 
-// Initial data
 // ;(async () => {
 // 	await storageService.post(STORAGE_KEY, {
 // 		_id: 'i101',
@@ -152,6 +135,21 @@ function getEmptyGig() {
 // 			{
 // 				question: 'What you can expect from working with me?',
 // 				answer: 'I am obsessed with helping businesses find their visual voice! My approach goes beyond aesthetics, shapes, and colors... and starts with a clear understanding of your business, the competitive landscape, and the vision you have for your product.',
+// 				isOpen: false,
+// 			},
+// 			{
+// 				question: 'What is your refund policy?',
+// 				answer: 'I offer a refund if you are not satisfied with the final result and we are unable to reach a resolution. However, I strive to ensure all my clients are happy with the work delivered.',
+// 				isOpen: false,
+// 			},
+// 			{
+// 				question: 'Do you offer expedited delivery?',
+// 				answer: "Yes, I offer expedited delivery options for an additional fee. If you have a tight deadline, I can prioritize your project to ensure it's completed on time.",
+// 				isOpen: false,
+// 			},
+// 			{
+// 				question: 'Can you provide references from past clients?',
+// 				answer: 'Yes, I can provide references from past clients upon request. Many of my clients have been satisfied with my work and are happy to share their experience with you.',
 // 				isOpen: false,
 // 			},
 // 		],
@@ -219,6 +217,21 @@ function getEmptyGig() {
 // 			{
 // 				question: 'What do i need to get started?',
 // 				answer: 'It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.',
+// 				isOpen: false,
+// 			},
+// 			{
+// 				question: 'Do you offer revisions?',
+// 				answer: "Yes, I offer a certain number of revisions based on the package you choose. Client satisfaction is my top priority, and I'm always open to making adjustments to ensure you are happy with the final result.",
+// 				isOpen: false,
+// 			},
+// 			{
+// 				question: 'What payment methods do you accept?',
+// 				answer: 'I accept payments through PayPal and credit/debit cards. All payments are securely processed to protect your financial information.',
+// 				isOpen: false,
+// 			},
+// 			{
+// 				question: 'Can I see samples of your previous work?',
+// 				answer: 'Absolutely! I have a portfolio showcasing some of my previous projects. Please feel free to check it out to get an idea of my style and the quality of my work.',
 // 				isOpen: false,
 // 			},
 // 		],
@@ -293,6 +306,21 @@ function getEmptyGig() {
 // 					answer: 'It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.',
 // 					isOpen: false,
 // 				},
+// 				{
+// 					question: 'How long does it take to complete a project?',
+// 					answer: 'The project completion time varies depending on the complexity of the project. However, I strive to deliver high-quality work within the agreed-upon timeframe.',
+// 					isOpen: false,
+// 				},
+// 				{
+// 					question: 'Do you offer revisions?',
+// 					answer: "Yes, I offer a certain number of revisions based on the package you choose. Client satisfaction is my top priority, and I'm always open to making adjustments to ensure you are happy with the final result.",
+// 					isOpen: false,
+// 				},
+// 				{
+// 					question: 'What payment methods do you accept?',
+// 					answer: 'I accept payments through PayPal and credit/debit cards. All payments are securely processed to protect your financial information.',
+// 					isOpen: false,
+// 				},
 // 			],
 // 			likedByUsers: ['user-x'],
 // 			reviews: [
@@ -360,6 +388,16 @@ function getEmptyGig() {
 // 				answer: 'It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.',
 // 				isOpen: false,
 // 			},
+// 			{
+// 				question: 'Can I see samples of your previous work?',
+// 				answer: 'Absolutely! I have a portfolio showcasing some of my previous projects. Please feel free to check it out to get an idea of my style and the quality of my work.',
+// 				isOpen: false,
+// 			},
+// 			{
+// 				question: 'How can I contact you?',
+// 				answer: "You can contact me through the messaging system on my Fiverr profile. I'm always available to discuss your project and answer any questions you may have.",
+// 				isOpen: false,
+// 			},
 // 		],
 // 		likedByUsers: ['user-y'],
 // 		reviews: [
@@ -385,367 +423,6 @@ function getEmptyGig() {
 // 					fullname: 'Sophia Lee',
 // 					imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/sampleimg_sophialee.jpg',
 // 					country: 'Canada',
-// 				},
-// 			},
-// 		],
-// 	})
-// 	await storageService.post(STORAGE_KEY, {
-// 		_id: 'i105',
-// 		title: 'I will design interactive UI/UX for your web app',
-// 		price: 50,
-// 		owner: {
-// 			_id: 'u112',
-// 			fullname: 'Max Chen',
-// 			moto: 'Designing the future of web.',
-// 			instagram: '@MaxDesigns',
-// 			imgUrl: 'https://res.cloudinary.com/djm30uwim/image/upload/v1690559803/freelancer_profiles/iwm3linykojt0yle6kxo.jpg',
-// 			level: 'premium',
-// 			rate: 4.9,
-// 			country: 'Singapore',
-// 			language: ['English', 'Mandarin'],
-// 			since: 'January 2021',
-// 			lastDelivery: '1 day ago',
-// 			averageResponse: '2 hours',
-// 			about: 'Dedicated UI/UX designer with 10+ years of experience. Crafting visually appealing and user-friendly interfaces is my passion.',
-// 		},
-// 		daysToMake: 6,
-// 		description:
-// 			'Get your web app an exceptional UI/UX design! I provide wireframes, mockups, and final designs tailored to your needs. Tools used: Figma, Adobe XD.',
-// 		imgUrls: [
-// 			'https://res.cloudinary.com/djm30uwim/image/upload/v1690559802/freelancer_profiles/zrse8ht8zhf4m7a1amsd.jpg',
-// 		],
-// 		tags: ['UI-design', 'UX-design', 'web-app', 'responsive'],
-// 		chosenTag: '',
-// 		faqs: [
-// 			{
-// 				question: 'Do you work with other different styles?',
-// 				answer: 'Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.',
-// 				isOpen: false,
-// 			},
-// 			{
-// 				question: 'What do i need to get started?',
-// 				answer: 'It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.',
-// 				isOpen: false,
-// 			},
-// 		],
-// 		likedByUsers: ['user-z', 'user-x'],
-// 		reviews: [
-// 			{
-// 				id: utilService.makeId(),
-// 				txt: "Max's designs are sleek and user-centric. Worth every penny!",
-// 				rate: 5,
-// 				createdAt: new Date(),
-// 				by: {
-// 					_id: 'u113',
-// 					fullname: 'Olivia Reyes',
-// 					imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_original/q_auto,f_auto/attachments/profile/photo/sampleimg_oliviareyes.jpg',
-// 					country: 'USA',
-// 				},
-// 			},
-// 		],
-// 	})
-
-// 	await storageService.post(STORAGE_KEY, {
-// 		_id: 'i106',
-// 		title: 'I will develop custom plugins for your WordPress site',
-// 		price: 70,
-// 		owner: {
-// 			_id: 'u114',
-// 			fullname: "Liam O'Connor",
-// 			moto: 'Bringing functionality to your fingertips.',
-// 			instagram: '@LiamDevs',
-// 			imgUrl: 'https://res.cloudinary.com/djm30uwim/image/upload/v1690559772/user_profiles/wboenwolo7ngzd19xfkb.jpg',
-// 			level: 'basic',
-// 			rate: 4.7,
-// 			country: 'Ireland',
-// 			language: ['English'],
-// 			since: 'June 2022',
-// 			lastDelivery: '2 days ago',
-// 			averageResponse: '4 hours',
-// 			about: "Experienced WordPress developer with a knack for creating custom plugins to enhance your site's functionality.",
-// 		},
-// 		daysToMake: 8,
-// 		description:
-// 			"Need a custom plugin for your WordPress site? I can help! From small utility plugins to complex feature additions, I've got you covered.",
-// 		imgUrls: [
-// 			'https://res.cloudinary.com/djm30uwim/image/upload/v1690559803/freelancer_profiles/fnerrbdqytztdtq9okvs.jpg',
-// 		],
-// 		tags: [
-// 			'WordPress',
-// 			'plugin-development',
-// 			'custom-plugin',
-// 			'web-development',
-// 		],
-// 		chosenTag: '',
-// 		faqs: [
-// 			{
-// 				question: 'Do you work with other different styles?',
-// 				answer: 'Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.',
-// 				isOpen: false,
-// 			},
-// 			{
-// 				question: 'What do i need to get started?',
-// 				answer: 'It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.',
-// 				isOpen: false,
-// 			},
-// 		],
-// 		likedByUsers: ['user-y'],
-// 		reviews: [
-// 			{
-// 				id: utilService.makeId(),
-// 				txt: "Liam's plugin works flawlessly! Happy with the results.",
-// 				rate: 4.8,
-// 				createdAt: new Date(),
-// 				by: {
-// 					_id: 'u115',
-// 					fullname: 'Nina Patel',
-// 					imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_original/q_auto,f_auto/attachments/profile/photo/sampleimg_ninapatel.jpg',
-// 					country: 'India',
-// 				},
-// 			},
-// 		],
-// 	})
-// 	await storageService.post(STORAGE_KEY, {
-// 		_id: 'i108',
-// 		title: 'I will mix and master your music track to perfection',
-// 		price: 100,
-// 		owner: {
-// 			_id: 'u118',
-// 			fullname: 'Alyssa Smith',
-// 			moto: 'Harmonizing sounds, mastering tracks.',
-// 			instagram: '@AlyssaBeats',
-// 			imgUrl: 'https://res.cloudinary.com/djm30uwim/image/upload/v1690559771/user_profiles/j6nnxwsmdtutugkhhfac.jpg',
-// 			level: 'basic',
-// 			rate: 4.8,
-// 			country: 'UK',
-// 			language: ['English'],
-// 			since: 'November 2021',
-// 			lastDelivery: '2 days ago',
-// 			averageResponse: '1 day',
-// 			about: 'Experienced sound engineer with a passion for producing clear, harmonized, and professional-sounding tracks.',
-// 		},
-// 		daysToMake: 3,
-// 		description:
-// 			'I provide professional mixing and mastering services, ensuring your track sounds perfect in every listening environment.',
-// 		imgUrls: [
-// 			'https://res.cloudinary.com/djm30uwim/image/upload/v1690559802/freelancer_profiles/zrse8ht8zhf4m7a1amsd.jpg',
-// 		],
-// 		tags: ['mixing', 'mastering', 'music-production', 'sound-engineering'],
-// 		chosenTag: '',
-// 		faqs: [
-// 			{
-// 				question: 'Do you work with other different styles?',
-// 				answer: 'Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.',
-// 				isOpen: false,
-// 			},
-// 			{
-// 				question: 'What do i need to get started?',
-// 				answer: 'It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.',
-// 				isOpen: false,
-// 			},
-// 		],
-// 		likedByUsers: ['user-c'],
-// 		reviews: [
-// 			{
-// 				id: utilService.makeId(),
-// 				txt: 'Track sounds phenomenal. Great job, Alyssa!',
-// 				rate: 4.9,
-// 				createdAt: new Date(),
-// 				by: {
-// 					_id: 'u119',
-// 					fullname: 'Khalid Al-Farouq',
-// 					imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_original/q_auto,f_auto/attachments/profile/photo/sampleimg_khalidalfarouq.jpg',
-// 					country: 'UAE',
-// 				},
-// 			},
-// 		],
-// 	}),
-// 		await storageService.post(STORAGE_KEY, {
-// 			_id: 'i111',
-// 			title: 'I will manage your social media accounts',
-// 			price: 40,
-// 			owner: {
-// 				_id: 'u124',
-// 				fullname: 'Giora Ruhnik',
-// 				moto: 'Expanding your social media presence.',
-// 				instagram: '@GioraSMManager',
-// 				imgUrl: 'https://res.cloudinary.com/djm30uwim/image/upload/v1690559771/user_profiles/t8xv3vsvauvhwobepvrz.jpg',
-// 				level: 'basic',
-// 				rate: 2.1,
-// 				country: 'Israel',
-// 				language: ['English', 'Hebrew'],
-// 				since: 'January 2023',
-// 				lastDelivery: '1 week ago',
-// 				averageResponse: '3 days',
-// 				about: 'I am a social media enthusiast ready to manage your accounts. Looking forward to working with you.',
-// 			},
-// 			daysToMake: 10,
-// 			description:
-// 				'I offer social media management services for platforms like Instagram, Twitter, and Facebook.',
-// 			imgUrls: [
-// 				'https://res.cloudinary.com/djm30uwim/image/upload/v1690559802/freelancer_profiles/zrse8ht8zhf4m7a1amsd.jpg',
-// 			],
-// 			tags: ['social-media', 'management', 'marketing', 'branding'],
-// 			chosenTag: '',
-// 			faqs: [
-// 				{
-// 					question: 'Do you work with other different styles?',
-// 					answer: 'Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.',
-// 					isOpen: false,
-// 				},
-// 				{
-// 					question: 'What do i need to get started?',
-// 					answer: 'It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.',
-// 					isOpen: false,
-// 				},
-// 			],
-// 			likedByUsers: [],
-// 			reviews: [
-// 				{
-// 					id: utilService.makeId(),
-// 					txt: 'This was a disaster. Totally unprofessional and no clue about marketing.',
-// 					rate: 1,
-// 					createdAt: new Date(),
-// 					by: {
-// 						_id: 'u125',
-// 						fullname: 'Carlos Herrera',
-// 						imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_original/q_auto,f_auto/attachments/profile/photo/sampleimg_carlosherrera.jpg',
-// 						country: 'Spain',
-// 					},
-// 				},
-// 				{
-// 					id: utilService.makeId(),
-// 					txt: 'I wish I could give zero stars. Total waste of money.',
-// 					rate: 1,
-// 					createdAt: new Date(),
-// 					by: {
-// 						_id: 'u127',
-// 						fullname: 'Kazuki Takahashi',
-// 						imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_original/q_auto,f_auto/attachments/profile/photo/sampleimg_kazuki.jpg',
-// 						country: 'Japan',
-// 					},
-// 				},
-// 			],
-// 		}),
-// 		await storageService.post(STORAGE_KEY, {
-// 			_id: 'i112',
-// 			title: 'I will design stunning graphics for your brand',
-// 			price: 50,
-// 			owner: {
-// 				_id: 'u128',
-// 				fullname: 'Puki Junior',
-// 				moto: 'Crafting visuals that resonate.',
-// 				instagram: '@PukiDesigns',
-// 				imgUrl: 'https://res.cloudinary.com/djm30uwim/image/upload/v1690559771/user_profiles/zqpwbbeu551js7dz4oqd.jpg',
-// 				level: 'premium',
-// 				rate: 5,
-// 				country: 'USA',
-// 				language: ['English'],
-// 				since: 'April 2020',
-// 				lastDelivery: '2 hours ago',
-// 				averageResponse: '15 minutes',
-// 				about: "Passionate about design and branding. Let's create something amazing together!",
-// 			},
-// 			daysToMake: 2,
-// 			description:
-// 				'Specializing in branding materials, ads, and social media graphics.',
-// 			imgUrls: [
-// 				'https://res.cloudinary.com/djm30uwim/image/upload/v1690559802/freelancer_profiles/zrse8ht8zhf4m7a1amsd.jpg',
-// 			],
-// 			tags: ['graphic-design', 'branding', 'visuals', 'artistry'],
-// 			chosenTag: '',
-// 			faqs: [
-// 				{
-// 					question: 'Do you work with other different styles?',
-// 					answer: 'Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.',
-// 					isOpen: false,
-// 				},
-// 				{
-// 					question: 'What do i need to get started?',
-// 					answer: 'It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.',
-// 					isOpen: false,
-// 				},
-// 			],
-// 			likedByUsers: ['user-g', 'user-h'],
-// 			reviews: [
-// 				{
-// 					id: utilService.makeId(),
-// 					txt: "Exceptional design! Puki is the best designer I've worked with.",
-// 					rate: 5,
-// 					createdAt: new Date(),
-// 					by: {
-// 						_id: 'u129',
-// 						fullname: 'Stacy Miller',
-// 						imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_original/q_auto,f_auto/attachments/profile/photo/sampleimg_stacymiller.jpg',
-// 						country: 'UK',
-// 					},
-// 				},
-// 			],
-// 		})
-
-// 	await storageService.post(STORAGE_KEY, {
-// 		_id: 'i113',
-// 		title: 'I will optimize your backend server performance',
-// 		price: 70,
-// 		owner: {
-// 			_id: 'u130',
-// 			fullname: 'Nod Nodejs',
-// 			moto: 'Enhancing server performance one line of code at a time.',
-// 			instagram: '@NodServerGuru',
-// 			imgUrl: 'https://res.cloudinary.com/djm30uwim/image/upload/v1690559770/user_profiles/wwdwqskifbrwuhg1vqgb.jpg',
-// 			level: 'premium',
-// 			rate: 4.2,
-// 			country: 'Germany',
-// 			language: ['English', 'German'],
-// 			since: 'August 2018',
-// 			lastDelivery: '1 day ago',
-// 			averageResponse: '4 hours',
-// 			about: 'Experienced backend developer focusing on Node.js optimizations.',
-// 		},
-// 		daysToMake: 3,
-// 		description:
-// 			'I specialize in server-side optimizations, improving load times and overall backend performance.',
-// 		imgUrls: [
-// 			'https://res.cloudinary.com/djm30uwim/image/upload/v1690559802/freelancer_profiles/zrse8ht8zhf4m7a1amsd.jpg',
-// 		],
-// 		tags: ['nodejs', 'backend', 'optimization', 'performance'],
-// 		chosenTag: '',
-// 		faqs: [
-// 			{
-// 				question: 'Do you work with other different styles?',
-// 				answer: 'Yes, I would adapt to the requirements, but also I will give you professional advice on which style fit the most to your brand.',
-// 				isOpen: false,
-// 			},
-// 			{
-// 				question: 'What do i need to get started?',
-// 				answer: 'It was never as easy as placing the order on my gig. You will be asked few basic questions like your logo company name, slogan, color etc after you place the order.',
-// 				isOpen: false,
-// 			},
-// 		],
-// 		likedByUsers: ['user-i', 'user-j'],
-// 		reviews: [
-// 			{
-// 				id: utilService.makeId(),
-// 				txt: 'Nod did a good job, but there were a few delays.',
-// 				rate: 4,
-// 				createdAt: new Date(),
-// 				by: {
-// 					_id: 'u131',
-// 					fullname: 'Meragesh Stein',
-// 					imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_original/q_auto,f_auto/attachments/profile/photo/sampleimg_merageshstein.jpg',
-// 					country: 'Austria',
-// 				},
-// 			},
-// 			{
-// 				id: utilService.makeId(),
-// 				txt: 'The optimizations were effective. Would recommend.',
-// 				rate: 4.5,
-// 				createdAt: new Date(),
-// 				by: {
-// 					_id: 'u132',
-// 					fullname: 'Liam Meragesh',
-// 					imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_original/q_auto,f_auto/attachments/profile/photo/sampleimg_liammeragesh.jpg',
-// 					country: 'Ireland',
 // 				},
 // 			},
 // 		],

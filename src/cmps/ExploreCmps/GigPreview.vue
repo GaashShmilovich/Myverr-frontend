@@ -25,7 +25,7 @@
 				</div>
 				<h4 class="gig-preview__title">{{ gig.title }}</h4>
 				<p v-if="gig.owner" class="gig-preview-rate">
-					⭐ {{ avgRating }}
+					<span class="preview-star">⭐</span> {{ avgRating }}
 					<span>({{ gig.reviews.length }})</span>
 				</p>
 				<hr />

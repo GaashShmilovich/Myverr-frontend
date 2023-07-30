@@ -68,5 +68,76 @@
         }
     }
 
-
+    .sortByModal {
+        display: flex;
+        flex-direction: column;
+        border-radius: 4px;
+        border: 1px solid $clr11;
+        color: $clr2;
+        font-size: rem(16px);
+        line-height: rem(24px);
+        padding: 8px 0;
+        height: min-content;
+        width: rem(170px);
+        margin-left: 65px ;
+        position: absolute;
+        background-color: $clr1;
+        transition: 1500ms;
+        a {
+            padding: 13px 30px 13px 15px;
+            text-align: center;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        .v-check{
+            // position: absolute;
+            text-align: left;
+            margin-left: -25px;
+            padding-right: 6px;
+            
+        }
+    }
+    .arrow-down {
+        transition: 200ms;
+        position: absolute;
+        translate: 0 2px;
+        rotate: 90deg;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    
+    .arrow-up {
+        translate: 0 2px;
+        transition: 200ms;
+        rotate: 270deg;
+        position: absolute;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .hidden {
+        display: none;
+    }
+    .sortBy {
+        color: $clr3;
+        font-size: rem(16px);
+        font-family: macanRegular;
+    }
+    .place-holder {
+        font-family: macanSemibold;
+        font-size: rem(16px);
+        color: $clr3;
+        margin-right: 10px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .star {
+        padding: 0 1px;
+    }
+    .rate-number {
+        padding-left: 3px;
+    }
 }

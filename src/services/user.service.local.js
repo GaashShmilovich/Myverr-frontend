@@ -43,6 +43,7 @@ async function update({ _id, score }) {
 
 async function login(userCred) {
     const users = await storageService.query('user')
+    console.log(users);
     const user = users.find(user => user.username === userCred.username)
     if (user) {
         return saveLocalUser(user)
@@ -69,27 +70,27 @@ async function changeScore(by) {
 }
 
 function saveLocalUser(user) {
-    user = {
-        _id: user._id,
-        fullname: user.fullname,
-        imgUrl: user.imgUrl,
-        username: user.username,
-        password: user.password,
-        level: user.level,
-        reviews: [
-            {
-                id: user.reviews[0]._id,
-                gig: user.reviews[0].gig,
-                txt: user.reviews[0].txt,
-                rate: user.reviews[0].rate,
-                by: {
-                    _id: user.reviews[0].by._id,
-                    fullname: user.reviews[0].by.fullname,
-                    imgUrl: user.reviews[0].by.imgUrl
-                }
-            }
-        ],
-    },
+    // user = {
+    //     id: user._id,
+    //     fullname: user.fullname,
+    //     imgUrl: user.imgUrl,
+    //     username: user.username,
+    //     password: user.password,
+    //     level: user.level,
+    //     reviews: [
+    //         {
+    //             id: user.reviews[0]._id,
+    //             gig: user.reviews[0].gig,
+    //             txt: user.reviews[0].txt,
+    //             rate: user.reviews[0].rate,
+    //             by: {
+    //                 _id: user.reviews[0].by._id,
+    //                 fullname: user.reviews[0].by.fullname,
+    //                 imgUrl: user.reviews[0].by.imgUrl
+    //             }
+    //         }
+    //     ],
+    // },
         sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
@@ -124,7 +125,7 @@ function getLoggedinUser() {
 
 //     )
 //     await userService.signup({
-//         _id: "u102",
+//         id: "u102",
 //         fullname: "User 2",
 //         imgUrl: "/img/img2.jpg",
 //         username: "user2",
@@ -147,7 +148,7 @@ function getLoggedinUser() {
 
 //     )
 //     await userService.signup({
-//         _id: "u103",
+//         id: "u103",
 //         fullname: "User 3",
 //         imgUrl: "/img/img3.jpg",
 //         username: "user3",

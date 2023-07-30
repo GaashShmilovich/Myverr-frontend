@@ -1,9 +1,37 @@
 <template>
     <table class="rate-bars">
-    <tr>5 Stars <td class="progress-bar-container"><td class="progress-bar" style="width: 50%;"></td></td><span>(280)</span></tr>
-    <tr>4 Stars <td class="progress-bar-container"><td class="progress-bar" style="width: 50%;"></td></td><span>(24)</span></tr>
-    <tr>3 Stars <td class="progress-bar-container"><td class="progress-bar" style="width: 50%;"></td></td> <span>(13)</span></tr>
-    <tr>2 Stars <td class="progress-bar-container"><td class="progress-bar" style="width: 50%;"></td></td> <span>(5)</span></tr>
-    <tr>1 Stars <td class="progress-bar-container"><td class="progress-bar" style="width: 50%;"></td></td> <span>(0)</span></tr>
-</table>
+        <tr v-for="i in stars">{{ i }} Stars <td class="progress-bar-container">
+            <td class="progress-bar" :style="{ width: `${getPrecentage(i)}%` }"></td>
+            </td><span>({{ getRateCount(i) }})</span>
+        </tr>
+    </table>
 </template>
+
+<script>
+export default {
+    props: {
+        reviews: Array
+    },
+    data() {
+        return {
+            stars: [5, 4, 3, 2, 1]
+        }
+    },
+    methods: {
+        getRateCount(num) {
+            const countRate = this.reviews.reduce((count, review) => (review.rate === num ? count + 1 : count), 0);
+            return countRate
+        },
+        getPrecentage(num) {
+            const sum = this.getRateCount(1) + this.getRateCount(2) + this.getRateCount(3) + this.getRateCount(4) + this.getRateCount(5)
+            // const sum = 0
+            // for (var i = 1; i <= 5; i++) {
+            //     console.log(i);
+            //     console.log(this.getRateCount(i));
+            //     sum += this.getRateCount(i)
+            // }
+            return this.getRateCount(num) / sum * 100
+        }
+    }
+}
+</script>

@@ -1,5 +1,7 @@
 <template>
 	<div class="gig-sort-container">
+		<span class="gig-count">{{ gigCount }} services available</span>
+		<!-- Displaying number of gigs -->
 		<div class="sort-by-container">
 			<span>Sort by:</span>
 			<span class="current-sort" @click="showModal = !showModal">
@@ -31,6 +33,12 @@
 
 <script>
 export default {
+	props: {
+		gigCount: {
+			type: Number,
+			default: 0,
+		},
+	},
 	data() {
 		return {
 			currentSort: 'Highest Rating',

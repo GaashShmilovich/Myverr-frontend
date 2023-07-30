@@ -14,7 +14,6 @@
     }
 
     .question {
-        border-top: 1px solid $clr2;
         display: flex;
         justify-content: space-between;
         width: 100%;
@@ -22,9 +21,15 @@
         padding: rem(20px) 0;
         font-size: rem(16px);
         font-family: macanSemibold;
-
         &:hover {
             cursor: pointer;
+        }
+    }
+    
+    .faq-item {
+        border-top: 1px solid $clr6;
+        &:first-of-type {
+            border-top: none;
         }
     }
 
