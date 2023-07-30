@@ -30,9 +30,12 @@ header {
   }
 
   &.openHeader {
+    background-color: $clr1;
+  }
+
+  &.is-sticky {
     position: sticky;
     top: 0;
-    background-color: $clr1;
   }
 
   .loggedin-user {
@@ -55,19 +58,15 @@ header {
   }
   .logo {
     &.open-nav-logo {
-      a {
-        color: $clr3;
-      }
+      color: $clr3;
     }
   }
   .logo {
-    a {
-      font-family: chunkRegular;
-      color: $clr1;
-      font-size: 30px;
-      span {
-        color: $green1;
-      }
+    font-family: chunkRegular;
+    color: $clr1;
+    font-size: 30px;
+    span {
+      color: $green1;
     }
   }
 

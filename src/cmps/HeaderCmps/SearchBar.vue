@@ -17,6 +17,7 @@ export default {
   methods: {
     submitSearch() {
       this.$emit("search", this.searchQuery);
+      this.$router.push({ path: "/explore", query: { txt: this.searchQuery } });
     },
   },
 };

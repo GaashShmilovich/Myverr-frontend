@@ -1,5 +1,5 @@
 <template>
-  <section class="main-categories-container full">
+  <section class="main-categories-container main-layout full">
     <h2>You need it, we've got it</h2>
     <ul class="categories-list">
       <li>
