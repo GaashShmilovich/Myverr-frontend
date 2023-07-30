@@ -40,6 +40,11 @@
         border-bottom: rem(3px) solid #1dbf73;
     }
 
+    .unpicked {
+        background-color: $clr8;
+        color: $clr5;
+    }
+
     .price {
         padding: rem(20px) rem(24px) 0;
         align-items: flex-start;

@@ -1,24 +1,24 @@
 <template lang="">
   <section class="review-preview" >
     <section class="review-by">
-  <img :src="review.by.imgUrl" alt="">
+  <img class="reviewer-img" :src="review.by.imgUrl" alt="">
       <section class="review-by-name">
   <p class="fullname"> {{ review.by.fullname }}</p>
-  <img :src="review.by.country.img" alt="">
-  <p class="country-img"> {{ review.by.country.name }}</p>
+  <img class="country-img" :src="review.by.country.img" alt="">
+  <span class="country-name"> {{ review.by.country.name }}</span>
       </section>
     </section>
     <section class="review-rate-time">
     <span v-for="i in review.rate || 1">
       <font-awesome-icon
-        :style="{ color: '#ffb33e' }"
+        class="star yellow"
         icon="fa-solid fa-star"
       /> 
     </span> || 
     <span> {{ createdAt }}</span>
     <!-- <span> {{ review.createdAt }}</span> -->
     </section>
-    <p> {{ review.txt }}</p>
+    <p class="review-txt"> {{ review.txt }}</p>
   </section>
 </template>
 <script>
