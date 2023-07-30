@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: 1fr 33%;
     @include for-normal-layout {
-        background-color: aqua;
+        // background-color: aqua;
     }
     .main {
         margin-right: 50px;
