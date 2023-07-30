@@ -98,7 +98,7 @@ function getEmptyGig() {
 	}
 }
 
-// ;(async () => {
+// ; (async () => {
 // 	await storageService.post(STORAGE_KEY, {
 // 		_id: 'i101',
 // 		title: 'I will design your logo',
