@@ -28,7 +28,7 @@ export default {
       cardNumber: '1234-5678-8765-4321',
       expiryDate: '08/08',
       cvv: '777',
-      user: userService.getLoggedinUser()
+      user: userService.getLoggedinUser
     };
   },
   components: {
