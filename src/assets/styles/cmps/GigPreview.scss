@@ -85,6 +85,10 @@
 				margin: 6px 0;
 			}
 
+			.preview-star {
+				filter: brightness(0%) saturate(100%);
+			}
+
 			.gig-preview-rate span {
 				font-size: 0.8em;
 				color: rgb(170, 167, 167);
