@@ -1,15 +1,14 @@
 .inside-hero-container {
-  //   display: flex;
   grid-column: 2 / 3;
-  width: rem(650px);
   position: absolute;
-  top: 35%;
-  left: 0;
-  transform: translateY(-50%);
+  // margin-block-start: rem(225px);
+  inset: 0;
+  top: 32%;
+  margin-block-end: 500px;
   z-index: 100;
   .search-bar-wrapper {
     z-index: 1000;
-    margin-bottom: 1rem; /* Add some spacing between the lines of text */
+    margin-bottom: 1rem;
     margin-inline-start: 0;
   }
   .main-layout {
@@ -17,7 +16,7 @@
   }
   .lines {
     width: 100%;
-    max-width: rem(600px); /* Set the maximum width for the lines container */
+    max-width: rem(600px);
     align-items: center;
 
     .first-line {
@@ -44,10 +43,13 @@
   }
 
   .popular {
-    // display: flex;
+    display: flex;
+    align-items: center;
     font-family: macanSemibold;
     font-size: rem(14px);
-    grid-column: 2/ 3;
+    height: rem(27px);
+    gap: 15px;
+    // grid-column: 2/ 3;
     color: $clr1;
 
     ul {
@@ -55,6 +57,7 @@
       list-style-type: none;
       justify-content: center;
       align-items: center;
+      padding: 0;
     }
     li {
       transition: all 0.2s ease-in-out;
@@ -76,9 +79,10 @@
   .search-bar-wrapper {
     .search-form {
       margin-inline: 0;
+      width: rem(650px);
+
       input {
         height: rem(48px);
-        width: auto;
         border: none;
       }
       button {

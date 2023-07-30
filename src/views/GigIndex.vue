@@ -1,5 +1,6 @@
 <template>
 	<div class="gig-list-container">
+		<ExploreHeader></ExploreHeader>
 		<GigFilter @filterChanged="onFilterChanged"></GigFilter>
 		<SortGigs
 			:gigCount="gigs.length"
@@ -13,6 +14,7 @@
 import GigList from '../cmps/ExploreCmps/GigList.vue'
 import GigFilter from '../cmps/ExploreCmps/GigFilter.vue'
 import SortGigs from '../cmps/ExploreCmps/SortGigs.vue'
+import ExploreHeader from '../cmps/ExploreCmps/ExploreHeader.vue'
 
 export default {
 	data() {
@@ -24,6 +26,7 @@ export default {
 		GigList,
 		GigFilter,
 		SortGigs,
+		ExploreHeader,
 	},
 	computed: {
 		gigs() {

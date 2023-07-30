@@ -1,33 +1,55 @@
 <template>
   <section class="hero-container">
-    <img
-      v-if="currentImage"
-      ref="rotatingImage"
-      alt="Vue logo"
-      :src="currentImage"
-      :key="currentImageIndex"
-      class="image-transition"
-    />
-    <div class="inside-hero-search-wrapper full main-layout">
-      <InsideHeroSearch />
-    </div>
+    <vueper-slides
+      ref="vueperslides1"
+      :touchable="false"
+      fade
+      :autoplay="true"
+      :bullets="false"
+      :arrows="false"
+      fixed-height="680px"
+    >
+      <vueper-slide v-for="(slide, i) in slides" :key="i" :image="slide.image">
+      </vueper-slide>
+    </vueper-slides>
+    <InsideHeroSearch />
   </section>
 </template>
 <script>
 import InsideHeroSearch from "./insideHeroSearch.vue";
+import { VueperSlides, VueperSlide } from "vueperslides";
+import "vueperslides/dist/vueperslides.css";
 
 export default {
   name: "hero",
-  components: { InsideHeroSearch },
+  components: {
+    InsideHeroSearch,
+    VueperSlides,
+    VueperSlide,
+  },
   data() {
     return {
-      images: [
-        "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/1b6990afe0934244dda2c9aeed5de8d9-1674663021930/bg-hero-6-1792-x1.png",
-        "https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/bb5958e41c91bb37f4afe2a318b71599-1599344049983/bg-hero-1-1792-x1.png",
-        "https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/2413b8415dda9dbd7756d02cb87cd4b1-1599595203045/bg-hero-2-1792-x1.png",
-        "https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/d14871e2d118f46db2c18ad882619ea8-1599835783966/bg-hero-3-1792-x1.png",
-        "https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/93085acc959671e9e9e77f3ca8147f82-1599427734108/bg-hero-4-1792-x1.png",
-        "https://fiverr-res.cloudinary.com/image/upload/q_auto,f_auto/v1/attachments/generic_asset/asset/bb5958e41c91bb37f4afe2a318b71599-1599344049970/bg-hero-5-1792-x1.png",
+      slides: [
+        {
+          image:
+            "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,dpr_1.0/v1/attachments/generic_asset/asset/4637ac0b5e7bc7f247cd24c0ca9e36a3-1690384616487/jenny-2x.jpg",
+        },
+        {
+          image:
+            "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,dpr_1.0/v1/attachments/generic_asset/asset/4637ac0b5e7bc7f247cd24c0ca9e36a3-1690384616493/colin-2x.jpg",
+        },
+        {
+          image:
+            "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,dpr_1.0/v1/attachments/generic_asset/asset/4637ac0b5e7bc7f247cd24c0ca9e36a3-1690384616487/scarlett-2x.jpg",
+        },
+        {
+          image:
+            "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,dpr_1.0/v1/attachments/generic_asset/asset/4637ac0b5e7bc7f247cd24c0ca9e36a3-1690384616493/jordan-2x.jpg",
+        },
+        {
+          image:
+            "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,dpr_1.0/v1/attachments/generic_asset/asset/4637ac0b5e7bc7f247cd24c0ca9e36a3-1690384616497/christina-2x.jpg",
+        },
       ],
       currentImageIndex: 0,
     };
@@ -44,7 +66,28 @@ export default {
     },
   },
   mounted() {
-    setInterval(this.rotateImages, 3500);
+    // setInterval(this.rotateImages, 3500);
   },
 };
 </script>
+
+<style>
+/* .thumbnails {
+  margin: auto;
+  max-width: 300px;
+} */
+
+/* .thumbnails .vueperslide {
+  box-sizing: border-box;
+  border: 1px solid #fff;
+  transition: 0.3s ease-in-out;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.thumbnails .vueperslide--active {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  opacity: 1;
+  border-color: #000;
+} */
+</style>

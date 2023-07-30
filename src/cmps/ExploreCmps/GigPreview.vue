@@ -23,7 +23,6 @@
 					<span class="preview-star">⭐</span> {{ avgRating }}
 					<span>({{ gig.reviews.length }})</span>
 				</p>
-				<hr />
 				<div class="gig-preview-footer-container">
 					<p class="gig-like-btn">❤</p>
 					<p v-if="gig.price" class="gig-preview__price">

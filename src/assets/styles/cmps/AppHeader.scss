@@ -25,7 +25,8 @@ header {
       display: none;
     }
     &.shown {
-      display: block;
+      display: grid;
+      border-bottom: 1px solid rgb(228, 229, 231);
     }
   }
 
@@ -119,8 +120,9 @@ header {
     margin: 0;
     padding: 0;
     height: 40px;
-    // white-space: nowrap;
+    white-space: nowrap;
     flex-wrap: nowrap;
+    grid-column: 2 / 3;
     a {
       position: relative;
       color: $clr2;

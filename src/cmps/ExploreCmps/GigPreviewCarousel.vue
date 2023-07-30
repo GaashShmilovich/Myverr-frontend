@@ -1,5 +1,5 @@
 <template>
-	<vueper-slides v-if="images && images.length">
+	<vueper-slides class="preview-carousel-img" v-if="images && images.length">
 		<vueper-slide v-for="image in images" :key="image" :image="image" />
 	</vueper-slides>
 </template>
