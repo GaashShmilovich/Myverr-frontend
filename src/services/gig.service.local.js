@@ -122,7 +122,7 @@ function getEmptyGig() {
 // 		description:
 // 			"Hello, Hi There, I am Bruce - talented, experienced graphic designer and most important positive person. With 11.000+ successfully completed orders, here on Fiverr. This is my Retro Vintage Logo style gig, only on Fiverr. I believe in the importance of logos and branding in a company's success, and nothing gives me more pride than to see one of my logos at the top.All graphic and Logo Design work will be of very High Quality Standards and always adjusted to meet your needs from which I have accumulated exceptional custom reviews.You will Get: Delivery time within 24 hours. I do Modern Vintage Retro Logo, Clothing brand, Gaming, Minimalist, y2k, Signature... for Your Business or Persional. Deliverable files will be JPG and PNG with transparent background. High Quality image (3000px x 3000px). Black & White or color. Friendly communication and fast response. Unique & custom made Wordmark / Logotype designs without any reused cheesy icons.Full assistance until you're satisfied .",
 // 		imgUrls: [
-// 			'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/290928503/original/46338c22812e3d72eb57485406c886313b8be338/provide-professional-german-seo-blog-articles.png',
+// 			'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/290928503/original/46338c22812e3d72eb57485406c886313b8be338/provide-professional-german-seo-blog-articles.png','https://picsum.photos/id/237/200/300','https://picsum.photos/id/237/200/300'
 // 		],
 // 		tags: ['logo-design', 'artisitic', 'proffesional', 'accessible'],
 // 		chosenTag: '',
@@ -204,7 +204,7 @@ function getEmptyGig() {
 // 		description:
 // 			"Well, search no longer. If you are looking for someone to PLAN the story of your game - you are at the right place. Sometimes as a writer, you might be stuck - and not know what to write. Having someone else deal with all the planning can be helpful (and it's a known way to cure writer's block!) I will write the plot, create the characters (I can even include reference images albeit my art skills are lacking) and come up with an outline, all in one gig! I can even help come up with a detailed setting! As this gig might require detailed communication, please know that I might send frequent updates/questions as I work on your piece!",
 // 		imgUrls: [
-// 			'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/9377852/original/7fa1ab489ad31ef89c2f5c7eea6870cadd4fe27d/design-an-awesome-vintage-or-retro-logo-88d601db-60fd-43f1-9778-0bd57e615805.jpg',
+// 			'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/9377852/original/7fa1ab489ad31ef89c2f5c7eea6870cadd4fe27d/design-an-awesome-vintage-or-retro-logo-88d601db-60fd-43f1-9778-0bd57e615805.jpg','https://picsum.photos/id/237/200/300','https://picsum.photos/id/237/200/300'
 // 		],
 // 		tags: ['artisitic', 'proffesional'],
 // 		chosenTag: '',
@@ -286,7 +286,7 @@ function getEmptyGig() {
 // 			description:
 // 				"I will create stunning video animations tailored to your narrative or brand. Specializing in 2D and 3D animation, I ensure that every project captures the viewer's attention. Services include: Storyboarding, Voice-over sync, Custom graphics, and HD Quality. The final product will be delivered in MP4 or any preferred format, ensuring compatibility with all platforms.",
 // 			imgUrls: [
-// 				'https://res.cloudinary.com/djm30uwim/image/upload/v1690559803/freelancer_profiles/r8hqlhzwg7wkt3slw8yj.jpg',
+// 				'https://res.cloudinary.com/djm30uwim/image/upload/v1690559803/freelancer_profiles/r8hqlhzwg7wkt3slw8yj.jpg','https://picsum.photos/id/237/200/300','https://picsum.photos/id/237/200/300',
 // 			],
 // 			tags: [
 // 				'video-animation',
@@ -373,7 +373,7 @@ function getEmptyGig() {
 // 		description:
 // 			'Looking for content that stands out? I specialize in crafting engaging content tailored to your audience. My services include: SEO optimized articles, Blog posts, Web content, Research-based writings, and more! Each piece will be meticulously researched, ensuring accuracy and relevance. Deliverable will be in DOC or PDF format, and I guarantee top-tier quality.',
 // 		imgUrls: [
-// 			'https://res.cloudinary.com/djm30uwim/image/upload/v1690559803/freelancer_profiles/lfagvbzm7qefoodrh7ca.jpg',
+// 			'https://res.cloudinary.com/djm30uwim/image/upload/v1690559803/freelancer_profiles/lfagvbzm7qefoodrh7ca.jpg','https://picsum.photos/id/237/200/300','https://picsum.photos/id/237/200/300',
 // 		],
 // 		tags: ['content-writing', 'blog-post', 'SEO-optimized', 'researched'],
 // 		chosenTag: '',

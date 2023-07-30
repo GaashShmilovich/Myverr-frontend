@@ -2,12 +2,7 @@
 	<div class="gig-preview-container" @click="goToGig">
 		<div class="gig-preview">
 			<div class="gig-preview__img-container">
-				<img
-					v-if="gig?.imgUrls"
-					:src="gig?.imgUrls"
-					alt="gig.title"
-					class="gig-preview__img"
-				/>
+				<GigPreviewCarousel :images="gig.imgUrls"> </GigPreviewCarousel>
 			</div>
 			<div class="gig-preview__info">
 				<div class="owner-preview-container">
@@ -41,6 +36,8 @@
 </template>
 
 <script>
+import GigPreviewCarousel from './GigPreviewCarousel.vue'
+
 export default {
 	props: {
 		gig: Object,
@@ -58,6 +55,9 @@ export default {
 			}, 0)
 			return (totalRating / this.gig.reviews.length).toFixed(2)
 		},
+	},
+	components: {
+		GigPreviewCarousel,
 	},
 }
 </script>
