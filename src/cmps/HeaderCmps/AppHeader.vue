@@ -51,7 +51,7 @@
       </nav>
     </div>
     <nav
-      class="categories"
+      class="categories full main-layout"
       :class="{
         hidden: isHidden,
         shown: modalOpen,

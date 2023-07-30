@@ -7,7 +7,7 @@
     <span class="search-bar-wrapper">
       <SearchBar />
     </span>
-    <div class="popular main-layout">
+    <div class="popular">
       Popular:
       <ul>
         <!-- Add the click event listener to call the function with the category name -->
