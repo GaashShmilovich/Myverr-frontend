@@ -45,7 +45,6 @@
           }"
         >
           <RouterLink to="/explore">Explore</RouterLink>
-          <RouterLink to="/chat">Chat</RouterLink>
           <RouterLink to="/login">Login / Signup</RouterLink>
           <RouterLink to="/explore/edit?">Edit</RouterLink>
         </div>
