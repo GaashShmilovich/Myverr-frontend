@@ -2,7 +2,9 @@
     // display: flex;
     display: grid;
     grid-template-columns: 1fr 33%;
-
+    @include for-normal-layout {
+        background-color: aqua;
+    }
     .main {
         margin-right: 50px;
 
@@ -216,3 +218,4 @@
     background-color: black;
     color: antiquewhite;
 }
+
