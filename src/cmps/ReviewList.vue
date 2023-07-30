@@ -3,16 +3,16 @@
       <p class="title">Reviews</p> 
 
       <p class="sub-title">{{ reviews?.length }} reviews for this Gig
-        <span v-for="i in reviews.rate || 1"> 
-          <!-- // how to make average of review rates? -->
-      <font-awesome-icon
-        :style="{ color: '#ffb33e' }"
-        icon="fa-solid fa-star"
-      />
-    </span>
+        <span v-for="i in getAverageRateRounded "> 
+          <font-awesome-icon
+          class="star yellow"
+          icon="fa-solid fa-star"
+          />
+        </span>
+        <span class="rate-number yellow">{{ getAverageRate }}</span>
   </p>
 
-      <ReviewRateBar />
+      <ReviewRateBar :reviews="reviews" />
 
       <form class="search-form" @submit.prevent="searchReview">
     <input type="text" class="input" placeholder="Search reviews" v-model="searchTxt" />
@@ -63,6 +63,17 @@ export default {
       placeHolder: 'Most recent',
       types: ['Most recent','Highest rate','Lowest rate']
     },
+    }
+  },
+  computed: {
+    getAverageRate() {
+      const totalRates = this.reviews.reduce((sum, review) => sum + review.rate, 0);
+      const averageRate = totalRates / this.reviews.length;
+      return averageRate
+    },
+    getAverageRateRounded() {
+      const averageRate = this.getAverageRate
+      return Math.ceil(averageRate)
     }
   },
   async created() {

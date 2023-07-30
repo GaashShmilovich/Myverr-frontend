@@ -102,7 +102,7 @@ function getLoggedinUser() {
 // Initial data
 // ; (async () => {
 //     await userService.signup({
-//         id: "u101",
+//         _id: "u101",
 //         fullname: "User 1",
 //         imgUrl: "/img/img1.jpg",
 //         username: "user1",
