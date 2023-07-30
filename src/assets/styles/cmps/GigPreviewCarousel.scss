@@ -1,0 +1,14 @@
+.vueperslides__bullet .default {
+	background-color: rgb(255, 255, 255);
+	border: none;
+	box-shadow: none;
+	transition: 0.3s;
+	width: 7px;
+	height: 7px;
+	margin-bottom: -10px;
+}
+
+.vueperslides__bullet--active .default {
+	width: 12px;
+	height: 12px;
+}
