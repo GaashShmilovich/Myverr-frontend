@@ -14,7 +14,7 @@
           {{ faq.question }}
             <i :class="{ 'arrow-up': faq.isOpen, 'arrow-down': !faq.isOpen }" v-html="$getSvg('arrow-down')"></i>
         </div>
-        <div v-if="faq.isOpen" class="answer">
+        <div :class="{'show': faq.isOpen}" class="answer">
           {{ faq.answer }}
         </div>
       </div>

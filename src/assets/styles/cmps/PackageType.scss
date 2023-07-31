@@ -6,6 +6,7 @@
     position: sticky;
     margin-top: 100px;
     top: 95px;
+    background-color: $clr1;
 
     &:not(:first-child) {
         padding: 0 24px;
@@ -18,11 +19,11 @@
         font-family: macanBold;
         color: $clr5;
         text-align: center;
+        border-bottom: 1px solid $clr6;
 
         >* {
             line-height: 24px;
-            padding: 16px;
-            border-bottom: 1px solid $clr6;
+            padding: 16px 10px;
 
             &:hover {
                 cursor: pointer;
@@ -38,6 +39,11 @@
     .picked {
         color: $green1;
         border-bottom: rem(3px) solid #1dbf73;
+    }
+
+    .unpicked {
+        background-color: $clr8;
+        color: $clr5;
     }
 
     .price {
@@ -69,6 +75,11 @@
 
     }
 
+    .v-check {
+        fill: $green5;
+        height: 16px;
+    }
+
     .benefits {
         padding: 20px 24px ;
         font-family: macanBold;
@@ -78,6 +89,7 @@
     }
     .specials {
         list-style: none;
+        margin-left: -14px;
     }
 }
 
@@ -86,16 +98,22 @@
     font-size: 16px;
     font-weight: 600;
     line-height: 100%;
-    margin: 18px 24px;
+    margin: 18px 24px 30px;
     padding: 12px 24px;
     position: relative;
     text-align: center;
     border-radius: 4px;
     color: $clr1;
     background-color: $clr7;
+    .long-arrow-right {
+        fill: aliceblue;
+        position: absolute;
+        right: 25px;
+    }
 
     &:hover {
         cursor: pointer;
+        background-color: hsl(200, 10%, 30%);
     }
     .btn-contact {
         color: $clr2;

@@ -1,9 +1,9 @@
 <template>
     <div class="package-type">
         <section class="headers">
-            <label @click="setType('basic')" :class="{ picked: type === 'basic' }">Basic</label>
-            <label @click="setType('standard')" :class="{ picked: type === 'standard' }">Standard</label>
-            <label @click="setType('premium')" :class="{ picked: type === 'premium' }">Premium</label>
+            <label @click="setType('basic')" :class="{ picked: type === 'basic', unpicked: type !== 'basic' }" >Basic</label>
+            <label @click="setType('standard')" :class="{ picked: type === 'standard', unpicked: type !== 'standard' }">Standard</label>
+            <label @click="setType('premium')" :class="{ picked: type === 'premium', unpicked: type !== 'premium' }">Premium</label>
         </section>
 
         <section class="price">
@@ -26,7 +26,7 @@
                 {{ special }}</li>
         </ul>
 
-        <RouterLink class="to-payment" to="/payment" @click="addOrder">Continue</RouterLink>
+        <RouterLink class="to-payment" to="/payment" @click="addOrder">Continue <i class="long-arrow-right" v-html="$getSvg('long-arrow-right')"></i></RouterLink>
         <!-- <RouterLink class="to-user-profile" :to="'/user' + user._id" :gig="gig">Continue</RouterLink> -->
 
     </div>

@@ -2,7 +2,7 @@
 	<div>
 		<ul class="gig-list">
 			<li v-for="gig in gigs" :key="gig.id">
-				<GigPreview :gig="gig"></GigPreview>
+				<GigPreview :gig="gig" ref="gigPreview"></GigPreview>
 			</li>
 		</ul>
 	</div>
@@ -12,12 +12,16 @@
 import GigPreview from './GigPreview.vue'
 
 export default {
-	computed: {},
 	components: {
 		GigPreview,
 	},
 	props: {
 		gigs: Array,
+	},
+	methods: {
+		toggleGigSlideshow() {
+			this.$refs.gigPreview.toggleSlideshow()
+		},
 	},
 }
 </script>

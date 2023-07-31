@@ -1,16 +1,16 @@
 <template>
     <h1>User Profile</h1>
-    <!-- <div v-if="user.isSeller">
-        <SellerProfile />
-    </div> -->
-    <div>
-        <OrderList :user="user"/>
+    <div v-if="user.isSeller">
+        <SellerProfile :user="user"/>
+    </div>
+    <div v-else >
+        <BuyerProfile :user="user"/>
     </div>
 </template>
 
 <script>
 import SellerProfile from './SellerProfile.vue'
-import OrderList from './OrderList.vue'
+import BuyerProfile from './BuyerProfile.vue'
 import { userService } from '../services/user.service.js'
 
 
@@ -22,7 +22,7 @@ export default {
     },
     components: {
         SellerProfile,
-        OrderList,
+        BuyerProfile,
     },
     
 }

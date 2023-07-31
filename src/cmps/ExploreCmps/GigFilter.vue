@@ -50,27 +50,27 @@
 				Delivery Time <span></span>
 			</button>
 			<div v-if="filterBy === 'delivery'" class="modal delivery-modal">
-				<label class="delivery-input">
+				<label class="delivery-input custom-radio">
 					<input type="radio" value="1" v-model="deliveryTime" />
+					<span class="custom-radio-btn"></span>
 					Express 24h
 				</label>
-				<label class="delivery-input">
+				<label class="delivery-input custom-radio">
 					<input type="radio" value="3" v-model="deliveryTime" />
+					<span class="custom-radio-btn"></span>
 					Up to 3 days
 				</label>
-				<label class="delivery-input">
+				<label class="delivery-input custom-radio">
 					<input type="radio" value="7" v-model="deliveryTime" />
+					<span class="custom-radio-btn"></span>
 					Up to 7 days
 				</label>
-				<label class="delivery-input">
-					<input
-						checked="checked"
-						type="radio"
-						value="999"
-						v-model="deliveryTime"
-					/>
+				<label class="delivery-input custom-radio">
+					<input type="radio" value="999" v-model="deliveryTime" />
+					<span class="custom-radio-btn"></span>
 					Anytime
 				</label>
+
 				<hr class="divider-delivery" />
 				<div class="actions">
 					<button class="clear-btn" @click="clearDelivery">
@@ -106,7 +106,7 @@ export default {
 			filterBy: null,
 			minBudget: null,
 			maxBudget: null,
-			deliveryTime: null,
+			deliveryTime: 999,
 		}
 	},
 	methods: {
@@ -124,13 +124,17 @@ export default {
 			this.filterBy = null
 		},
 		applyBudget() {
+			const min = this.minBudget || 1
+			const max = this.maxBudget || 99999
+
 			this.$emit('filterChanged', {
 				type: 'budget',
-				min: this.minBudget,
-				max: this.maxBudget,
+				min: min,
+				max: max,
 			})
 			this.filterBy = null
 		},
+
 		applyDelivery() {
 			this.$emit('filterChanged', {
 				type: 'delivery',

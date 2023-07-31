@@ -1,6 +1,19 @@
 <template>
-	<vueper-slides v-if="images && images.length">
-		<vueper-slide v-for="image in images" :key="image" :image="image" />
+	<vueper-slides
+		class="preview-carousel-img"
+		v-if="images && images.length"
+		:disable="slideshowDisabled"
+		disable-arrows-on-edges
+	>
+		<vueper-slide v-for="image in images" :key="image">
+			<template v-slot:content>
+				<img
+					@click="$emit('image-clicked')"
+					:src="image"
+					alt="Gig image"
+				/>
+			</template>
+		</vueper-slide>
 	</vueper-slides>
 </template>
 
@@ -14,6 +27,16 @@ export default {
 	},
 	props: {
 		images: Array,
+	},
+	data() {
+		return {
+			slideshowDisabled: false,
+		}
+	},
+	methods: {
+		toggleSlideshow() {
+			this.slideshowDisabled = !this.slideshowDisabled
+		},
 	},
 }
 </script>

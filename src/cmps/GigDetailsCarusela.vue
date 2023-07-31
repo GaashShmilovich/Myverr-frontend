@@ -2,7 +2,7 @@
   <section class="gig-details-carusela">
     <vueper-slides ref="vueperslides1" class="container" :touchable="false" fade :autoplay="false" :bullets="false"
       @slide="$refs.vueperslides2.goToSlide($event.currentSlide.index, { emit: false })">
-      <vueper-slide class="big-img" v-for="(slide, i) in slides" :key="i" :image="slide.image">
+      <vueper-slide class="big-img" v-for="(slide, i) in gig.imgUrls" :key="i" :image="slide">
       </vueper-slide>
     </vueper-slides>
 
@@ -16,7 +16,7 @@
   <template #arrow-right>
     <i class="icon icon-arrow-right" />
   </template>
-      <vueper-slide v-for="(slide, i) in slides" :key="i" :image="slide.image"
+      <vueper-slide v-for="(slide, i) in gig.imgUrls" :key="i" :image="slide"
         @click.native="$refs.vueperslides2.goToSlide(i)">
       </vueper-slide>
     </vueper-slides>
@@ -31,18 +31,15 @@ export default {
   components: { VueperSlides, VueperSlide },
   data() {
     return {
-      slides: [
-        { image: this.gig.imgUrls[0] },
-        { image: 'https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/86f818eae5827fb14a0e173f5dec8d7c-1690012278/texas-gun-runners/design-clean-and-responsive-wordpress-website.jpg' },
-        { image: 'https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/d89245dc082181e053fb71cb68b85ad8-1690021556/Screenshot%202023-07-22%20at%2015-25-06%20Miro%20Wittwer/design-clean-and-responsive-wordpress-website.png' },
-        { image: 'https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/8660a9c07ee72ed3bd97784e08a596a1-1688751024/david-cavill/design-clean-and-responsive-wordpress-website.jpg' }
-      ]
+      slides: this.gig.imgUrls
     }
   },
 
   props: {
     gig: Object
-  }
+  },
+  created() {
+  },
 }
 </script>
 

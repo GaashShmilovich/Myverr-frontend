@@ -1,0 +1,19 @@
+.explore-gig-category {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	column-gap: rem(16px);
+	font-size: rem(14px);
+	color: $clr4;
+	font-family: macanRegular;
+	line-height: rem(21px);
+
+	.breadcrumb-item {
+		&.last-category {
+			font-size: rem(
+				16px
+			); // Increase the font size a bit for the last category
+			width: 100%; // Makes it occupy the full width, pushing it to a new line
+		}
+	}
+}

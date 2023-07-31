@@ -1,12 +1,14 @@
 <template>
+  
+
   <section v-if="gig" class="gig-details" :class="{ darkmode: darkMode }">
-    <div class="main">
+    <!-- <div class="main"> -->
 
-      <button @click="onDarkMode">Dark Mode</button>
-
+      <button class="gig-btn-dark" @click="onDarkMode">Dark Mode</button>
+      <header class="gig-header">
       <p class="gig-category">  
-        <i class="home-icon" v-html="$getSvg('home-icon')"></i> <p>/</p><p>logo-design</p>
-        <p>/</p><p>artisitic</p>
+        <i class="home-icon" v-html="$getSvg('home-icon')"></i> <span>/</span><p>logo-design</p>
+        <span>/</span><p>artisitic</p><span>/</span>
       </p>
 
       <h1 class="gig-title"> {{ gig.title }}</h1>
@@ -19,7 +21,7 @@
 
         <section class="gig-owner-rate">
           <span v-for="i in gig.owner.rate || 1">
-            <font-awesome-icon class="yellow" icon="fa-solid fa-star" />
+            <font-awesome-icon class="star yellow" icon="fa-solid fa-star" />
           </span>
         </section>
 
@@ -29,7 +31,8 @@
       <figure class="gig-gallery">
         <GigDetailsCarusela :gig="gig" />
       </figure>
-
+    </header>
+    <div class="gig-about">
       <p class="about-title">About this gig </p>
       <div class="about"> {{ gig.description }}</div>
 
@@ -40,8 +43,9 @@
 
       <ReviewList :reviews="gig.reviews" />
     </div>
+  <!-- </div> -->
 
-    <div class="sticky-packages">
+    <div class="packages" >
       <PackageType @addOrder="addOrder"/>
     </div>
 

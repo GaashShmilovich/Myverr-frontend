@@ -1,25 +1,33 @@
 <template lang="">
   <section class="review-preview" >
     <section class="review-by">
-  <img :src="review.by.imgUrl" alt="">
+  <img class="reviewer-img" :src="review.by.imgUrl" alt="">
       <section class="review-by-name">
   <p class="fullname"> {{ review.by.fullname }}</p>
-  <img :src="review.by.country.img" alt="">
-  <p class="country-img"> {{ review.by.country.name }}</p>
+  <img class="country-img" :src="review.by.country.img" alt="">
+  <span class="country-name"> {{ review.by.country.name }}</span>
       </section>
     </section>
     <section class="review-rate-time">
     <span v-for="i in review.rate || 1">
       <font-awesome-icon
-        :style="{ color: '#ffb33e' }"
+        class="star yellow"
         icon="fa-solid fa-star"
       /> 
     </span> || 
     <span> {{ createdAt }}</span>
     <!-- <span> {{ review.createdAt }}</span> -->
     </section>
-    <p> {{ review.txt }}</p>
+    <p class="review-txt"> {{ review.txt }}</p>
+    <section class="helpful-grid">
+    <p class="helpful">Helpful? 
+      <span  @click="helpful('yes')" class="yes" :class="{'green': isHelpful === 'yes'}"><i class="like" v-html="$getSvg('like')"></i> Yes</span>
+      <span @click="helpful('no')" class="no" :class="{'red': isHelpful === 'no'}"><i class="unlike" v-html="$getSvg('unlike')"></i> No</span>
+    </p> 
+    <span class="helpful-span" :class="{'show': isHelpful === 'yes'}">You found this review helpful.</span>
+   </section>  
   </section>
+  
 </template>
 <script>
 export default {
@@ -28,7 +36,8 @@ export default {
   },
   data() {
     return {
-      createdAt: null
+      createdAt: null,
+      isHelpful: null,
     }
   },
   created() {
@@ -62,6 +71,9 @@ export default {
         } else {
           return 'Not working'
         }
+      },
+      helpful(ans) {
+        this.isHelpful = ans
       }
     }
 

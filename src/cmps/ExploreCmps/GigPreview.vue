@@ -1,8 +1,11 @@
 <template>
-	<div class="gig-preview-container" @click="goToGig">
+	<div class="gig-preview-container">
 		<div class="gig-preview">
 			<div class="gig-preview__img-container">
-				<GigPreviewCarousel :images="gig.imgUrls"> </GigPreviewCarousel>
+				<GigPreviewCarousel
+					:images="gig.imgUrls"
+					@image-clicked="goToGig"
+				></GigPreviewCarousel>
 			</div>
 			<div class="gig-preview__info">
 				<div class="owner-preview-container">
@@ -18,16 +21,17 @@
 						}}</span>
 					</h3>
 				</div>
-				<h4 class="gig-preview__title">{{ gig.title }}</h4>
+				<h4 class="gig-preview__title" @click="goToGig">
+					{{ gig.title }}
+				</h4>
 				<p v-if="gig.owner" class="gig-preview-rate">
-					<span class="preview-star">⭐</span> {{ avgRating }}
-					<span>({{ gig.reviews.length }})</span>
+					<span class="preview-star">⭐</span> {{ avgRating
+					}}<span>({{ gig.reviews.length }})</span>
 				</p>
-				<hr />
+
 				<div class="gig-preview-footer-container">
-					<p class="gig-like-btn">❤</p>
 					<p v-if="gig.price" class="gig-preview__price">
-						Starting at <br /><span>{{ gig.price }}$</span>
+						Starting at <span>{{ gig.price }}$</span>
 					</p>
 				</div>
 			</div>

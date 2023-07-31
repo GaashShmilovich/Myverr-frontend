@@ -45,6 +45,7 @@
         </li>
       </ul>
     </section>
+    <p class="see-more" @click="showMoreReviews">+ See More </p>
   </template>
 <script>
 import ReviewPreview from './ReviewPreview.vue'
@@ -69,7 +70,7 @@ export default {
     getAverageRate() {
       const totalRates = this.reviews.reduce((sum, review) => sum + review.rate, 0);
       const averageRate = totalRates / this.reviews.length;
-      return averageRate
+      return averageRate.toFixed(1)
     },
     getAverageRateRounded() {
       const averageRate = this.getAverageRate
@@ -107,6 +108,9 @@ export default {
     },
     openModal() {
       this.sortBy.isOpen = !this.sortBy.isOpen
+    },
+    showMoreReviews() {
+      console.log('show more reviews');
     }
   },
 }

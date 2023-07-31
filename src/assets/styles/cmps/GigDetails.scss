@@ -1,24 +1,67 @@
 .gig-details {
-    // display: flex;
     display: grid;
     grid-template-columns: 1fr 33%;
-    @include for-normal-layout {
-        // background-color: aqua;
-    }
-    .main {
-        margin-right: 50px;
+    column-gap: 60px;
 
-        // make this mov with media query //
+    grid-template-areas: 
+    'b p'
+    'h p'
+    'a p'
+    ;
+
+    > *:not(.packages) {
+        grid-column: 1;
+    }
+    .packages {
+        grid-area: p;
+    }
+
+    .gig-btn-dark {
+        grid-area: b;
+    }
+
+    .gig-about {
+        grid-area: a;
+    }
+
+    .gig-header {
+        grid-area: h;
+    }
+
+    
+    @include for-mobile-layout {}
+        // gig-carusela: different a smaller
+        // about the seller different layout
+        // FAQ
+        // reviews  
+
+    
+    @include for-narrow-layout {
+
+        grid-template-areas: 
+        'b'
+        'h'
+        'p'
+        'a'
+        ; 
+
+        grid-template-columns: 1fr;
+        
+    }
+ 
         .gig-category {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            column-gap: rem(16px);
+            column-gap: rem(10px);
             font-size: rem(14px);
             color: $clr4;
             font-family: macanRegular;
             line-height: rem(21px);
-
+            margin-top: rem(15px);
+            span {
+                color: $clr12;
+            }
         }
 
         .gig-title {
@@ -103,15 +146,15 @@
             height: 500px ;
             margin-left: 0;
         }
-    }
+    // }
 
     .about-title {
         margin-top: rem(120px);
         font-size: rem(20px);
         line-height: rem(28px);
-        padding-bottom: rem(25px);
+        padding-bottom: rem(15px);
         font-family: macanBold;
-
+        color: $clr3;
     }
 
     .about {
@@ -127,6 +170,8 @@
     .title {
         font-family: macanBold;
         font-size: rem(20px);
+        color: $clr3;
+        margin-top: 80px;
     }
 
     .about-the-seller {
@@ -207,6 +252,11 @@
             padding-top: rem(24px);
             margin: 0;
         }
+    }
+    .star {
+        padding: 2px;
+        height: 15px;
+    
     }
         .yellow {
             color: $yellow1 ;
