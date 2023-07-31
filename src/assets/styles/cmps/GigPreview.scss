@@ -5,6 +5,7 @@
 	padding: 0;
 	min-width: 245px;
 	width: 100%;
+
 	&:hover {
 		.gig-preview__info,
 		.gig-preview-owner,
@@ -24,8 +25,6 @@
 	}
 
 	.gig-preview {
-		cursor: pointer;
-		border: 1px solid #e8e8e8;
 		border-radius: 4px;
 		transition: transform 0.3s;
 		// height: 430px;
@@ -71,6 +70,8 @@
 			}
 
 			.gig-preview__title {
+				cursor: pointer;
+
 				font-size: 1em;
 				font-weight: 500;
 				margin: 8px 0;
