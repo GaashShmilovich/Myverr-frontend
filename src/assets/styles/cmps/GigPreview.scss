@@ -4,7 +4,8 @@
 	margin: 0;
 	padding: 0;
 	min-width: 245px;
-	width: 100%;
+	width: 325px;
+	height: 360px;
 
 	&:hover {
 		.gig-preview__info,
@@ -41,12 +42,12 @@
 		}
 
 		&__info {
-			padding-top: 15px;
-
 			.owner-preview-container {
+				margin-top: 15px;
 				display: flex;
 				align-items: center;
 				margin-bottom: 10px;
+				justify-content: space-between;
 			}
 
 			.gig-owner-img {
@@ -58,15 +59,20 @@
 			}
 
 			.gig-preview-owner {
-				font-size: 1em;
-				font-weight: 600;
-				color: #000000;
+				font-size: 14px;
+				font-weight: 700;
+				color: #222325;
+				margin-left: 10px;
+				height: 20px;
+				cursor: pointer;
 			}
 
-			.gig-preview-owner span {
-				font-size: 0.8em;
-				margin: 4px 0;
-				color: gray;
+			.gig-owner-level {
+				font-size: 14px;
+				color: #404145;
+				padding: 0 8px;
+				height: 20px;
+				font-weight: 600;
 			}
 
 			.gig-preview__title {
