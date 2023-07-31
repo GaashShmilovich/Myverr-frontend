@@ -25,13 +25,13 @@
 					{{ gig.title }}
 				</h4>
 				<p v-if="gig.owner" class="gig-preview-rate">
-					<span class="preview-star">⭐</span> {{ avgRating }}
-					<span>({{ gig.reviews.length }})</span>
+					<span class="preview-star">⭐</span> {{ avgRating
+					}}<span>({{ gig.reviews.length }})</span>
 				</p>
+
 				<div class="gig-preview-footer-container">
-					<p class="gig-like-btn">❤</p>
 					<p v-if="gig.price" class="gig-preview__price">
-						Starting at <br /><span>{{ gig.price }}$</span>
+						Starting at <span>{{ gig.price }}$</span>
 					</p>
 				</div>
 			</div>
