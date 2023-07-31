@@ -91,7 +91,24 @@ header {
         flex-basis: em(415px);
         align-items: center;
         justify-content: space-between;
-
+        a {
+          font-size: rem(16px);
+          color: #fff;
+          font-family: macanSemibold;
+        }
+        span {
+          color: $clr1;
+          padding: 10px 16px;
+          font-size: rem(14px);
+          border: 1px solid $clr1;
+          text-align: center;
+          border-radius: 4px;
+          &:hover {
+            border-color: $green1;
+            background-color: $green1;
+            color: $clr1;
+          }
+        }
         &.open-nav-links {
           a {
             color: $clr2;
@@ -99,11 +116,18 @@ header {
               color: $green1;
             }
           }
-        }
-        a {
-          font-size: rem(16px);
-          color: #fff;
-          font-family: macanSemibold;
+          span {
+            color: $green1;
+            padding: 10px 16px;
+            font-size: rem(14px);
+            border: 1px solid $green1;
+            text-align: center;
+            border-radius: 4px;
+            &:hover {
+              background-color: $green1;
+              color: $clr1;
+            }
+          }
         }
       }
     }
