@@ -95,7 +95,7 @@ export default {
     onDarkMode() {
       this.darkMode = !this.darkMode
     },
-    async addOrder() {
+    async addOrder(type) {
       try{
         const Order = orderService.getEmptyOrder()
         const loggenInUser = await userService.getLoggedinUser()
@@ -118,7 +118,9 @@ export default {
             name: this.gig.title,
             imgUrls: this.gig.imgUrls,
             price: this.gig.price },
-            status: "pending"
+            packageType: type,
+            status: "pending",
+
           }
           console.log(newOrder);
 
