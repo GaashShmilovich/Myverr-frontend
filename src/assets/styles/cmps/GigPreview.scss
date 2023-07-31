@@ -31,7 +31,6 @@
 		// height: 430px;
 
 		&__img-container {
-			overflow: hidden;
 			border-radius: 4px 4px 0 0;
 
 			img.gig-preview__img {
@@ -48,23 +47,25 @@
 				align-items: center;
 				margin-bottom: 10px;
 				justify-content: space-between;
+				flex-wrap: nowrap;
 			}
 
 			.gig-owner-img {
 				width: 24px;
 				height: 24px;
 				border-radius: 50%;
-				margin-right: 10px;
+				margin-right: 15px;
 				margin-bottom: 3%;
+				flex-shrink: 0;
 			}
 
 			.gig-preview-owner {
 				font-size: 14px;
 				font-weight: 700;
 				color: #222325;
-				margin-left: 10px;
-				height: 20px;
+				height: 16px;
 				cursor: pointer;
+				flex-grow: 1;
 			}
 
 			.gig-owner-level {
@@ -73,11 +74,12 @@
 				padding: 0 8px;
 				height: 20px;
 				font-weight: 600;
+				flex-shrink: 0;
 			}
 
 			.gig-preview__title {
 				cursor: pointer;
-				font-size: 1em;
+				font-size: 16px;
 				font-weight: 500;
 				margin: 8px 0;
 				overflow: hidden;
@@ -88,22 +90,31 @@
 				-webkit-line-clamp: 2;
 			}
 
-			.gig-preview-rate {
+			.preview-reviews-container {
+				margin-top: 15px;
 				display: flex;
-				font-size: 1em;
-				color: #000000;
-				margin: 15px 0;
-			}
+				align-items: center;
 
-			.preview-star {
-				filter: brightness(0%) saturate(100%);
-				margin-right: 4px;
-				margin-left: -5px;
-			}
+				.preview-star,
+				.gig-preview-rate,
+				.gig-reviews-num {
+					font-size: 16px;
+					margin-right: 3px;
+					font-weight: 400;
+				}
 
-			.gig-preview-rate span {
-				font-size: 0.8em;
-				color: rgb(170, 167, 167);
+				.preview-star,
+				.gig-preview-rate {
+					color: $clr4;
+				}
+
+				.preview-star {
+					font-size: 1.2em;
+				}
+
+				.gig-reviews-num {
+					color: $clr5;
+				}
 			}
 
 			.gig-preview-footer-container {
@@ -111,22 +122,15 @@
 				justify-content: space-between;
 			}
 
-			.gig-like-btn {
-				display: inline-block;
-				font-size: 1em;
-				color: gray;
-				margin: 6px 0;
-			}
-
 			.gig-preview__price {
 				display: inline-block;
-				font-size: 1.1em;
+				font-size: 1em;
 				text-align: right;
 				color: black;
 			}
 
 			.gig-preview__price span {
-				font-size: 1.1em;
+				font-size: 1em;
 				font-weight: normal;
 				color: black;
 				font-weight: bold;

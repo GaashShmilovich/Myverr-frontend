@@ -11,6 +11,12 @@ header {
     button {
       fill: $clr1;
     }
+    input {
+      &::placeholder {
+        color: $clr9;
+        font-family: macanSemibold;
+      }
+    }
 
     &.hidden {
       display: none;

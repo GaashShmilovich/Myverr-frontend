@@ -31,14 +31,16 @@
 				<h4 class="gig-preview__title" @click="goToGig">
 					{{ gig.title }}
 				</h4>
-				<p v-if="gig.owner" class="gig-preview-rate">
-					<span class="preview-star">⭐</span> {{ avgRating
-					}}<span>({{ gig.reviews.length }})</span>
-				</p>
-
+				<div class="preview-reviews-container">
+					<p class="preview-star">★</p>
+					<p v-if="gig.owner" class="gig-preview-rate">
+						{{ avgRating }}
+					</p>
+					<p class="gig-reviews-num">({{ gig.reviews.length }})</p>
+				</div>
 				<div class="gig-preview-footer-container">
 					<p v-if="gig.price" class="gig-preview__price">
-						Starting at <span>{{ gig.price }}$</span>
+						From <span>{{ gig.price }}$</span>
 					</p>
 				</div>
 			</div>

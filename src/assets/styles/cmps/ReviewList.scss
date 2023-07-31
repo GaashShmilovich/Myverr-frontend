@@ -1,161 +1,159 @@
 .reviews {
-    margin-top: 60px;
+  margin-top: 60px;
 
-    .title {
-        font-size: rem(20px);
-        font-family: macanBold;
-        margin-bottom: rem(12px);
-        color: $clr3;
-    }
+  .title {
+    font-size: rem(20px);
+    font-family: macanBold;
+    margin-bottom: rem(12px);
+    color: $clr3;
+  }
 
-    .sub-title {
-        color: $clr3;
-        font-size: rem(16px);
-        font-family: macanBold;
-    }
+  .sub-title {
+    color: $clr3;
+    font-size: rem(16px);
+    font-family: macanBold;
+  }
 
-    .review-list {
-        // margin-top: 40px;
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        margin-inline-start: -40px;
+  .review-list {
+    // margin-top: 40px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin-inline-start: -40px;
 
-        li {
-            color: $clr3;
-            // padding: 5px;
-            // margin: 5px;
-        }
-
-        a {
-            color: $clr1;
-            // padding: 10px;
-        }
-
-        pre {
-            background-color: #ddd;
-            color: #333;
-            padding: 10px 5px;
-            margin: 5px;
-        }
+    li {
+      color: $clr3;
+      // padding: 5px;
+      // margin: 5px;
     }
 
-    .search-form {
-        display: flex;
-        align-items: center;
-        width: 356px;
-
-        margin: rem(25px) 0 rem(20px);
-        ::placeholder{
-            color: $clr9;
-            font-family: macanRegular;
-            font-weight: 300;
-        }
-        .input {
-            width: 30px;
-            padding: 12px;
-            // margin: 0;
-            font-size: 16px;
-            height: em(42px);
-            // border: 1px solid #ccc;
-            // border-radius: 5px 0 0 5px;
-            outline: none;
-        }
-
-        button {
-            padding: 10px 15px;
-            background-color: $clr4;
-            width: rem(50px);
-            height: rem(42px);
-            border-radius: 0 5px 5px 0;
-            fill: $clr1;
-            font-weight: 400;
-        }
+    a {
+      color: $clr1;
+      // padding: 10px;
     }
 
-    .sortByModal {
-        display: flex;
-        flex-direction: column;
-        border-radius: 4px;
-        border: 1px solid $clr11;
-        color: $clr2;
-        font-size: rem(16px);
-        line-height: rem(24px);
-        padding: 8px 0;
-        height: min-content;
-        width: rem(170px);
-        margin-left: 65px ;
-        position: absolute;
-        background-color: $clr1;
-        z-index: 3;
-        transition: 1500ms;
-        a {
-            padding: 13px 30px 13px 15px;
-            text-align: center;
-            &:hover {
-                cursor: pointer;
-            }
-        }
-        .v-check{
-            // position: absolute;
-            text-align: left;
-            margin-left: -25px;
-            padding-right: 6px;
-            
-        }
+    pre {
+      background-color: #ddd;
+      color: #333;
+      padding: 10px 5px;
+      margin: 5px;
     }
-    .arrow-down {
-        transition: 200ms;
-        position: absolute;
-        rotate: 90deg;
-        &:hover {
-            cursor: pointer;
-        }
+  }
+
+  .search-form {
+    display: flex;
+    align-items: center;
+    width: 356px;
+
+    margin: rem(25px) 0 rem(20px);
+    ::placeholder {
+      color: $clr9;
+      font-family: macanRegular;
+      font-weight: 300;
     }
-    
-    .arrow-up {
-        translate: 8px 0 ;
-        transition: 200ms;
-        rotate: 270deg;
-        position: absolute;
-        &:hover {
-            cursor: pointer;
-        }
-    }
-    .hidden {
-        display: none;
-    }
-    .sortBy {
-        color: $clr3;
-        font-size: rem(16px);
-        font-family: macanRegular;
-        margin-top: -2px;
-    }
-    .place-holder {
-        font-family: macanSemibold;
-        font-size: rem(16px);
-        color: $clr3;
-        margin-right: 10px;
-        &:hover {
-            cursor: pointer;
-        }
-    }
-    .star {
-        padding: 0 2px;
-        height: 15px;
-    }
-    .rate-number {
-        padding-left: 3px;
+    .input {
+      width: 30px;
+      padding: 12px;
+      // margin: 0;
+      font-size: 16px;
+      height: em(42px);
+      // border: 1px solid #ccc;
+      // border-radius: 5px 0 0 5px;
+      outline: none;
     }
 
+    button {
+      padding: 10px 15px;
+      background-color: $clr4;
+      width: rem(50px);
+      height: rem(42px);
+      border-radius: 0 5px 5px 0;
+      fill: $clr1;
+      font-weight: 400;
+    }
+  }
+
+  .sortByModal {
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    border: 1px solid $clr11;
+    color: $clr2;
+    font-size: rem(16px);
+    line-height: rem(24px);
+    padding: 8px 0;
+    height: min-content;
+    width: rem(170px);
+    margin-left: 65px;
+    position: absolute;
+    background-color: $clr1;
+    z-index: 3;
+    transition: 1500ms;
+    a {
+      padding: 13px 30px 13px 15px;
+      text-align: center;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .v-check {
+      // position: absolute;
+      text-align: left;
+      margin-left: -25px;
+      padding-right: 6px;
+    }
+  }
+  .arrow-down {
+    transition: 200ms;
+    position: absolute;
+    rotate: 90deg;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .arrow-up {
+    translate: 8px 0;
+    transition: 200ms;
+    rotate: 270deg;
+    position: absolute;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .hidden {
+    display: none;
+  }
+  .sortBy {
+    color: $clr3;
+    font-size: rem(16px);
+    font-family: macanRegular;
+    margin-top: -2px;
+  }
+  .place-holder {
+    font-family: macanSemibold;
+    font-size: rem(16px);
+    color: $clr3;
+    margin-right: 10px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .star {
+    padding: 0 2px;
+    height: 15px;
+  }
+  .rate-number {
+    padding-left: 3px;
+  }
 }
-    .see-more {
-        border-top: 1px solid $clr6;
-        padding-top: 20px;
-        margin-bottom: 60px;
-        color: $green6;
-        font-size: rem(16px);
-        &:hover {
-            cursor: pointer;
-        }
-    }
+.see-more {
+  border-top: 1px solid $clr6;
+  padding-top: 20px;
+  margin-bottom: 60px;
+  color: $green6;
+  font-size: rem(16px);
+  &:hover {
+    cursor: pointer;
+  }
+}
