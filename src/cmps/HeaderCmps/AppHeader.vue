@@ -4,7 +4,7 @@
     class="full main-layout"
     :class="{
       openHeader: isFirstNavShown,
-      // 'main-layout': isFirstNavShown,
+      'main-layout': isFirstNavShown,
       'is-sticky': isSticky,
       // 'nav-main-app': isNotHomePage,
     }"
@@ -29,7 +29,7 @@
           </div>
         </RouterLink>
         <div
-          class="search hidden"
+          class="search"
           :class="{
             hidden: isHidden,
             shown: modalOpen,
