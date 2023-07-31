@@ -50,21 +50,24 @@
 				Delivery Time <span></span>
 			</button>
 			<div v-if="filterBy === 'delivery'" class="modal delivery-modal">
-				<label class="delivery-input">
-					<span class="custom-radio-btn"></span
-					><input type="radio" value="1" v-model="deliveryTime" />
+				<label class="delivery-input custom-radio">
+					<input type="radio" value="1" v-model="deliveryTime" />
+					<span class="custom-radio-btn"></span>
 					Express 24h
 				</label>
-				<label class="delivery-input">
+				<label class="delivery-input custom-radio">
 					<input type="radio" value="3" v-model="deliveryTime" />
+					<span class="custom-radio-btn"></span>
 					Up to 3 days
 				</label>
-				<label class="delivery-input">
+				<label class="delivery-input custom-radio">
 					<input type="radio" value="7" v-model="deliveryTime" />
+					<span class="custom-radio-btn"></span>
 					Up to 7 days
 				</label>
-				<label class="delivery-input">
+				<label class="delivery-input custom-radio">
 					<input type="radio" value="999" v-model="deliveryTime" />
+					<span class="custom-radio-btn"></span>
 					Anytime
 				</label>
 

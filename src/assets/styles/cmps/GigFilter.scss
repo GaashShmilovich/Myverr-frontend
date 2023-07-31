@@ -279,3 +279,49 @@ input::placeholder {
 	margin-top: 15px;
 	margin-left: 15px;
 }
+
+.custom-radio {
+	position: relative;
+	padding-left: 2em;
+
+	& input[type='radio'] {
+		position: absolute;
+		opacity: 0;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+
+		+ .custom-radio-btn {
+			&:before {
+				content: '';
+				background: white;
+				border-radius: 100%;
+				border: 1px solid darken(white, 25%);
+				display: inline-block;
+				width: 1.4em;
+				height: 1.4em;
+				position: absolute;
+				top: 50%;
+				left: 0;
+				transform: translateY(-50%);
+				transition: 0.15s ease-in-out;
+			}
+		}
+		&:checked {
+			+ .custom-radio-btn {
+				&:before {
+					background-color: black;
+					box-shadow: inset 0 0 0 5px white;
+				}
+			}
+		}
+		&:focus {
+			+ .custom-radio-btn {
+				&:before {
+					outline: none;
+					border-color: black;
+				}
+			}
+		}
+	}
+}
