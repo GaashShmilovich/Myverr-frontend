@@ -2,6 +2,13 @@
 	<div class="gig-preview-container">
 		<div class="gig-preview">
 			<div class="gig-preview__img-container">
+				<p
+					class="heart-icon"
+					:class="{ 'heart-filled': isHeartFilled }"
+					@click="toggleHeart"
+				>
+					♡
+				</p>
 				<GigPreviewCarousel
 					:images="gig.imgUrls"
 					@image-clicked="goToGig"
@@ -15,23 +22,25 @@
 						:src="gig.owner?.imgUrl"
 						alt="owner-image"
 					/>
-					<h3 v-if="gig.owner?.fullname" class="gig-preview-owner">
-						{{ gig.owner?.fullname }}<br /><span>{{
-							gig.owner.level
-						}}</span>
+					<h3 class="gig-preview-owner">
+						{{ gig.owner?.fullname }}
 					</h3>
+					<p class="gig-owner-level">{{ gig.owner?.level }}</p>
 				</div>
+
 				<h4 class="gig-preview__title" @click="goToGig">
 					{{ gig.title }}
 				</h4>
-				<p v-if="gig.owner" class="gig-preview-rate">
-					<span class="preview-star">⭐</span> {{ avgRating
-					}}<span>({{ gig.reviews.length }})</span>
-				</p>
-
+				<div class="preview-reviews-container">
+					<p class="preview-star">★</p>
+					<p v-if="gig.owner" class="gig-preview-rate">
+						{{ avgRating }}
+					</p>
+					<p class="gig-reviews-num">({{ gig.reviews.length }})</p>
+				</div>
 				<div class="gig-preview-footer-container">
 					<p v-if="gig.price" class="gig-preview__price">
-						Starting at <span>{{ gig.price }}$</span>
+						From <span>{{ gig.price }}$</span>
 					</p>
 				</div>
 			</div>
@@ -43,12 +52,20 @@
 import GigPreviewCarousel from './GigPreviewCarousel.vue'
 
 export default {
+	data() {
+		return {
+			isHeartFilled: false,
+		}
+	},
 	props: {
 		gig: Object,
 	},
 	methods: {
 		goToGig() {
 			this.$router.push(`/explore/${this.gig._id}`)
+		},
+		toggleHeart() {
+			this.isHeartFilled = !this.isHeartFilled
 		},
 	},
 	computed: {

@@ -26,7 +26,7 @@
                 {{ special }}</li>
         </ul>
 
-        <RouterLink class="to-payment" to="/payment" @click="addOrder">Continue <i class="long-arrow-right" v-html="$getSvg('long-arrow-right')"></i></RouterLink>
+        <RouterLink class="to-payment" :to="'/payment/' + gig._id +'/' + type" @click="addOrder">Continue <i class="long-arrow-right" v-html="$getSvg('long-arrow-right')"></i></RouterLink>
         <!-- <RouterLink class="to-user-profile" :to="'/user' + user._id" :gig="gig">Continue</RouterLink> -->
 
     </div>
@@ -42,6 +42,9 @@ export default {
             // modalObserver: null,
             // stickyModal: false
         }
+    },
+    props: {
+        gig: Object
     },
     methods: {
         setType(chosenType) {

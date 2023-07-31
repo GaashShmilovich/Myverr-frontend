@@ -51,6 +51,7 @@ async function query(filterBy, sortBy) {
 }
 
 function getById(gigId) {
+	console.log(gigId);
 	return storageService.get(STORAGE_KEY, gigId)
 }
 

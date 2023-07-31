@@ -12,6 +12,7 @@
 
 		img {
 			cursor: pointer;
+			border-radius: 8px;
 		}
 
 		.vueperslides__bullet--active .default {
@@ -25,6 +26,7 @@
 			height: 200px;
 			width: 330px;
 			border-radius: 8px;
+			overflow: hidden;
 		}
 
 		.vueperslides__arrow {

@@ -52,7 +52,7 @@ const routes = [
     component: UserProfile
   },
   {
-    path: '/payment',
+    path: '/payment/:id/:type',
     name: 'Payment',
     component: Payment
   }
