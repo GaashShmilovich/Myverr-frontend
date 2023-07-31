@@ -29,13 +29,13 @@
     }
 
     
-    @include for-mobile-layout {
+    @include for-mobile-layout {}
         // gig-carusela: different a smaller
         // about the seller different layout
         // FAQ
         // reviews  
 
-    }
+    
     @include for-narrow-layout {
 
         grid-template-areas: 
