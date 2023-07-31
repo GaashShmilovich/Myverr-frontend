@@ -1,0 +1,50 @@
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgb(228, 229, 231);
+  padding-block: rem(24px);
+  .left {
+    display: flex;
+    width: auto;
+    font-size: rem(14px);
+    align-items: center;
+    p {
+      span {
+        // display: flex;
+        align-items: center;
+      }
+      margin: 0 0 0 rem(16px);
+      color: rgb(181, 182, 186);
+    }
+    .logo {
+      font-size: 28px;
+      font-family: chunkRegular;
+      color: rgb(98, 100, 106);
+      span {
+        font-size: 12px;
+        font-family: "Courier New", Courier, monospace;
+      }
+    }
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    ul {
+      padding-inline-start: 0;
+      display: flex;
+      width: auto;
+      list-style-type: none;
+      justify-content: start;
+      align-items: center;
+      li {
+        margin-inline-end: rem(24px);
+      }
+      i {
+        display: flex;
+        align-items: center;
+        fill: rgb(116, 118, 126);
+      }
+    }
+  }
+}

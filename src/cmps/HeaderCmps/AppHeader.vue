@@ -45,8 +45,9 @@
           }"
         >
           <RouterLink to="/explore">Explore</RouterLink>
-          <RouterLink to="/login">Login / Signup</RouterLink>
-          <RouterLink to="/explore/edit?">Edit</RouterLink>
+          <RouterLink to="/login">Become a Seller</RouterLink>
+          <RouterLink to="/login">Sign in</RouterLink>
+          <RouterLink to="/login"><span>Join</span></RouterLink>
         </div>
       </nav>
     </div>

@@ -1,16 +1,13 @@
 <template>
   <section class="home-container main-layout">
-    <!-- <div class="homepage-layout"> -->
     <Hero />
-    <!-- <InsideHeroSearch /> -->
     <StripBelowHero />
     <PopularCarousel />
     <div class="best-part-wrapper full main-layout">
       <BestPart />
     </div>
     <MainCategories />
-
-    <!-- </div> -->
+    <AppFooter />
   </section>
 </template>
 
@@ -21,6 +18,7 @@ import PopularCarousel from "../cmps/HomePageCmps/popularCarousel.vue";
 import InsideHeroSearch from "../cmps/HomePageCmps/insideHeroSearch.vue";
 import BestPart from "../cmps/HomePageCmps/BestPart.vue";
 import MainCategories from "../cmps/HomePageCmps/MainCategories.vue";
+import AppFooter from "../cmps/AppFooter.vue";
 export default {
   name: "home",
   components: {
@@ -30,6 +28,7 @@ export default {
     InsideHeroSearch,
     BestPart,
     MainCategories,
+    AppFooter,
   },
   data() {
     return {};

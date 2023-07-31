@@ -1,32 +1,61 @@
 .hero-container {
   grid-column: 1/-1;
-  height: rem(680px);
   position: relative;
-
-  // .inside-hero-search-wrapper {
-  //   position: absolute;
-  //   // top: 35%;
-  //   // left: 2.5%;
-  //   // transform: translateY(-50%);
-  //   z-index: 100;
-  //   transition: opacity 0.9s;
-  // }
-  // img {
-  //   position: absolute;
-  //   width: 100%;
-  //   height: 100%;
-  //   object-fit: cover;
-  //   animation: fadeAnimation 9s linear;
-  // }
-}
-
-@keyframes fadeAnimation {
-  0%,
-  100% {
-    opacity: 0.3; /* Start and end at the same opacity for smooth looping */
+  .vueperslide {
+    background-position: center bottom;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
   }
-  10%,
-  90% {
-    opacity: 1; /* Use 10% and 90% for smoother fade in and out */
+
+  .info {
+    color: $clr1;
+    gap: rem(12px);
+    margin-inline-end: 32px;
+    margin-block-end: 32px;
+    display: flex;
+    align-items: center;
+    border: 1px solid hsla(0, 0%, 100%, 0.4);
+    backdrop-filter: blur(30px);
+    background: hsla(0, 0%, 100%, 0.14);
+    border-radius: 1600px;
+    padding: 12px 24px 12px 12px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    .fullname {
+      font-size: rem(12px);
+      line-height: rem(12px);
+    }
+    .stars {
+      position: absolute;
+      right: 25px;
+      top: 13px;
+      font-size: rem(12px);
+    }
+    .svg {
+      position: relative;
+      top: 3px;
+    }
+    .expert {
+      font-size: rem(16px);
+      font-family: macanBold;
+      line-height: rem(16px);
+    }
+    .info-txt {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    // .experts {
+    //   display: flex;
+    // }
+    p {
+      margin: 0;
+    }
+    img {
+      display: block;
+      width: 40px;
+      height: 40px;
+    }
   }
 }
