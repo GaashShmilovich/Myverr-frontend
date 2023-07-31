@@ -46,7 +46,7 @@
   <!-- </div> -->
 
     <div class="packages" >
-      <PackageType @addOrder="addOrder"/>
+      <PackageType :gig="gig" @addOrder="addOrder"/>
     </div>
 
   </section>

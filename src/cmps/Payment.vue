@@ -18,7 +18,7 @@
           Credit & Debit Cards <i class="home-icon" v-html="$getSvg('credit-cards')"></i>
         </label>
 
-        <section class="credit-details hidden" :class="{ 'show': paymentMethod === 'credit' }">
+        <section class="credit-details" :class="{ 'hidden': paymentMethod === 'paypal' }">
 
           <section class="card-number">
             <p>Card number</p>
@@ -67,7 +67,8 @@
 
 <script>
 import Checkout from './Checkout.vue'
-import { userService } from '../services/user.service';
+import { userService } from '../services/user.service.local';
+import { gigService } from '../services/gig.service.local';
 export default {
   data() {
     return {
@@ -88,6 +89,16 @@ export default {
   },
   components: {
     Checkout,
-  }
+  },
+  created() {
+    // const  gigId  = this.$route.params
+    // console.log(gigId);
+    // try{
+    //   const gig = gigService.getById(gigId)
+    //   console.log(gig);
+    // } catch(err) {
+    //   console.log(err);
+    // }
+  },
 };
 </script>
