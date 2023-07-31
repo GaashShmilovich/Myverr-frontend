@@ -80,10 +80,13 @@
     .search-form {
       margin-inline: 0;
       width: rem(650px);
-
       input {
         height: rem(48px);
         border: none;
+        &::placeholder {
+          font-family: macanSemibold;
+          color: $clr9;
+        }
       }
       button {
         height: rem(48px);

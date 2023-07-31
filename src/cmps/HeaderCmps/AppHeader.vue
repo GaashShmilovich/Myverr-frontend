@@ -4,7 +4,7 @@
     class="full main-layout"
     :class="{
       openHeader: isFirstNavShown,
-      'main-layout': isFirstNavShown,
+      // 'main-layout': isFirstNavShown,
       'is-sticky': isSticky,
       // 'nav-main-app': isNotHomePage,
     }"
@@ -35,7 +35,10 @@
             shown: modalOpen,
           }"
         >
-          <SearchBar />
+          <SearchBar
+            placeholder="What sevices are you looking for today?"
+            @search="handleSearch"
+          />
         </div>
         <div
           class="route-container full"
@@ -100,14 +103,10 @@ import SearchBar from "./SearchBar.vue";
 export default {
   data() {
     return {
-      windowTop: window.top.scrollY,
       isFirstNavShown: false,
       modalOpen: false,
-      orderOpen: false,
-      menuOpen: false,
       isHidden: true,
       isSticky: true,
-      // isShown: false,
     };
   },
   methods: {
@@ -145,13 +144,15 @@ export default {
     currRoutePath() {
       return this.$route.path;
     },
-    isNotHomePage() {
-      if (this.$route.path !== "/") {
-        this.isFirstNavShown = true;
-        this.modalOpen = true;
-        this.isHidden = false;
-      }
-    },
+    // isNotHomePage() {
+    //   if (this.$route.path !== "/") {
+    //     this.isFirstNavShown = true;
+    //     this.modalOpen = true;
+    //     this.isHidden = false;
+    // this.isSticky = false;
+
+    //   }
+    // },
   },
 
   created() {
@@ -167,6 +168,12 @@ export default {
         this.isFirstNavShown = false;
         this.modalOpen = false;
         this.isHidden = true;
+      }
+      if (to.path !== "/") {
+        this.isFirstNavShown = true;
+        this.modalOpen = true;
+        this.isHidden = false;
+        this.isSticky = false;
       }
     },
   },
