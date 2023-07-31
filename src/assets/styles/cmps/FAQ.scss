@@ -28,6 +28,14 @@
 
     .answer {
         margin-bottom: 20px;
+        height: 0;
+        overflow: hidden;
+        transition: 400ms;
+    }
+
+    .show {
+        // height: max-content;
+        height: 100px;
     }
     
     .faq-item {
@@ -44,6 +52,7 @@
 
     .arrow-up {
         rotate: 270deg;
+        translate: 7px 0;
     }
 
 }

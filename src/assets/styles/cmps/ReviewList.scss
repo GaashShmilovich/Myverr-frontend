@@ -43,17 +43,22 @@
     .search-form {
         display: flex;
         align-items: center;
+        width: 356px;
 
         margin: rem(25px) 0 rem(20px);
-        
-        input {
-            width: 307px;
-            padding: 10px;
-            margin: 0;
+        ::placeholder{
+            color: $clr9;
+            font-family: macanRegular;
+            font-weight: 300;
+        }
+        .input {
+            width: 30px;
+            padding: 12px;
+            // margin: 0;
             font-size: 16px;
             height: em(42px);
-            border: 1px solid #ccc;
-            border-radius: 5px 0 0 5px;
+            // border: 1px solid #ccc;
+            // border-radius: 5px 0 0 5px;
             outline: none;
         }
 
@@ -82,6 +87,7 @@
         margin-left: 65px ;
         position: absolute;
         background-color: $clr1;
+        z-index: 3;
         transition: 1500ms;
         a {
             padding: 13px 30px 13px 15px;
@@ -101,7 +107,6 @@
     .arrow-down {
         transition: 200ms;
         position: absolute;
-        translate: 0 2px;
         rotate: 90deg;
         &:hover {
             cursor: pointer;
@@ -109,7 +114,7 @@
     }
     
     .arrow-up {
-        translate: 0 2px;
+        translate: 8px 0 ;
         transition: 200ms;
         rotate: 270deg;
         position: absolute;
@@ -124,6 +129,7 @@
         color: $clr3;
         font-size: rem(16px);
         font-family: macanRegular;
+        margin-top: -2px;
     }
     .place-holder {
         font-family: macanSemibold;
@@ -141,4 +147,15 @@
     .rate-number {
         padding-left: 3px;
     }
+
 }
+    .see-more {
+        border-top: 1px solid $clr6;
+        padding-top: 20px;
+        margin-bottom: 60px;
+        color: $green6;
+        font-size: rem(16px);
+        &:hover {
+            cursor: pointer;
+        }
+    }

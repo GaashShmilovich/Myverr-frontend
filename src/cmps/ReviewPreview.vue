@@ -19,7 +19,15 @@
     <!-- <span> {{ review.createdAt }}</span> -->
     </section>
     <p class="review-txt"> {{ review.txt }}</p>
+    <section class="helpful-grid">
+    <p class="helpful">Helpful? 
+      <span  @click="helpful('yes')" class="yes" :class="{'green': isHelpful === 'yes'}"><i class="like" v-html="$getSvg('like')"></i> Yes</span>
+      <span @click="helpful('no')" class="no" :class="{'red': isHelpful === 'no'}"><i class="unlike" v-html="$getSvg('unlike')"></i> No</span>
+    </p> 
+    <span class="helpful-span" :class="{'show': isHelpful === 'yes'}">You found this review helpful.</span>
+   </section>  
   </section>
+  
 </template>
 <script>
 export default {
@@ -28,7 +36,8 @@ export default {
   },
   data() {
     return {
-      createdAt: null
+      createdAt: null,
+      isHelpful: null,
     }
   },
   created() {
@@ -62,6 +71,9 @@ export default {
         } else {
           return 'Not working'
         }
+      },
+      helpful(ans) {
+        this.isHelpful = ans
       }
     }
 

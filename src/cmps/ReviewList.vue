@@ -45,6 +45,7 @@
         </li>
       </ul>
     </section>
+    <p class="see-more" @click="showMoreReviews">+ See More </p>
   </template>
 <script>
 import ReviewPreview from './ReviewPreview.vue'
@@ -107,6 +108,9 @@ export default {
     },
     openModal() {
       this.sortBy.isOpen = !this.sortBy.isOpen
+    },
+    showMoreReviews() {
+      console.log('show more reviews');
     }
   },
 }

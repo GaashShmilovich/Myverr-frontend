@@ -19,11 +19,11 @@
         font-family: macanBold;
         color: $clr5;
         text-align: center;
+        border-bottom: 1px solid $clr6;
 
         >* {
             line-height: 24px;
-            padding: 16px;
-            border-bottom: 1px solid $clr6;
+            padding: 16px 10px;
 
             &:hover {
                 cursor: pointer;

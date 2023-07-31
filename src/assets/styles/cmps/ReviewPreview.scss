@@ -28,6 +28,8 @@
         margin-top: 10px;
         padding-top: 10px;
         padding-bottom: 10px;
+        margin-left: 66px;
+        font-size: rem(14px);
     }
     .country-img {
         height: rem(20px);
@@ -44,6 +46,49 @@
 
     }
     .review-txt {
+        margin-bottom: 20px;
+        margin-left: 68px;
+    }
+
+    .helpful-grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: -30px;
+    }
+
+    .helpful {
+        display: flex;
+        justify-content: space-between;
+        width: 160px;
+        margin-left: 66px;
         margin-bottom: 40px;
+        font-size: rem(14px);
+        font-family: macanSemibold;
+        position: relative;
+        
+    }
+    .like , .unlike, .yes , .no {
+        &:hover {
+            cursor: pointer;
+        }
+        
+    }
+    .green {
+        color: $green6;
+        fill: $green6;
+    }
+    .red {
+        color: $red1;
+        fill: $red1;
+    }
+
+    .helpful-span {
+        display: none;
+    }
+    
+    .show {
+        font-size: rem(14px);
+        color: $clr10;
+        display: block;
     }
 }

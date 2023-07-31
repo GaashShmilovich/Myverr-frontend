@@ -111,7 +111,7 @@ function getEmptyGig() {
 // 			fullname: 'Jennifer Martha',
 // 			moto: 'Work hard, play hard!',
 // 			instagram: '@JenniMama123',
-// 			imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/d93001bdcba7f9235745299f61850b71-1657200241990/24f7d64e-5d25-41b3-8175-c79ea47e35d1.jpg',
+// 			imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/eeafd2296eb286476397e0d195fbf5c8-1680370454842/d21715c4-457c-4687-8ab8-af2639117b55.jpg',
 // 			level: 'basic/premium',
 // 			rate: 4,
 // 			country: 'United Kingdom',
@@ -160,6 +160,42 @@ function getEmptyGig() {
 // 		],
 // 		likedByUsers: ['mini-user'],
 // 		reviews: [
+// 			{
+// 				id: utilService.makeId(),
+// 				txt: "Impressive logo design! Jennifer created a unique and eye-catching logo that perfectly represents my brand. Their attention to detail and creativity exceeded my expectations. The communication throughout the process was excellent, and they delivered the final design ahead of the deadline. I highly recommend their logo design services!",
+// 				rate: 5,
+// 				createdAt: "2023-08-10T12:30:15Z",
+// 				by: {
+// 				  _id: "u305",
+// 				  fullname: "Emily Adams",
+// 				  imgUrl: "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/2676363b1c77c3845a1281917e4079b5-1680544900130/462bdc5b-ec46-471a-86e7-6c1ecd312c11.jpg",
+// 				  country: { name: "Japan", img: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ef-1f1f5.png" },
+// 				},
+// 			  },
+// 			  {
+// 				id: utilService.makeId(),
+// 				txt: "Satisfactory rebranding! Jennifer successfully revamped our logo, giving it a fresh and modern look. They incorporated our feedback into the design process, resulting in a logo that aligns perfectly with our brand identity. The turnaround time was reasonable, and we are pleased with the final result!",
+// 				rate: 4,
+// 				createdAt: "2023-09-22T09:55:32Z",
+// 				by: {
+// 				  _id: "u509",
+// 				  fullname: "Daniel Wilson",
+// 				  imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/1ca78811e41baee12d504f5cfcec5504-1680870502858/b67985c8-f98a-47ff-b6f0-a8a91605bfe9.jpg",
+// 				  country: { name: "Canada", img: "https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e8-1f1e6.png" },
+// 				},
+// 			  },
+// 			  {
+// 				id: utilService.makeId(),
+// 				txt: "Helpful logo consultation!",
+// 				rate: 5,
+// 				createdAt: "2023-11-05T14:15:25Z",
+// 				by: {
+// 				  _id: "u803",
+// 				  fullname: "Michael Martinez",
+// 				  imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/9bceb875b7788338e9036eaa09a05c7a-1680473320656/1306c413-aed9-4d5b-9205-ef2a611b0c30.jpeg",
+// 				  country: {name:'Romania', img: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1f7-1f1f4.png'},
+// 				},
+// 			  },
 // 			{
 // 				id: utilService.makeId(),
 // 				txt: 'Very kind and works fast',

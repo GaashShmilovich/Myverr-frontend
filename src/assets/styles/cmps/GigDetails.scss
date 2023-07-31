@@ -1,37 +1,54 @@
 .gig-details {
-    // display: flex;
     display: grid;
     grid-template-columns: 1fr 33%;
+    column-gap: 60px;
+
+    grid-template-areas: 
+    'b p'
+    'h p'
+    'a p'
+    ;
+
+    > *:not(.packages) {
+        grid-column: 1;
+    }
+    .packages {
+        grid-area: p;
+    }
+
+    .gig-btn-dark {
+        grid-area: b;
+    }
+
+    .gig-about {
+        grid-area: a;
+    }
+
+    .gig-header {
+        grid-area: h;
+    }
 
     
     @include for-mobile-layout {
-        // background-color: aqua;
+        // gig-carusela: different a smaller
+        // about the seller different layout
+        // FAQ
+        // reviews  
+
     }
     @include for-narrow-layout {
-        .packages {
-            position: absolute;
-            top: 880px;
-            margin-right: 60px;
-            margin-bottom: 100px;
-        }
-        .gig-gallery {
-            width: 120%;
-        }
-        .after-package {
-            position: absolute;
-            top: 1380px;
-        }
-        grid-template-columns: 1fr;
-        // grid-template-rows: 750px 2500px 1000px;
-        // grid-template-areas: 
-        // "1"
-        // "packages"
-        // "after-package";
-    }
-    .main {
-        margin-right: 60px;
 
-        // make this mov with media query //
+        grid-template-areas: 
+        'b'
+        'h'
+        'p'
+        'a'
+        ; 
+
+        grid-template-columns: 1fr;
+        
+    }
+ 
         .gig-category {
             display: flex;
             flex-direction: row;
@@ -129,7 +146,7 @@
             height: 500px ;
             margin-left: 0;
         }
-    }
+    // }
 
     .about-title {
         margin-top: rem(120px);

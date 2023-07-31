@@ -1,9 +1,11 @@
 <template>
-  <section v-if="gig" class="gig-details" :class="{ darkmode: darkMode }">
-    <div class="main">
+  
 
-      <button @click="onDarkMode">Dark Mode</button>
-      <section class="1">
+  <section v-if="gig" class="gig-details" :class="{ darkmode: darkMode }">
+    <!-- <div class="main"> -->
+
+      <button class="gig-btn-dark" @click="onDarkMode">Dark Mode</button>
+      <header class="gig-header">
       <p class="gig-category">  
         <i class="home-icon" v-html="$getSvg('home-icon')"></i> <span>/</span><p>logo-design</p>
         <span>/</span><p>artisitic</p><span>/</span>
@@ -29,8 +31,8 @@
       <figure class="gig-gallery">
         <GigDetailsCarusela :gig="gig" />
       </figure>
-    </section>
-    <div class="after-package">
+    </header>
+    <div class="gig-about">
       <p class="about-title">About this gig </p>
       <div class="about"> {{ gig.description }}</div>
 
@@ -41,7 +43,7 @@
 
       <ReviewList :reviews="gig.reviews" />
     </div>
-  </div>
+  <!-- </div> -->
 
     <div class="packages" >
       <PackageType @addOrder="addOrder"/>
