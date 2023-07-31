@@ -8,7 +8,7 @@
 		<span class="breadcrumb-item">/</span>
 		<span class="breadcrumb-item">logo-design</span>
 		<span class="breadcrumb-item"></span>
-		<span class="breadcrumb-item last-category">artistic</span>
+		<br /><span class="breadcrumb-item last-category">artistic</span>
 	</div>
 </template>
 

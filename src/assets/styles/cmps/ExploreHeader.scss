@@ -1,4 +1,5 @@
 .explore-gig-category {
+	margin-top: 2rem;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -10,10 +11,13 @@
 
 	.breadcrumb-item {
 		&.last-category {
-			font-size: rem(
-				16px
-			); // Increase the font size a bit for the last category
-			width: 100%; // Makes it occupy the full width, pushing it to a new line
+			font-size: rem(32px);
+			font-weight: 700;
+			padding: rem(8px) 0;
+			color: #222325;
+			margin-top: 1.1rem;
+			width: auto;
+			margin-right: 100%;
 		}
 	}
 }

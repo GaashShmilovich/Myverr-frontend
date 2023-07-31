@@ -9,11 +9,15 @@
 	font-family: macanBold;
 	gap: 10px;
 	padding: 5px;
+	padding-left: 0;
 }
 
 .filter-group {
 	position: relative;
 	display: inline-block;
+}
+
+.budget-btn {
 }
 
 .filter-btn,
@@ -235,7 +239,8 @@ input::placeholder {
 	transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out;
 	position: relative;
 	outline: none;
-	width: 30px;
+	width: 31px;
+	height: 18px;
 
 	&:before {
 		content: '';
@@ -267,7 +272,8 @@ input::placeholder {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	align-items: flex-end;
+	/* Align items at the center to make buttons appear at the same height */
+	align-items: center;
 	margin-left: auto;
 }
 
