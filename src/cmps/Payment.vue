@@ -22,7 +22,7 @@
             <!-- <span class="custom-radio-btn" for="credit"></span> -->
 
            <span >
-            Credit & Debit Cards <i class="home-icon" v-html="$getSvg('credit-cards')"></i>
+            Credit & Debit Cards <i class="cc-icon" v-html="$getSvg('credit-cards')"></i>
           </span>
         </section>
 
@@ -59,7 +59,7 @@
             name="payment" class="paypal" value="paypal">
             <label class="custom-radio-btn" for="paypal"></label>
           <span >
-            <i class="home-icon" v-html="$getSvg('paypal')"></i>
+            <i class="paypal-icon" v-html="$getSvg('paypal')"></i>
           </span>
         </section>
         
@@ -68,7 +68,7 @@
     </div>
 
     <div class="checkout-section">
-      <Checkout :user="user" />
+      <Checkout :user="user" @confirmOrder="confirmOrder" />
     </div>
 
 
@@ -97,20 +97,15 @@ export default {
     choosePayment(method) {
       this.paymentMethod = method
       console.log(this.paymentMethod);
+    },
+    confirmOrder() {
+      console.log('try confirm');
+      this.$emit('confirmOrder')
     }
   },
   components: {
     Checkout,
   },
-  created() {
-    // const  gigId  = this.$route.params
-    // console.log(gigId);
-    // try{
-    //   const gig = gigService.getById(gigId)
-    //   console.log(gig);
-    // } catch(err) {
-    //   console.log(err);
-    // }
-  },
+  
 };
 </script>

@@ -92,6 +92,7 @@ export default {
         const { gigId } = this.$route.params
         const gig = await gigService.getById(gigId)
         this.gig = gig
+        console.log(this.gig);
       } catch (err) {
         console.error('Failed to load gig', err)
       }
@@ -136,11 +137,10 @@ export default {
           }
           const newOrder = await this.$store.dispatch({type: 'addOrder', createdOrder})
           console.log(newOrder);
+          console.log(this.gig.orders);
+          this.gig.orders.push(newOrder)
+          console.log(this.gig.orders);
 
-          loggenInUser.orders.push(newOrder)
-          console.log(loggenInUser.orders);
-
-          
         } catch(err) {
           console.error(err)
           console.log(err)

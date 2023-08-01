@@ -26,7 +26,7 @@
         // grid-template-rows: repeat(4, 1fr);
         // min-width: max-content;
         margin-top: 50px;
-        margin-bottom: 30px;
+        margin-bottom: -25px;
         border: 1px solid $clr11;
         border-radius: 4px;
         color: $clr2;
@@ -34,13 +34,14 @@
 
         .txt {
             padding-left: 20px;
-            // font-size: rem(16px);
+            color: $clr2;
             font-family: macanRegular;
+            margin-top: 20px;
         }
 
         .name {
             padding-left: 20px;
-            // font-size: rem(16px);
+            color: $clr2;
             font-family: macanSemibold;
         }
 
@@ -52,12 +53,14 @@
 
         button {
             font-family: macanSemibold;
+            font-size: rem(16px);
             border: 1px solid $clr3;
             border-radius: 4px;
             padding: 12px 24px;
             margin-left: 20px;
             margin-bottom: 20px;
             color: $clr4;
+            width: 138px;
 
             &:hover {
                 background-color: $blue1;
@@ -67,20 +70,31 @@
 
         .title {
             background-color: $clr8;
-            padding: 16px;
+            padding: 14px 16px;
             font-family: macanBold;
-            margin-bottom: 0;
+            margin: 0;
         }
 
     }
 
-    .credit {
+    .credit,
+    .paypal {
         // padding: 20px 16px 20px;
         padding: 10px 20px;
         margin: 0;
         height: 65px;
         display: flex;
         align-items: center;
+
+        .paypal-icon {
+            position: absolute;
+            margin-top: -10px;
+        }
+        .cc-icon {
+            position: absolute;
+            margin-top: 2px;
+            margin-left: 6px;
+        }
     }
 
     span {
@@ -92,7 +106,7 @@
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
         padding-left: 40px;
-        padding-top: 35px;
+        padding-top: 25px;
         border: 1px solid $clr11;
 
         grid-template-areas:
@@ -108,7 +122,7 @@
     }
 
     p {
-        margin-bottom: 15px;
+        margin-bottom: 10px;
         color: $clr3;
         font-family: macanBold;
     }
@@ -127,17 +141,10 @@
 
     .card-number {
         grid-area: c;
-
-        input {
-            // width: auto;
-        }
     }
 
     .expiration-date {
         grid-area: e;
-        display: flex;
-        flex-direction: column;
-
     }
 
     .cvv {
@@ -155,6 +162,7 @@
     .hidden {
         height: 0;
         overflow: hidden;
+        padding: 0;
     }
 
     .show {
@@ -164,7 +172,8 @@
 
     .custom-radio {
         position: relative;
-        padding-left: 2em;
+        padding-left: rem(40px);
+        color: $clr3;
 
         & input[type='radio'] {
             position: absolute;
@@ -178,24 +187,29 @@
                     content: '';
                     background: white;
                     border-radius: 100%;
-                    border: 1px solid darken(white, 25%);
+                    border: 1px solid $clr2;
                     display: inline-block;
-                    width: 1.3em;
-                    height: 1.3em;
+                    width: 18px;
+                    height: 18px;
                     position: absolute;
                     top: 50%;
                     left: 0;
                     transform: translateY(-50%);
                     transition: 0.15s ease-in-out;
+                    margin-left: 15px;
+                }
+
+                &:hover {
+                    cursor: pointer;
                 }
             }
 
             &:checked {
                 +.custom-radio-btn {
                     &:before {
-                        background-color: black;
+                        background-color: $clr5;
                         box-shadow: inset 0 0 0 5px white;
-                        border: 1px solid black;
+                        border: 1px solid $clr9;
                     }
                 }
             }
@@ -204,7 +218,7 @@
                 +.custom-radio-btn {
                     &:before {
                         outline: none;
-                        border-color: black;
+                        border-color: $clr9;
                     }
                 }
             }
