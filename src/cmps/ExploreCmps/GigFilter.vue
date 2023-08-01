@@ -20,6 +20,7 @@
 						type="number"
 						placeholder="Any"
 						v-model="minBudget"
+						min="1"
 					/>
 					<input
 						class="budget-input"
@@ -100,8 +101,11 @@
 	</section>
 	<template v-if="showFilters">
 		<div class="applied-filters">
-			<div v-if="minBudget || maxBudget" class="filter-pill">
-				{{ minBudget || 'Any' }}$ - {{ maxBudget || 'Any' }}$
+			<div
+				v-if="minBudget || (maxBudget && maxBudget !== 99999)"
+				class="filter-pill"
+			>
+				{{ displayMinBudget }}$ - {{ displayMaxBudget }}$
 				<button @click="clearBudget">✕</button>
 			</div>
 			<div
@@ -126,6 +130,8 @@ export default {
 			deliveryTime: 999,
 			activeFilters: [],
 			deliveryTimeDisplay: null,
+			displayMinBudget: null,
+			displayMaxBudget: null,
 			showFilters: false,
 		}
 	},
@@ -149,12 +155,15 @@ export default {
 			})
 			this.minBudget = null
 			this.maxBudget = null
+			this.displayMinBudget = 1
+			this.displayMaxBudget = null
 			this.filterBy = null
 		},
 		applyBudget() {
 			const min = this.minBudget || 1
 			const max = this.maxBudget || 99999
-			this.addFilter('budget', `Budget: ${min} - ${max}`)
+			this.displayMinBudget = min
+			this.displayMaxBudget = max
 
 			this.$emit('filterChanged', {
 				type: 'budget',
