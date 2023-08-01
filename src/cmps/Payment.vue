@@ -14,11 +14,17 @@
       <section class="payment-info">
         <p class="title">Payment Options</p>
         <div>
-          <input @click="choosePayment('credit')" type="radio" id="credit" class="credit" name="payment" value="credit"
-            checked>
-          <label for="credit">
+          
+          <section class="credit custom-radio">
+            <input @click="choosePayment('credit')" type="radio" id="credit" 
+            name="payment" class="payment" value="credit" checked>
+            <label for="credit" class="custom-radio-btn"></label>
+            <!-- <span class="custom-radio-btn" for="credit"></span> -->
+
+           <span >
             Credit & Debit Cards <i class="home-icon" v-html="$getSvg('credit-cards')"></i>
-          </label>
+          </span>
+        </section>
 
           <section class="credit-details" :class="{ 'hidden': paymentMethod === 'paypal' }">
 
@@ -47,12 +53,16 @@
         </div>
 
 
-        <div>
-          <input @click="choosePayment('paypal')" type="radio" id="paypal" class="paypal" name="payment" value="paypal">
-          <label for="paypal">
+        
+          <section class="paypal custom-radio">
+            <input @click="choosePayment('paypal')" type="radio" id="paypal" 
+            name="payment" class="paypal" value="paypal">
+            <label class="custom-radio-btn" for="paypal"></label>
+          <span >
             <i class="home-icon" v-html="$getSvg('paypal')"></i>
-          </label>
-        </div>
+          </span>
+        </section>
+        
       </section>
 
     </div>

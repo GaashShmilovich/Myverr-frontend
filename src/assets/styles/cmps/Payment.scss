@@ -1,18 +1,20 @@
 .payment {
-      display: grid;
-      grid-template-columns: 3fr 2fr;
-      gap: 20px;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 20px;
 
-      @include for-narrow-layout { 
+    @include for-narrow-layout {
         // grid-column: 1;
         grid-template-columns: 1fr;
         // grid-template-rows: 3fr 2fr ;
-        grid-template-areas: 
-        'p'
-        'c';
+        grid-template-areas:
+            'p'
+            'c';
+
         .payment-section {
             grid-area: p;
         }
+
         .checkout-section {
             grid-area: c;
         }
@@ -70,28 +72,26 @@
             margin-bottom: 0;
         }
 
-        .credit {
-            margin-left: 16px;
-            // display: flex;
-            align-items: center;
-            align-content: center;
-            align-self: center;
-            justify-content: center;
-            justify-items: center;
-            justify-self: center;
-            background-color: aqua;
-        }
+    }
 
-        label {
-            padding: 3px;
-        }
+    .credit {
+        // padding: 20px 16px 20px;
+        padding: 10px 20px;
+        margin: 0;
+        height: 65px;
+        display: flex;
+        align-items: center;
+    }
+
+    span {
+        padding: 3px;
     }
 
     .credit-details {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
-        padding-left: 20px;
+        padding-left: 40px;
         padding-top: 35px;
         border: 1px solid $clr11;
 
@@ -100,12 +100,17 @@
             'e s'
             'f l';
 
+        >* {
+            display: flex;
+            flex-direction: column;
+            padding-right: 20px;
+        }
     }
 
     p {
         margin-bottom: 15px;
         color: $clr3;
-        font-family: macanSemibold;
+        font-family: macanBold;
     }
 
     input {
@@ -115,20 +120,24 @@
         padding: 0 14px;
         color: $clr3;
         margin-bottom: 30px;
+        border: 1px solid $clr12;
+        border-radius: 4px;
         // margin-right: 10px;
     }
 
     .card-number {
         grid-area: c;
-        display: flex;
-        flex-direction: column;
+
         input {
-            // width: min-content;
+            // width: auto;
         }
     }
 
     .expiration-date {
         grid-area: e;
+        display: flex;
+        flex-direction: column;
+
     }
 
     .cvv {
@@ -150,6 +159,56 @@
 
     .show {
         height: min-content;
+    }
+
+
+    .custom-radio {
+        position: relative;
+        padding-left: 2em;
+
+        & input[type='radio'] {
+            position: absolute;
+            opacity: 0;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+
+            +.custom-radio-btn {
+                &:before {
+                    content: '';
+                    background: white;
+                    border-radius: 100%;
+                    border: 1px solid darken(white, 25%);
+                    display: inline-block;
+                    width: 1.3em;
+                    height: 1.3em;
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    transform: translateY(-50%);
+                    transition: 0.15s ease-in-out;
+                }
+            }
+
+            &:checked {
+                +.custom-radio-btn {
+                    &:before {
+                        background-color: black;
+                        box-shadow: inset 0 0 0 5px white;
+                        border: 1px solid black;
+                    }
+                }
+            }
+
+            &:focus {
+                +.custom-radio-btn {
+                    &:before {
+                        outline: none;
+                        border-color: black;
+                    }
+                }
+            }
+        }
     }
 
 }
