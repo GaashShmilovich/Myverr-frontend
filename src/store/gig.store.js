@@ -33,6 +33,7 @@ export const gigStore = {
 		filterBy: {
 			budget: { min: 0, max: 10000 },
 			delivery: null,
+			owner: ''
 		},
 	},
 	getters: {
@@ -68,6 +69,8 @@ export const gigStore = {
 				state.filterBy.price.max = filter.max
 			} else if (filter.type === 'delivery') {
 				state.filterBy.delivery = filter.delivery
+			} else if (filter.type === 'owner') {
+				state.filterBy.owner = filter.owner
 			}
 		},
 	},

@@ -32,7 +32,7 @@
         <RouterLink :to="loggedInUser._id + '/gigs'">Reviews</RouterLink>
       </div>
       <div class="main-gigs">
-        <RouterView />
+        <RouterView :user="user" />
       </div>
     </div>
   </section>

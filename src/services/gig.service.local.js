@@ -110,7 +110,7 @@ function getEmptyGig() {
 	}
 }
 
-// ;(async () => {
+// ; (async () => {
 // 	await storageService.post(STORAGE_KEY, {
 // 		_id: 'i101',
 // 		title: 'I will design a creative minimalist business logo',
@@ -277,9 +277,9 @@ function getEmptyGig() {
 // 			},
 // 		],
 // 		packages: [
-// 			{level: 'Basic' ,price: 120, title: 'The Gold Fish - Basic', specials: ['Product imagery', '1 length variation', '20 seconds running time'], benefit1: '5 Day Delivery', benefit2: '2 Revisions', description: 'Start-up and basic logos included. Good for Socialmedia & small business owners (ex: Nike logo)' },
-// 			{level: 'Standard' ,price: 240, title: 'The Dolphin - Recommended', specials: ['Voice over recording', 'Product imagery writing', '20 seconds running time'], benefit1: '2 Day Delivery', benefit2:'4 Revisions', description: 'Mid-Segment variants of logo. Highlyrecommended for pro business and printing (ex: AirBnb) ' },
-// 			{level: 'Premium', price: 360, title: 'The Blue Whale - Premium', specials: ['Video editing', 'Script writing', '20 seconds running time'], benefit1: '1 Day Delivery' ,benefit2: '5 Revisions', description: 'Ultimate and deep conceptual logo design. Must for premiumbusiness & high-end users (ex: Mercedes)' }
+// 			{ level: 'Basic', price: 120, title: 'The Gold Fish - Basic', specials: ['Product imagery', '1 length variation', '20 seconds running time'], benefit1: '5 Day Delivery', benefit2: '2 Revisions', description: 'Start-up and basic logos included. Good for Socialmedia & small business owners (ex: Nike logo)' },
+// 			{ level: 'Standard', price: 240, title: 'The Dolphin - Recommended', specials: ['Voice over recording', 'Product imagery writing', '20 seconds running time'], benefit1: '2 Day Delivery', benefit2: '4 Revisions', description: 'Mid-Segment variants of logo. Highlyrecommended for pro business and printing (ex: AirBnb) ' },
+// 			{ level: 'Premium', price: 360, title: 'The Blue Whale - Premium', specials: ['Video editing', 'Script writing', '20 seconds running time'], benefit1: '1 Day Delivery', benefit2: '5 Revisions', description: 'Ultimate and deep conceptual logo design. Must for premiumbusiness & high-end users (ex: Mercedes)' }
 // 		],
 // 	}),
 // 		await storageService.post(STORAGE_KEY, {
@@ -390,23 +390,24 @@ function getEmptyGig() {
 // 				},
 // 			],
 // 			packages: [
-// 				{level: 'Basic' ,price: 80, title: 'The Gold Fish - Basic', specials: ['Product imagery', '1 length variation', '20 seconds running time'], benefit1: '5 Day Delivery', benefit2: '2 Revisions', description: 'Start-up and basic logos included. Good for Socialmedia & small business owners (ex: Nike logo)' },
-// 				{level: 'Standard' ,price: 160, title: 'The Dolphin - Recommended', specials: ['Voice over recording', 'Product imagery writing', '20 seconds running time'], benefit1: '2 Day Delivery', benefit2:'4 Revisions', description: 'Mid-Segment variants of logo. Highlyrecommended for pro business and printing (ex: AirBnb) ' },
-// 				{level: 'Premium', price: 220, title: 'The Blue Whale - Premium', specials: ['Video editing', 'Script writing', '20 seconds running time'], benefit1: '1 Day Delivery' ,benefit2: '5 Revisions', description: 'Ultimate and deep conceptual logo design. Must for premiumbusiness & high-end users (ex: Mercedes)' }
+// 				{ level: 'Basic', price: 80, title: 'The Gold Fish - Basic', specials: ['Product imagery', '1 length variation', '20 seconds running time'], benefit1: '5 Day Delivery', benefit2: '2 Revisions', description: 'Start-up and basic logos included. Good for Socialmedia & small business owners (ex: Nike logo)' },
+// 				{ level: 'Standard', price: 160, title: 'The Dolphin - Recommended', specials: ['Voice over recording', 'Product imagery writing', '20 seconds running time'], benefit1: '2 Day Delivery', benefit2: '4 Revisions', description: 'Mid-Segment variants of logo. Highlyrecommended for pro business and printing (ex: AirBnb) ' },
+// 				{ level: 'Premium', price: 220, title: 'The Blue Whale - Premium', specials: ['Video editing', 'Script writing', '20 seconds running time'], benefit1: '1 Day Delivery', benefit2: '5 Revisions', description: 'Ultimate and deep conceptual logo design. Must for premiumbusiness & high-end users (ex: Mercedes)' }
 // 			],
 // 		})
 // })()
 
-// 	{
-// 		id: utilService.makeId(),
+// {
+// 	id: utilService.makeId(),
 // 		txt: "Working with Ardita was a delight! She crafted a well-researched and engaging blog article that perfectly aligned with my requirements. Her writing style is impressive, and the content surpassed my expectations. Emily's professionalism and prompt communication made the entire process smooth. I highly recommend her for top-notch blog writing services. I'll definitely be a returning customer. Thank you, Ardita!",
-// 		rate: 5,
-// 		createdAt: "2023-07-18T16:40:00Z",
-// 		by: {
-// 			_id: "u207",
+// 			rate: 5,
+// 				createdAt: "2023-07-18T16:40:00Z",
+// 					by: {
+// 		_id: "u207",
 // 			fullname: "Alice Thompson",
-// 			imgUrl: "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/095033550aa35c07abbce4837d337d16-1607850951895/bc2b6185-cc86-45c7-970c-550132be32a9.jpg",
-// 			country: {name:"United Kingdom", img: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png'
+// 				imgUrl: "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/095033550aa35c07abbce4837d337d16-1607850951895/bc2b6185-cc86-45c7-970c-550132be32a9.jpg",
+// 					country: {
+// 			name: "United Kingdom", img: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png'
 // 		}
 // 	},
 // },

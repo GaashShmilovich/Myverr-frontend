@@ -1,7 +1,11 @@
 <template>
   <section class="dashboard-container">
     <!-- <h3>{{ gig.owner.fullname }}</h3> -->
-    <GigList :gigs="gigs"></GigList>
+    <GigListSeller
+      :gigs="filteredGigs"
+      @remove-gig="removeGig"
+      @edit-gig="updateGig"
+    ></GigListSeller>
   </section>
 </template>
 
@@ -15,11 +19,11 @@ import {
   getActionUpdateGig,
   getActionAddGigMsg,
 } from "../../store/gig.store";
-import GigList from "../ExploreCmps/GigList.vue";
+import GigListSeller from "../SellerProfile/GigListSeller.vue";
 export default {
   components: {
     GigPreviewCarousel,
-    GigList,
+    GigListSeller,
   },
   props: {
     user: Object,
@@ -34,9 +38,16 @@ export default {
     gigs() {
       return this.$store.getters.gigs;
     },
+    filteredGigs() {
+      return this.$store.getters.gigs.filter(
+        (gig) => gig.owner._id === this.user._id
+      );
+    },
   },
   created() {
-    this.$store.dispatch({ type: "loadGigs" });
+    this.$store.dispatch({
+      type: "loadGigs",
+    });
   },
   methods: {
     async addGig() {
