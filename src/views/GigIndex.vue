@@ -53,6 +53,11 @@ export default {
 			handler: 'loadGigsFromQuery',
 			immediate: true,
 		},
+		'$route.query': {
+			handler: 'loadGigsFromQuery',
+			deep: true, // Deep watch to catch any nested changes
+			immediate: true,
+		},
 	},
 	methods: {
 		loadGigs() {
@@ -69,17 +74,21 @@ export default {
 			})
 		},
 		loadGigsFromQuery() {
-			if (this.$route.query.txt) {
-				this.$store.dispatch({
-					type: 'loadGigs',
-					filterBy: {
-						type: 'txt',
-						txt: this.$route.query.txt,
-					},
-				})
-			} else {
-				this.loadGigs()
+			const { txt, min, max, delivery, category } = this.$route.query
+
+			const filterBy = {
+				type: category ? 'category' : 'txt',
+				txt,
+				min,
+				max,
+				delivery,
+				category,
 			}
+
+			this.$store.dispatch({
+				type: 'loadGigs',
+				filterBy,
+			})
 		},
 	},
 }
