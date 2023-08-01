@@ -46,7 +46,7 @@
   <!-- </div> -->
 
     <div class="packages" >
-      <PackageType :gig="gig" @addOrder="addOrder"/>
+      <PackageType :gig="gig" />
     </div>
 
   </section>
@@ -100,52 +100,7 @@ export default {
     onDarkMode() {
       this.darkMode = !this.darkMode
     },
-    async addOrder(type) {
-      try{
-        const loggenInUser = await userService.getLoggedinUser()
-        console.log(loggenInUser);
-        this.loggedUser = loggenInUser
-        const createdOrder = {
-          // _id: order._id,
-          createdAt: new Date(),
-          buyer: {
-            _id: loggenInUser._id,
-            fullname: loggenInUser.fullname,
-            username: loggenInUser.username,
-            imgUrl: loggenInUser.imgUrl,
-          },
-          seller: {
-            _id: this.gig.owner._id,
-            fullname: this.gig.owner.fullname,
-            imgUrl: this.gig.owner.imgUrl,
-          },
-          gig: {
-            _id: this.gig._id,
-            name: this.gig.title,
-            imgUrls: this.gig.imgUrls,
-            price: this.gig.price },
-            packageType: {
-              level: type.level,
-              price: type.price,
-              title: type.title,
-              benefit1: type.benefit1,
-              benefit2: type.benefit2,
-              specials: type.specials
-            },
-            status: "pending",
-
-          }
-          const newOrder = await this.$store.dispatch({type: 'addOrder', createdOrder})
-          console.log(newOrder);
-          console.log(this.gig.orders);
-          this.gig.orders.push(newOrder)
-          console.log(this.gig.orders);
-
-        } catch(err) {
-          console.error(err)
-          console.log(err)
-        }
-      }
+    
   },
   computed: {
   },

@@ -57,27 +57,42 @@
         }
         .totals {
             .total {
+                margin-top: 20px;
                 font-family: macanBold;
             }
             .delivery-time {
+                margin-bottom: 30px;
                 font-family: macanRegular;
             }
         }
-        button {
+        .confirm {
+            margin-top: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .btn-pay {
+            text-align: center;
             font-family: macanSemibold;
             padding: 15px 24px;
             border-radius: 4px;
             color: $clr1;
             background-color: $clr7;
+            // margin: 70px 0;
+            height: 60px;
             &:hover {
                 background-color: $clr2;
+                cursor: pointer;
             }
+        }
+        .secure {
+            text-align: center;
         }
         .sll {
             font-size: rem(14px);
             color: $clr2;
             font-family: macanRegular;
             text-align: center;
+            margin-top: 80px;
         }
         .be-charged {
             font-size: rem(14px);

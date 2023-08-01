@@ -68,7 +68,7 @@
     </div>
 
     <div class="checkout-section">
-      <Checkout :user="user" @confirmOrder="confirmOrder" />
+      <Checkout :user="user" />
     </div>
 
 
@@ -98,10 +98,6 @@ export default {
       this.paymentMethod = method
       console.log(this.paymentMethod);
     },
-    confirmOrder() {
-      console.log('try confirm');
-      this.$emit('confirmOrder')
-    }
   },
   components: {
     Checkout,

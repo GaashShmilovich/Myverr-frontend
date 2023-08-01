@@ -26,8 +26,7 @@
                 {{ special }}</li>
         </ul>
 
-        <RouterLink class="to-payment" :to="'/payment/' + gig._id +'/' + type" 
-        @confirmOrder="confirmOrder" @click="addOrder">Continue <i class="long-arrow-right" v-html="$getSvg('long-arrow-right')"></i></RouterLink>
+        <RouterLink class="to-payment" :to="'/payment/' + gig._id +'/' + type" >Continue <i class="long-arrow-right" v-html="$getSvg('long-arrow-right')"></i></RouterLink>
         <!-- <RouterLink class="to-user-profile" :to="'/user' + user._id" :gig="gig">Continue</RouterLink> -->
 
     </div>
