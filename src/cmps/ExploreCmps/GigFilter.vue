@@ -96,7 +96,24 @@
 				<input type="checkbox" class="seller-filter-btn" />
 			</div>
 		</section>
+		<!-- Applied Filters Display -->
 	</section>
+	<template v-if="showFilters">
+		<div class="applied-filters">
+			<div v-if="minBudget || maxBudget" class="filter-pill">
+				{{ minBudget || 'Any' }}$ - {{ maxBudget || 'Any' }}$
+				<button @click="clearBudget">✕</button>
+			</div>
+			<div
+				v-if="deliveryTime !== 999 && deliveryTimeDisplay"
+				class="filter-pill"
+			>
+				{{ this.deliveryTimeDisplay }}
+				<button @click="clearDelivery">✕</button>
+			</div>
+			<!-- Add more filter pills as required -->
+		</div>
+	</template>
 </template>
 
 <script>
@@ -107,11 +124,22 @@ export default {
 			minBudget: null,
 			maxBudget: null,
 			deliveryTime: 999,
+			activeFilters: [],
+			deliveryTimeDisplay: null,
+			showFilters: false,
 		}
 	},
 	methods: {
 		setFilter(filterType) {
 			this.filterBy = this.filterBy === filterType ? null : filterType
+		},
+		addFilter(type, label) {
+			this.activeFilters.push({ type, label })
+		},
+		removeFilter(type) {
+			this.activeFilters = this.activeFilters.filter(
+				(filter) => filter.type !== type
+			)
 		},
 		clearBudget() {
 			this.$emit('filterChanged', {
@@ -126,6 +154,7 @@ export default {
 		applyBudget() {
 			const min = this.minBudget || 1
 			const max = this.maxBudget || 99999
+			this.addFilter('budget', `Budget: ${min} - ${max}`)
 
 			this.$emit('filterChanged', {
 				type: 'budget',
@@ -133,21 +162,38 @@ export default {
 				max: max,
 			})
 			this.filterBy = null
+			this.showFilters = true
 		},
 
 		applyDelivery() {
+			switch (this.deliveryTime) {
+				case '1':
+					this.deliveryTimeDisplay = 'Express 24h'
+					break
+				case '3':
+					this.deliveryTimeDisplay = 'Up to 3 days'
+					break
+				case '7':
+					this.deliveryTimeDisplay = 'Up to 7 days'
+					break
+				default:
+					this.deliveryTimeDisplay = null
+			}
+
 			this.$emit('filterChanged', {
 				type: 'delivery',
 				delivery: this.deliveryTime,
 			})
 			this.filterBy = null
+			this.showFilters = true
 		},
 		clearDelivery() {
 			this.$emit('filterChanged', {
 				type: 'delivery',
 				delivery: 999,
 			})
-			this.deliveryTime = null
+			this.deliveryTime = 999
+			this.deliveryTimeDisplay = null
 			this.filterBy = null
 		},
 	},

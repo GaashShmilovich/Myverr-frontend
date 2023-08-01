@@ -18,6 +18,7 @@
 }
 
 .budget-btn {
+	margin-left: 0;
 }
 
 .filter-btn,
@@ -233,12 +234,14 @@ input::placeholder {
 	background-color: $clr6;
 	border: 1px solid #e4e5e7;
 	color: #222325;
-	padding: 12px 24px;
 	border-radius: 24px;
 	cursor: pointer;
 	transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out;
 	position: relative;
-	outline: none;
+	outline: 0;
+	padding: 0;
+	margin: 0;
+	border: 0;
 	width: 31px;
 	height: 18px;
 
@@ -247,8 +250,8 @@ input::placeholder {
 		position: absolute;
 		top: 50%;
 		left: 2px;
-		width: 20px;
-		height: 20px;
+		width: 14px;
+		height: 14px;
 		background-color: #ffffff;
 		border-radius: 50%;
 		transform: translateY(-50%);
@@ -259,13 +262,9 @@ input::placeholder {
 		background-color: $green1;
 
 		&:before {
-			left: calc(100% - 23px);
+			left: calc(100% - 17px);
 			background-color: #fff;
 		}
-	}
-
-	&:hover {
-		// border: 1px solid $clr4;
 	}
 }
 .seller-filter-container {
@@ -372,5 +371,36 @@ input::placeholder {
 				color: pink;
 			}
 		}
+	}
+}
+
+.applied-filters {
+	.filter-pill {
+		background-color: #efeff0;
+		border: none;
+		border-radius: 56px;
+		color: $clr4;
+		margin: 0 10px 10px 0;
+		padding: 0 16px;
+		transition: border-color 0.35s ease;
+		cursor: pointer;
+		display: inline-block;
+		font-weight: 600;
+		font-size: 14px;
+	}
+
+	.filter-pill:hover {
+		color: rgb(98, 100, 106);
+	}
+
+	button {
+		background-color: transparent;
+		border: none;
+		color: rgb(98, 100, 106);
+		cursor: pointer;
+		font-weight: 700;
+		margin-right: 0;
+		padding: 0;
+		padding-bottom: 2px;
 	}
 }
