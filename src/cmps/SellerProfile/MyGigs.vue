@@ -1,71 +1,36 @@
 <template>
   <section class="dashboard-container">
-    <div class="user-profile">
-      <div class="user-info">
-        <h1>{{ user.fullname }}</h1>
-        <h3>{{ user.country }}</h3>
-      </div>
-
-      <div class="user-description">
-        <header class="desc-header">
-          <h1>Description</h1>
-        </header>
-        <div class="desc-content">
-          <p>
-            Hi there! I'm a creative graphic designer with a passion for
-            bringing ideas to life. I specialize in logo design, branding, and
-            social media graphics. Let's work together to make your brand stand
-            out from the crowd!
-          </p>
-        </div>
-      </div>
-    </div>
-    <!-- <ul class="gig-list">
-      <li v-for="gig in gigs" :key="gig._id">
-        <p>
-          {{ gig.title }}
-        </p>
-        <p>${{ gig.price?.toLocaleString() }}</p>
-        <button @click="removeGig(gig._id)">x</button>
-        <button @click="updateGig(gig)">Update</button>
-        <hr />
-        <button @click="addGigMsg(gig._id)">Add gig msg</button>
-        <button @click="printGigToConsole(gig)">Print msgs to console</button>
-      </li>
-    </ul>
-    <hr />
-    <form @submit.prevent="addGig()">
-      <h2>Add gig</h2>
-      <input type="text" v-model="gigToAdd.title" />
-      <button>Save</button>
-    </form> -->
+    <!-- <h3>{{ gig.owner.fullname }}</h3> -->
+    <GigList :gigs="gigs"></GigList>
   </section>
 </template>
 
 <script>
-import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
-import { gigService } from "../services/gig.service.local";
-import { userService } from "../services/user.service.local";
+import { showErrorMsg, showSuccessMsg } from "../../services/event-bus.service";
+import { gigService } from "../../services/gig.service.local";
+import { userService } from "../../services/user.service.local";
+import GigPreviewCarousel from "../../cmps/ExploreCmps/GigPreviewCarousel.vue";
 import {
   getActionRemoveGig,
   getActionUpdateGig,
   getActionAddGigMsg,
-} from "../store/gig.store";
+} from "../../store/gig.store";
+import GigList from "../ExploreCmps/GigList.vue";
 export default {
+  components: {
+    GigPreviewCarousel,
+    GigList,
+  },
   props: {
     user: Object,
   },
   data() {
     return {
       gigToAdd: gigService.getEmptyGig(),
-      // user: null,
     };
   },
 
   computed: {
-    // loggedInUser() {
-    //   return this.$store.getters.loggedinUser;
-    // },
     gigs() {
       return this.$store.getters.gigs;
     },

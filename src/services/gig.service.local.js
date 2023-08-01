@@ -127,8 +127,8 @@ function getEmptyGig() {
 // 		title: 'I will design a creative minimalist business logo',
 // 		price: 120,
 // 		owner: {
-// 			_id: 'u101',
-// 			fullname: 'Jennifer Martha',
+// 			_id: 'P6lXy',
+// 			fullname: 'User 1',
 // 			moto: 'Work hard, play hard!',
 // 			instagram: '@JenniMama123',
 // 			imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/eeafd2296eb286476397e0d195fbf5c8-1680370454842/d21715c4-457c-4687-8ab8-af2639117b55.jpg',

@@ -9,6 +9,7 @@ import UserProfile from '../src/cmps/UserProfile.vue'
 import GigDetails from './views/GigDetails.vue'
 import GigEdit from './views/GigEdit.vue'
 import Payment from '../src/cmps/Payment.vue'
+import MyGigs from '../src/cmps/SellerProfile/MyGigs.vue'
 
 const routes = [
   {
@@ -49,7 +50,29 @@ const routes = [
   {
     path: '/user/:id',
     name: 'UserProfile',
-    component: UserProfile
+    component: UserProfile,
+    children: [
+      {
+        path: 'gigs',
+        name: 'MyGigs',
+        component: MyGigs
+      },
+      // {
+      //   path: '/orders',
+      //   name: 'UserGigs',
+      //   component: UserOrders
+      // },
+      // {
+      //   path: '/receivedOrders',
+      //   name: 'UserSettings',
+      //   component: ReceivedOrders
+      // },
+      // {
+      //   path: '/reviews',
+      //   name: 'UserSettings',
+      //   component: reviews
+      // },
+    ]
   },
   {
     path: '/payment/:id/:type',
@@ -59,7 +82,7 @@ const routes = [
 ]
 
 export const router = createRouter({
-	routes,
-	history: createWebHashHistory(),
-	// base: process.env.BASE_URL,
+  routes,
+  history: createWebHashHistory(),
+  // base: process.env.BASE_URL,
 })
