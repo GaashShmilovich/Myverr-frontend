@@ -29,7 +29,6 @@
 						v-model="maxBudget"
 					/>
 				</div>
-				<hr class="divider-budget" />
 				<div class="actions">
 					<button class="clear-btn" @click="clearBudget">
 						Clear All
@@ -153,7 +152,7 @@ export default {
 			this.applyDelivery()
 		}
 		if (params.category) {
-			console.log(params.category)
+			// console.log(params.category)
 		}
 	},
 	methods: {

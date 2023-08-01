@@ -87,6 +87,7 @@
 
 .budget-modal {
 	overflow-y: scroll;
+	z-index: 22;
 	padding: 24px;
 	transition: all 0.24s cubic-bezier(0.215, 0.61, 0.355, 1);
 	transition-delay: 0.24s;
@@ -96,7 +97,7 @@
 	font-size: 14px;
 	line-height: 22px;
 	font-weight: 600;
-	height: 210px;
+	height: 200px;
 	width: 310px;
 	color: $clr10;
 }
@@ -142,9 +143,6 @@ input::placeholder {
 	left: 0;
 	right: 0;
 	top: 220px;
-}
-
-.divider-budget {
 }
 
 .actions {
