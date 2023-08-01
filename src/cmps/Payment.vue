@@ -58,7 +58,7 @@
     </div>
 
     <div class="checkout-section">
-      <Checkout />
+      <Checkout :user="user" />
     </div>
 
 

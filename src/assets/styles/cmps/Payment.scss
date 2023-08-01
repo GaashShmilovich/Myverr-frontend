@@ -4,8 +4,17 @@
       gap: 20px;
 
       @include for-narrow-layout { 
-        grid-column: 1;
-        grid-template-rows: 3fr 2fr ;
+        // grid-column: 1;
+        // grid-template-rows: 3fr 2fr ;
+        grid-template-areas: 
+        'p'
+        'c';
+        .payment-section {
+            grid-area: p;
+        }
+        .checkout-section {
+            grid-area: c;
+        }
     }
 
     .billing-info,

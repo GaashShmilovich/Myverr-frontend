@@ -37,7 +37,6 @@
         >
           <SearchBar
             placeholder="What sevices are you looking for today?"
-            @search="handleSearch"
           />
         </div>
         <div

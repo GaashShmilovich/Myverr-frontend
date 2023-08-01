@@ -25,7 +25,7 @@
                 <i class="v-check" v-html="$getSvg('v-check')"></i>
                 {{ special }}</li>
         </ul>
-        
+
         <RouterLink class="to-payment" :to="'/payment/' + gig._id +'/' + type" @click="addOrder">Continue <i class="long-arrow-right" v-html="$getSvg('long-arrow-right')"></i></RouterLink>
         <!-- <RouterLink class="to-user-profile" :to="'/user' + user._id" :gig="gig">Continue</RouterLink> -->
 
@@ -46,7 +46,6 @@ export default {
     },
     props: {
         gig: Object,
-        newOrder: Object,
     },
     methods: {
         setType(chosenType) {
@@ -54,6 +53,9 @@ export default {
         },
         addOrder() {
             this.$emit('addOrder', this.chosenPackage)
+        },
+        printUser() {
+            console.log(this.loggedUser);
         }
     },
     computed: {
@@ -68,18 +70,6 @@ export default {
             }
         }
     },
-    async created() {
-    try {
-      const user = userService.getLoggedinUser()
-      if (user) {
-        this.$store.commit({ type: 'setLoggedinUser', user })
-      }
-      this.user = user
-    } catch (err) {
-      console.error(err)
-    }
-    console.log(this.gig);
-    console.log(this.newOrder);
-  },
 }
+    
 </script>

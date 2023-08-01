@@ -26,9 +26,9 @@
 
         <button>Confirm & Pay </button>
         
-        <section>
-            <p>SSL Secure Payment </p>
-            <p>You will be charged₪83.34. Total amount includes currency conversion fees </p>
+        <section> 
+            <p class="ssl">SSL Secure Payment </p>
+            <p class="be-charged">You will be charged₪83.34. Total amount includes currency conversion fees </p>
         </section>
         </div>
     </div>
@@ -44,15 +44,16 @@ export default {
             gig: this.getGig()
         }
     },
-    created() {
-
-
+    props: {
+        user: Object,
     },
     methods: {
         getType() {
-            const { type } = this.$route.params
-            console.log(type);
-            return type
+            // const { type } = this.$route.params
+            // console.log(type);
+            // return type
+            console.log(this.user);
+            console.log(this.user.orders);
         },
         async getGig() {
             try {

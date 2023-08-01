@@ -46,7 +46,7 @@
   <!-- </div> -->
 
     <div class="packages" >
-      <PackageType :gig="gig" :newOrder="newOrder" @addOrder="addOrder"/>
+      <PackageType :gig="gig" @addOrder="addOrder"/>
     </div>
 
   </section>
@@ -72,7 +72,7 @@ export default {
     return {
       gig: null,
       newOrder: null,
-      darkMode: false
+      darkMode: false,
     }
   },
 
@@ -100,6 +100,7 @@ export default {
       try{
         const loggenInUser = await userService.getLoggedinUser()
         console.log(loggenInUser);
+        this.loggedUser = loggenInUser
         const createdOrder = {
           // _id: order._id,
           createdAt: new Date(),
@@ -131,15 +132,11 @@ export default {
 
           }
           const newOrder = await this.$store.dispatch({type: 'addOrder', createdOrder})
-          
-          // console.log(createdOrder);
           console.log(newOrder);
-          // this.newOrder = newOrder
 
           loggenInUser.orders.push(newOrder)
           console.log(loggenInUser.orders);
 
-          // console.log(this.$store.getters.orders);
           
         } catch(err) {
           console.error(err)
