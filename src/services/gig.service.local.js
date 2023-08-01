@@ -27,18 +27,29 @@ async function query(filterBy, sortBy) {
 				return gig.daysToMake <= filterBy.delivery
 			})
 		}
-		if (filterBy.type === 'txt')
+		if (filterBy.type === 'txt') {
 			gigs = gigs.filter((gig) => {
 				const isInTitle = gig.title
 					.toLowerCase()
-					.includes(filterBy.txt.toLowerCase())
-
+					.includes(filterBy.txt?.toLowerCase() || '')
 				const isInTags = gig.tags.some((tag) =>
-					tag.toLowerCase().includes(filterBy.txt.toLowerCase())
+					tag
+						.toLowerCase()
+						.includes(filterBy.txt?.toLowerCase() || '')
 				)
-
 				return isInTitle || isInTags
 			})
+		}
+
+		if (filterBy.type === 'category') {
+			gigs = gigs.filter((gig) => {
+				return gig.tags.some((tag) =>
+					tag
+						.toLowerCase()
+						.includes(filterBy.category?.toLowerCase() || '')
+				)
+			})
+		}
 	}
 
 	if (gigs && sortBy === 'Highest Rating') {

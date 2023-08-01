@@ -20,7 +20,7 @@
 export default {
 	data() {
 		return {
-			categoryFromUrl: '',
+			categoryFromUrl: 'Graphics & Design',
 			subCategoryMapping: {
 				'Graphics & Design': 'Logo Design',
 				'Programming & Tech': 'Web Applications',
@@ -43,11 +43,20 @@ export default {
 			)
 		},
 	},
-	created() {
-		// Extract category from the URL, decode it, and capitalize the first letter of each word
-		this.categoryFromUrl = decodeURIComponent(
-			this.$route.query.category || ''
-		).replace(/\b\w/g, (l) => l.toUpperCase())
+	watch: {
+		'$route.query.category': {
+			immediate: true,
+			handler() {
+				const decodedCategory = decodeURIComponent(
+					this.$route.query.category || ''
+				).replace(/\b\w/g, (l) => l.toUpperCase())
+				if (decodedCategory) {
+					this.categoryFromUrl = decodedCategory
+				} else {
+					this.categoryFromUrl = 'Graphics & Design'
+				}
+			},
+		},
 	},
 }
 </script>

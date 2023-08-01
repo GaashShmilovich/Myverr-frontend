@@ -138,7 +138,6 @@ export default {
 	},
 	created() {
 		const params = this.$route.query
-		console.log('🚀 ~ file: GigFilter.vue:141 ~ created ~ params:', params)
 		if (params.min) {
 			this.minBudget = params.min
 			this.displayMinBudget = params.min
@@ -148,6 +147,13 @@ export default {
 			this.maxBudget = params.max
 			this.displayMaxBudget = params.max
 			this.applyBudget()
+		}
+		if (params.delivery) {
+			this.deliveryTime = params.delivery
+			this.applyDelivery()
+		}
+		if (params.category) {
+			console.log(params.category)
 		}
 	},
 	methods: {
@@ -173,14 +179,22 @@ export default {
 			this.displayMinBudget = 1
 			this.displayMaxBudget = null
 			this.filterBy = null
-			this.$router.push({ query: {} })
+
+			let updatedQuery = { ...this.$route.query }
+			delete updatedQuery.min
+			delete updatedQuery.max
+			this.$router.push({ query: updatedQuery })
 		},
 		applyBudget() {
 			const min = this.minBudget || 1
 			const max = this.maxBudget || 99999
 			this.displayMinBudget = min
 			this.displayMaxBudget = max
-			this.$router.push({ query: { min, max } })
+
+			// Preserve the current query parameters and update only the relevant ones
+			let updatedQuery = { ...this.$route.query, min, max }
+			this.$router.push({ query: updatedQuery })
+
 			this.$emit('filterChanged', {
 				type: 'budget',
 				min: min,
@@ -205,6 +219,12 @@ export default {
 					this.deliveryTimeDisplay = null
 			}
 
+			let updatedQuery = {
+				...this.$route.query,
+				delivery: this.deliveryTime,
+			}
+			this.$router.push({ query: updatedQuery })
+
 			this.$emit('filterChanged', {
 				type: 'delivery',
 				delivery: this.deliveryTime,
@@ -220,6 +240,38 @@ export default {
 			this.deliveryTime = 999
 			this.deliveryTimeDisplay = null
 			this.filterBy = null
+
+			let updatedQuery = { ...this.$route.query }
+			delete updatedQuery.delivery
+			this.$router.push({ query: updatedQuery })
+		},
+
+		resetFilterState() {
+			this.filterBy = null
+			this.minBudget = null
+			this.maxBudget = null
+			this.deliveryTime = 999
+			this.activeFilters = []
+			this.deliveryTimeDisplay = null
+			this.displayMinBudget = null
+			this.displayMaxBudget = null
+			this.showFilters = false
+		},
+	},
+	watch: {
+		'$route.query': {
+			deep: true,
+			handler(newQuery) {
+				if (!newQuery.min && !newQuery.max) {
+					this.clearBudget()
+				}
+				if (!newQuery.delivery) {
+					this.clearDelivery()
+				}
+				if (Object.keys(newQuery).length === 0) {
+					this.resetFilterState()
+				}
+			},
 		},
 	},
 }
