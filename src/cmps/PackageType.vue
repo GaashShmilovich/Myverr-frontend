@@ -25,7 +25,7 @@
                 <i class="v-check" v-html="$getSvg('v-check')"></i>
                 {{ special }}</li>
         </ul>
-
+        
         <RouterLink class="to-payment" :to="'/payment/' + gig._id +'/' + type" @click="addOrder">Continue <i class="long-arrow-right" v-html="$getSvg('long-arrow-right')"></i></RouterLink>
         <!-- <RouterLink class="to-user-profile" :to="'/user' + user._id" :gig="gig">Continue</RouterLink> -->
 
@@ -45,13 +45,12 @@ export default {
         }
     },
     props: {
-        gig: Object
+        gig: Object,
+        newOrder: Object,
     },
     methods: {
         setType(chosenType) {
-            console.log(chosenType);
             this.type = chosenType
-            console.log(this.type);
         },
         addOrder() {
             this.$emit('addOrder', this.chosenPackage)
@@ -61,11 +60,11 @@ export default {
         getType() {
             switch (this.type) {
                 case 'basic':
-                    return this.chosenPackage = {type: 'Basic' ,price: 58, title: 'The Gold Fish - Basic', specials: ['Product imagery', '1 length variation', '20 seconds running time'], benefit1: '5 Day Delivery', benefit2: '2 Revisions', description: 'Start-up and basic logos included. Good for Socialmedia & small business owners (ex: Nike logo)' };
+                    return this.chosenPackage = {level: 'Basic' ,price: 58, title: 'The Gold Fish - Basic', specials: ['Product imagery', '1 length variation', '20 seconds running time'], benefit1: '5 Day Delivery', benefit2: '2 Revisions', description: 'Start-up and basic logos included. Good for Socialmedia & small business owners (ex: Nike logo)' };
                 case 'standard':
-                    return this.chosenPackage = {type: 'Standard' ,price: 120, title: 'The Dolphin - Recommended', specials: ['Voice over recording', 'Product imagery writing', '20 seconds running time'], benefit1: '2 Day Delivery', benefit2:'4 Revisions', description: 'Mid-Segment variants of logo. Highlyrecommended for pro business and printing (ex: AirBnb) ' };
+                    return this.chosenPackage = {level: 'Standard' ,price: 120, title: 'The Dolphin - Recommended', specials: ['Voice over recording', 'Product imagery writing', '20 seconds running time'], benefit1: '2 Day Delivery', benefit2:'4 Revisions', description: 'Mid-Segment variants of logo. Highlyrecommended for pro business and printing (ex: AirBnb) ' };
                 case 'premium':
-                    return this.chosenPackage = {type: 'Premium', price: 240, title: 'The Blue Whale - Premium', specials: ['Video editing', 'Script writing', '20 seconds running time'], benefit1: '1 Day Delivery' ,benefit2: '5 Revisions', description: 'Ultimate and deep conceptual logo design. Must for premiumbusiness & high-end users (ex: Mercedes)' };
+                    return this.chosenPackage = {level: 'Premium', price: 240, title: 'The Blue Whale - Premium', specials: ['Video editing', 'Script writing', '20 seconds running time'], benefit1: '1 Day Delivery' ,benefit2: '5 Revisions', description: 'Ultimate and deep conceptual logo design. Must for premiumbusiness & high-end users (ex: Mercedes)' };
             }
         }
     },
@@ -79,6 +78,8 @@ export default {
     } catch (err) {
       console.error(err)
     }
+    console.log(this.gig);
+    console.log(this.newOrder);
   },
 }
 </script>

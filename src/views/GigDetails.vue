@@ -46,7 +46,7 @@
   <!-- </div> -->
 
     <div class="packages" >
-      <PackageType :gig="gig" @addOrder="addOrder"/>
+      <PackageType :gig="gig" :newOrder="newOrder" @addOrder="addOrder"/>
     </div>
 
   </section>
@@ -71,6 +71,7 @@ export default {
   data() {
     return {
       gig: null,
+      newOrder: null,
       darkMode: false
     }
   },
@@ -97,11 +98,11 @@ export default {
     },
     async addOrder(type) {
       try{
-        const Order = orderService.getEmptyOrder()
         const loggenInUser = await userService.getLoggedinUser()
         console.log(loggenInUser);
-        const newOrder = {
-          // _id: Order._id,
+        const createdOrder = {
+          // _id: order._id,
+          createdAt: new Date(),
           buyer: {
             _id: loggenInUser._id,
             fullname: loggenInUser.fullname,
@@ -118,15 +119,27 @@ export default {
             name: this.gig.title,
             imgUrls: this.gig.imgUrls,
             price: this.gig.price },
-            packageType: type,
+            packageType: {
+              level: type.level,
+              price: type.price,
+              title: type.title,
+              benefit1: type.benefit1,
+              benefit2: type.benefit2,
+              specials: type.specials
+            },
             status: "pending",
 
           }
-          console.log(newOrder);
-
-          await this.$store.dispatch({type: 'addOrder', newOrder})
+          const newOrder = await this.$store.dispatch({type: 'addOrder', createdOrder})
           
-          console.log(this.$store.getters.orders);
+          // console.log(createdOrder);
+          console.log(newOrder);
+          // this.newOrder = newOrder
+
+          loggenInUser.orders.push(newOrder)
+          console.log(loggenInUser.orders);
+
+          // console.log(this.$store.getters.orders);
           
         } catch(err) {
           console.error(err)
