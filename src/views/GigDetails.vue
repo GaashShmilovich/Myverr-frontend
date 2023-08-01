@@ -51,9 +51,11 @@
 
   </section>
 
+  
   <section v-else>
     loading..
   </section>
+  <AppFooter />
 </template>
 <script>
 
@@ -62,6 +64,7 @@ import PackageType from '../cmps/PackageType.vue'
 import GigDetailsCarusela from '../cmps/GigDetailsCarusela.vue'
 import FAQ from '../cmps/FAQ.vue'
 import AboutSeller from '../cmps/AboutSeller.vue'
+import AppFooter from '../cmps/AppFooter.vue'
 
 import { gigService } from '../services/gig.service.local.js'
 import { orderService } from '../services/order.service.local.js'
@@ -152,6 +155,7 @@ export default {
     GigDetailsCarusela,
     FAQ,
     AboutSeller,
+    AppFooter,
   },
 }
 </script>

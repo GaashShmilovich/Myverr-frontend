@@ -46,7 +46,7 @@
           v-model="signupCred.password"
           placeholder="Password"
         />
-        <ImgUploader @uploaded="onUploaded" />
+        <!-- <ImgUploader @uploaded="onUploaded" /> -->
         <button>Signup</button>
       </form>
     </div>
@@ -75,7 +75,12 @@ export default {
     return {
       msg: "",
       loginCred: { username: "user1", password: "123" },
-      signupCred: { username: "", password: "", fullname: "", imgUrl: "" },
+      signupCred: {
+        username: "user1",
+        password: "123",
+        fullname: "User 1",
+        imgUrl: "",
+      },
     };
   },
   computed: {

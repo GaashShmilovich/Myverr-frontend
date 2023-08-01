@@ -131,57 +131,57 @@ function getLoggedinUser() {
         orders: [],
     }
 
-    )
-    await userService.signup({
-        _id: "u102",
-        isSeller: false,
-        fullname: "User 2",
-        imgUrl: "/img/img2.jpg",
-        username: "user2",
-        password: "topsecret",
-        level: "premium",
-        country: 'United States',
-        reviews: [
-            {
-                id: "madeId",
-                gig: "{optional-mini-gig}",
-                txt: "Excellent work and great communication!",
-                rate: 5,
-                by: {
-                    _id: "u103",
-                    fullname: "User 3",
-                    imgUrl: "/img/img3.jpg"
-                }
-            }
-        ],
-        orders: [],
-    }
+        //     )
+        //     await userService.signup({
+        //         _id: "u102",
+        //         isSeller: false,
+        //         fullname: "User 2",
+        //         imgUrl: "/img/img2.jpg",
+        //         username: "user2",
+        //         password: "topsecret",
+        //         level: "premium",
+        //         country: 'United States',
+        //         reviews: [
+        //             {
+        //                 id: "madeId",
+        //                 gig: "{optional-mini-gig}",
+        //                 txt: "Excellent work and great communication!",
+        //                 rate: 5,
+        //                 by: {
+        //                     _id: "u103",
+        //                     fullname: "User 3",
+        //                     imgUrl: "/img/img3.jpg"
+        //                 }
+        //             }
+        //         ],
+        //         orders: [],
+        //     }
 
-    )
-    await userService.signup({
-        _id: "u103",
-        isSeller: false,
-        fullname: "User 3",
-        imgUrl: "/img/img3.jpg",
-        username: "user3",
-        password: "hidden",
-        level: "basic",
-        country: 'United Kingdom',
-        reviews: [
-            {
-                id: "madeId",
-                gig: "{optional-mini-gig}",
-                txt: "Great communication and quality work!",
-                rate: 5,
-                by: {
-                    _id: "u101",
-                    fullname: "User 1",
-                    imgUrl: "/img/img1.jpg"
-                }
-            }
-        ],
-        orders: [],
-    }
+        //     )
+        //     await userService.signup({
+        //         _id: "u103",
+        //         isSeller: false,
+        //         fullname: "User 3",
+        //         imgUrl: "/img/img3.jpg",
+        //         username: "user3",
+        //         password: "hidden",
+        //         level: "basic",
+        //         country: 'United Kingdom',
+        //         reviews: [
+        //             {
+        //                 id: "madeId",
+        //                 gig: "{optional-mini-gig}",
+        //                 txt: "Great communication and quality work!",
+        //                 rate: 5,
+        //                 by: {
+        //                     _id: "u101",
+        //                     fullname: "User 1",
+        //                     imgUrl: "/img/img1.jpg"
+        //                 }
+        //             }
+        //         ],
+        //         orders: [],
+        //     }
 
     )
 })()
