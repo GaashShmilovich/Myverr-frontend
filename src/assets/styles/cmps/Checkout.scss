@@ -6,9 +6,15 @@
     line-height: rem(22px);
     color: $clr2;
     font-size: rem(16px);
+
+    @include for-narrow-layout {
+    .ssl {
+        text-align: center;
+    }
+    }
     
     .upper-section {
-        padding: 16px 24px;
+        padding: 16px 20px;
         background-color: $clr8;
 
         .gig-prev {
@@ -28,12 +34,32 @@
         
         .type-package {
             display: flex;
-            .title {
-                font-family: macanBold;
-                align-self: flex-start;
+            flex-direction: column;
+            .header{
+                display: flex;
+                justify-content: space-between;
+                margin-top: 20px;
+                .title {
+                    font-family: macanBold;
+                    align-self: flex-start;
+                }
+                .price {
+                    align-self: flex-end;
+                }
             }
-            .price {
-                align-self: flex-end;
+            .specials {
+                list-style: none;
+                color: $clr2;
+                font-size: rem(16px);
+                font-family: macanRegular;
+                padding-left: 5px;
+                li {
+                    margin-top: 10px;
+                }
+                i {
+                    padding-right: 10px;
+                    font-size: 5px;
+                }
             }
         }
     }
@@ -55,44 +81,61 @@
                 font-family: macanRegular;
             }
         }
+        .service-fee , .ttl ,.vat, .del-time{
+            display: flex;
+            justify-content: space-between;
+            align-content: center;
+            
+        }
+        
+        
         .totals {
             .total {
+                font-size: rem(18px);
                 margin-top: 20px;
                 font-family: macanBold;
+                color: $clr2;
+            }
+            .t-price {
+                font-size: rem(18px);
+                color: $clr2;
+                margin-top: 20px;
             }
             .delivery-time {
-                margin-bottom: 30px;
+                margin-bottom: 20px;
+                font-family: macanRegular;
+            }
+            .days{
                 font-family: macanRegular;
             }
         }
         .confirm {
             margin-top: 10px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             text-align: center;
         }
         .btn-pay {
             text-align: center;
             font-family: macanSemibold;
-            padding: 15px 24px;
+            padding: 15px 109px;
             border-radius: 4px;
             color: $clr1;
             background-color: $clr7;
-            // margin: 70px 0;
-            height: 60px;
             &:hover {
                 background-color: $clr2;
                 cursor: pointer;
             }
         }
         .secure {
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .sll {
+        .ssl {
             font-size: rem(14px);
             color: $clr2;
             font-family: macanRegular;
-            text-align: center;
-            margin-top: 80px;
+            
         }
         .be-charged {
             font-size: rem(14px);

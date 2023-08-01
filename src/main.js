@@ -17,6 +17,17 @@ import './assets/styles/main.scss'
 import './assets/styles/setup/_typography.scss'
 import svgPlugin from './plugins/svgPlugin'
 import App from './App.vue'
+// import { library } from '@fortawesome/fontawesome-svg-core'
+
+/* import font awesome icon component */
+// import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+/* import specific icons */
+import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+
+/* add icons to the library */
+library.add(faUserSecret)
+
 
 const app = createApp(App)
 library.add(faChartLine, faChildren, faHome, faAddressCard, faStar)

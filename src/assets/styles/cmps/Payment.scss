@@ -1,6 +1,6 @@
 .payment {
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 1fr 380px;
     gap: 20px;
 
     @include for-narrow-layout {
@@ -17,6 +17,9 @@
 
         .checkout-section {
             grid-area: c;
+        }
+        ssl {
+            text-align: center;
         }
     }
 

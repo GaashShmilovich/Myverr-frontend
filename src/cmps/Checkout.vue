@@ -9,14 +9,14 @@
             <section class="type-package">
                 <section class="header">
                     <span class="title">{{ package.title }}</span>
-                    <span class="price"> {{ package.price }}</span>
+                    <span class="price">₪{{ package.price }}</span>
                 </section>
 
-                <section class="benefits">
-                    <span>{{ package.benefit1 }}</span>
-                    <span>{{ package.benefit2 }}</span>
-                </section>
                 <ul class="specials">
+                <!-- <section class="benefits"> -->
+                    <li> <i class="v-check" v-html="$getSvg('v-check')"></i>{{ package.benefit1 }}</li>
+                    <li> <i class="v-check" v-html="$getSvg('v-check')"></i>{{ package.benefit2 }}</li>
+                <!-- </section> -->
                     <li v-for="special in package.specials">
                         <i class="v-check" v-html="$getSvg('v-check')"></i>
                         {{ special }}
@@ -25,15 +25,28 @@
             </section>
         </div>
         <div class="bottom-section">
-            <p class="promo-code">Enter promo code</p>
+            <p class="promo-code">Enter promo code <i class="fa-solid fa-circle-question"></i></p>
             <section class="fees">
-                <p>Service fee</p>
-                <p>VAT</p>
+                <section class="service-fee">
+                <p>Service fee <i class="fa-solid fa-circle-question"></i></p>
+                <p>₪11.73</p> 
+                </section>
+                <section class="vat">
+                <p>VAT <i class="fa-solid fa-circle-question"></i></p>
+                <p>₪8.50</p>
+                </section>
             </section>
 
             <section class="totals">
-                <p class="total">Total <span> {{ gig.price }}</span></p>
-                <p class="delivery-time">Total delivery time</p>
+                <section class="ttl">
+                <p class="total">Total </p>
+                <p class="t-price">₪{{ gig.price }}</p>
+                </section>
+                <section class="del-time">
+                <p class="delivery-time"><font-awesome-icon :icon="['fas', 'circle-question']" />
+                    Total delivery time</p>
+                <p class="days"> 3 days</p>
+                </section>
             </section>
 
             <section class="confirm">
