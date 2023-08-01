@@ -62,19 +62,19 @@
             <i class="paypal-icon" v-html="$getSvg('paypal')"></i>
           </span>
         </section>
-        
       </section>
-
+      
     </div>
-
+    
     <div class="checkout-section">
       <Checkout :user="user" />
     </div>
-
-
-    <!-- <RouterLink v-if="user" :to="'/user/' + user._id">Process Payment</RouterLink> -->
-    <!-- <RouterLink v-else="!user" to='/'>Process Payment</RouterLink> -->
+    
   </div>
+
+  <p class="payment-footer">Payments are processed by Fiverr International Ltd., Fiverr Limited, and Fiverr Inc. See
+    <span>Payment Terms</span>
+  </p >
 </template>
 
 <script>

@@ -43,7 +43,7 @@
                 <p class="t-price">₪{{ gig.price }}</p>
                 </section>
                 <section class="del-time">
-                <p class="delivery-time"><font-awesome-icon :icon="['fas', 'circle-question']" />
+                <p class="delivery-time"><font-awesome-icon class="ques-icon" :icon="['fas', 'circle-question']" />
                     Total delivery time</p>
                 <p class="days"> 3 days</p>
                 </section>
