@@ -1,6 +1,7 @@
 <template>
 	<div class="gig-list-container">
 		<ExploreHeader></ExploreHeader>
+		<hr class="index-separator-line" />
 		<GigFilter @filterChanged="onFilterChanged"></GigFilter>
 		<SortGigs
 			:gigCount="gigs.length"
