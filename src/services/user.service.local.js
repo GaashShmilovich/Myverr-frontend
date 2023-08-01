@@ -133,7 +133,7 @@ function getLoggedinUser() {
 
 //     )
 //     await userService.signup({
-//         id: "u102",
+//         _id: "u102",
 //         isSeller: false,
 //         fullname: "User 2",
 //         imgUrl: "/img/img2.jpg",
@@ -159,7 +159,7 @@ function getLoggedinUser() {
 
 //     )
 //     await userService.signup({
-//         id: "u103",
+//         _id: "u103",
 //         isSeller: false,
 //         fullname: "User 3",
 //         imgUrl: "/img/img3.jpg",

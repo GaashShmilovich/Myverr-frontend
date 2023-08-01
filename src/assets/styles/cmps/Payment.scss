@@ -5,6 +5,7 @@
 
       @include for-narrow-layout { 
         // grid-column: 1;
+        grid-template-columns: 1fr;
         // grid-template-rows: 3fr 2fr ;
         grid-template-areas: 
         'p'
