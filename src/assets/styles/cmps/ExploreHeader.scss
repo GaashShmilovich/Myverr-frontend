@@ -8,6 +8,7 @@
 	color: $clr4;
 	font-family: macanRegular;
 	line-height: rem(21px);
+	color: #404145;
 
 	.breadcrumb-item {
 		&.last-category {
@@ -18,6 +19,16 @@
 			margin-top: 1.1rem;
 			width: auto;
 			margin-right: 100%;
+			white-space: nowrap;
 		}
 	}
+}
+
+.subcategory-header:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.explore-header-home-icon:hover {
+	cursor: pointer;
 }

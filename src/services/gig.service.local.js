@@ -27,13 +27,18 @@ async function query(filterBy, sortBy) {
 				return gig.daysToMake <= filterBy.delivery
 			})
 		}
-		if (filterBy.type === 'txt') {
+		if (filterBy.type === 'txt')
 			gigs = gigs.filter((gig) => {
-				return gig.title
+				const isInTitle = gig.title
 					.toLowerCase()
 					.includes(filterBy.txt.toLowerCase())
+
+				const isInTags = gig.tags.some((tag) =>
+					tag.toLowerCase().includes(filterBy.txt.toLowerCase())
+				)
+
+				return isInTitle || isInTags
 			})
-		}
 	}
 
 	if (gigs && sortBy === 'Highest Rating') {
