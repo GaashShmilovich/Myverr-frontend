@@ -14,7 +14,7 @@ export const orderService = {
 window.cs = orderService
 
 
-async function query(filterBy = { buyer: '', seller: ''}) {
+async function query(filterBy = { buyer: '', seller: '' }) {
     var orders = await storageService.query(STORAGE_KEY)
     if (filterBy.txt) {
         const regex = new RegExp(filterBy.txt, 'i')
@@ -56,20 +56,21 @@ function getEmptyOrder() {
 }
 
 // Initial data
-// ;(async ()=>{
-//     await storageService.post(STORAGE_KEY,  {"_id": "o1225","buyer": "mini-user","seller": "mini-user","gig": {"_id": "i101","name": "Design Logo","imgUrl": "","price": 20},"packageType": "basic", "status": "pending"})
-//     await storageService.post(STORAGE_KEY,  {"_id": "o1226","buyer": "mini-user","seller": "mini-user","gig": {"_id": "i102","name": "Design Logo","imgUrl": "","price": 20},"packageType": "standard", "status": "inProgress"})
-//     await storageService.post(STORAGE_KEY,  {"_id": "o1227","buyer": "mini-user","seller": "mini-user","gig": {"_id": "i103","name": "Design Logo","imgUrl": "","price": 20},"packageType": "basic", "status": "pending"})
-//     await storageService.post(STORAGE_KEY,  {"_id": "o1228","buyer": "mini-user","seller": "mini-user","gig": {"_id": "i104","name": "Design Logo","imgUrl": "","price": 20},"packageType": "premium","status": "complited"})
+// ; (async () => {
+//     await storageService.post(STORAGE_KEY, { "_id": "o1225", "buyer": "mini-user", "seller": "mini-user", "gig": { "_id": "i101", "name": "Design Logo", "imgUrl": "", "price": 20 }, "packageType": "basic", "status": "pending" })
+//     await storageService.post(STORAGE_KEY, { "_id": "o1226", "buyer": "mini-user", "seller": "mini-user", "gig": { "_id": "i102", "name": "Design Logo", "imgUrl": "", "price": 20 }, "packageType": "standard", "status": "inProgress" })
+//     await storageService.post(STORAGE_KEY, { "_id": "o1227", "buyer": "mini-user", "seller": "mini-user", "gig": { "_id": "i103", "name": "Design Logo", "imgUrl": "", "price": 20 }, "packageType": "basic", "status": "pending" })
+//     await storageService.post(STORAGE_KEY, { "_id": "o1228", "buyer": "mini-user", "seller": "mini-user", "gig": { "_id": "i104", "name": "Design Logo", "imgUrl": "", "price": 20 }, "packageType": "premium", "status": "complited" })
 // })()
 
 
 
 const orders = [
-    {"_id": "o1225",
-    "buyer": "mini-user",
-    "seller": "mini-user",
-    "gig": {"_id": "i101","name": "Design Logo","imgUrl": "","price": 20},
-    "status": "pending"}
-  ]
-  
+    {
+        "_id": "o1225",
+        "buyer": "mini-user",
+        "seller": "mini-user",
+        "gig": { "_id": "i101", "name": "Design Logo", "imgUrl": "", "price": 20 },
+        "status": "pending"
+    }
+]

@@ -1,10 +1,9 @@
 <template>
-  <h1>User Profile</h1>
   <div v-if="user.isSeller">
-    <SellerProfile :user="loggedInUser" />
+    <SellerProfile :user="user" />
   </div>
   <div v-else>
-    <BuyerProfile :user="loggedInUser" />
+    <BuyerProfile :user="user" />
   </div>
 </template>
 
@@ -17,14 +16,17 @@ export default {
   data() {
     return {
       user: null,
-      loggedInUser: null,
+      // loggedInUser: null,
     };
   },
+  created() {
+    this.user = userService.getLoggedinUser();
+  },
   computed: {
-    loggedInUser() {
-      console.log(this.$store.getters.loggedInUser);
-      return this.$store.getters.loggedInUser;
-    },
+    // loggedInUser() {
+    // console.log(this.$store.getters.loggedInUser);
+    // return this.$store.getters.loggedInUser;
+    // },
   },
   components: {
     SellerProfile,

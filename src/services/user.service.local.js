@@ -43,9 +43,9 @@ async function update({ _id, score }) {
 
 async function login(userCred) {
     const users = await storageService.query('user')
-    console.log(users);
+    console.log(users)
     const user = users.find(user => user.username === userCred.username)
-    console.log(user);
+    console.log(user)
     if (user) {
         return saveLocalUser(user)
     }
@@ -105,83 +105,83 @@ function getLoggedinUser() {
 
 // Initial data
 
-// ; (async () => {
-//     await userService.signup({
-//         _id: "u101",
-//         isSeller: true,
-//         fullname: "User 1",
-//         imgUrl: "/img/img1.jpg",
-//         username: "user1",
-//         password: "secret",
-//         level: "basic/premium",
-//         country: 'Israel',
-//         reviews: [
-//             {
-//                 id: "madeId",
-//                 gig: "{optional-mini-gig}",
-//                 txt: "Very kind and works fast",
-//                 rate: 4,
-//                 by: {
-//                     _id: "u102",
-//                     fullname: "user2",
-//                     imgUrl: "/img/img2.jpg"
-//                 }
-//             }
-//         ],
-//         orders: [],
-//     }
+; (async () => {
+    await userService.signup({
+        _id: "u101",
+        isSeller: true,
+        fullname: "User 1",
+        imgUrl: "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/0187413b4a7e78f6d8b82c4f46f770b0-762849881608564915.0740461/5494E77F-9CDC-4CF2-942A-18EC3342E2D4",
+        username: "user1",
+        password: "secret",
+        level: "basic/premium",
+        country: 'Israel',
+        reviews: [
+            {
+                id: "madeId",
+                gig: "{optional-mini-gig}",
+                txt: "Very kind and works fast",
+                rate: 4,
+                by: {
+                    _id: "u102",
+                    fullname: "user2",
+                    imgUrl: "/img/img2.jpg"
+                }
+            }
+        ],
+        orders: [],
+    }
 
-//     )
-//     await userService.signup({
-//         id: "u102",
-//         isSeller: false,
-//         fullname: "User 2",
-//         imgUrl: "/img/img2.jpg",
-//         username: "user2",
-//         password: "topsecret",
-//         level: "premium",
-//         country: 'United States',
-//         reviews: [
-//             {
-//                 id: "madeId",
-//                 gig: "{optional-mini-gig}",
-//                 txt: "Excellent work and great communication!",
-//                 rate: 5,
-//                 by: {
-//                     _id: "u103",
-//                     fullname: "User 3",
-//                     imgUrl: "/img/img3.jpg"
-//                 }
-//             }
-//         ],
-//         orders: [],
-//     }
+    )
+    await userService.signup({
+        _id: "u102",
+        isSeller: false,
+        fullname: "User 2",
+        imgUrl: "/img/img2.jpg",
+        username: "user2",
+        password: "topsecret",
+        level: "premium",
+        country: 'United States',
+        reviews: [
+            {
+                id: "madeId",
+                gig: "{optional-mini-gig}",
+                txt: "Excellent work and great communication!",
+                rate: 5,
+                by: {
+                    _id: "u103",
+                    fullname: "User 3",
+                    imgUrl: "/img/img3.jpg"
+                }
+            }
+        ],
+        orders: [],
+    }
 
-//     )
-//     await userService.signup({
-//         id: "u103",
-//         isSeller: false,
-//         fullname: "User 3",
-//         imgUrl: "/img/img3.jpg",
-//         username: "user3",
-//         password: "hidden",
-//         level: "basic",
-//         country: 'United Kingdom',
-//         reviews: [
-//             {
-//                 id: "madeId",
-//                 gig: "{optional-mini-gig}",
-//                 txt: "Great communication and quality work!",
-//                 rate: 5,
-//                 by: {
-//                     _id: "u101",
-//                     fullname: "User 1",
-//                     imgUrl: "/img/img1.jpg"
-//                 }
-//             }
-//         ],
-//         orders: [],
-//     }
+    )
+    await userService.signup({
+        _id: "u103",
+        isSeller: false,
+        fullname: "User 3",
+        imgUrl: "/img/img3.jpg",
+        username: "user3",
+        password: "hidden",
+        level: "basic",
+        country: 'United Kingdom',
+        reviews: [
+            {
+                id: "madeId",
+                gig: "{optional-mini-gig}",
+                txt: "Great communication and quality work!",
+                rate: 5,
+                by: {
+                    _id: "u101",
+                    fullname: "User 1",
+                    imgUrl: "/img/img1.jpg"
+                }
+            }
+        ],
+        orders: [],
+    }
 
-//     )
-// })()
+    )
+})()
