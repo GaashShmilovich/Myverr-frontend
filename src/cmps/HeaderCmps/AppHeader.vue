@@ -35,9 +35,7 @@
             shown: modalOpen,
           }"
         >
-          <SearchBar
-            placeholder="What sevices are you looking for today?"
-          />
+          <SearchBar placeholder="What sevices are you looking for today?" />
         </div>
         <div
           class="route-container full"
@@ -48,8 +46,13 @@
         >
           <RouterLink to="/explore">Explore</RouterLink>
           <RouterLink to="/login">Become a Seller</RouterLink>
+          <!-- <a v-if="loggedInUser"> -->
+          <!-- <RouterLink to="/user">Profile</RouterLink> -->
+          <!-- </a> -->
+          <!-- <a v-else> -->
           <RouterLink to="/login">Sign in</RouterLink>
           <RouterLink to="/login"><span>Join</span></RouterLink>
+          <!-- </a> -->
         </div>
       </nav>
     </div>

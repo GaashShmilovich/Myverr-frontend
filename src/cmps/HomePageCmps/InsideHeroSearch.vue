@@ -5,10 +5,7 @@
       <h1 class="second-line">service, right away</h1>
     </div>
     <span class="search-bar-wrapper">
-      <SearchBar
-        placeholder="Search for any service..."
-        @search="handleSearch"
-      />
+      <SearchBar placeholder="Search for any service..." />
     </span>
     <div class="popular">
       Popular:
