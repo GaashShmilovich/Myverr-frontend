@@ -72,7 +72,7 @@ async function changeScore(by) {
 
 function saveLocalUser(user) {
     user = {
-        id: user._id,
+        _id: user._id,
         isSeller: user.isSeller,
         fullname: user.fullname,
         imgUrl: user.imgUrl,

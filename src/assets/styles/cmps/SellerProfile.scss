@@ -1,0 +1,54 @@
+.dashboard-container {
+  display: grid;
+  grid-template-columns: minmax(auto, 400px) minmax(auto, 1000px);
+  column-gap: rem(20px);
+  .background {
+    background-color: rgba(
+      0,
+      0,
+      0,
+      0.1
+    ); /* Change the color as desired (black with 50% transparency in this case) */
+    width: 100%;
+    height: 100%; /* Set the height to fill the entire container */
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+
+  .user-profile {
+    margin-block-start: rem(10px);
+    padding: rem(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+  }
+  .user-info {
+    max-width: rem(400px);
+    height: rem(300px);
+    width: 100%;
+    padding: rem(20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+    background-color: $clr1;
+  }
+  .user-description {
+    padding: rem(20px);
+    margin-block: rem(20px);
+    width: 100%;
+    line-height: rem(32px);
+    z-index: 10;
+    background-color: $clr1;
+
+    h1 {
+      font-size: rem(20px);
+    }
+    p {
+      font-size: rem(16px);
+    }
+  }
+}

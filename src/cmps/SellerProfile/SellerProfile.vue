@@ -1,5 +1,7 @@
 <template>
   <section class="dashboard-container">
+    <div class="background"></div>
+
     <div class="user-profile">
       <div class="user-info">
         <h1>{{ user.fullname }}</h1>
@@ -20,37 +22,32 @@
         </div>
       </div>
     </div>
-    <!-- <ul class="gig-list">
-      <li v-for="gig in gigs" :key="gig._id">
-        <p>
-          {{ gig.title }}
-        </p>
-        <p>${{ gig.price?.toLocaleString() }}</p>
-        <button @click="removeGig(gig._id)">x</button>
-        <button @click="updateGig(gig)">Update</button>
-        <hr />
-        <button @click="addGigMsg(gig._id)">Add gig msg</button>
-        <button @click="printGigToConsole(gig)">Print msgs to console</button>
-      </li>
-    </ul>
-    <hr />
-    <form @submit.prevent="addGig()">
-      <h2>Add gig</h2>
-      <input type="text" v-model="gigToAdd.title" />
-      <button>Save</button>
-    </form> -->
+    <div class="seller-section">
+      <div class="tabs">
+        <RouterLink :to="userGigsLink">My gigs</RouterLink>
+        <RouterLink :to="loggedInUser._id + '/gigs'">My orders</RouterLink>
+        <RouterLink :to="loggedInUser._id + '/gigs'"
+          >Received orders</RouterLink
+        >
+        <RouterLink :to="loggedInUser._id + '/gigs'">Reviews</RouterLink>
+      </div>
+      <div class="main-gigs">
+        <RouterView :user="user" />
+      </div>
+    </div>
   </section>
 </template>
 
 <script>
-import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
-import { gigService } from "../services/gig.service.local";
-import { userService } from "../services/user.service.local";
+import { showErrorMsg, showSuccessMsg } from "../../services/event-bus.service";
+import { gigService } from "../../services/gig.service.local";
+import { userService } from "../../services/user.service.local";
 import {
   getActionRemoveGig,
   getActionUpdateGig,
   getActionAddGigMsg,
-} from "../store/gig.store";
+} from "../../store/gig.store";
+
 export default {
   props: {
     user: Object,
@@ -61,11 +58,13 @@ export default {
       // user: null,
     };
   },
-
   computed: {
-    // loggedInUser() {
-    //   return this.$store.getters.loggedinUser;
-    // },
+    userGigsLink() {
+      return `/user/${this.user._id}/gigs`;
+    },
+    loggedInUser() {
+      return this.$store.getters.loggedinUser;
+    },
     gigs() {
       return this.$store.getters.gigs;
     },
