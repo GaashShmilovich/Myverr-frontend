@@ -1,6 +1,7 @@
 <template>
 	<div class="gig-list-container">
 		<ExploreHeader></ExploreHeader>
+		<hr class="index-separator-line" />
 		<GigFilter @filterChanged="onFilterChanged"></GigFilter>
 		<SortGigs
 			:gigCount="gigs.length"
@@ -19,7 +20,7 @@ import ExploreHeader from '../cmps/ExploreCmps/ExploreHeader.vue'
 export default {
 	data() {
 		return {
-			gigs: [],
+			// gigs: [],
 		}
 	},
 	components: {

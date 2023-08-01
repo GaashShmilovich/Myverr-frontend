@@ -20,6 +20,7 @@
 						type="number"
 						placeholder="Any"
 						v-model="minBudget"
+						min="1"
 					/>
 					<input
 						class="budget-input"
@@ -100,8 +101,11 @@
 	</section>
 	<template v-if="showFilters">
 		<div class="applied-filters">
-			<div v-if="minBudget || maxBudget" class="filter-pill">
-				{{ minBudget || 'Any' }}$ - {{ maxBudget || 'Any' }}$
+			<div
+				v-if="minBudget || (maxBudget && maxBudget !== 99999)"
+				class="filter-pill"
+			>
+				{{ displayMinBudget }}$ - {{ displayMaxBudget }}$
 				<button @click="clearBudget">✕</button>
 			</div>
 			<div
@@ -118,6 +122,7 @@
 
 <script>
 export default {
+	emits: ['filterChanged'],
 	data() {
 		return {
 			filterBy: null,
@@ -126,7 +131,23 @@ export default {
 			deliveryTime: 999,
 			activeFilters: [],
 			deliveryTimeDisplay: null,
+			displayMinBudget: null,
+			displayMaxBudget: null,
 			showFilters: false,
+		}
+	},
+	created() {
+		const params = this.$route.query
+		console.log('🚀 ~ file: GigFilter.vue:141 ~ created ~ params:', params)
+		if (params.min) {
+			this.minBudget = params.min
+			this.displayMinBudget = params.min
+			this.applyBudget()
+		}
+		if (params.max) {
+			this.maxBudget = params.max
+			this.displayMaxBudget = params.max
+			this.applyBudget()
 		}
 	},
 	methods: {
@@ -149,13 +170,17 @@ export default {
 			})
 			this.minBudget = null
 			this.maxBudget = null
+			this.displayMinBudget = 1
+			this.displayMaxBudget = null
 			this.filterBy = null
+			this.$router.push({ query: {} })
 		},
 		applyBudget() {
 			const min = this.minBudget || 1
 			const max = this.maxBudget || 99999
-			this.addFilter('budget', `Budget: ${min} - ${max}`)
-
+			this.displayMinBudget = min
+			this.displayMaxBudget = max
+			this.$router.push({ query: { min, max } })
 			this.$emit('filterChanged', {
 				type: 'budget',
 				min: min,
