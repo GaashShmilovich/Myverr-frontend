@@ -73,7 +73,18 @@
                 background-color: $clr2;
             }
         }
-    
+        .sll {
+            font-size: rem(14px);
+            color: $clr2;
+            font-family: macanRegular;
+            text-align: center;
+        }
+        .be-charged {
+            font-size: rem(14px);
+            color: $clr10;
+            text-align: center;
+
+        }
     }
 
 }

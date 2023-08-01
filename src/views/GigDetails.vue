@@ -51,9 +51,11 @@
 
   </section>
 
+  
   <section v-else>
     loading..
   </section>
+  <AppFooter />
 </template>
 <script>
 
@@ -62,6 +64,7 @@ import PackageType from '../cmps/PackageType.vue'
 import GigDetailsCarusela from '../cmps/GigDetailsCarusela.vue'
 import FAQ from '../cmps/FAQ.vue'
 import AboutSeller from '../cmps/AboutSeller.vue'
+import AppFooter from '../cmps/AppFooter.vue'
 
 import { gigService } from '../services/gig.service.local.js'
 import { orderService } from '../services/order.service.local.js'
@@ -71,7 +74,8 @@ export default {
   data() {
     return {
       gig: null,
-      darkMode: false
+      newOrder: null,
+      darkMode: false,
     }
   },
 
@@ -97,11 +101,12 @@ export default {
     },
     async addOrder(type) {
       try{
-        const Order = orderService.getEmptyOrder()
         const loggenInUser = await userService.getLoggedinUser()
         console.log(loggenInUser);
-        const newOrder = {
-          // _id: Order._id,
+        this.loggedUser = loggenInUser
+        const createdOrder = {
+          // _id: order._id,
+          createdAt: new Date(),
           buyer: {
             _id: loggenInUser._id,
             fullname: loggenInUser.fullname,
@@ -118,15 +123,23 @@ export default {
             name: this.gig.title,
             imgUrls: this.gig.imgUrls,
             price: this.gig.price },
-            packageType: type,
+            packageType: {
+              level: type.level,
+              price: type.price,
+              title: type.title,
+              benefit1: type.benefit1,
+              benefit2: type.benefit2,
+              specials: type.specials
+            },
             status: "pending",
 
           }
+          const newOrder = await this.$store.dispatch({type: 'addOrder', createdOrder})
           console.log(newOrder);
 
-          await this.$store.dispatch({type: 'addOrder', newOrder})
-          
-          console.log(this.$store.getters.orders);
+          loggenInUser.orders.push(newOrder)
+          console.log(loggenInUser.orders);
+
           
         } catch(err) {
           console.error(err)
@@ -142,6 +155,7 @@ export default {
     GigDetailsCarusela,
     FAQ,
     AboutSeller,
+    AppFooter,
   },
 }
 </script>
