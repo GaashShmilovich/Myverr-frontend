@@ -47,7 +47,7 @@
           <RouterLink to="/explore">Explore</RouterLink>
           <RouterLink to="/login">Become a Seller</RouterLink>
           <div v-if="user">
-            <RouterLink :to="'/user/' + user._id">Profile</RouterLink>
+            <RouterLink :to="'/user/' + loggedInUser._id">Profile</RouterLink>
           </div>
           <div v-else>
             <RouterLink to="/login">Sign in</RouterLink>
@@ -153,9 +153,10 @@ export default {
     currRoutePath() {
       return this.$route.path;
     },
-    // loggedInUser() {
-    //   console.log(this.user);
-    // },
+    loggedInUser() {
+      console.log(this.$store.getters.loggedinUser);
+      return this.$store.getters.loggedinUser;
+    },
     // isNotHomePage() {
     //   if (this.$route.path !== "/") {
     //     this.isFirstNavShown = true;
