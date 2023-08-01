@@ -34,7 +34,24 @@ export default {
 		},
 	},
 	created() {
-		this.loadGigs()
+		if (this.$route.query.txt) {
+			this.$store.dispatch({
+				type: 'loadGigs',
+				filterBy: {
+					type: 'txt',
+					txt: this.$route.query.txt,
+				},
+			})
+		} else {
+			this.loadGigs()
+		}
+	},
+	watch: {
+		// Watch for changes in the route
+		'$route.query.txt': {
+			handler: 'loadGigsFromQuery',
+			immediate: true,
+		},
 	},
 	methods: {
 		loadGigs() {
@@ -49,6 +66,19 @@ export default {
 				sortBy,
 				filterBy: this.$store.state.gigStore.filterBy,
 			})
+		},
+		loadGigsFromQuery() {
+			if (this.$route.query.txt) {
+				this.$store.dispatch({
+					type: 'loadGigs',
+					filterBy: {
+						type: 'txt',
+						txt: this.$route.query.txt,
+					},
+				})
+			} else {
+				this.loadGigs()
+			}
 		},
 	},
 }

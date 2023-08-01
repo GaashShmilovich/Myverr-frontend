@@ -27,6 +27,13 @@ async function query(filterBy, sortBy) {
 				return gig.daysToMake <= filterBy.delivery
 			})
 		}
+		if (filterBy.type === 'txt') {
+			gigs = gigs.filter((gig) => {
+				return gig.title
+					.toLowerCase()
+					.includes(filterBy.txt.toLowerCase())
+			})
+		}
 	}
 
 	if (gigs && sortBy === 'Highest Rating') {
@@ -51,7 +58,7 @@ async function query(filterBy, sortBy) {
 }
 
 function getById(gigId) {
-	console.log(gigId);
+	console.log(gigId)
 	return storageService.get(STORAGE_KEY, gigId)
 }
 
@@ -98,9 +105,6 @@ function getEmptyGig() {
 		],
 	}
 }
-
-
-
 
 // ; (async () => {
 // 	await storageService.post(STORAGE_KEY, {
@@ -219,7 +223,7 @@ function getEmptyGig() {
 // 				_id: "u204",
 // 				fullname: "John Johnson",
 // 				imgUrl: "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/profile/photos/56600808/original/photo.jpg",
-// 				country: {name:"United Kingdom", img: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png' 
+// 				country: {name:"United Kingdom", img: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png'
 // 			}
 // 		},
 // 	},
@@ -236,8 +240,8 @@ function getEmptyGig() {
 // 			},
 // 		},
 // 		],
-// 	}),	
-	
+// 	}),
+
 // 	await storageService.post(STORAGE_KEY, {
 // 		_id: 'i101',
 // 		title: 'I will design your logo',
@@ -321,7 +325,7 @@ function getEmptyGig() {
 // 				_id: "u204",
 // 				fullname: "John Johnson",
 // 				imgUrl: "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/profile/photos/56600808/original/photo.jpg",
-// 				country: {name:"United Kingdom", img: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png' 
+// 				country: {name:"United Kingdom", img: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png'
 // 			}
 // 		},
 // 	},
@@ -448,7 +452,7 @@ function getEmptyGig() {
 // 							_id: "u204",
 // 							fullname: "John Johnson",
 // 							imgUrl: "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/profile/photos/56600808/original/photo.jpg",
-// 							country: {name:"United Kingdom", img: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png' 
+// 							country: {name:"United Kingdom", img: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png'
 // 						}
 // 					},
 // 				},
@@ -565,7 +569,7 @@ function getEmptyGig() {
 // 						_id: "u204",
 // 						fullname: "John Johnson",
 // 						imgUrl: "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/profile/photos/56600808/original/photo.jpg",
-// 						country: {name:"United Kingdom", img: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png' 
+// 						country: {name:"United Kingdom", img: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png'
 // 					}
 // 				},
 // 			},
@@ -654,7 +658,7 @@ function getEmptyGig() {
 // 						_id: "u204",
 // 						fullname: "John Johnson",
 // 						imgUrl: "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/profile/photos/56600808/original/photo.jpg",
-// 						country: {name:"United Kingdom", img: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png' 
+// 						country: {name:"United Kingdom", img: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png'
 // 					}
 // 				},
 // 			},
@@ -686,4 +690,3 @@ function getEmptyGig() {
 // 			},
 // 			],
 // 		})
-
