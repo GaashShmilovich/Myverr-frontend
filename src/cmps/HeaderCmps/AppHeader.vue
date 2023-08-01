@@ -46,13 +46,13 @@
         >
           <RouterLink to="/explore">Explore</RouterLink>
           <RouterLink to="/login">Become a Seller</RouterLink>
-          <!-- <a v-if="loggedInUser"> -->
-          <!-- <RouterLink to="/user">Profile</RouterLink> -->
-          <!-- </a> -->
-          <!-- <a v-else> -->
-          <RouterLink to="/login">Sign in</RouterLink>
-          <RouterLink to="/login"><span>Join</span></RouterLink>
-          <!-- </a> -->
+          <div v-if="user">
+            <RouterLink :to="'/user/' + user._id">Profile</RouterLink>
+          </div>
+          <div v-else>
+            <RouterLink to="/login">Sign in</RouterLink>
+            <RouterLink to="/login"><span>Join</span></RouterLink>
+          </div>
         </div>
       </nav>
     </div>
@@ -102,9 +102,11 @@
 </template>
 <script>
 import SearchBar from "./SearchBar.vue";
+import { userService } from "../../services/user.service.local.js";
 export default {
   data() {
     return {
+      user: null,
       isFirstNavShown: false,
       modalOpen: false,
       isHidden: true,
@@ -117,6 +119,7 @@ export default {
     },
     onScroll(e) {
       // if (this.$route.path !== "/") return;
+
       if (window.scrollY < 10) this.isFirstNavShown = false;
       if (window.scrollY > 10) {
         this.isFirstNavShown = true;
@@ -131,21 +134,28 @@ export default {
         this.isHidden = false;
         this.isSticky = true;
       }
+
       if (this.$route.path !== "/") {
         this.isFirstNavShown = true;
         this.modalOpen = true;
         this.isHidden = false;
         this.isSticky = false;
       }
+      // if (this.$route.path === "/payment/:id/:type") {
+      //   this.isFirstNavShown = true;
+      //   this.modalOpen = false;
+      //   this.isHidden = true;
+      //   this.isSticky = false;
+      // }
     },
   },
   computed: {
-    loggedInUser() {
-      return this.$store.getters.loggedinUser;
-    },
     currRoutePath() {
       return this.$route.path;
     },
+    // loggedInUser() {
+    //   console.log(this.user);
+    // },
     // isNotHomePage() {
     //   if (this.$route.path !== "/") {
     //     this.isFirstNavShown = true;
@@ -159,6 +169,7 @@ export default {
 
   created() {
     window.addEventListener("scroll", this.onScroll);
+    this.user = userService.getLoggedinUser();
   },
 
   unmounted() {
@@ -166,11 +177,17 @@ export default {
   },
   watch: {
     $route(to) {
-      if (to.path === "/") {
-        this.isFirstNavShown = false;
-        this.modalOpen = false;
-        this.isHidden = true;
-      }
+      // if (to.path === "/") {
+      //   this.isFirstNavShown = false;
+      //   this.modalOpen = false;
+      //   this.isHidden = true;
+      // }
+      // if (to.path !== "/payment") {
+      //   this.isFirstNavShown = true;
+      //   this.modalOpen = false;
+      //   this.isHidden = true;
+      //   this.isSticky = false;
+      // }
       if (to.path !== "/") {
         this.isFirstNavShown = true;
         this.modalOpen = true;

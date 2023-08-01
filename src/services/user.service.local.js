@@ -43,9 +43,9 @@ async function update({ _id, score }) {
 
 async function login(userCred) {
     const users = await storageService.query('user')
-    console.log(users);
+    console.log(users)
     const user = users.find(user => user.username === userCred.username)
-    console.log(user);
+    console.log(user)
     if (user) {
         return saveLocalUser(user)
     }
@@ -110,7 +110,7 @@ function getLoggedinUser() {
 //         _id: "u101",
 //         isSeller: true,
 //         fullname: "User 1",
-//         imgUrl: "/img/img1.jpg",
+//         imgUrl: "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/0d064bcfd4295551910a7bc05c0af05d-1661124606619/0831357d-de18-4877-a0c0-c4aff302f9d2.JPG",
 //         username: "user1",
 //         password: "secret",
 //         level: "basic/premium",

@@ -1,6 +1,26 @@
 <template>
-  <div class="container home">
-    <ul class="gig-list">
+  <section class="dashboard-container">
+    <div class="user-profile">
+      <div class="user-info">
+        <h1>{{ user.fullname }}</h1>
+        <h3>{{ user.country }}</h3>
+      </div>
+
+      <div class="user-description">
+        <header class="desc-header">
+          <h1>Description</h1>
+        </header>
+        <div class="desc-content">
+          <p>
+            Hi there! I'm a creative graphic designer with a passion for
+            bringing ideas to life. I specialize in logo design, branding, and
+            social media graphics. Let's work together to make your brand stand
+            out from the crowd!
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- <ul class="gig-list">
       <li v-for="gig in gigs" :key="gig._id">
         <p>
           {{ gig.title }}
@@ -18,29 +38,34 @@
       <h2>Add gig</h2>
       <input type="text" v-model="gigToAdd.title" />
       <button>Save</button>
-    </form>
-  </div>
+    </form> -->
+  </section>
 </template>
 
 <script>
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
 import { gigService } from "../services/gig.service.local";
+import { userService } from "../services/user.service.local";
 import {
   getActionRemoveGig,
   getActionUpdateGig,
   getActionAddGigMsg,
 } from "../store/gig.store";
 export default {
+  props: {
+    user: Object,
+  },
   data() {
     return {
       gigToAdd: gigService.getEmptyGig(),
+      // user: null,
     };
   },
 
   computed: {
-    loggedInUser() {
-      return this.$store.getters.loggedinUser;
-    },
+    // loggedInUser() {
+    //   return this.$store.getters.loggedinUser;
+    // },
     gigs() {
       return this.$store.getters.gigs;
     },
