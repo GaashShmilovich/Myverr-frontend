@@ -1,32 +1,36 @@
 <template>
-    <h1>Checkout</h1>
+
     <div class="checkout">
+        <div class="upper-section">
         <section class="gig-prev">
-            <!-- <img :src="gig.imgurls" alt=""> -->
+            <img :src="gig.imgurls" alt="">
             <span>title:{{ gig.title }}</span>
         </section>
 
         <section class="type-package">
-            <span>type: {{ packageType }}</span>
+            <span class="title">type: {{ packageType }}</span> 
+            <!-- <span class="price"> {{ packageType.price }}</span> -->
         </section>
-
-        <p>Enter promo code</p>
+        </div>
+        <div class="bottom-section">
+        <p class="promo-code">Enter promo code</p>
         <section class="fees">
             <p>Service fee</p>
             <p>VAT</p>
         </section>
 
         <section class="totals">
-            <p>Total <span> {{ gig.price }}</span></p>
-            <p>Total delivery time</p>
+            <p class="total">Total <span> {{ gig.price }}</span></p>
+            <p class="delivery-time">Total delivery time</p>
         </section>
 
         <button>Confirm & Pay </button>
         
-        <section>
-            <p>SSL Secure Payment </p>
-            <p>You will be charged₪83.34. Total amount includes currency conversion fees </p>
+        <section> 
+            <p class="ssl">SSL Secure Payment </p>
+            <p class="be-charged">You will be charged₪83.34. Total amount includes currency conversion fees </p>
         </section>
+        </div>
     </div>
 </template>
 
@@ -40,15 +44,16 @@ export default {
             gig: this.getGig()
         }
     },
-    created() {
-
-
+    props: {
+        user: Object,
     },
     methods: {
         getType() {
-            const { type } = this.$route.params
-            console.log(type);
-            return type
+            // const { type } = this.$route.params
+            // console.log(type);
+            // return type
+            console.log(this.user);
+            console.log(this.user.orders);
         },
         async getGig() {
             try {
@@ -61,7 +66,8 @@ export default {
             } catch (err) {
                 console.log(err);
             }
-        }
+        },
+
     },
 }
 </script>

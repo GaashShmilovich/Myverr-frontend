@@ -71,7 +71,8 @@ export default {
   data() {
     return {
       gig: null,
-      darkMode: false
+      newOrder: null,
+      darkMode: false,
     }
   },
 
@@ -95,13 +96,14 @@ export default {
     onDarkMode() {
       this.darkMode = !this.darkMode
     },
-    async addOrder() {
+    async addOrder(type) {
       try{
-        const Order = orderService.getEmptyOrder()
         const loggenInUser = await userService.getLoggedinUser()
         console.log(loggenInUser);
-        const newOrder = {
-          // _id: Order._id,
+        this.loggedUser = loggenInUser
+        const createdOrder = {
+          // _id: order._id,
+          createdAt: new Date(),
           buyer: {
             _id: loggenInUser._id,
             fullname: loggenInUser.fullname,
@@ -118,13 +120,23 @@ export default {
             name: this.gig.title,
             imgUrls: this.gig.imgUrls,
             price: this.gig.price },
-            status: "pending"
+            packageType: {
+              level: type.level,
+              price: type.price,
+              title: type.title,
+              benefit1: type.benefit1,
+              benefit2: type.benefit2,
+              specials: type.specials
+            },
+            status: "pending",
+
           }
+          const newOrder = await this.$store.dispatch({type: 'addOrder', createdOrder})
           console.log(newOrder);
 
-          await this.$store.dispatch({type: 'addOrder', newOrder})
-          
-          console.log(this.$store.getters.orders);
+          loggenInUser.orders.push(newOrder)
+          console.log(loggenInUser.orders);
+
           
         } catch(err) {
           console.error(err)

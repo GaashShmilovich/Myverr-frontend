@@ -1,0 +1,90 @@
+.checkout {
+    display: grid;
+    border: 1px solid $clr11;
+    border-radius: 4px;
+    margin-top: 50px;
+    line-height: rem(22px);
+    color: $clr2;
+    font-size: rem(16px);
+    
+    .upper-section {
+        padding: 16px 24px;
+        background-color: $clr8;
+
+        .gig-prev {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 15px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid $clr11;
+            img {
+                height: 61px;
+                width: 100px;
+            }
+            span {
+                font-family: macanSemibold;
+            }
+        }
+        
+        .type-package {
+            display: flex;
+            .title {
+                font-family: macanBold;
+                align-self: flex-start;
+            }
+            .price {
+                align-self: flex-end;
+            }
+        }
+    }
+    .bottom-section {
+        padding: 16px 24px;
+        line-height: 24px;
+        font-family: macanRegular;
+        .promo-code {
+            font-family: macanRegular;
+            &:hover {
+                cursor: pointer;
+            }
+        }   
+        .fees {
+            border-top: 1px solid $clr11;
+            border-bottom: 1px solid $clr11;
+            padding: 20px 0 10px;
+            p {
+                font-family: macanRegular;
+            }
+        }
+        .totals {
+            .total {
+                font-family: macanBold;
+            }
+            .delivery-time {
+                font-family: macanRegular;
+            }
+        }
+        button {
+            font-family: macanSemibold;
+            padding: 15px 24px;
+            border-radius: 4px;
+            color: $clr1;
+            background-color: $clr7;
+            &:hover {
+                background-color: $clr2;
+            }
+        }
+        .sll {
+            font-size: rem(14px);
+            color: $clr2;
+            font-family: macanRegular;
+            text-align: center;
+        }
+        .be-charged {
+            font-size: rem(14px);
+            color: $clr10;
+            text-align: center;
+
+        }
+    }
+
+}

@@ -39,45 +39,37 @@ export default {
         return {
             user: null,
             type: 'basic',
+            chosenPackage: null
             // modalObserver: null,
             // stickyModal: false
         }
     },
     props: {
-        gig: Object
+        gig: Object,
     },
     methods: {
         setType(chosenType) {
-            console.log(chosenType);
             this.type = chosenType
-            console.log(this.type);
         },
         addOrder() {
-            this.$emit('addOrder')
+            this.$emit('addOrder', this.chosenPackage)
+        },
+        printUser() {
+            console.log(this.loggedUser);
         }
     },
     computed: {
         getType() {
             switch (this.type) {
                 case 'basic':
-                    return { price: 58, title: 'The Gold Fish - Basic', specials: ['Product imagery', '1 length variation', '20 seconds running time'], benefit1: '5 Day Delivery', benefit2: '2 Revisions', description: 'Start-up and basic logos included. Good for Socialmedia & small business owners (ex: Nike logo)' };
+                    return this.chosenPackage = {level: 'Basic' ,price: 58, title: 'The Gold Fish - Basic', specials: ['Product imagery', '1 length variation', '20 seconds running time'], benefit1: '5 Day Delivery', benefit2: '2 Revisions', description: 'Start-up and basic logos included. Good for Socialmedia & small business owners (ex: Nike logo)' };
                 case 'standard':
-                    return { price: 120, title: 'The Dolphin - Recommended', specials: ['Voice over recording', 'Product imagery writing', '20 seconds running time'], benefit1: '2 Day Delivery', benefit2:'4 Revisions', description: 'Mid-Segment variants of logo. Highlyrecommended for pro business and printing (ex: AirBnb) ' };
+                    return this.chosenPackage = {level: 'Standard' ,price: 120, title: 'The Dolphin - Recommended', specials: ['Voice over recording', 'Product imagery writing', '20 seconds running time'], benefit1: '2 Day Delivery', benefit2:'4 Revisions', description: 'Mid-Segment variants of logo. Highlyrecommended for pro business and printing (ex: AirBnb) ' };
                 case 'premium':
-                    return { price: 240, title: 'The Blue Whale - Premium', specials: ['Video editing', 'Script writing', '20 seconds running time'], benefit1: '1 Day Delivery' ,benefit2: '5 Revisions', description: 'Ultimate and deep conceptual logo design. Must for premiumbusiness & high-end users (ex: Mercedes)' };
+                    return this.chosenPackage = {level: 'Premium', price: 240, title: 'The Blue Whale - Premium', specials: ['Video editing', 'Script writing', '20 seconds running time'], benefit1: '1 Day Delivery' ,benefit2: '5 Revisions', description: 'Ultimate and deep conceptual logo design. Must for premiumbusiness & high-end users (ex: Mercedes)' };
             }
         }
     },
-    async created() {
-    try {
-      const user = userService.getLoggedinUser()
-      if (user) {
-        this.$store.commit({ type: 'setLoggedinUser', user })
-      }
-      this.user = user
-    } catch (err) {
-      console.error(err)
-    }
-  },
 }
+    
 </script>

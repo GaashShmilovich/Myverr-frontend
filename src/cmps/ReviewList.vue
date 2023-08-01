@@ -78,7 +78,7 @@ export default {
     }
   },
   async created() {
-    console.log(this.reviews);
+    // console.log(this.reviews);
     this.filteredReviews = this.reviews
   },
   components: {
