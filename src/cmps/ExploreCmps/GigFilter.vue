@@ -122,6 +122,7 @@
 
 <script>
 export default {
+	emits: ['filterChanged'],
 	data() {
 		return {
 			filterBy: null,
@@ -133,6 +134,20 @@ export default {
 			displayMinBudget: null,
 			displayMaxBudget: null,
 			showFilters: false,
+		}
+	},
+	created() {
+		const params = this.$route.query
+		console.log('🚀 ~ file: GigFilter.vue:141 ~ created ~ params:', params)
+		if (params.min) {
+			this.minBudget = params.min
+			this.displayMinBudget = params.min
+			this.applyBudget()
+		}
+		if (params.max) {
+			this.maxBudget = params.max
+			this.displayMaxBudget = params.max
+			this.applyBudget()
 		}
 	},
 	methods: {
@@ -158,13 +173,14 @@ export default {
 			this.displayMinBudget = 1
 			this.displayMaxBudget = null
 			this.filterBy = null
+			this.$router.push({ query: {} })
 		},
 		applyBudget() {
 			const min = this.minBudget || 1
 			const max = this.maxBudget || 99999
 			this.displayMinBudget = min
 			this.displayMaxBudget = max
-
+			this.$router.push({ query: { min, max } })
 			this.$emit('filterChanged', {
 				type: 'budget',
 				min: min,

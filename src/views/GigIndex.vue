@@ -20,7 +20,7 @@ import ExploreHeader from '../cmps/ExploreCmps/ExploreHeader.vue'
 export default {
 	data() {
 		return {
-			gigs: [],
+			// gigs: [],
 		}
 	},
 	components: {
