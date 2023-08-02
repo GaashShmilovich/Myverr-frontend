@@ -6,6 +6,7 @@
       <div class="user-info">
         <h1>{{ user.fullname }}</h1>
         <h3>{{ user.country }}</h3>
+        <img :src="user.imgUrl" alt="" />
         <button @click="doLogout">Logout</button>
       </div>
 
@@ -25,12 +26,30 @@
     </div>
     <div class="seller-section">
       <div class="tabs">
-        <RouterLink :to="userGigsLink">My gigs</RouterLink>
-        <RouterLink :to="userOrdersLink">My orders</RouterLink>
-        <RouterLink :to="loggedInUser._id + '/gigs'"
+        <RouterLink
+          @click="setActiveTab"
+          :class="{ active: activeTab }"
+          :to="userGigsLink"
+          >My gigs</RouterLink
+        >
+        <RouterLink
+          @click="setActiveTab"
+          :class="{ active: activeTab }"
+          :to="userOrdersLink"
+          >My orders</RouterLink
+        >
+        <RouterLink
+          @click="setActiveTab"
+          :class="{ active: activeTab }"
+          :to="loggedInUser._id + '/gigs'"
           >Received orders</RouterLink
         >
-        <RouterLink :to="loggedInUser._id + '/gigs'">Reviews</RouterLink>
+        <RouterLink
+          @click="setActiveTab"
+          :class="{ active: activeTab }"
+          :to="loggedInUser._id + '/gigs'"
+          >Reviews</RouterLink
+        >
       </div>
       <div class="main-gigs">
         <RouterView :user="user" />
@@ -56,7 +75,7 @@ export default {
   data() {
     return {
       gigToAdd: gigService.getEmptyGig(),
-      // user: null,
+      activeTab: 0,
     };
   },
   computed: {
@@ -121,6 +140,9 @@ export default {
     },
     printGigToConsole(gig) {
       console.log("Gig msgs:", gig.msgs);
+    },
+    setActiveTab(index) {
+      this.activeTab = index;
     },
   },
 };

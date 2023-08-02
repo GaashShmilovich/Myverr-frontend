@@ -2,22 +2,34 @@
   <section v-if="gigToEdit" class="gig-edit">
     <form class="gig-edit_form" @submit.prevent="saveGig">
       <div class="gig-edit_title-container">
-        <label for="txt" class="gig-edit__label">Gig Name</label>
-        <el-input
-          v-model="gigToEdit.title"
-          id="txt"
-          type="text"
-          placeholder="Enter your gig name here..."
-        />
+        <label for="txt" class="gig-edit_title"
+          ><span
+            >Gig title
+            <p>
+              As your Gig storefront, your title is the most important place to
+              include keywords that buyers would likely use to search for a
+              service like yours.
+            </p></span
+          >
+          <el-input
+            v-model="gigToEdit.title"
+            id="txt"
+            type="text"
+            placeholder="Enter your gig title here..."
+          />
+        </label>
       </div>
       <div class="gig-edit__input-box">
-        <label for="txt" class="gig-edit__label">Description</label>
-        <el-input
-          v-model="gigToEdit.description"
-          id="txt"
-          type="text"
-          placeholder="Enter your gig description here..."
-        />
+        <label for="txt" class="gig-edit_description"
+          ><span>Description</span>
+          <el-input
+            v-model="gigToEdit.description"
+            id="txt"
+            type="textarea"
+            :rows="8"
+            placeholder="Enter your gig description here..."
+          />
+        </label>
       </div>
       <div>
         <button class="btn">save</button>
@@ -51,26 +63,29 @@ export default {
       console.error("Error occurred:", error);
     }
   },
+  computed: {
+    labels() {
+      return this.$store.getters.labels;
+    },
+    user() {
+      return this.$store.getters.loggedinUser;
+    },
+  },
   methods: {
     goBack() {
-      this.$router.push("/");
+      this.$router.push(`/user/${this.user._id}/gigs`);
     },
     async saveGig() {
       try {
-        await this.$store.dispatch({ type: "updateGig", gig: this.gigToEdit });
+        await this.$store.dispatch({
+          type: "updateGig",
+          gig: this.gigToEdit,
+        });
 
-        this.$router.push("/explore");
+        this.$router.push(`/user/${this.user._id}/gigs`);
       } catch (error) {
         console.error("Error occurred:", error);
       }
-    },
-    computed: {
-      labels() {
-        return this.$store.getters.labels;
-      },
-      user() {
-        return this.$store.getters.loggedInUser;
-      },
     },
   },
 };

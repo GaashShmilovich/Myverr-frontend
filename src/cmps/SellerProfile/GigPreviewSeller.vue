@@ -64,7 +64,7 @@ export default {
       this.$emit("delete", this.gig._id);
     },
     onEdit() {
-      this.$emit("edit", this.gig._id);
+      this.$router.push(`/user/${this.gig._id}/edit`);
     },
   },
   computed: {
