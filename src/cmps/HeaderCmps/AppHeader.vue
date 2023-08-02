@@ -51,7 +51,7 @@
           </div>
           <div v-else>
             <RouterLink to="/login">Sign in</RouterLink>
-            <RouterLink to="/login"><span>Join</span></RouterLink>
+            <RouterLink to="/login" class="join"><span>Join</span></RouterLink>
           </div>
         </div>
       </nav>
