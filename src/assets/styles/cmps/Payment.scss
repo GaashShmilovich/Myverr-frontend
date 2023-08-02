@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: 1fr 380px;
     gap: 20px;
-    margin-bottom: 190px;
+    margin-bottom: 120px;
 
     @include for-narrow-layout {
         // grid-column: 1;
@@ -234,12 +234,12 @@
         border-top: 1px solid $clr11;
         padding-top: 17px;
         padding-bottom: 6px;
-        padding-left: 15px;
+        padding-left: 50px;
         font-size: rem(12px);
         color: $clr9;
         span {
-            color: $clr1;
-            background-color: $clr2;
+            color: $clr4;
+            padding-left: 5px;
             &:hover {
                 cursor: pointer;
             }

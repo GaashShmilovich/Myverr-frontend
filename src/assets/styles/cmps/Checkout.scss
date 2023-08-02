@@ -116,15 +116,35 @@
         }
         .btn-pay {
             text-align: center;
-            font-family: macanSemibold;
-            padding: 15px 109px;
-            border-radius: 4px;
             color: $clr1;
-            background-color: $clr7;
             &:hover {
                 background-color: $clr2;
                 cursor: pointer;
             }
+        }
+        .cc {
+            font-family: macanSemibold;
+            padding: 15px 109px;
+            border-radius: 4px;
+            background-color: $clr7;
+        }
+        .pp {
+            padding: 12px 60px;
+            background-color: $green7;
+            border-radius: 18px;
+            height: 35px;
+            width: 250px;
+            font-size: rem(11px);
+            span {
+                font-family: macanBold;
+                font-size: rem(20px);
+            }
+            // .paypal-icon {
+            //     fill: white;
+            //     color: aliceblue;
+            //     position: absolute;
+            //     translate: 0 5px;
+            // }
         }
         .secure {
             display: flex;

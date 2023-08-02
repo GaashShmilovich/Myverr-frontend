@@ -40,7 +40,7 @@
             <section class="totals">
                 <section class="ttl">
                 <p class="total">Total </p>
-                <p class="t-price">₪{{ gig.price }}</p>
+                <p class="t-price">₪{{ totalPrice() }}</p>
                 </section>
                 <section class="del-time">
                 <p class="delivery-time"><font-awesome-icon class="ques-icon" :icon="['fas', 'circle-question']" />
@@ -48,13 +48,16 @@
                 <p class="days"> 3 days</p>
                 </section>
             </section>
-
+            <!-- :class="{'cc':paymentMethod === 'cc', 'pp':paymentMethod === 'pp'}" -->
             <section class="confirm">
-            <RouterLink class="btn-pay" @click="addOrder" :to="'/user/' + user._id">Confirm & Pay </RouterLink>
+            <RouterLink v-if="paymentMethod === 'cc'"  class="btn-pay cc" @click="addOrder" :to="'/user/' + user._id"> Confirm & Pay </RouterLink>
+            <RouterLink v-else class="btn-pay pp" @click="addOrder" :to="'/user/' + user._id"> 
+                <!-- <i class="paypal-icon" v-html="$getSvg('paypal')"></i>  -->
+              <span> PayPal</span> Checkout </RouterLink>
             </section>
             <section class="secure">
                 <p class="ssl">SSL Secure Payment </p>
-                <p class="be-charged">You will be charged₪83.34. Total amount includes currency conversion fees </p>
+                <p class="be-charged">You will be charged ₪{{ totalPrice() }}. Total amount includes currency conversion fees </p>
             </section>
         </div>
     </div>
@@ -65,6 +68,12 @@ import { gigService } from '../services/gig.service.local';
 import { userService } from '../services/user.service.local';
 
 export default {
+    props: {
+        paymentMethod: {
+            type: String,
+            required: true,
+        }
+    },
     data() {
         return {
             gig: this.getGigDetails(),
@@ -73,7 +82,6 @@ export default {
             user: userService.getLoggedinUser(),
         }
     },
-    
     methods: {
         async getGigDetails() {
             try {
@@ -93,6 +101,9 @@ export default {
             } catch (err) {
                 console.log(err);
             }
+        },
+        totalPrice() {
+           return this.package.price + 11.73 + 8.50
         },
 
         async addOrder() {
