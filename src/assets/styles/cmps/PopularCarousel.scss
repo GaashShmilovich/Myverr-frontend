@@ -11,6 +11,21 @@
     &:hover {
       filter: brightness(1.2);
     }
+    .vueperslide__content-wrapper {
+      align-items: start;
+      justify-content: start;
+      padding: rem(16px);
+      .vueperslide__title {
+        font-size: rem(14px);
+        font-family: macanRegular;
+        color: $clr1;
+      }
+      .vueperslide__content {
+        font-size: rem(24px);
+        font-family: macanBold;
+        color: $clr1;
+      }
+    }
   }
   /* Style the arrow icon */
   svg {

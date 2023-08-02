@@ -34,7 +34,12 @@
     </header>
     <div class="gig-about">
       <p class="about-title">About this gig </p>
-      <div class="about"> {{ gig.description }}</div>
+      <div class="about"> {{ gig.description.title }}</div>
+      <p class="des-question">{{ questions[0] }}</p>
+      <ul > <li v-for="a in answers" class="des-answer"> {{ a }}</li> </ul>
+      <p  class="des-question">{{ questions[1] }}</p>
+      <ul> <li v-for="b in answers2" class="des-answer">{{ b }}</li> </ul>
+      <p class="des-closer"> {{ gig.description.closer }}</p>
 
       <p class="title">About the seller</p>
       <AboutSeller :gig="gig"/>
@@ -76,6 +81,9 @@ export default {
       gig: null,
       newOrder: null,
       darkMode: false,
+      questions: null,
+      answers: null,
+      answers2: null,
     }
   },
 
@@ -92,6 +100,9 @@ export default {
         const { gigId } = this.$route.params
         const gig = await gigService.getById(gigId)
         this.gig = gig
+        this.questions = gig.description.questions
+        this.answers = gig.description.answers.splice(0,4)
+        this.answers2 = gig.description.answers.splice(0, 4)
         console.log(this.gig);
       } catch (err) {
         console.error('Failed to load gig', err)
