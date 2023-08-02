@@ -1,7 +1,10 @@
 <template>
 	<div class="explore-gig-category">
 		<router-link
-			to="/"
+			:to="{
+				path: '/',
+				query: { category: categoryFromUrl, subcategory: '5' },
+			}"
 			class="home-icon explore-header-home-icon"
 			v-html="$getSvg('home-icon')"
 		></router-link>
