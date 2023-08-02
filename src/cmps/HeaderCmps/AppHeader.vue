@@ -47,7 +47,7 @@
 					}"
 				>
 					<RouterLink to="/explore">Explore</RouterLink>
-					<RouterLink to="/login">Become a Seller</RouterLink>
+					<!-- <RouterLink to="/login">Become a Seller</RouterLink> -->
 					<div v-if="user">
 						<RouterLink :to="'/user/' + loggedInUser._id"
 							>Profile</RouterLink

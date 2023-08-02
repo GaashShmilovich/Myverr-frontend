@@ -1,0 +1,27 @@
+.login-signin  {
+
+    width: 775px;
+    height: 445px;
+    border: 1px solid $clr11;
+    border-radius: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    position: absolute;
+    top: 70px;
+    left: 100px;
+    z-index: 22111;
+    
+
+    img {
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+        height: 100%;
+        width: 100%;
+        // overflow-wrap: normal;
+    }
+
+    .login {
+        background-color: white;
+    }
+}

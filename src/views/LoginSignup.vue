@@ -1,6 +1,9 @@
 <template>
-  <div class="container about">
-    <!-- <p>{{ msg }}</p> -->
+  <div class="login-signin all-height">
+
+  <img src="https://fiverr-res.cloudinary.com/npm-assets/layout-server/standard.c6d3ba7.png" alt="">
+
+  <div class="login">
 
     <div v-if="loggedinUser">
       <h3>
@@ -64,6 +67,8 @@
       </ul>
     </details> -->
   </div>
+
+</div>
 </template>
 
 <script>
