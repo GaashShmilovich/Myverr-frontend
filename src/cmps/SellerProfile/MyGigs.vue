@@ -1,6 +1,5 @@
 <template>
-  <section class="dashboard-container">
-    <!-- <h3>{{ gig.owner.fullname }}</h3> -->
+  <section>
     <GigListSeller
       :gigs="filteredGigs"
       @remove-gig="removeGig"

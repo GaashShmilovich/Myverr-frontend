@@ -111,123 +111,123 @@
 	</header>
 </template>
 <script>
-import SearchBar from './SearchBar.vue'
-import { userService } from '../../services/user.service.local.js'
+import SearchBar from "./SearchBar.vue";
+import { userService } from "../../services/user.service.local.js";
 export default {
-	data() {
-		return {
-			user: null,
-			isFirstNavShown: false,
-			modalOpen: false,
-			isHidden: true,
-			isSticky: true,
-			categories: {
-				'Graphics & Design': 'Logo-Design',
-				'Programming & Tech': 'Web-Applications',
-				'Digital Marketing': 'Video-Marketing',
-				'Video & Animation': 'Logo-Animation',
-				'Writing & Translation': 'Book-Editing',
-				'Music & Audio': 'Voice-Over',
-				Business: 'Sales',
-				Data: 'Data-Entry',
-				Photography: 'Product-Photographers',
-				'AI Service': 'AI-Applications',
-			},
-		}
-	},
-	methods: {
-		navigateToExplore(category) {
-			const subCategory = this.categories[category]
-			this.$router.push({
-				path: '/explore',
-				query: { category, subCategory },
-			})
-		},
+  data() {
+    return {
+      user: null,
+      isFirstNavShown: false,
+      modalOpen: false,
+      isHidden: true,
+      isSticky: true,
+      categories: {
+        "Graphics & Design": "Logo-Design",
+        "Programming & Tech": "Web-Applications",
+        "Digital Marketing": "Video-Marketing",
+        "Video & Animation": "Logo-Animation",
+        "Writing & Translation": "Book-Editing",
+        "Music & Audio": "Voice-Over",
+        Business: "Sales",
+        Data: "Data-Entry",
+        Photography: "Product-Photographers",
+        "AI Service": "AI-Applications",
+      },
+    };
+  },
+  methods: {
+    navigateToExplore(category) {
+      const subCategory = this.categories[category];
+      this.$router.push({
+        path: "/explore",
+        query: { category, subCategory },
+      });
+    },
 
-		onScroll(e) {
-			// if (this.$route.path !== "/") return;
+    onScroll(e) {
+      // if (this.$route.path !== "/") return;
 
-			if (window.scrollY < 10) this.isFirstNavShown = false
-			if (window.scrollY > 10) {
-				this.isFirstNavShown = true
-				this.isSticky = true
-			}
-			if (window.scrollY < 160) {
-				this.modalOpen = false
-				this.isHidden = true
-			}
-			if (window.scrollY > 160) {
-				this.modalOpen = true
-				this.isHidden = false
-				this.isSticky = true
-			}
+      if (window.scrollY < 10) this.isFirstNavShown = false;
+      if (window.scrollY > 10) {
+        this.isFirstNavShown = true;
+        this.isSticky = true;
+      }
+      if (window.scrollY < 160) {
+        this.modalOpen = false;
+        this.isHidden = true;
+      }
+      if (window.scrollY > 160) {
+        this.modalOpen = true;
+        this.isHidden = false;
+        this.isSticky = true;
+      }
 
-			if (this.$route.path !== '/') {
-				this.isFirstNavShown = true
-				this.modalOpen = true
-				this.isHidden = false
-				this.isSticky = false
-			}
-			// if (this.$route.path === "/payment/:id/:type") {
-			//   this.isFirstNavShown = true;
-			//   this.modalOpen = false;
-			//   this.isHidden = true;
-			//   this.isSticky = false;
-			// }
-		},
-	},
-	computed: {
-		currRoutePath() {
-			return this.$route.path
-		},
-		loggedInUser() {
-			console.log(this.$store.getters.loggedinUser)
-			return this.$store.getters.loggedinUser
-		},
-		// isNotHomePage() {
-		//   if (this.$route.path !== "/") {
-		//     this.isFirstNavShown = true;
-		//     this.modalOpen = true;
-		//     this.isHidden = false;
-		// this.isSticky = false;
+      if (this.$route.path !== "/") {
+        this.isFirstNavShown = true;
+        this.modalOpen = true;
+        this.isHidden = false;
+        this.isSticky = false;
+      }
+      // if (this.$route.path === "/payment/:id/:type") {
+      //   this.isFirstNavShown = true;
+      //   this.modalOpen = false;
+      //   this.isHidden = true;
+      //   this.isSticky = false;
+      // }
+    },
+  },
+  computed: {
+    currRoutePath() {
+      return this.$route.path;
+    },
+    loggedInUser() {
+      console.log(this.$store.getters.loggedinUser);
+      return this.$store.getters.loggedinUser;
+    },
+    // isNotHomePage() {
+    //   if (this.$route.path !== "/") {
+    //     this.isFirstNavShown = true;
+    //     this.modalOpen = true;
+    //     this.isHidden = false;
+    // this.isSticky = false;
 
-		//   }
-		// },
-	},
+    //   }
+    // },
+  },
 
-	created() {
-		window.addEventListener('scroll', this.onScroll)
-		this.user = userService.getLoggedinUser()
-	},
+  created() {
+    window.addEventListener("scroll", this.onScroll);
+    this.user = userService.getLoggedinUser();
+  },
 
-	unmounted() {
-		window.removeEventListener('scroll', this.onScroll)
-	},
-	watch: {
-		$route(to) {
-			// if (to.path === "/") {
-			//   this.isFirstNavShown = false;
-			//   this.modalOpen = false;
-			//   this.isHidden = true;
-			// }
-			// if (to.path !== "/payment") {
-			//   this.isFirstNavShown = true;
-			//   this.modalOpen = false;
-			//   this.isHidden = true;
-			//   this.isSticky = false;
-			// }
-			if (to.path !== '/') {
-				this.isFirstNavShown = true
-				this.modalOpen = true
-				this.isHidden = false
-				this.isSticky = false
-			}
-		},
-	},
-	components: {
-		SearchBar,
-	},
-}
+  unmounted() {
+    window.removeEventListener("scroll", this.onScroll);
+  },
+  watch: {
+    $route(to) {
+      // if (to.path === "/") {
+      //   this.isFirstNavShown = false;
+      //   this.modalOpen = false;
+      //   this.isHidden = true;
+      // }
+      // if (to.path !== "/payment") {
+      //   this.isFirstNavShown = true;
+      //   this.modalOpen = false;
+      //   this.isHidden = true;
+      //   this.isSticky = false;
+      // }
+      if (to.path !== "/") {
+        this.isFirstNavShown = true;
+        this.modalOpen = true;
+        this.isHidden = false;
+        this.isSticky = false;
+      }
+    },
+  },
+  components: {
+    SearchBar,
+  },
+};
 </script>
 <style lang="scss">
 // .search {
