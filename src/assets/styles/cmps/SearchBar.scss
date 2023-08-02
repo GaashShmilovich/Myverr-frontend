@@ -2,10 +2,11 @@
   display: flex;
   align-items: center;
   // flex: 1;
-  justify-content: center;
+  justify-content: start;
   margin-inline: rem(30px);
 
   input {
+    flex: 1;
     padding: 10px;
     margin: 0;
     font-size: 16px;
@@ -13,7 +14,7 @@
     border: 1px solid #ccc;
     border-radius: 5px 0 0 5px;
     outline: none;
-    flex: 1;
+    max-width: rem(500px);
   }
 
   button {
