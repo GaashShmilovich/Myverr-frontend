@@ -151,8 +151,7 @@ export default {
 			this.deliveryTime = params.delivery
 			this.applyDelivery()
 		}
-		if (params.category) {
-			// console.log(params.category)
+		if (params.subCategory) {
 		}
 	},
 	methods: {
@@ -198,6 +197,7 @@ export default {
 				type: 'budget',
 				min: min,
 				max: max,
+				delivery: this.deliveryTime,
 			})
 			this.filterBy = null
 			this.showFilters = true
@@ -227,6 +227,8 @@ export default {
 			this.$emit('filterChanged', {
 				type: 'delivery',
 				delivery: this.deliveryTime,
+				min: this.minBudget || 1,
+				max: this.maxBudget || 99999,
 			})
 			this.filterBy = null
 			this.showFilters = true
@@ -257,21 +259,20 @@ export default {
 			this.showFilters = false
 		},
 	},
-	watch: {
-		'$route.query': {
-			deep: true,
-			handler(newQuery) {
-				if (!newQuery.min && !newQuery.max) {
-					this.clearBudget()
-				}
-				if (!newQuery.delivery) {
-					this.clearDelivery()
-				}
-				if (Object.keys(newQuery).length === 0) {
-					this.resetFilterState()
-				}
-			},
-		},
-	},
+	// watch: {
+	// 	'$route.query': {
+	// 		handler(newQuery) {
+	// 			if (!newQuery.min && !newQuery.max) {
+	// 				this.clearBudget()
+	// 			}
+	// 			if (!newQuery.delivery) {
+	// 				this.clearDelivery()
+	// 			}
+	// 			if (Object.keys(newQuery).length === 0) {
+	// 				this.resetFilterState()
+	// 			}
+	// 		},
+	// 	},
+	// },
 }
 </script>

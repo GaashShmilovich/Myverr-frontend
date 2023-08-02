@@ -7,9 +7,12 @@
 		></router-link>
 		<!-- Display category from URL -->
 		<span class="breadcrumb-item">/</span>
-		<span class="breadcrumb-item subcategory-header">{{
-			categoryFromUrl
-		}}</span>
+		<span
+			class="breadcrumb-item subcategory-header"
+			v-if="categoryFromUrl !== 'No Category'"
+		>
+			{{ categoryFromUrl }}
+		</span>
 		<br /><span class="breadcrumb-item last-category">{{
 			subCategory
 		}}</span>
@@ -20,7 +23,7 @@
 export default {
 	data() {
 		return {
-			categoryFromUrl: 'Graphics & Design',
+			categoryFromUrl: 'No Category',
 			subCategoryMapping: {
 				'Graphics & Design': 'Logo Design',
 				'Programming & Tech': 'Web Applications',
@@ -37,7 +40,11 @@ export default {
 	},
 	computed: {
 		subCategory() {
-			// Return the sub-category from the mapping based on the categoryFromUrl
+			// If category is "No Category", return "All Services"
+			if (this.categoryFromUrl === 'No Category') {
+				return 'All Services'
+			}
+			// Else, return the sub-category from the mapping based on the categoryFromUrl
 			return (
 				this.subCategoryMapping[this.categoryFromUrl] || 'Logo Design'
 			)
@@ -50,10 +57,11 @@ export default {
 				const decodedCategory = decodeURIComponent(
 					this.$route.query.category || ''
 				).replace(/\b\w/g, (l) => l.toUpperCase())
+
 				if (decodedCategory) {
 					this.categoryFromUrl = decodedCategory
 				} else {
-					this.categoryFromUrl = 'Graphics & Design'
+					this.categoryFromUrl = 'No Category'
 				}
 			},
 		},

@@ -10,6 +10,7 @@
 	gap: 10px;
 	padding: 5px;
 	padding-left: 0;
+	flex-wrap: wrap;
 }
 
 .filter-group {
@@ -400,5 +401,16 @@ input::placeholder {
 		margin-right: 0;
 		padding: 0;
 		padding-bottom: 2px;
+	}
+}
+
+/* Media query for screen width of 930 pixels */
+@media (max-width: 930px) {
+	.gig-filter-container {
+		flex-direction: column;
+
+		.gig-filter__btns {
+			margin-top: 20px;
+		}
 	}
 }
