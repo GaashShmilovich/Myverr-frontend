@@ -16,7 +16,7 @@
         <div>
           
           <section class="credit custom-radio">
-            <input @click="choosePayment('credit')" type="radio" id="credit" 
+            <input @click="choosePayment('cc')" type="radio" id="credit" 
             name="payment" class="payment" value="credit" checked>
             <label for="credit" class="custom-radio-btn"></label>
             <!-- <span class="custom-radio-btn" for="credit"></span> -->
@@ -55,26 +55,26 @@
 
         
           <section class="paypal custom-radio">
-            <input @click="choosePayment('paypal')" type="radio" id="paypal" 
+            <input @click="choosePayment('pp')" type="radio" id="paypal" 
             name="payment" class="paypal" value="paypal">
             <label class="custom-radio-btn" for="paypal"></label>
           <span >
             <i class="paypal-icon" v-html="$getSvg('paypal')"></i>
           </span>
         </section>
-        
       </section>
-
+      
     </div>
-
+    
     <div class="checkout-section">
-      <Checkout :user="user" />
+      <Checkout :paymentMethod="paymentMethod" />
     </div>
-
-
-    <!-- <RouterLink v-if="user" :to="'/user/' + user._id">Process Payment</RouterLink> -->
-    <!-- <RouterLink v-else="!user" to='/'>Process Payment</RouterLink> -->
+    
   </div>
+
+  <p class="payment-footer full">Payments are processed by Fiverr International Ltd., Fiverr Limited, and Fiverr Inc. See
+    <span>Payment Terms</span>
+  </p >
 </template>
 
 <script>
@@ -90,7 +90,7 @@ export default {
       firstName: 'John',
       lastName: 'Brown',
       user: userService.getLoggedinUser(),
-      paymentMethod: null,
+      paymentMethod: 'cc',
     };
   },
   methods: {

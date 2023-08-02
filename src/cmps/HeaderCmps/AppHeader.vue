@@ -51,7 +51,7 @@
           </div>
           <div v-else>
             <RouterLink to="/login">Sign in</RouterLink>
-            <RouterLink to="/login" class="join"><span>Join</span></RouterLink>
+            <RouterLink to="/login"><span>Join</span></RouterLink>
           </div>
         </div>
       </nav>
@@ -94,8 +94,12 @@
         </li>
         <li><a @click="navigateToExplore('Business')">Business</a></li>
         <li><a @click="navigateToExplore('Data')">Data</a></li>
-        <li><a @click="navigateToExplore('Photography')">Photography</a></li>
-        <li><a @click="navigateToExplore('AI Services')">AI Services</a></li>
+        <li>
+          <a @click="navigateToExplore('Photography')">Photography</a>
+        </li>
+        <li>
+          <a @click="navigateToExplore('AI Services')">AI Services</a>
+        </li>
       </ul>
     </nav>
   </header>
@@ -111,12 +115,29 @@ export default {
       modalOpen: false,
       isHidden: true,
       isSticky: true,
+      categories: {
+        "Graphics & Design": "Logo-Design",
+        "Programming & Tech": "Web-Applications",
+        "Digital Marketing": "Video-Marketing",
+        "Video & Animation": "Logo-Animation",
+        "Writing & Translation": "Book-Editing",
+        "Music & Audio": "Voice-Over",
+        Business: "Sales",
+        Data: "Data-Entry",
+        Photography: "Product-Photographers",
+        "AI Service": "AI-Applications",
+      },
     };
   },
   methods: {
     navigateToExplore(category) {
-      this.$router.push({ path: "/explore", query: { category } });
+      const subCategory = this.categories[category];
+      this.$router.push({
+        path: "/explore",
+        query: { category, subCategory },
+      });
     },
+
     onScroll(e) {
       // if (this.$route.path !== "/") return;
 

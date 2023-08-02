@@ -9,14 +9,14 @@
             <section class="type-package">
                 <section class="header">
                     <span class="title">{{ package.title }}</span>
-                    <span class="price"> {{ package.price }}</span>
+                    <span class="price">₪{{ package.price }}</span>
                 </section>
 
-                <section class="benefits">
-                    <span>{{ package.benefit1 }}</span>
-                    <span>{{ package.benefit2 }}</span>
-                </section>
                 <ul class="specials">
+                <!-- <section class="benefits"> -->
+                    <li> <i class="v-check" v-html="$getSvg('v-check')"></i>{{ package.benefit1 }}</li>
+                    <li> <i class="v-check" v-html="$getSvg('v-check')"></i>{{ package.benefit2 }}</li>
+                <!-- </section> -->
                     <li v-for="special in package.specials">
                         <i class="v-check" v-html="$getSvg('v-check')"></i>
                         {{ special }}
@@ -25,23 +25,39 @@
             </section>
         </div>
         <div class="bottom-section">
-            <p class="promo-code">Enter promo code</p>
+            <p class="promo-code">Enter promo code <i class="fa-solid fa-circle-question"></i></p>
             <section class="fees">
-                <p>Service fee</p>
-                <p>VAT</p>
+                <section class="service-fee">
+                <p>Service fee <i class="fa-solid fa-circle-question"></i></p>
+                <p>₪11.73</p> 
+                </section>
+                <section class="vat">
+                <p>VAT <i class="fa-solid fa-circle-question"></i></p>
+                <p>₪8.50</p>
+                </section>
             </section>
 
             <section class="totals">
-                <p class="total">Total <span> {{ gig.price }}</span></p>
-                <p class="delivery-time">Total delivery time</p>
+                <section class="ttl">
+                <p class="total">Total </p>
+                <p class="t-price">₪{{ totalPrice() }}</p>
+                </section>
+                <section class="del-time">
+                <p class="delivery-time"><font-awesome-icon class="ques-icon" :icon="['fas', 'circle-question']" />
+                    Total delivery time</p>
+                <p class="days"> 3 days</p>
+                </section>
             </section>
-
+            <!-- :class="{'cc':paymentMethod === 'cc', 'pp':paymentMethod === 'pp'}" -->
             <section class="confirm">
-            <RouterLink class="btn-pay" @click="addOrder" :to="'/user/' + user._id">Confirm & Pay </RouterLink>
+            <RouterLink v-if="paymentMethod === 'cc'"  class="btn-pay cc" @click="addOrder" :to="'/user/' + user._id"> Confirm & Pay </RouterLink>
+            <RouterLink v-else class="btn-pay pp" @click="addOrder" :to="'/user/' + user._id"> 
+                <!-- <i class="paypal-icon" v-html="$getSvg('paypal')"></i>  -->
+              <span> PayPal</span> Checkout </RouterLink>
             </section>
             <section class="secure">
                 <p class="ssl">SSL Secure Payment </p>
-                <p class="be-charged">You will be charged₪83.34. Total amount includes currency conversion fees </p>
+                <p class="be-charged">You will be charged ₪{{ totalPrice() }}. Total amount includes currency conversion fees </p>
             </section>
         </div>
     </div>
@@ -52,6 +68,12 @@ import { gigService } from '../services/gig.service.local';
 import { userService } from '../services/user.service.local';
 
 export default {
+    props: {
+        paymentMethod: {
+            type: String,
+            required: true,
+        }
+    },
     data() {
         return {
             gig: this.getGigDetails(),
@@ -60,7 +82,6 @@ export default {
             user: userService.getLoggedinUser(),
         }
     },
-    
     methods: {
         async getGigDetails() {
             try {
@@ -80,6 +101,9 @@ export default {
             } catch (err) {
                 console.log(err);
             }
+        },
+        totalPrice() {
+           return this.package.price + 11.73 + 8.50
         },
 
         async addOrder() {
