@@ -1,5 +1,5 @@
 <template>
-  <div class="login-signin all-height">
+  <div class="login-signin">
     <div class="img-container">
     <img src="https://fiverr-res.cloudinary.com/npm-assets/layout-server/standard.c6d3ba7.png" alt="">
     <div class="txt">
@@ -13,6 +13,11 @@
     <div class="login">
       <p class="title">Sign in to your account</p>
       <p class="sub-title">Don’t have an account? <span @click="doSignup">Join here</span> </p>
+      <!-- <p class="mobile-title">fiverr <span>.</span></p> -->
+      <p class="mobile-title"><i v-html="$getSvg('fiverr-logo')"></i>
+        <!-- <i v-html="$getSvg('x')"></i> -->
+      </p>
+      <p class="mobile-sub-title">Success <span>starts</span> here.</p>
       <button class="ggl" @click="doLogin"><i v-html="$getSvg('google')">
       </i>Continue with Google</button>
       <button class="username" @click="loginByUsername"><i v-html="$getSvg('email')"></i>
@@ -23,6 +28,7 @@
         Apple</button>
       <button class="fbk" @click="doLogin"><i v-html="$getSvg('facebook')"></i>
         Facebook</button>
+        <p class="mobile-footer">By joining, you agree to the Fiverr <span>Terms of Service</span> and to <br/>occasionally receive emails from us. Please read our <br/><span>Privacy Policy</span> to learn how we use your personal data.</p>
     </section>
       
       
@@ -83,6 +89,7 @@
     </div>
 
   </div>
+
   <div class="login-backdrop"></div>
 </template>
 
