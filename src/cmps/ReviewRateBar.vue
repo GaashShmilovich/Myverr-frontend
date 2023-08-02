@@ -1,7 +1,10 @@
 <template>
     <table class="rate-bars">
         <tr v-for="i in stars" class="row" :class="{'faded' : !getRateCount(i)}">
-            <span class="num">{{ i }}</span> <span>Stars</span> <td class="progress-bar-container">
+            <span class="num">{{ i }}</span> 
+            <span v-if="i === 1">Star</span> 
+            <span v-else >Stars</span> 
+            <td class="progress-bar-container">
             <td class="progress-bar" :style="{ width: `${getPrecentage(i)}%` }"></td>
             </td><span>({{ getRateCount(i) }})</span>
         </tr>
