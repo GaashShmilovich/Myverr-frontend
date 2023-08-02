@@ -12,7 +12,8 @@
 
     <div class="login">
       <p class="title">Sign in to your account</p>
-      <p class="sub-title">Don’t have an account? <span @click="doSignup">Join here</span> </p>
+      <p v-if="type=== 'login'" class="sub-title">Don’t have an account? <span @click="typeAction">Join here</span> </p>
+      <p v-else class="sub-title">Already have an account?<span @click="typeAction">Sign in</span> </p>
       <!-- <p class="mobile-title">fiverr <span>.</span></p> -->
       <p class="mobile-title"><i v-html="$getSvg('fiverr-logo')"></i>
         <!-- <i v-html="$getSvg('x')"></i> -->
@@ -107,6 +108,7 @@ export default {
         password: "123",
         fullname: "User 1",
         imgUrl: "",
+        action: 'login'
       },
       byUsername: false,
     };
@@ -172,6 +174,10 @@ export default {
     onUploaded(imgUrl) {
       this.signupCred.imgUrl = imgUrl;
     },
+    typeAction(typeaction) {
+      this.action = typeaction;
+      console.log(this.action);
+    }
   },
   components: {
     ImgUploader,
