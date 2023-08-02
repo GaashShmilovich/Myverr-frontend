@@ -6,7 +6,6 @@
       openHeader: isFirstNavShown,
       'main-layout': isFirstNavShown,
       'is-sticky': isSticky,
-      // 'nav-main-app': isNotHomePage,
     }"
   >
     <div
@@ -162,12 +161,6 @@ export default {
         this.isHidden = false;
         this.isSticky = false;
       }
-      // if (this.$route.path === "/payment/:id/:type") {
-      //   this.isFirstNavShown = true;
-      //   this.modalOpen = false;
-      //   this.isHidden = true;
-      //   this.isSticky = false;
-      // }
     },
   },
   computed: {
@@ -178,15 +171,6 @@ export default {
       console.log(this.$store.getters.loggedinUser);
       return this.$store.getters.loggedinUser;
     },
-    // isNotHomePage() {
-    //   if (this.$route.path !== "/") {
-    //     this.isFirstNavShown = true;
-    //     this.modalOpen = true;
-    //     this.isHidden = false;
-    // this.isSticky = false;
-
-    //   }
-    // },
   },
 
   created() {
@@ -199,17 +183,11 @@ export default {
   },
   watch: {
     $route(to) {
-      // if (to.path === "/") {
-      //   this.isFirstNavShown = false;
-      //   this.modalOpen = false;
-      //   this.isHidden = true;
-      // }
-      // if (to.path !== "/payment") {
-      //   this.isFirstNavShown = true;
-      //   this.modalOpen = false;
-      //   this.isHidden = true;
-      //   this.isSticky = false;
-      // }
+      if (to.path === "/") {
+        this.isFirstNavShown = false;
+        this.modalOpen = false;
+        this.isHidden = true;
+      }
       if (to.path !== "/") {
         this.isFirstNavShown = true;
         this.modalOpen = true;
@@ -223,11 +201,3 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-// .search {
-//   display: none;
-// }
-// .shown {
-//   display: block;
-// }
-</style>
