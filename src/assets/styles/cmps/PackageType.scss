@@ -1,7 +1,6 @@
 .package-type {
     display: flex;
     flex-direction: column;
-    // flex-wrap: wrap;
     border: 1px solid $clr6;
     position: sticky;
     margin-top: 100px;
@@ -55,6 +54,8 @@
         font-family: macanBold;
         line-height: rem(24px);
         color: $clr3;
+        margin-top: 20px;
+        margin-bottom: 20px;
 
         .save-up {
             font-family: macanRegular;
@@ -69,6 +70,8 @@
 
     .package-descreption {
         padding: 20px 24px 0;
+        margin-bottom: 20px;
+
         .title {
             font-family: macanBold;
         }
@@ -81,15 +84,29 @@
     }
 
     .benefits {
-        padding: 20px 24px ;
+        padding: 20px 24px 20px 18px;
         font-family: macanBold;
+        font-size: rem(14px);
         display: flex;
         justify-content: space-around;
+        align-content: center;
+        margin-bottom: 20px;
+        i {
+            fill: $clr3;
+            padding-top: 2px;
+        }
 
     }
     .specials {
         list-style: none;
         margin-left: -14px;
+        margin-bottom: 10px;
+        li {
+            margin-bottom: 10px;
+        }
+        i {
+            fill: $clr3;
+        }
     }
 }
 
