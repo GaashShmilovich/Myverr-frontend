@@ -122,14 +122,14 @@ function getEmptyGig() {
 	}
 }
 
-// ;(async () => {
+// ; (async () => {
 // 	await storageService.post(STORAGE_KEY, {
 // 		_id: 'i101',
 // 		title: 'I will design a creative minimalist business logo',
 // 		price: 120,
 // 		owner: {
-// 			_id: 'u101',
-// 			fullname: 'Jennifer Martha',
+// 			_id: '17QUq',
+// 			fullname: 'User 1',
 // 			moto: 'Work hard, play hard!',
 // 			instagram: '@JenniMama123',
 // 			imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/eeafd2296eb286476397e0d195fbf5c8-1680370454842/d21715c4-457c-4687-8ab8-af2639117b55.jpg',
@@ -490,8 +490,8 @@ function getEmptyGig() {
 // 			title: 'I will setup,optimize and do pinterest marketing, pins and boards',
 // 			price: 190,
 // 			owner: {
-// 				_id: 'u103',
-// 				fullname: 'Ardita Salam',
+// 				_id: '17QUq',
+// 				fullname: 'User 1',
 // 				moto: 'Nothing beats the Experience!',
 // 				instagram: '@ArditaIsMe',
 // 				imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/34dcefa9cbe53f3f78fdcefb3e4f6651-1648487792332/9c9df430-f52e-4e1c-9c95-05388321a21c.jpg',
@@ -656,8 +656,8 @@ function getEmptyGig() {
 // 			title: 'I will do hyper realistic pencil portrait by hand drawing',
 // 			price: 172,
 // 			owner: {
-// 				_id: 'u124',
-// 				fullname: 'frederickkessie',
+// 				_id: '17QUq',
+// 				fullname: 'User 1',
 // 				moto: 'Never shy from a challange',
 // 				instagram: '@MMManager',
 // 				imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/4abf6f5b58e4d78cfb7c410cf8d7a9ac-1626111679444/4a04b77c-22ee-4ce8-b4be-747fd059e9ff.jpg',

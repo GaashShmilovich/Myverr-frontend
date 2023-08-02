@@ -6,6 +6,7 @@
       <div class="user-info">
         <h1>{{ user.fullname }}</h1>
         <h3>{{ user.country }}</h3>
+        <button @click="doLogout">Logout</button>
       </div>
 
       <div class="user-description">
@@ -25,7 +26,7 @@
     <div class="seller-section">
       <div class="tabs">
         <RouterLink :to="userGigsLink">My gigs</RouterLink>
-        <RouterLink :to="loggedInUser._id + '/gigs'">My orders</RouterLink>
+        <RouterLink :to="userOrdersLink">My orders</RouterLink>
         <RouterLink :to="loggedInUser._id + '/gigs'"
           >Received orders</RouterLink
         >
@@ -62,6 +63,9 @@ export default {
     userGigsLink() {
       return `/user/${this.user._id}/gigs`;
     },
+    userOrdersLink() {
+      return `/user/${this.user._id}/orders`;
+    },
     loggedInUser() {
       return this.$store.getters.loggedinUser;
     },
@@ -73,6 +77,9 @@ export default {
     this.$store.dispatch({ type: "loadGigs" });
   },
   methods: {
+    doLogout() {
+      this.$store.dispatch({ type: "logout" });
+    },
     async addGig() {
       try {
         await this.$store.dispatch({ type: "addGig", gig: this.gigToAdd });
