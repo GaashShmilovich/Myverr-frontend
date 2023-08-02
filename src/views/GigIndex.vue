@@ -20,7 +20,14 @@ import ExploreHeader from '../cmps/ExploreCmps/ExploreHeader.vue'
 export default {
 	data() {
 		return {
-			// gigs: [],
+			filters: {
+				type: null,
+				txt: null,
+				min: null,
+				max: null,
+				delivery: null,
+				subCategory: null,
+			},
 		}
 	},
 	components: {
@@ -35,31 +42,14 @@ export default {
 		},
 	},
 	created() {
-		if (this.$route.query.txt) {
-			this.$store.dispatch({
-				type: 'loadGigs',
-				filterBy: {
-					type: 'txt',
-					txt: this.$route.query.txt,
-				},
-			})
-		} else if (this.$route.query.subCategory) {
-			this.$store.dispatch({
-				type: 'loadGigs',
-				filterBy: {
-					type: 'subCategory',
-					subCategory: this.$route.query.subCategory,
-				},
-			})
-		} else {
-			this.loadGigs()
-		}
+		this.loadGigsFromQuery()
 	},
 	watch: {
 		'$route.query': {
-			handler: 'loadGigsFromQuery',
+			handler() {
+				this.loadGigsFromQuery()
+			},
 			deep: true,
-			immediate: true,
 		},
 	},
 
@@ -78,18 +68,14 @@ export default {
 			})
 		},
 		loadGigsFromQuery() {
-			console.log(this.$route.query.subCategory)
-			const { txt, min, max, delivery, category, subCategory } =
-				this.$route.query
+			const { txt, min, max, delivery, subCategory } = this.$route.query
 
 			const filterBy = {
-				type: 'txt',
-				txt,
-				min,
-				max,
-				delivery,
-				category,
-				subCategory,
+				txt: txt || null,
+				min: min || null,
+				max: max || null,
+				delivery: delivery || null,
+				subCategory: subCategory || null,
 			}
 
 			this.$store.dispatch({

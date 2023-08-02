@@ -23,9 +23,20 @@
 		@content;
 	}
 }
-
 @mixin for-narrow-layout-grid {
-	@media (max-width: 1136px) {
+	@media (max-width: 1160px) {
+		@content;
+	}
+}
+
+@mixin for-narrower-layout-grid {
+	@media (max-width: 900px) {
+		@content;
+	}
+}
+
+@mixin for-mobile-layout-grid {
+	@media (max-width: 600px) {
 		@content;
 	}
 }

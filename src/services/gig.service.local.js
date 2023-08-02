@@ -13,62 +13,50 @@ export const gigService = {
 }
 window.cs = gigService
 
-async function query(filterBy, sortBy) {
+async function query(filters, sortBy) {
+	console.log(filters)
 	var gigs = await storageService.query(STORAGE_KEY)
 
-	if (gigs && filterBy) {
-		if (filterBy.type === 'budget') {
-			gigs = gigs.filter((gig) => {
-				return gig.price >= filterBy.min && gig.price <= filterBy.max
-			})
+	if (gigs && filters) {
+		if (filters.min && filters.max) {
+			gigs = gigs.filter(
+				(gig) => gig.price >= filters.min && gig.price <= filters.max
+			)
 		}
-		if (filterBy.type === 'delivery') {
-			gigs = gigs.filter((gig) => {
-				return gig.daysToMake <= filterBy.delivery
-			})
+		if (filters.delivery) {
+			gigs = gigs.filter((gig) => gig.daysToMake <= filters.delivery)
 		}
-		if (filterBy.type === 'txt') {
-			gigs = gigs.filter((gig) => {
-				const isInTitle = gig.title
-					.toLowerCase()
-					.includes(filterBy.txt?.toLowerCase() || '')
-				const isInTags = gig.tags.some((tag) =>
-					tag
-						.toLowerCase()
-						.includes(filterBy.txt?.toLowerCase() || '')
-				)
-				return isInTitle || isInTags
-			})
+		if (filters.subCategory) {
+			gigs = gigs.filter((gig) =>
+				gig.tags.includes(filters.subCategory.toLowerCase())
+			)
 		}
-
-		if (filterBy.type === 'subCategory') {
-			console.log(filterBy)
-			gigs = gigs.filter((gig) => {
-				return gig.tags.some((tag) =>
-					tag
-						.toLowerCase()
-						.includes(filterBy.subCategory?.toLowerCase() || '')
-				)
-			})
+		if (filters.txt) {
+			gigs = gigs.filter((gig) =>
+				gig.title.toLowerCase().includes(filters.txt.toLowerCase())
+			)
 		}
 	}
 
-	if (gigs && sortBy === 'Highest Rating') {
-		gigs = gigs.sort((a, b) => {
-			const avgRatingA =
-				a.reviews.reduce((acc, review) => acc + review.rate, 0) /
-				a.reviews.length
-			const avgRatingB =
-				b.reviews.reduce((acc, review) => acc + review.rate, 0) /
-				b.reviews.length
-			return avgRatingB - avgRatingA
-		})
-	}
+	// Sorting
+	if (sortBy) {
+		if (sortBy === 'Highest Rating') {
+			gigs = gigs.sort((a, b) => {
+				const avgRatingA =
+					a.reviews.reduce((acc, review) => acc + review.rate, 0) /
+					a.reviews.length
+				const avgRatingB =
+					b.reviews.reduce((acc, review) => acc + review.rate, 0) /
+					b.reviews.length
+				return avgRatingB - avgRatingA
+			})
+		}
 
-	if (gigs && sortBy === 'Most Reviews') {
-		gigs = gigs.sort((a, b) => {
-			return b.reviews.length - a.reviews.length
-		})
+		if (sortBy === 'Most Reviews') {
+			gigs = gigs.sort((a, b) => {
+				return b.reviews.length - a.reviews.length
+			})
+		}
 	}
 
 	return gigs
