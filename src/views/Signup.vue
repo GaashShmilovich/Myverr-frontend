@@ -64,46 +64,27 @@ export default {
         return {
             signupCred: {
                 email: 'giora@gmail.com',
-                // username: "user1",
                 password: "****",
-                // fullname: "User 1",
                 // imgUrl: "",
-                // action: 'login'
             },
             byUsername: false,
         };
     },
     computed: {
-        // users() {
-        //     return this.$store.getters.users;
-        // },
-        // isLoading() {
-        //     return this.$store.getters.usersIsLoading;
-        // },
         loggedinUser() {
             return this.$store.getters.loggedinUser;
         },
     },
-    // created() {
-    //     this.loadUsers();
-    // },
     methods: {
 
         signupByUsername() {
             this.byUsername = !this.byUsername
         },
-        // doLogout() {
-        //     this.$store.dispatch({ type: "logout" });
-        // },
         async doSignup() {
             
             await this.$store.dispatch({ type: "signup", userCred: this.signupCred });
             this.$router.push("/");
         },
-        // loadUsers() {
-        //     this.$store.dispatch({ type: "loadUsers" });
-        // },
-
         onUploaded(imgUrl) {
             this.signupCred.imgUrl = imgUrl;
         },

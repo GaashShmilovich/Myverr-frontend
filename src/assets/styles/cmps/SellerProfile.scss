@@ -18,6 +18,7 @@
   }
 
   .tabs {
+    border-radius: 5px;
     display: flex;
     justify-content: space-around;
     gap: 10px;
@@ -58,6 +59,7 @@
     align-items: center;
     z-index: 10;
     background-color: $clr1;
+    border-radius: 5px;
     img {
       height: 100px;
       width: 100px;

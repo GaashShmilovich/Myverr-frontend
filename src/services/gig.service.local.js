@@ -115,19 +115,19 @@ function getEmptyGig() {
 // 		title: 'I will design a creative minimalist business logo',
 // 		price: 120,
 // 		owner: {
-// 			_id: '17QUq',
-// 			fullname: 'User 1',
+// 			_id: 'gaash',
+// 			fullname: 'Gaash',
 // 			moto: 'Work hard, play hard!',
-// 			instagram: '@JenniMama123',
+// 			instagram: '@Gaash123',
 // 			imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/eeafd2296eb286476397e0d195fbf5c8-1680370454842/d21715c4-457c-4687-8ab8-af2639117b55.jpg',
 // 			level: 'basic/premium',
-// 			rate: 4,
+// 			rate: 5,
 // 			country: 'United Kingdom',
 // 			language: ['English'],
-// 			since: 'September 2017',
+// 			since: 'July 2017',
 // 			lastDelivery: '2 hours ago',
 // 			averageResponse: '50 minutes',
-// 			about: 'Hey! My name is Jennifer, and I am excited to connect with you here on Fiverr! Since 2017, I have worked with over 11,000 customers and completed more than 20,000 orders on the platform. I am super passionate about Instagram and eager to help you with every aspect of it. Over the years, I have worked with a diverse range of creators, small businesses, celebrities, and Fortune 500 companies here on Fiverr. If you have any questions, please feel free to send me a message here, and I will be happy to help you!',
+// 			about: 'Hey! My name is Gaash, and I am excited to connect with you here on Fiverr! Since 2017, I have worked with over 11,000 customers and completed more than 20,000 orders on the platform. I am super passionate about design and eager to help you with every aspect of it. Over this short time, I have worked with a diverse range of creators, small businesses, celebrities, and Fortune 500 companies here on Fiverr. If you have any questions, please feel free to send me a message here, and I will be happy to help you!',
 // 		},
 // 		daysToMake: 1,
 // 		description: {
@@ -183,7 +183,7 @@ function getEmptyGig() {
 // 		reviews: [
 // 			{
 // 				id: utilService.makeId(),
-// 				txt: 'Impressive logo design! Jennifer created a unique and eye-catching logo that perfectly represents my brand. Their attention to detail and creativity exceeded my expectations. The communication throughout the process was excellent, and they delivered the final design ahead of the deadline. I highly recommend their logo design services!',
+// 				txt: 'Impressive logo design! Gaash created a unique and eye-catching logo that perfectly represents my brand. His attention to detail and creativity exceeded my expectations. The communication throughout the process was excellent, and he delivered the final design ahead of the deadline. I highly recommend his logo design services!',
 // 				rate: 5,
 // 				createdAt: '2023-08-10T12:30:15Z',
 // 				by: {
@@ -198,7 +198,7 @@ function getEmptyGig() {
 // 			},
 // 			{
 // 				id: utilService.makeId(),
-// 				txt: 'Satisfactory rebranding! Jennifer successfully revamped our logo, giving it a fresh and modern look. They incorporated our feedback into the design process, resulting in a logo that aligns perfectly with our brand identity. The turnaround time was reasonable, and we are pleased with the final result!',
+// 				txt: 'Satisfactory rebranding! Gaash successfully revamped our logo, giving it a fresh and modern look. They incorporated our feedback into the design process, resulting in a logo that aligns perfectly with our brand identity. The turnaround time was reasonable, and we are pleased with the final result!',
 // 				rate: 4,
 // 				createdAt: '2023-09-22T09:55:32Z',
 // 				by: {
@@ -238,37 +238,6 @@ function getEmptyGig() {
 // 					country: {
 // 						name: 'Germany',
 // 						img: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e9-1f1ea.png',
-// 					},
-// 				},
-// 			},
-// 			{
-// 				id: utilService.makeId(),
-// 				txt: "Excellent work! Jennifer delivered the perfect blog article that exceeded my expectations. Her writing style is captivating, and she skillfully addressed all the key points. The article is SEO-optimized and ranks well on Google. I'm impressed with her professionalism and fast delivery. Highly recommended for quality content!",
-// 				rate: 5,
-// 				createdAt: '2023-07-25T14:22:10Z',
-// 				by: {
-// 					_id: 'u204',
-// 					fullname: 'John Johnson',
-// 					imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/profile/photos/56600808/original/photo.jpg',
-// 					country: {
-// 						name: 'United Kingdom',
-// 						img: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png',
-// 					},
-// 				},
-// 			},
-
-// 			{
-// 				id: utilService.makeId(),
-// 				txt: "Excellent work! Jennifer delivered the perfect blog article that exceeded my expectations. Her writing style is captivating, and she skillfully addressed all the key points. The article is SEO-optimized and ranks well on Google. I'm impressed with her professionalism and fast delivery. Highly recommended for quality content!",
-// 				rate: 5,
-// 				createdAt: '2023-07-25T14:22:10Z',
-// 				by: {
-// 					_id: 'u204',
-// 					fullname: 'John Johnson',
-// 					imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/profile/photos/56600808/original/photo.jpg',
-// 					country: {
-// 						name: 'United Kingdom',
-// 						img: 'https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1ec-1f1e7.png',
 // 					},
 // 				},
 // 			},
@@ -533,7 +502,7 @@ function getEmptyGig() {
 // 				],
 // 				closer: " My design process begins with understanding your brand's essence and target audience. I'll craft a project that not only stands out but also communicates your brand's values effectively. With attention to all the little details, I'll ensure your project leaves a lasting impact. I'm here to bring your vision to life. Let's collaborate and create something that sets you apart from the competition!",
 // 			},
-// 				imgUrls: [
+// 			imgUrls: [
 // 				'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/125098235/original/fd486f60da0f9758af41ec3a8988cb3775e9b351/set-up-and-optimize-your-pinterest-profile-boards-and-pins.jpg',
 // 				'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/125098235/original/2d52bce49adbfdceb1911492819958e27e8f251d/set-up-and-optimize-your-pinterest-profile-boards-and-pins.png',
 // 				'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/125098235/original/548c79ae671aefc4026236d4f558c59fd38cfab1/set-up-and-optimize-your-pinterest-profile-boards-and-pins.jpeg',
@@ -1192,7 +1161,7 @@ function getEmptyGig() {
 // 				],
 // 				closer: " My design process begins with understanding your brand's essence and target audience. I'll craft a project that not only stands out but also communicates your brand's values effectively. With attention to all the little details, I'll ensure your project leaves a lasting impact. I'm here to bring your vision to life. Let's collaborate and create something that sets you apart from the competition!",
 // 			},
-// 				imgUrls: [
+// 			imgUrls: [
 // 				'https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs/294648561/original/2d8b64792b5fa8486699cc6175d13642da51e22c/increase-dr-domain-rating-to-45-guaranteed.png',
 // 				'https://fiverr-res.cloudinary.com/images/t_smartwm/t_delivery_thumb,q_auto,f_auto/attachments/delivery/asset/f0f3636391255054c175fe86cfb4eabf-1690709360/image_2023-07-30_142914944/increase-dr-domain-rating-to-45-guaranteed.png',
 // 				'https://fiverr-res.cloudinary.com/t_gig_cards_web_x2,q_auto,f_auto/gigs/291069007/original/e5b50430396dfca6129faff57a8d80ed83d014ec.png',
@@ -1285,7 +1254,7 @@ function getEmptyGig() {
 // 				],
 // 				closer: " My design process begins with understanding your brand's essence and target audience. I'll craft a project that not only stands out but also communicates your brand's values effectively. With attention to all the little details, I'll ensure your project leaves a lasting impact. I'm here to bring your vision to life. Let's collaborate and create something that sets you apart from the competition!",
 // 			},
-// 		imgUrls: [
+// 			imgUrls: [
 // 				'https://fiverr-res.cloudinary.com/t_gig_cards_web_x2,q_auto,f_auto/gigs/278927309/original/a32ae315b7157fe1beaccbdd52460f0980d9951e.png',
 // 				'https://fiverr-res.cloudinary.com/t_gig_cards_web_x2,q_auto,f_auto/gigs2/278927309/original/8e4d62139fbbdff6a07c7df4442b444c3cc6a90c.png',
 // 				'https://fiverr-res.cloudinary.com/t_gig_cards_web_x2,q_auto,f_auto/gigs3/278927309/original/9b4b140f44f0c1964885a86a4394e0cc345a1caa.png',
@@ -1367,7 +1336,7 @@ function getEmptyGig() {
 // 			],
 // 			closer: " My design process begins with understanding your brand's essence and target audience. I'll craft a project that not only stands out but also communicates your brand's values effectively. With attention to all the little details, I'll ensure your project leaves a lasting impact. I'm here to bring your vision to life. Let's collaborate and create something that sets you apart from the competition!",
 // 		},
-// 			imgUrls: [
+// 		imgUrls: [
 // 			'https://fiverr-res.cloudinary.com/t_gig_cards_web_x2,q_auto,f_auto/gigs/133279260/original/eecca09d31e3f26a2784e0307fdb19d736b537aa.png',
 // 			'https://fiverr-res.cloudinary.com/t_gig_cards_web_x2,q_auto,f_auto/gigs2/133279260/original/d5fd7f0d1ff804a3a10620fe7be829733b5d82e5.png',
 // 			'https://fiverr-res.cloudinary.com/t_gig_cards_web_x2,q_auto,f_auto/attachments/delivery/asset/1ea32c6b10fcba661035e79ecdb02c1b-1678102994/billing.mikuchnetwork.com_home(1080p).png',
@@ -1436,19 +1405,19 @@ function getEmptyGig() {
 // 		title: 'Professional Website Design',
 // 		price: 300,
 // 		owner: {
-// 			_id: 'u202',
-// 			fullname: 'Sawn Smith',
-// 			moto: 'Design is my passion!',
-// 			instagram: '@john_designs',
-// 			imgUrl: 'https://res.cloudinary.com/djm30uwim/image/upload/v1690559771/user_profiles/zqpwbbeu551js7dz4oqd.jpg',
-// 			level: 'pro',
+// 			_id: 'gaash',
+// 			fullname: 'Gaash',
+// 			moto: 'Work hard, play hard!',
+// 			instagram: '@Gaash123',
+// 			imgUrl: 'https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,t_profile_small/v1/attachments/profile/photo/eeafd2296eb286476397e0d195fbf5c8-1680370454842/d21715c4-457c-4687-8ab8-af2639117b55.jpg',
+// 			level: 'basic/premium',
 // 			rate: 5,
-// 			country: 'United States',
+// 			country: 'United Kingdom',
 // 			language: ['English'],
-// 			since: 'January 2015',
-// 			lastDelivery: '4 hours ago',
-// 			averageResponse: '1 hour',
-// 			about: "Hi, I am John, a professional website designer with over 8 years of experience. I have worked with various clients, from startups to established businesses, helping them create visually appealing and functional websites. My goal is to deliver high-quality designs that leave a lasting impression on your visitors. Let's collaborate and take your online presence to the next level!",
+// 			since: 'July 2017',
+// 			lastDelivery: '2 hours ago',
+// 			averageResponse: '50 minutes',
+// 			about: 'Hey! My name is Gaash, and I am excited to connect with you here on Fiverr! Since 2017, I have worked with over 11,000 customers and completed more than 20,000 orders on the platform. I am super passionate about design and eager to help you with every aspect of it. Over this short time, I have worked with a diverse range of creators, small businesses, celebrities, and Fortune 500 companies here on Fiverr. If you have any questions, please feel free to send me a message here, and I will be happy to help you!',
 // 		},
 // 		daysToMake: 7,
 // 		description: {

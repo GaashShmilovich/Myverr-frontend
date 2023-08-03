@@ -38,9 +38,11 @@ export default {
       return this.$store.getters.gigs;
     },
     filteredGigs() {
-      return this.$store.getters.gigs.filter(
-        (gig) => gig.owner._id === this.user._id
-      );
+      if (this.user.isSeller) {
+        return this.$store.getters.gigs.filter(
+          (gig) => gig.owner._id === this.user.id
+        );
+      } 
     },
   },
   created() {
