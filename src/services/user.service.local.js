@@ -1,4 +1,5 @@
 import { storageService } from './async-storage.service'
+import { utilService } from './util.service'
 
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
@@ -95,7 +96,7 @@ function saveLocalUser(user) {
     //     ],
     //     orders: user.orders
     // },
-        sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
+    sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
 
@@ -108,26 +109,14 @@ function getLoggedinUser() {
 // ; (async () => {
 //     await userService.signup({
 //         _id: "u101",
+//         id: "gaash",
 //         isSeller: true,
-//         fullname: "User 1",
+//         fullname: "Gaash Shmilovich",
 //         imgUrl: "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/0d064bcfd4295551910a7bc05c0af05d-1661124606619/0831357d-de18-4877-a0c0-c4aff302f9d2.JPG",
-//         username: "user1",
-//         password: "secret",
+//         username: "gaash",
+//         password: "gaash",
 //         level: "basic/premium",
 //         country: 'Israel',
-//         reviews: [
-//             {
-//                 id: "madeId",
-//                 gig: "{optional-mini-gig}",
-//                 txt: "Very kind and works fast",
-//                 rate: 4,
-//                 by: {
-//                     _id: "u102",
-//                     fullname: "user2",
-//                     imgUrl: "/img/img2.jpg"
-//                 }
-//             }
-//         ],
 //         orders: [],
 //     }
 
@@ -135,25 +124,12 @@ function getLoggedinUser() {
 //     await userService.signup({
 //         _id: "u102",
 //         isSeller: false,
-//         fullname: "User 2",
-//         imgUrl: "/img/img2.jpg",
-//         username: "user2",
-//         password: "topsecret",
+//         fullname: "Giora Marani",
+//         imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/30544a9820b9cc72a3f3c46e260091cc-1642546839079/42396a49-d576-4cdc-a5a6-f61678941743.jpg",
+//         username: "giora",
+//         password: "giora",
 //         level: "premium",
 //         country: 'United States',
-//         reviews: [
-//             {
-//                 id: "madeId",
-//                 gig: "{optional-mini-gig}",
-//                 txt: "Excellent work and great communication!",
-//                 rate: 5,
-//                 by: {
-//                     _id: "u103",
-//                     fullname: "User 3",
-//                     imgUrl: "/img/img3.jpg"
-//                 }
-//             }
-//         ],
 //         orders: [],
 //     }
 
@@ -161,25 +137,12 @@ function getLoggedinUser() {
 //     await userService.signup({
 //         _id: "u103",
 //         isSeller: false,
-//         fullname: "User 3",
-//         imgUrl: "/img/img3.jpg",
-//         username: "user3",
-//         password: "hidden",
+//         fullname: "Oryan",
+//         imgUrl: "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/30544a9820b9cc72a3f3c46e260091cc-1642546839079/42396a49-d576-4cdc-a5a6-f61678941743.jpg",
+//         username: "oryan",
+//         password: "oryan",
 //         level: "basic",
 //         country: 'United Kingdom',
-//         reviews: [
-//             {
-//                 id: "madeId",
-//                 gig: "{optional-mini-gig}",
-//                 txt: "Great communication and quality work!",
-//                 rate: 5,
-//                 by: {
-//                     _id: "u101",
-//                     fullname: "User 1",
-//                     imgUrl: "/img/img1.jpg"
-//                 }
-//             }
-//         ],
 //         orders: [],
 //     }
 

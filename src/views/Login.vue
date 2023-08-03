@@ -79,7 +79,7 @@ export default {
 	name: 'login',
 	data() {
 		return {
-			loginCred: { username: 'user1', password: '123' },
+			loginCred: { username: 'gaash', password: 'gaash' },
 			byUsername: false,
 		}
 	},

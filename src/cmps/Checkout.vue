@@ -126,16 +126,9 @@ export default {
                         _id: this.gig._id,
                         name: this.gig.title,
                         imgUrls: this.gig.imgUrls,
-                        price: this.gig.price
+                        price: this.package.price
                     },
-                    packageType: {
-                        level: this.package.level,
-                        price: this.package.price,
-                        title: this.package.title,
-                        benefit1: this.package.benefit1,
-                        benefit2: this.package.benefit2,
-                        specials: this.package.specials
-                    },
+                    packageType: this.package.level,
                     status: "pending",
 
                 }
