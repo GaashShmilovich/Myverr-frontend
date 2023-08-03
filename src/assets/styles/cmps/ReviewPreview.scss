@@ -48,11 +48,11 @@
     margin-bottom: 20px;
     margin-left: 68px;
   }
-
+  
   .helpful-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: -30px;
+    display: flex;
+    justify-content: flex-start;
+    
   }
 
   .helpful {
@@ -84,6 +84,7 @@
 
   .helpful-span {
     display: none;
+    padding-left: 20px;
   }
 
   .show {
