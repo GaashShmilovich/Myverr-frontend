@@ -12,9 +12,11 @@
 
     <div class="login">
       <p class="title">Sign in to your account</p>
-      <p class="sub-title">Don’t have an account? <RouterLink :to="'/signup'">Join here</RouterLink> </p>
-      <!-- <p v-else class="sub-title">Already have an account?<span @click="typeAction">Sign in</span> </p> -->
+      <p v-if="type=== 'login'" class="sub-title">Don’t have an account? <span @click="typeAction">Join here</span> </p>
+      <p v-else class="sub-title">Already have an account?<span @click="typeAction">Sign in</span> </p>
+      <!-- <p class="mobile-title">fiverr <span>.</span></p> -->
       <p class="mobile-title"><i v-html="$getSvg('fiverr-logo')"></i>
+        <!-- <i v-html="$getSvg('x')"></i> -->
       </p>
       <p class="mobile-sub-title">Success <span>starts</span> here.</p>
       <button class="ggl" @click="doLogin"><i v-html="$getSvg('google')">
@@ -25,7 +27,7 @@
       <section class="social-media">
       <button class="apl" @click="doLogin"><i v-html="$getSvg('apple')"></i>
         Apple</button>
-      <button class="fbk" @click="doLogin"><i v-html="$getSvg('facebook-blue')"></i>
+      <button class="fbk" @click="doLogin"><i v-html="$getSvg('facebook')"></i>
         Facebook</button>
         <p class="mobile-footer">By joining, you agree to the Fiverr <span>Terms of Service</span> and to <br/>occasionally receive emails from us. Please read our <br/><span>Privacy Policy</span> to learn how we use your personal data.</p>
     </section>
@@ -47,7 +49,43 @@
         <button class="btn-continue" @click="doLogin">Sign in</button>
         
       </div>
+
       <div>
+      <!-- <p class="mute">user1 or admin, pass:123</p>
+      <form @submit.prevent="doSignup">
+        <h2>Signup</h2>
+        <input
+          type="text"
+          v-model="signupCred.fullname"
+          placeholder="Your full name"
+        />
+        <input
+          type="text"
+          v-model="signupCred.username"
+          placeholder="Username"
+        />
+        <input
+          type="password"
+          v-model="signupCred.password"
+          placeholder="Password"
+        /> 
+     <ImgUploader @uploaded="onUploaded" /> -->
+      <!-- <button>Signup</button>
+      </form>
+    </div>
+    <hr />
+      <details>
+      <summary>
+        Admin Section
+      </summary>
+      <h3 v-if="isLoading">Loading...</h3>
+      <ul v-else>
+        <li v-for="user in users" :key="user._id">
+          <pre>{{ user }}</pre>
+          <button @click="removeUser(user._id)">x</button>
+        </li>
+      </ul>
+    </details> -->
     </div>
     </div>
 
@@ -57,12 +95,21 @@
 </template>
 
 <script>
+import ImgUploader from "../cmps/ImgUploader.vue";
 
 export default {
-  name: "login",
+  name: "login-signup",
   data() {
     return {
+      msg: "",
       loginCred: { username: "user1", password: "123" },
+      signupCred: {
+        username: "user1",
+        password: "123",
+        fullname: "User 1",
+        imgUrl: "",
+        action: 'login'
+      },
       byUsername: false,
     };
   },
@@ -101,11 +148,39 @@ export default {
     doLogout() {
       this.$store.dispatch({ type: "logout" });
     },
-    
+    async doSignup() {
+      if (
+        !this.signupCred.fullname ||
+        !this.signupCred.password ||
+        !this.signupCred.username
+      ) {
+        this.msg = "Please fill up the form";
+        return;
+      }
+      await this.$store.dispatch({ type: "signup", userCred: this.signupCred });
+      this.$router.push("/");
+    },
     loadUsers() {
       this.$store.dispatch({ type: "loadUsers" });
-    },    
+    },
+    async removeUser(userId) {
+      try {
+        await this.$store.dispatch({ type: "removeUser", userId });
+        this.msg = "User removed";
+      } catch (err) {
+        this.msg = "Failed to remove user";
+      }
+    },
+    onUploaded(imgUrl) {
+      this.signupCred.imgUrl = imgUrl;
+    },
+    typeAction(typeaction) {
+      this.action = typeaction;
+      console.log(this.action);
+    }
   },
- 
+  components: {
+    ImgUploader,
+  },
 };
 </script>

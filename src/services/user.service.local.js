@@ -52,7 +52,7 @@ async function login(userCred) {
 }
 
 async function signup(userCred) {
-    // userCred.score = 10000
+    userCred.score = 10000
     if (!userCred.imgUrl) userCred.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
     const user = await storageService.post('user', userCred)
     return saveLocalUser(user)
@@ -71,30 +71,30 @@ async function changeScore(by) {
 }
 
 function saveLocalUser(user) {
-    // user = {
-    //     _id: user._id,
-    //     isSeller: user.isSeller,
-    //     fullname: user.fullname,
-    //     imgUrl: user.imgUrl,
-    //     username: user.username,
-    //     password: user.password,
-    //     level: user.level,
-    //     country: user.country,
-    //     reviews: [
-    //         {
-    //             id: user.reviews[0]._id,
-    //             gig: user.reviews[0].gig,
-    //             txt: user.reviews[0].txt,
-    //             rate: user.reviews[0].rate,
-    //             by: {
-    //                 _id: user.reviews[0].by._id,
-    //                 fullname: user.reviews[0].by.fullname,
-    //                 imgUrl: user.reviews[0].by.imgUrl
-    //             }
-    //         }
-    //     ],
-    //     orders: user.orders
-    // },
+    user = {
+        _id: user._id,
+        isSeller: user.isSeller,
+        fullname: user.fullname,
+        imgUrl: user.imgUrl,
+        username: user.username,
+        password: user.password,
+        level: user.level,
+        country: user.country,
+        reviews: [
+            {
+                id: user.reviews[0]._id,
+                gig: user.reviews[0].gig,
+                txt: user.reviews[0].txt,
+                rate: user.reviews[0].rate,
+                by: {
+                    _id: user.reviews[0].by._id,
+                    fullname: user.reviews[0].by.fullname,
+                    imgUrl: user.reviews[0].by.imgUrl
+                }
+            }
+        ],
+        orders: user.orders
+    },
         sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }

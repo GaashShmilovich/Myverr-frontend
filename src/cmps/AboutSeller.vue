@@ -10,7 +10,7 @@
             <span v-for="i in gig.owner.rate || 1">
               <font-awesome-icon class="star yellow" icon="fa-solid fa-star" />
             </span>
-            <span class="rate-number yellow">{{ gig.owner.rate }}</span> <span>({{ gig.reviews.length }})</span>
+            <span class="rate-number yellow">{{ gig.owner.rate }}</span> <span>(592)</span>
           </section>
 
           <button class="btn-contact">Contact Me</button>
