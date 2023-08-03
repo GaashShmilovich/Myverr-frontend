@@ -56,14 +56,14 @@
   
   <script>
   import { RouterLink, RouterView } from "vue-router";
-  import { showErrorMsg, showSuccessMsg } from "../../services/event-bus.service";
-  import { gigService } from "../../services/gig.service.local";
-  import { userService } from "../../services/user.service.local";
+  // import { showErrorMsg, showSuccessMsg } from "../../services/event-bus.service";
+  import { gigService } from "../services/gig.service.local";
+  import { userService } from "../services/user.service.local";
   import {
     getActionRemoveGig,
     getActionUpdateGig,
     getActionAddGigMsg,
-  } from "../../store/gig.store";
+  } from "../store/gig.store";
   
   export default {
     props: {
