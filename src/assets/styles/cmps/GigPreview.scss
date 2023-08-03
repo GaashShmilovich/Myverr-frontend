@@ -139,3 +139,130 @@
 		}
 	}
 }
+
+.heart-icon {
+	position: relative;
+	cursor: pointer;
+	.heart-modal {
+		display: none;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		font-size: 16px;
+		top: -295%;
+		transform: translateX(-50%);
+		background-color: #404145;
+		width: 120px;
+		height: 65px;
+		border-radius: 8px;
+		z-index: 10;
+		box-shadow: rgba(0, 0, 0, 0.14) 0px 12px 18px 0px;
+		padding-top: 17px;
+	}
+	.heart-modal-show {
+		display: flex;
+	}
+}
+
+.heart-icon.heart-modal-show .heart-modal {
+	display: flex;
+}
+
+.heart-modal-text {
+	color: #fff;
+	position: relative;
+	text-decoration: none;
+	transition: 0.5s ease-in-out;
+}
+
+.heart-modal-text:hover {
+	transition: 0.5s ease-in-out;
+	color: rgb(23, 216, 71);
+}
+
+.heart-modal-text::before {
+	background: hsla(0, 0%, 0%, 0.205);
+	margin: 30[x];
+	border-radius: 8px;
+	content: '';
+	inset: 0;
+	position: absolute;
+	transform: scaleX(0);
+	transform-origin: right;
+	transition: transform 0.2s ease-in-out;
+	z-index: -1;
+}
+
+.heart-modal-text:hover::before {
+	transform: scaleX(1);
+	transform-origin: left;
+}
+
+.speach-bubble-modal {
+	position: relative;
+	border-radius: 0.4em;
+}
+
+.speach-bubble-modal:after {
+	content: '';
+	position: absolute;
+	top: 15px;
+	left: -31px;
+	width: 0;
+	height: 0;
+	border: 25px solid transparent;
+	border-top-color: #404145;
+	border-bottom: 0;
+	margin-left: -25px;
+	margin-bottom: -25px;
+}
+
+.heart-modal-text:hover {
+}
+
+.saved-modal {
+	position: fixed;
+	z-index: 100;
+	right: 20px;
+	bottom: 20px;
+	background-color: #404145;
+	color: #fff;
+	padding: 15px 20px;
+	border-radius: 8px;
+	box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px 0px;
+	cursor: pointer;
+	transition: background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+		transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+	font-weight: 500;
+	font-size: 16px;
+	opacity: 0.95; // Slightly transparent by default
+	transition: background-color 0.6s cubic-bezier(0.25, 0.8, 0.25, 1),
+		transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1),
+		opacity 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+	&:hover {
+		background-color: rgb(23, 216, 71);
+		transform: scale(1.05);
+		opacity: 1;
+	}
+}
+
+// .heart-icon {
+// 	position: relative;
+// 	width: 24px;
+// 	height: 24px;
+// }
+
+// .empty-heart,
+// .filled-heart {
+// 	position: absolute;
+// 	top: 0;
+// 	left: 0;
+// 	width: 100%;
+// 	height: 100%;
+// }
+
+// .empty-heart {
+// 	transform: scale(1.15); /* 10% larger */
+// 	z-index: -1; /* push it behind */
+// }

@@ -1,5 +1,7 @@
 .filter-btns-container {
-	position: relative;
+	position: sticky;
+	top: 0;
+	z-index: 55;
 	display: flex;
 	align-items: center;
 	background-color: #fff;
@@ -266,6 +268,7 @@ input::placeholder {
 		}
 	}
 }
+
 .seller-filter-container {
 	display: flex;
 	flex-direction: row;
@@ -282,12 +285,11 @@ input::placeholder {
 }
 
 .filter-checkbox-text {
-	font-size: 1em;
+	font-size: 16px;
 	font-weight: 600;
 	color: $clr2;
-	margin-right: 0;
-	margin-top: 15px;
-	margin-left: 15px;
+	margin-right: 30px;
+	margin-top: 17px;
 }
 
 .custom-radio {
