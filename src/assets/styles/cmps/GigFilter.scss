@@ -286,8 +286,9 @@ input::placeholder {
 	font-size: 1em;
 	font-weight: 600;
 	color: $clr2;
-	margin-right: 15px;
-	margin-top: 17px;
+	margin-right: 0;
+	margin-top: 15px;
+	margin-left: 15px;
 }
 
 .custom-radio {

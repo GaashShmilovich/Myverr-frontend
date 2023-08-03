@@ -84,16 +84,16 @@
 		</div>
 		<section class="seller-filter-container">
 			<div class="checkbox-container">
-				<input type="checkbox" class="seller-filter-btn" />
 				<p class="filter-checkbox-text">Pro services</p>
+				<input type="checkbox" class="seller-filter-btn" />
 			</div>
 			<div class="checkbox-container">
-				<input type="checkbox" class="seller-filter-btn" />
 				<p class="filter-checkbox-text">Local sellers</p>
+				<input type="checkbox" class="seller-filter-btn" />
 			</div>
 			<div class="checkbox-container">
-				<input type="checkbox" class="seller-filter-btn" />
 				<p class="filter-checkbox-text">Online sellers</p>
+				<input type="checkbox" class="seller-filter-btn" />
 			</div>
 		</section>
 		<!-- Applied Filters Display -->
