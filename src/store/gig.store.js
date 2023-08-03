@@ -1,5 +1,5 @@
-// import { gigService } from '../services/gig.service.local'
-import { gigService } from '../services/gig.service'
+import { gigService } from '../services/gig.service.local'
+// import { gigService } from '../services/gig.service'
 
 export function getActionRemoveGig(gigId) {
 	return {

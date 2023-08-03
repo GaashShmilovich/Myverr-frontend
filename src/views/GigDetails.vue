@@ -34,6 +34,7 @@
     </header>
     <div class="gig-about">
       <p class="about-title">About this gig </p>
+      <VoiceInput />
       <div class="about"> {{ gig.description.title }}</div>
       <p class="des-question">{{ questions[0] }}</p>
       <ul > <li v-for="a in answers" class="des-answer"> {{ a }}</li> </ul>
@@ -67,6 +68,7 @@ import PackageType from '../cmps/PackageType.vue'
 import GigDetailsCarusela from '../cmps/GigDetailsCarusela.vue'
 import FAQ from '../cmps/FAQ.vue'
 import AboutSeller from '../cmps/AboutSeller.vue'
+import VoiceInput from '../cmps/VoiceInput.vue'
 
 import { gigService } from '../services/gig.service.local.js'
 import { orderService } from '../services/order.service.local.js'
@@ -118,6 +120,7 @@ export default {
     GigDetailsCarusela,
     FAQ,
     AboutSeller,
+    VoiceInput
   },
 }
 </script>

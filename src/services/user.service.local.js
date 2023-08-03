@@ -131,7 +131,6 @@ function getLoggedinUser() {
 //         password: "giora",
 //         level: "premium",
 //         country: 'United States',
-//         orders: [],
 //     }
 
 //     )
