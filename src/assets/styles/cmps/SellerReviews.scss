@@ -1,0 +1,60 @@
+.seller-reviews {
+    img {
+        width: 30px;
+        height: 30px;
+    }
+    li {
+        // text-decoration: none;
+        list-style: none;
+    }
+    padding-left: 0;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid $clr6;
+  .review-by {
+    display: flex;
+    row-gap: 2px;
+    height: 53px;
+    .review-by-name {
+      p {
+        padding-left: 20px;
+        margin-top: -3px;
+        margin-bottom: 0;
+        font-family: macanSemibold;
+        color: $clr3;
+      }
+    }
+  }
+  .reviewer-img {
+    height: rem(48px);
+    width: rem(48px);
+    border-radius: 50%;
+  }
+  .review-rate-time {
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 66px;
+    font-size: rem(14px);
+  }
+  .country-img {
+    height: rem(20px);
+    width: rem(20px);
+    margin-left: 20px;
+    translate: 0 4px;
+  }
+
+  .country-name {
+    margin-left: 10px;
+    font-size: rem(14px);
+    font-family: macanRegular;
+    color: $clr2;
+  }
+  .txt {
+    margin-bottom: 20px;
+    margin-left: 68px;
+  }
+
+
+}
