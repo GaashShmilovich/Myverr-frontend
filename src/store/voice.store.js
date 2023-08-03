@@ -15,7 +15,7 @@ const state = {
   const actions = {
     startListening({ commit }) {
       // Start speech recognition here using the web-speech-api polyfill
-      const recognition = new window.SpeechRecognition();
+      const recognition = new window.SpeechRecognition()
       
       recognition.onstart = () => {
         commit('setIsListening', true);

@@ -7,7 +7,8 @@
 </template>
 
 <script>
-import { userService } from './services/user.service.local'
+// import { userService } from './services/user.service.local'
+import { userService } from './services/user.service'
 import { store } from './store/store'
 
 import AppHeader from './cmps/HeaderCmps/AppHeader.vue'

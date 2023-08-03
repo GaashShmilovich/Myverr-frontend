@@ -40,7 +40,8 @@
   
   <script>
   // import { Router zxbcsyf7e534Link, RouterView } from "vue-router";
-  import { gigService } from "../services/gig.service.local";
+  import { gigService } from "../services/gig.service";
+  // import { gigService } from "../services/gig.service.local";
   import UserOrders from "../cmps/SellerProfile/UserOrders.vue"
   
   export default {

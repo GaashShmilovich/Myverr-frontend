@@ -49,9 +49,17 @@ async function save(order) {
     if (order._id) {
         savedOrder = await storageService.put(STORAGE_KEY, order)
     } else {
-        // Later, owner is set by the backend
-        // order.buyer = userService.getLoggedinUser()
+
         savedOrder = await storageService.post(STORAGE_KEY, order)
     }
     return savedOrder
 }
+// then from seller dashboard:
+
+filteredGigs() {
+    if (this.user.isSeller) {
+      return this.$store.getters.gigs.filter(
+        (gig) => gig.owner._id === this.user.id
+      );
+    } 
+  },

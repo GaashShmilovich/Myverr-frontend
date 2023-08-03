@@ -70,7 +70,8 @@ import FAQ from '../cmps/FAQ.vue'
 import AboutSeller from '../cmps/AboutSeller.vue'
 import VoiceInput from '../cmps/VoiceInput.vue'
 
-import { gigService } from '../services/gig.service.local.js'
+// import { gigService } from '../services/gig.service.local.js'
+import { gigService } from '../services/gig.service.js'
 import { orderService } from '../services/order.service.local.js'
 import { userService } from '../services/user.service.local'
 

@@ -10,7 +10,8 @@
 <script>
 import SellerProfile from "./SellerProfile/SellerProfile.vue";
 import BuyerProfile from "./BuyerProfile.vue";
-import { userService } from "../services/user.service.local.js";
+import { userService } from "../services/user.service.js";
+// import { userService } from "../services/user.service.local.js";
 
 export default {
   data() {
