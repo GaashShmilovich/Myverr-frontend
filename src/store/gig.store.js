@@ -69,8 +69,6 @@ export const gigStore = {
 				state.filterBy.price.max = filter.max
 			} else if (filter.type === 'delivery') {
 				state.filterBy.delivery = filter.delivery
-			} else if (filter.type === 'owner') {
-				state.filterBy.owner = filter.owner
 			}
 		},
 	},

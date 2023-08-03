@@ -159,14 +159,34 @@
 
     .about {
         font-size: rem(16px);
+        font-family: macanBold;
         font-stretch: 100%;
         word-wrap: break-word;
         line-height: rem(24px);
         padding-bottom: rem(20px);
-        border-bottom: 1px solid $clr6;
-        margin-bottom: rem(20px);
+        color: $clr2;
     }
-
+    .des-question {
+        margin-top: rem(20px);
+        color: $clr2;
+        font-size: rem(16px);
+        font-family: macanBold;
+    }
+    .des-answer {
+        font-size: rem(16px);
+        color: $clr2;
+        line-height: rem(24px);
+        font-family: macanRegular;
+    }
+    .des-closer {
+        font-size: rem(16px);
+        color: $clr2;
+        line-height: rem(24px);
+        font-family: macanRegular;
+        margin-top: 30px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid $clr6;
+    }
     .title {
         font-family: macanBold;
         font-size: rem(20px);
@@ -236,6 +256,7 @@
         padding: rem(24px);
         border: 1px solid $clr6;
         .titles {
+            margin-top: -30px;
             display: grid;
             // grid-template-columns: 1fr 1fr;
             grid-column: 2;

@@ -29,18 +29,18 @@
             <section class="fees">
                 <section class="service-fee">
                 <p>Service fee <i class="fa-solid fa-circle-question"></i></p>
-                <p>₪11.73</p> 
+                <p>$11.73</p> 
                 </section>
                 <section class="vat">
                 <p>VAT <i class="fa-solid fa-circle-question"></i></p>
-                <p>₪8.50</p>
+                <p>$8.50</p>
                 </section>
             </section>
 
             <section class="totals">
                 <section class="ttl">
                 <p class="total">Total </p>
-                <p class="t-price">₪{{ totalPrice() }}</p>
+                <p class="t-price">${{ totalPrice() }}</p>
                 </section>
                 <section class="del-time">
                 <p class="delivery-time"><font-awesome-icon class="ques-icon" :icon="['fas', 'circle-question']" />
@@ -57,7 +57,7 @@
             </section>
             <section class="secure">
                 <p class="ssl">SSL Secure Payment </p>
-                <p class="be-charged">You will be charged ₪{{ totalPrice() }}. Total amount includes currency conversion fees </p>
+                <p class="be-charged">You will be charged ${{ totalPrice() }}. Total amount includes currency conversion fees </p>
             </section>
         </div>
     </div>

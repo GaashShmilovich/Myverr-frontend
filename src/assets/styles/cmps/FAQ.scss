@@ -4,13 +4,18 @@
     }
 
     h2 {
-        margin-top: rem(40px);
+        margin-top: rem(60px);
+        font-size: rem(20px);
+        margin-bottom: 8px;
+        font-family: macanBold;
+        color: $clr3;
     }
 
     .faq-item {
         display: flex;
         flex-direction: column;
         color: $clr2;
+        margin-bottom: -20px;
 
         &:first-child {
             border-top: none;

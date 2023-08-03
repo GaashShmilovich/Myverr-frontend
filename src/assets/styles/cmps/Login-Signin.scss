@@ -1,0 +1,331 @@
+.login-signin {
+
+    width: 875px;
+    height: 505px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+
+    z-index: 22111;
+
+    @include for-narrow-layout {
+        grid-template-columns: 1fr;
+        // height: 505px;
+        width: 400px;
+        border-top-left-radius: 12px;
+        
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+        .login {
+            width: 100%;
+            z-index: 30000;
+            height: 700px;
+            margin-left: -20px;
+            position: relative;
+            // padding-right: 100px;
+            // margin-right: 60px;
+
+            .title,
+            .sub-title {
+                display: none;
+            }
+        }
+
+        .mobile-sub-title {
+            // display: block;
+            font-size: rem(40px);
+            line-height: rem(48px);
+            font-family: macanBold;
+            color: $clr4;
+            margin-top: 60px;
+            span {
+                color: $red2;
+            }
+        }
+
+        .mobile-title {
+            display: flex;
+            justify-content: space-between;
+            margin-top: -10px;
+            margin-left: 15px;
+        }
+
+        .ggl,
+        .username {
+            width: 340px;
+            // margin-bottom: -10px;
+        }
+        .or {
+            margin-top: -50px;
+        }
+        .mobile-footer {
+            font-size: 12px;
+            display: block;
+            position: absolute;
+            bottom: 0;
+            text-align: start;
+            color: $clr5;
+            padding-bottom: 5px;
+            padding-left: 3px;
+            span {
+                text-decoration: underline;
+            }
+        }
+        img {
+            display: none;
+        }
+
+    }
+    @include for-mobile-layout {
+        width: 100vw;
+        height: 100%;
+        padding: 0;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        
+        .login {
+            margin-bottom: -40px;
+            padding-bottom: -70px;
+            padding-right: 0;
+            height: 100vh;
+            border-top-right-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+        .login-backdrop {
+            display: none;
+            z-index: -1;
+        }
+        .mobile-title {
+            margin-top: -30px;
+            margin-left: 20px;
+        }
+        .mobile-sub-title {
+            font-size: rem(32px);
+        }
+        .ggl,
+        .username {
+            text-align: center;
+            align-self: center;
+            width: 90vw;
+        }
+        
+    }
+
+    img {
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+        height: 100%;
+        width: 100%;
+        // overflow-wrap: normal;
+    }
+
+    .mobile-footer {
+        // font-size: rem(12px);
+        // display: none;
+        position: absolute;
+            bottom: 0;
+    }
+
+    .mobile-sub-title,
+    .mobile-title,
+    .mobile-footer {
+        z-index: -1;
+    }
+
+    .login {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-around;
+        padding: 40px;
+        padding-top: 60px;
+
+
+        .title {
+            font-size: rem(24px);
+            font-family: macanBold;
+            color: $clr3;
+            margin-bottom: 6px;
+            margin-top: -30px;
+        }
+
+        .sub-title {
+            font-size: rem(16px);
+            font-family: macanRegular;
+            color: $clr2;
+            margin-bottom: -60px;
+
+            span {
+                text-decoration: underline;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .ggl,
+        .username {
+            font-size: rem(16px);
+            font-family: macanSemibold;
+            color: $clr3;
+            border: 1px solid $clr11;
+            border-radius: 4px;
+            // padding: 17px 6px;
+            width: 360px;
+            height: 50px;
+            position: relative;
+
+            // margin-top: -50px;
+
+            i {
+                position: absolute;
+                left: 20px;
+            }
+        }
+
+        .or {
+            font-size: rem(12px);
+            font-family: macanBold;
+            color: $clr9;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: space-between;
+
+            .apl,
+            .fbk {
+                font-size: rem(16px);
+                font-family: macanSemibold;
+                color: $clr3;
+                border: 1px solid $clr11;
+                border-radius: 4px;
+                width: 175px;
+                height: 50px;
+                position: relative;
+
+                i {
+                    position: absolute;
+                    left: 20px;
+                }
+            }
+        }
+    }
+
+    .img-container {
+        position: relative;
+
+        .txt {
+            position: absolute;
+            z-index: 23000;
+            top: 50px;
+            left: 40px;
+            color: $clr1;
+
+            .title {
+                font-family: macanBold;
+                font-size: rem(32px);
+                margin-bottom: 15px;
+            }
+
+            span {
+                padding-left: 20px;
+            }
+
+            i {
+                fill: $clr1;
+                // height: 10px;
+                // font-size: 18px;
+            }
+        }
+    }
+
+    .username-login {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        background-color: $clr1;
+        display: flex;
+        flex-direction: column;
+        padding: 0 40px;
+
+        .back {
+            align-self: flex-start;
+            margin-top: 15px;
+            margin-left: -13px;
+            color: $clr3;
+            font-size: rem(14px);
+            font-family: macanSemibold;
+
+            i {
+                padding-right: 4px;
+            }
+        }
+
+        .title {
+            margin-top: 18px;
+            margin-bottom: 15px;
+            line-height: rem(31px);
+        }
+
+        .input-title {
+            margin-top: 15px;
+            margin-bottom: 3px;
+            color: $clr3;
+            font-family: macanSemibold;
+            font-size: rem(16px);
+        }
+
+        input {
+            height: 45px;
+            border: 1px solid $clr6;
+            border-radius: 4px;
+            margin-top: 0;
+            padding-left: 15px;
+            color: $clr3;
+            font-size: rem(16px);
+            font-family: macanRegular;
+        }
+
+        .btn-continue {
+            font-size: rem(16px);
+            font-family: macanSemibold;
+            color: $clr1;
+            background-color: $clr4;
+            border: 1px solid $clr11;
+            border-radius: 4px;
+            width: 360px;
+            height: 50px;
+            margin-left: -1px;
+            margin-top: 30px;
+
+            &:hover {
+                background-color: $clr2;
+            }
+        }
+
+    }
+}
+
+.login-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $clr7;
+    opacity: 0.7;
+    z-index: 22000;
+}

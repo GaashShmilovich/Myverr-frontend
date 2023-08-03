@@ -1,7 +1,7 @@
 header {
   background-color: transparent;
   align-items: center;
-  z-index: 10000;
+  z-index: 100;
   grid-row: 1/2;
   transition: background-color 0.2s ease-out;
   flex: 1;
@@ -30,8 +30,10 @@ header {
     &.hidden {
       display: none;
     }
+
     &.shown {
       display: grid;
+
       border-bottom: 1px solid rgb(228, 229, 231);
     }
   }
@@ -90,13 +92,15 @@ header {
       align-items: center;
       flex-basis: 100%;
       justify-content: space-between;
+
       // flex: 1;
 
       .route-container {
         display: flex;
-        flex-basis: em(415px);
+        flex-basis: 15em;
         align-items: center;
         justify-content: space-between;
+
         a {
           font-size: rem(16px);
           color: #fff;
@@ -109,6 +113,8 @@ header {
           border: 1px solid $clr1;
           text-align: center;
           border-radius: 4px;
+          margin-inline-start: 3em;
+
           &:hover {
             border-color: $green1;
             background-color: $green1;
@@ -154,22 +160,14 @@ header {
     overflow: hidden;
     flex-wrap: nowrap;
     grid-column: 2 / 3;
+
     a {
       display: block;
       position: relative;
       color: $clr2;
       padding: rem(8px) 0 rem(8px) 0;
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 3.5px;
-        transition: background-color 0.2s ease-in;
-      }
-      &:hover::after {
-        background-color: $green1;
+      &:hover {
+        box-shadow: inset 0 -4px $green1;
       }
     }
 

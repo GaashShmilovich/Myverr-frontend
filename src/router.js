@@ -3,13 +3,15 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from './views/Home.vue'
 import Chat from './views/Chat.vue'
 import GigIndex from './views/GigIndex.vue'
-import LoginSignup from './views/LoginSignup.vue'
+import Login from './views/Login.vue'
+import Signup from './views/Signup.vue'
 // import UserDetails from './views/UserDetails.vue'
 import UserProfile from '../src/cmps/UserProfile.vue'
 import GigDetails from './views/GigDetails.vue'
 import GigEdit from './views/GigEdit.vue'
 import Payment from '../src/cmps/Payment.vue'
 import MyGigs from '../src/cmps/SellerProfile/MyGigs.vue'
+import UserOrders from '../src/cmps/SellerProfile/UserOrders.vue'
 
 const routes = [
   {
@@ -28,7 +30,7 @@ const routes = [
     component: GigDetails
   },
   {
-    path: '/explore/edit/:gigId?',
+    path: '/user/:gigId?/edit',
     name: 'GigEdit',
     component: GigEdit
   },
@@ -39,8 +41,13 @@ const routes = [
   },
   {
     path: '/login',
-    name: 'LoginSignup',
-    component: LoginSignup
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/signup',
+    name: 'Signup',
+    component: Signup
   },
   // {
   //   path: '/user/:id',
@@ -57,11 +64,11 @@ const routes = [
         name: 'MyGigs',
         component: MyGigs
       },
-      // {
-      //   path: '/orders',
-      //   name: 'UserGigs',
-      //   component: UserOrders
-      // },
+      {
+        path: '/orders',
+        name: 'UserOrders',
+        component: UserOrders
+      },
       // {
       //   path: '/receivedOrders',
       //   name: 'UserSettings',

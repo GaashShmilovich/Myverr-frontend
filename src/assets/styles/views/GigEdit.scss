@@ -4,10 +4,41 @@
   justify-content: center;
   width: 60vw;
 
+  &_title {
+    display: flex;
+    gap: rem(25px);
+
+    .el-input__wrapper {
+      height: rem(54px);
+    }
+
+    span {
+      width: rem(200px);
+      p {
+        font-size: rem(12px);
+      }
+    }
+  }
+
+  &_description {
+    display: flex;
+    gap: rem(25px);
+    span {
+      width: rem(200px);
+      p {
+        font-size: rem(12px);
+      }
+    }
+  }
+
   &_form {
+    margin-block-start: rem(20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 100%;
     padding: em(30px) em(15px);
-    border: 1px solid $clr3;
+    border: 1px solid $green1;
   }
 
   form {

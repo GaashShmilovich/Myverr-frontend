@@ -28,6 +28,14 @@ export default {
 				delivery: null,
 				subCategory: null,
 			},
+			filters: {
+				type: null,
+				txt: null,
+				min: null,
+				max: null,
+				delivery: null,
+				subCategory: null,
+			},
 		}
 	},
 	components: {

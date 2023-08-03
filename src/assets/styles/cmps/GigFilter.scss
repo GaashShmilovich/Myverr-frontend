@@ -11,6 +11,7 @@
 	padding: 5px;
 	padding-left: 0;
 	flex-wrap: wrap;
+	flex-wrap: wrap;
 }
 
 .filter-group {
@@ -285,9 +286,8 @@ input::placeholder {
 	font-size: 1em;
 	font-weight: 600;
 	color: $clr2;
-	margin-right: 0;
-	margin-top: 15px;
-	margin-left: 15px;
+	margin-right: 15px;
+	margin-top: 17px;
 }
 
 .custom-radio {
