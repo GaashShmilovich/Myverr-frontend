@@ -117,7 +117,6 @@ function getLoggedinUser() {
 //         password: "gaash",
 //         level: "basic/premium",
 //         country: 'Israel',
-//         orders: [],
 //     }
 
 //     )
@@ -130,7 +129,6 @@ function getLoggedinUser() {
 //         password: "giora",
 //         level: "premium",
 //         country: 'United States',
-//         orders: [],
 //     }
 
 //     )
@@ -143,7 +141,6 @@ function getLoggedinUser() {
 //         password: "oryan",
 //         level: "basic",
 //         country: 'United Kingdom',
-//         orders: [],
 //     }
 
 //     )
