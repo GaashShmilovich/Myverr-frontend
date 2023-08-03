@@ -28,14 +28,6 @@ export default {
 				delivery: null,
 				subCategory: null,
 			},
-			filters: {
-				type: null,
-				txt: null,
-				min: null,
-				max: null,
-				delivery: null,
-				subCategory: null,
-			},
 		}
 	},
 	components: {
@@ -50,74 +42,12 @@ export default {
 		},
 	},
 	created() {
-		if (this.$route.query.txt) {
-			this.$store.dispatch({
-				type: 'loadGigs',
-				filterBy: {
-					type: 'txt',
-					txt: this.$route.query.txt,
-				},
-			})
-		} else if (this.$route.query.subCategory) {
-			this.$store.dispatch({
-				type: 'loadGigs',
-				filterBy: {
-					type: 'subCategory',
-					subCategory: this.$route.query.subCategory,
-				},
-			})
-		} else if (this.$route.query.min && this.$route.query.max) {
-			this.$store.dispatch({
-				type: 'loadGigs',
-				filterBy: {
-					type: 'budget',
-					min: this.$route.query.min,
-					max: this.$route.query.max,
-				},
-			})
-		} else if (this.$route.query.delivery) {
-			this.$store.dispatch({
-				type: 'loadGigs',
-				filterBy: {
-					type: 'delivery',
-					delivery: this.$route.query.delivery,
-				},
-			})
-		} else {
-			this.loadGigs()
-		}
+		this.loadGigsFromQuery()
 	},
 	watch: {
 		'$route.query': {
 			handler() {
-				if (this.$route.query.subCategory) {
-					this.$store.dispatch({
-						type: 'loadGigs',
-						filterBy: {
-							type: 'subCategory',
-							subCategory: this.$route.query.subCategory,
-						},
-					})
-				}
-				if (this.$route.query.delivery) {
-					this.$store.dispatch({
-						type: 'loadGigs',
-						filterBy: {
-							type: 'delivery',
-							delivery: this.$route.query.delivery,
-						},
-					})
-				}
-				if (this.$route.query.min && this.$route.query.max) {
-					this.$store.dispatch({
-						type: 'loadGigs',
-						filterBy: {
-							type: 'budget',
-							min: this.$route.query.min,
-							max: this.$route.query.max,
-						},
-					})
-				}
+				this.loadGigsFromQuery()
 			},
 			deep: true,
 		},
@@ -138,16 +68,14 @@ export default {
 			})
 		},
 		loadGigsFromQuery() {
-			const { txt, min, max, delivery, category, subCategory } =
-				this.$route.query
+			const { txt, min, max, delivery, subCategory } = this.$route.query
 
 			const filterBy = {
-				txt,
-				min,
-				max,
-				delivery,
-				category,
-				subCategory,
+				txt: txt || null,
+				min: min || null,
+				max: max || null,
+				delivery: delivery || null,
+				subCategory: subCategory || null,
 			}
 
 			this.$store.dispatch({

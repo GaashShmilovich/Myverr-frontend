@@ -14,7 +14,6 @@ export const gigService = {
 window.cs = gigService
 
 async function query(filters, sortBy) {
-async function query(filters, sortBy) {
 	var gigs = await storageService.query(STORAGE_KEY)
 
 	if (filters.subCategory) {
@@ -62,26 +61,30 @@ async function query(filters, sortBy) {
 				return avgRatingB - avgRatingA
 			})
 		}
-	// Sorting
-	if (sortBy) {
-		if (sortBy === 'Highest Rating') {
-			gigs = gigs.sort((a, b) => {
-				const avgRatingA =
-					a.reviews.reduce((acc, review) => acc + review.rate, 0) /
-					a.reviews.length
-				const avgRatingB =
-					b.reviews.reduce((acc, review) => acc + review.rate, 0) /
-					b.reviews.length
-				return avgRatingB - avgRatingA
-			})
-		}
+		// Sorting
+		if (sortBy) {
+			if (sortBy === 'Highest Rating') {
+				gigs = gigs.sort((a, b) => {
+					const avgRatingA =
+						a.reviews.reduce(
+							(acc, review) => acc + review.rate,
+							0
+						) / a.reviews.length
+					const avgRatingB =
+						b.reviews.reduce(
+							(acc, review) => acc + review.rate,
+							0
+						) / b.reviews.length
+					return avgRatingB - avgRatingA
+				})
+			}
 
-		if (sortBy === 'Most Reviews') {
-			gigs = gigs.sort((a, b) => {
-				return b.reviews.length - a.reviews.length
-			})
+			if (sortBy === 'Most Reviews') {
+				gigs = gigs.sort((a, b) => {
+					return b.reviews.length - a.reviews.length
+				})
+			}
 		}
-	}
 		if (sortBy === 'Most Reviews') {
 			gigs = gigs.sort((a, b) => {
 				return b.reviews.length - a.reviews.length
