@@ -502,7 +502,7 @@ function getEmptyGig() {
 // 				],
 // 				closer: " My design process begins with understanding your brand's essence and target audience. I'll craft a project that not only stands out but also communicates your brand's values effectively. With attention to all the little details, I'll ensure your project leaves a lasting impact. I'm here to bring your vision to life. Let's collaborate and create something that sets you apart from the competition!",
 // 			},
-// 				imgUrls: [
+// 			imgUrls: [
 // 				'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/125098235/original/fd486f60da0f9758af41ec3a8988cb3775e9b351/set-up-and-optimize-your-pinterest-profile-boards-and-pins.jpg',
 // 				'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/125098235/original/2d52bce49adbfdceb1911492819958e27e8f251d/set-up-and-optimize-your-pinterest-profile-boards-and-pins.png',
 // 				'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/125098235/original/548c79ae671aefc4026236d4f558c59fd38cfab1/set-up-and-optimize-your-pinterest-profile-boards-and-pins.jpeg',
@@ -1161,7 +1161,7 @@ function getEmptyGig() {
 // 				],
 // 				closer: " My design process begins with understanding your brand's essence and target audience. I'll craft a project that not only stands out but also communicates your brand's values effectively. With attention to all the little details, I'll ensure your project leaves a lasting impact. I'm here to bring your vision to life. Let's collaborate and create something that sets you apart from the competition!",
 // 			},
-// 				imgUrls: [
+// 			imgUrls: [
 // 				'https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs/294648561/original/2d8b64792b5fa8486699cc6175d13642da51e22c/increase-dr-domain-rating-to-45-guaranteed.png',
 // 				'https://fiverr-res.cloudinary.com/images/t_smartwm/t_delivery_thumb,q_auto,f_auto/attachments/delivery/asset/f0f3636391255054c175fe86cfb4eabf-1690709360/image_2023-07-30_142914944/increase-dr-domain-rating-to-45-guaranteed.png',
 // 				'https://fiverr-res.cloudinary.com/t_gig_cards_web_x2,q_auto,f_auto/gigs/291069007/original/e5b50430396dfca6129faff57a8d80ed83d014ec.png',
@@ -1254,7 +1254,7 @@ function getEmptyGig() {
 // 				],
 // 				closer: " My design process begins with understanding your brand's essence and target audience. I'll craft a project that not only stands out but also communicates your brand's values effectively. With attention to all the little details, I'll ensure your project leaves a lasting impact. I'm here to bring your vision to life. Let's collaborate and create something that sets you apart from the competition!",
 // 			},
-// 		imgUrls: [
+// 			imgUrls: [
 // 				'https://fiverr-res.cloudinary.com/t_gig_cards_web_x2,q_auto,f_auto/gigs/278927309/original/a32ae315b7157fe1beaccbdd52460f0980d9951e.png',
 // 				'https://fiverr-res.cloudinary.com/t_gig_cards_web_x2,q_auto,f_auto/gigs2/278927309/original/8e4d62139fbbdff6a07c7df4442b444c3cc6a90c.png',
 // 				'https://fiverr-res.cloudinary.com/t_gig_cards_web_x2,q_auto,f_auto/gigs3/278927309/original/9b4b140f44f0c1964885a86a4394e0cc345a1caa.png',
@@ -1336,7 +1336,7 @@ function getEmptyGig() {
 // 			],
 // 			closer: " My design process begins with understanding your brand's essence and target audience. I'll craft a project that not only stands out but also communicates your brand's values effectively. With attention to all the little details, I'll ensure your project leaves a lasting impact. I'm here to bring your vision to life. Let's collaborate and create something that sets you apart from the competition!",
 // 		},
-// 			imgUrls: [
+// 		imgUrls: [
 // 			'https://fiverr-res.cloudinary.com/t_gig_cards_web_x2,q_auto,f_auto/gigs/133279260/original/eecca09d31e3f26a2784e0307fdb19d736b537aa.png',
 // 			'https://fiverr-res.cloudinary.com/t_gig_cards_web_x2,q_auto,f_auto/gigs2/133279260/original/d5fd7f0d1ff804a3a10620fe7be829733b5d82e5.png',
 // 			'https://fiverr-res.cloudinary.com/t_gig_cards_web_x2,q_auto,f_auto/attachments/delivery/asset/1ea32c6b10fcba661035e79ecdb02c1b-1678102994/billing.mikuchnetwork.com_home(1080p).png',

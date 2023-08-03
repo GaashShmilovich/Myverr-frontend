@@ -32,9 +32,9 @@
       <tbody>
         <tr v-for="(order, i) in orders" :key="order._id">
           <th scope="row">{{ i + 1 }}</th>
-          <td>{{ order.buyer }}</td>
+          <td>{{ order.buyer.fullname }}</td>
           <td>{{ order.gig.name }}</td>
-          <td>{{ order.gig.name }}</td>
+          <td>{{ order.createdAt }}</td>
           <td>${{ order.gig.price }}</td>
           <td>{{ order.status }}</td>
         </tr>
