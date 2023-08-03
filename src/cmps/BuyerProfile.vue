@@ -32,21 +32,16 @@
         </div>
         <div class="main-gigs">
           <RouterView :user="user" />
+          <!-- <UserOrders :user="user" /> -->
         </div>
       </div>
     </section>
   </template>
   
   <script>
-  import { RouterLink, RouterView } from "vue-router";
-  // import { showErrorMsg, showSuccessMsg } from "../../services/event-bus.service";
+  // import { Router zxbcsyf7e534Link, RouterView } from "vue-router";
   import { gigService } from "../services/gig.service.local";
-  import { userService } from "../services/user.service.local";
-  import {
-    getActionRemoveGig,
-    getActionUpdateGig,
-    getActionAddGigMsg,
-  } from "../store/gig.store";
+  import UserOrders from "../cmps/SellerProfile/UserOrders.vue"
   
   export default {
     props: {
@@ -65,19 +60,10 @@
       userOrdersLink() {
         return `/user/${this.user._id}/orders`;
       },
-      userReviewsLink() {
-        return `/user/${this.user._id}/reviews`;
-      },
       loggedInUser() {
         return this.$store.getters.loggedinUser;
       },
-      gigs() {
-        return this.$store.getters.gigs;
-      },
-    },
-    created() {
-      this.$store.dispatch({ type: "loadGigs" });
-    },
+      
     methods: {
       getOrders() {
         return this.$store.getters.orders.filter(
@@ -87,45 +73,7 @@
       doLogout() {
         this.$store.dispatch({ type: "logout" });
       },
-      async addGig() {
-        try {
-          await this.$store.dispatch({ type: "addGig", gig: this.gigToAdd });
-          showSuccessMsg("Gig added");
-          this.gigToAdd = gigService.getEmptyGig();
-        } catch (err) {
-          console.log(err);
-          showErrorMsg("Cannot add gig");
-        }
-      },
-      async removeGig(gigId) {
-        try {
-          await this.$store.dispatch(getActionRemoveGig(gigId));
-          showSuccessMsg("Gig removed");
-        } catch (err) {
-          console.log(err);
-          showErrorMsg("Cannot remove gig");
-        }
-      },
-      async updateGig(gig) {
-        try {
-          gig = { ...gig };
-          gig.price = +prompt("New price?", gig.price);
-          await this.$store.dispatch(getActionUpdateGig(gig));
-          showSuccessMsg("Gig updated");
-        } catch (err) {
-          console.log(err);
-          showErrorMsg("Cannot update gig");
-        }
-      },
-      async addGigMsg(gigId) {
-        try {
-          await this.$store.dispatch(getActionAddGigMsg(gigId));
-          showSuccessMsg("Gig msg added");
-        } catch (err) {
-          console.log(err);
-          showErrorMsg("Cannot add gig msg");
-        }
-      },
+     
       printGigToConsole(gig) {
         console.log("Gig msgs:", gig.msgs);
       },
@@ -133,7 +81,11 @@
         this.activeTab = index;
       },
     },
-    components: { RouterView, RouterLink },
-  };
+    components: {
+      UserOrders,
+    }
+  }
+}
+  
   </script>
   
