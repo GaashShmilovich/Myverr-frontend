@@ -39,7 +39,7 @@ export default {
     },
     filteredGigs() {
       return this.$store.getters.gigs.filter(
-        (gig) => gig.owner._id === this.user._id
+        (gig) => gig.owner._id === this.user.id
       );
     },
   },
