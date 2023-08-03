@@ -12,6 +12,8 @@ import GigEdit from './views/GigEdit.vue'
 import Payment from '../src/cmps/Payment.vue'
 import MyGigs from '../src/cmps/SellerProfile/MyGigs.vue'
 import UserOrders from '../src/cmps/SellerProfile/UserOrders.vue'
+import ReceivedOrders from '../src/cmps/SellerProfile/ReceivedOrders.vue'
+import SellerReviews from '../src/cmps/SellerProfile/SellerReviews.vue'
 
 const routes = [
   {
@@ -65,20 +67,21 @@ const routes = [
         component: MyGigs
       },
       {
-        path: '/orders',
-        name: 'UserOrders',
-        component: UserOrders
+        path: 'orders',
+        name: 'ReceivedOrders',
+        component: ReceivedOrders
       },
       // {
-      //   path: '/receivedOrders',
-      //   name: 'UserSettings',
-      //   component: ReceivedOrders
+      //   path: '/orders',
+      //   name: 'UserOrders',
+      //   component: UserOrders
       // },
-      // {
-      //   path: '/reviews',
-      //   name: 'UserSettings',
-      //   component: reviews
-      // },
+
+      {
+        path: 'reviews',
+        name: 'SellerReviews',
+        component: SellerReviews
+      },
     ]
   },
   {

@@ -14,7 +14,6 @@ export const gigService = {
 window.cs = gigService
 
 async function query(filters, sortBy) {
-	console.log(filters)
 	var gigs = await storageService.query(STORAGE_KEY)
 
 	if (gigs && filters) {

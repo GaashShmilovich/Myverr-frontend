@@ -32,22 +32,22 @@
           :to="userGigsLink"
           >My gigs</RouterLink
         >
-        <RouterLink
+        <!-- <RouterLink
           @click="setActiveTab"
           :class="{ active: activeTab }"
           :to="userOrdersLink"
           >My orders</RouterLink
+        > -->
+        <RouterLink
+          @click="setActiveTab"
+          :class="{ active: activeTab }"
+          :to="userOrdersLink"
+          >Orders</RouterLink
         >
         <RouterLink
           @click="setActiveTab"
           :class="{ active: activeTab }"
-          :to="loggedInUser._id + '/gigs'"
-          >Received orders</RouterLink
-        >
-        <RouterLink
-          @click="setActiveTab"
-          :class="{ active: activeTab }"
-          :to="loggedInUser._id + '/gigs'"
+          :to="userReviewsLink"
           >Reviews</RouterLink
         >
       </div>
@@ -59,6 +59,7 @@
 </template>
 
 <script>
+import { RouterLink, RouterView } from "vue-router";
 import { showErrorMsg, showSuccessMsg } from "../../services/event-bus.service";
 import { gigService } from "../../services/gig.service.local";
 import { userService } from "../../services/user.service.local";
@@ -84,6 +85,9 @@ export default {
     },
     userOrdersLink() {
       return `/user/${this.user._id}/orders`;
+    },
+    userReviewsLink() {
+      return `/user/${this.user._id}/reviews`;
     },
     loggedInUser() {
       return this.$store.getters.loggedinUser;
@@ -145,5 +149,6 @@ export default {
       this.activeTab = index;
     },
   },
+  components: { RouterView, RouterLink },
 };
 </script>
