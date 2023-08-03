@@ -22,30 +22,13 @@
       </div>
       <div class="seller-section">
         <div class="tabs">
-          <RouterLink
-            @click="setActiveTab"
-            :class="{ active: activeTab }"
-            :to="userGigsLink"
-            >My gigs</RouterLink
-          >
-          <!-- <RouterLink
-            @click="setActiveTab"
-            :class="{ active: activeTab }"
-            :to="userOrdersLink"
-            >My orders</RouterLink
-          > -->
+          
           <RouterLink
             @click="setActiveTab"
             :class="{ active: activeTab }"
             :to="userOrdersLink"
             >Orders</RouterLink
           >
-          <!-- <RouterLink
-            @click="setActiveTab"
-            :class="{ active: activeTab }"
-            :to="userReviewsLink"
-            >Reviews</RouterLink
-          > -->
         </div>
         <div class="main-gigs">
           <RouterView :user="user" />
@@ -96,6 +79,11 @@
       this.$store.dispatch({ type: "loadGigs" });
     },
     methods: {
+      getOrders() {
+        return this.$store.getters.orders.filter(
+          (order) => order.buyer._id === this.user._id
+        )
+      },
       doLogout() {
         this.$store.dispatch({ type: "logout" });
       },

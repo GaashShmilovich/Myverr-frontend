@@ -42,17 +42,7 @@ export default {
         return this.$store.getters.gigs.filter(
           (gig) => gig.owner._id === this.user.id
         );
-      } else {
-        // return this.$store.getters.gigs.filter(
-        //   (gig) => gig.owner._id === this.user.id
-        // );
-        const order = this.$store.getters.orders.filter(
-          (order) => order.buyer._id === this.user._id
-        )
-        return this.$store.getters.gigs.filter(
-          (gig) => gig._id === order.gig_id
-        )
-      }
+      } 
     },
   },
   created() {
