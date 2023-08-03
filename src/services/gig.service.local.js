@@ -13,62 +13,60 @@ export const gigService = {
 }
 window.cs = gigService
 
-async function query(filterBy, sortBy) {
+async function query(filters, sortBy) {
 	var gigs = await storageService.query(STORAGE_KEY)
 
-	if (gigs && filterBy) {
-		if (filterBy.type === 'budget') {
-			gigs = gigs.filter((gig) => {
-				return gig.price >= filterBy.min && gig.price <= filterBy.max
-			})
-		}
-		if (filterBy.type === 'delivery') {
-			gigs = gigs.filter((gig) => {
-				return gig.daysToMake <= filterBy.delivery
-			})
-		}
-		if (filterBy.type === 'txt') {
-			gigs = gigs.filter((gig) => {
-				const isInTitle = gig.title
-					.toLowerCase()
-					.includes(filterBy.txt?.toLowerCase() || '')
-				const isInTags = gig.tags.some((tag) =>
-					tag
-						.toLowerCase()
-						.includes(filterBy.txt?.toLowerCase() || '')
-				)
-				return isInTitle || isInTags
-			})
-		}
-
-		if (filterBy.type === 'subCategory') {
-			console.log(filterBy)
-			gigs = gigs.filter((gig) => {
-				return gig.tags.some((tag) =>
-					tag
-						.toLowerCase()
-						.includes(filterBy.subCategory?.toLowerCase() || '')
-				)
-			})
-		}
-	}
-
-	if (gigs && sortBy === 'Highest Rating') {
-		gigs = gigs.sort((a, b) => {
-			const avgRatingA =
-				a.reviews.reduce((acc, review) => acc + review.rate, 0) /
-				a.reviews.length
-			const avgRatingB =
-				b.reviews.reduce((acc, review) => acc + review.rate, 0) /
-				b.reviews.length
-			return avgRatingB - avgRatingA
+	if (filters.subCategory) {
+		const subCategoryLower = filters.subCategory.toLowerCase()
+		gigs = gigs.filter((gig) => {
+			return gig.tags.some((tag) =>
+				tag.toLowerCase().includes(subCategoryLower)
+			)
 		})
 	}
 
-	if (gigs && sortBy === 'Most Reviews') {
-		gigs = gigs.sort((a, b) => {
-			return b.reviews.length - a.reviews.length
+	// Text filter
+	if (filters.txt) {
+		const txtLower = filters.txt.toLowerCase()
+		gigs = gigs.filter((gig) => {
+			return (
+				gig.title.toLowerCase().includes(txtLower) ||
+				gig.tags.some((tag) => tag.toLowerCase().includes(txtLower))
+			)
 		})
+	}
+
+	// Budget filter (removed subCategory condition from here, as it's already handled)
+	if (filters.min && filters.max) {
+		gigs = gigs.filter(
+			(gig) => gig.price >= filters.min && gig.price <= filters.max
+		)
+	}
+
+	// Delivery filter
+	if (filters.delivery) {
+		gigs = gigs.filter((gig) => gig.daysToMake <= filters.delivery)
+	}
+
+	// Sorting
+	if (sortBy) {
+		if (sortBy === 'Highest Rating') {
+			gigs = gigs.sort((a, b) => {
+				const avgRatingA =
+					a.reviews.reduce((acc, review) => acc + review.rate, 0) /
+					a.reviews.length
+				const avgRatingB =
+					b.reviews.reduce((acc, review) => acc + review.rate, 0) /
+					b.reviews.length
+				return avgRatingB - avgRatingA
+			})
+		}
+
+		if (sortBy === 'Most Reviews') {
+			gigs = gigs.sort((a, b) => {
+				return b.reviews.length - a.reviews.length
+			})
+		}
 	}
 
 	return gigs

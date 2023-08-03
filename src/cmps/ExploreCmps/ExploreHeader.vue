@@ -50,10 +50,19 @@ export default {
 				const decodedCategory = decodeURIComponent(
 					this.$route.query.category || ''
 				).replace(/\b\w/g, (l) => l.toUpperCase())
+
 				if (decodedCategory) {
 					this.categoryFromUrl = decodedCategory
 				} else {
 					this.categoryFromUrl = 'Graphics & Design'
+					this.$router.replace({
+						path: this.$route.path,
+						query: {
+							...this.$route.query,
+							category: 'Graphics & Design',
+							subCategory: 'Logo Design',
+						},
+					})
 				}
 			},
 		},

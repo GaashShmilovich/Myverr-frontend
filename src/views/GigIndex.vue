@@ -20,7 +20,14 @@ import ExploreHeader from '../cmps/ExploreCmps/ExploreHeader.vue'
 export default {
 	data() {
 		return {
-			// gigs: [],
+			filters: {
+				type: null,
+				txt: null,
+				min: null,
+				max: null,
+				delivery: null,
+				subCategory: null,
+			},
 		}
 	},
 	components: {
@@ -51,15 +58,60 @@ export default {
 					subCategory: this.$route.query.subCategory,
 				},
 			})
+		} else if (this.$route.query.min && this.$route.query.max) {
+			this.$store.dispatch({
+				type: 'loadGigs',
+				filterBy: {
+					type: 'budget',
+					min: this.$route.query.min,
+					max: this.$route.query.max,
+				},
+			})
+		} else if (this.$route.query.delivery) {
+			this.$store.dispatch({
+				type: 'loadGigs',
+				filterBy: {
+					type: 'delivery',
+					delivery: this.$route.query.delivery,
+				},
+			})
 		} else {
 			this.loadGigs()
 		}
 	},
 	watch: {
 		'$route.query': {
-			handler: 'loadGigsFromQuery',
+			handler() {
+				if (this.$route.query.subCategory) {
+					this.$store.dispatch({
+						type: 'loadGigs',
+						filterBy: {
+							type: 'subCategory',
+							subCategory: this.$route.query.subCategory,
+						},
+					})
+				}
+				if (this.$route.query.delivery) {
+					this.$store.dispatch({
+						type: 'loadGigs',
+						filterBy: {
+							type: 'delivery',
+							delivery: this.$route.query.delivery,
+						},
+					})
+				}
+				if (this.$route.query.min && this.$route.query.max) {
+					this.$store.dispatch({
+						type: 'loadGigs',
+						filterBy: {
+							type: 'budget',
+							min: this.$route.query.min,
+							max: this.$route.query.max,
+						},
+					})
+				}
+			},
 			deep: true,
-			immediate: true,
 		},
 	},
 
@@ -78,12 +130,10 @@ export default {
 			})
 		},
 		loadGigsFromQuery() {
-			console.log(this.$route.query.subCategory)
 			const { txt, min, max, delivery, category, subCategory } =
 				this.$route.query
 
 			const filterBy = {
-				type: 'txt',
 				txt,
 				min,
 				max,
