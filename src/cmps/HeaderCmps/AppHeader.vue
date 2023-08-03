@@ -24,7 +24,7 @@
               'is-sticky': isSticky,
             }"
           >
-            fiverr <span>.</span>
+            Myverr <span>.</span>
           </div>
         </RouterLink>
         <div
@@ -43,13 +43,26 @@
             'is-sticky': isSticky,
           }"
         >
-          <RouterLink to="/explore">Explore</RouterLink>
           <!-- <RouterLink to="/login">Become a Seller</RouterLink> -->
-          <div v-if="user">
-            <RouterLink :to="'/user/' + loggedInUser._id">Profile</RouterLink>
+          <div class="logged-user" v-if="user">
+            <RouterLink class="explore" to="/explore">Explore</RouterLink>
+            <div class="profile-menu-wrapper">
+              <img
+                class="profile-menu"
+                :src="loggedInUser.imgUrl"
+                alt=""
+                @click="toggleProfileMenu"
+              />
+              <ProfileMenu
+                v-if="isProfileMenuOpen"
+                :loggedInUser="loggedInUser"
+                :isMenuOpen="isProfileMenuOpen"
+              ></ProfileMenu>
+            </div>
           </div>
-          <div v-else>
-            <RouterLink to="/login">Sign in</RouterLink>
+          <div class="sign-join" v-else>
+            <RouterLink class="explore" to="/explore">Explore</RouterLink>
+            <RouterLink class="signin" to="/login">Sign in</RouterLink>
             <RouterLink to="/login"><span>Join</span></RouterLink>
           </div>
         </div>
@@ -105,6 +118,7 @@
 </template>
 <script>
 import SearchBar from "./SearchBar.vue";
+import ProfileMenu from "./ProfileMenu.vue";
 import { userService } from "../../services/user.service.local.js";
 export default {
   data() {
@@ -114,6 +128,8 @@ export default {
       modalOpen: false,
       isHidden: true,
       isSticky: true,
+      isProfileMenuOpen: false,
+
       categories: {
         "Graphics & Design": "Logo-Design",
         "Programming & Tech": "Web-Applications",
@@ -136,10 +152,11 @@ export default {
         query: { category, subCategory },
       });
     },
+    toggleProfileMenu() {
+      this.isProfileMenuOpen = !this.isProfileMenuOpen;
+    },
 
     onScroll(e) {
-      // if (this.$route.path !== "/") return;
-
       if (window.scrollY < 10) this.isFirstNavShown = false;
       if (window.scrollY > 10) {
         this.isFirstNavShown = true;
@@ -198,6 +215,7 @@ export default {
   },
   components: {
     SearchBar,
+    ProfileMenu,
   },
 };
 </script>

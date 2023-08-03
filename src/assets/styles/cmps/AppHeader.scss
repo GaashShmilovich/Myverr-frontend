@@ -97,23 +97,47 @@ header {
 
       .route-container {
         display: flex;
-        flex-basis: 15em;
         align-items: center;
         justify-content: space-between;
 
-        a {
-          font-size: rem(16px);
-          color: #fff;
+        .explore {
           font-family: macanSemibold;
+          color: $clr1;
+          font-size: rem(16px);
+        }
+
+        .signin {
+          font-family: macanSemibold;
+          color: $clr1;
+          font-size: rem(16px);
+        }
+
+        .sign-join {
+          display: flex;
+          align-items: center;
+          gap: rem(40px);
+        }
+
+        .logged-user {
+          display: flex;
+          align-items: center;
+          gap: rem(40px);
+        }
+
+        .profile-menu {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          position: relative;
         }
         span {
+          display: inline;
           color: $clr1;
           padding: 10px 16px;
           font-size: rem(14px);
           border: 1px solid $clr1;
           text-align: center;
           border-radius: 4px;
-          margin-inline-start: 3em;
 
           &:hover {
             border-color: $green1;

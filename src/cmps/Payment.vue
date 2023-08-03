@@ -72,7 +72,7 @@
     
   </div>
 
-  <p class="payment-footer full">Payments are processed by Fiverr International Ltd., Fiverr Limited, and Fiverr Inc. See
+  <p class="payment-footer full">Payments are processed by Myverr International Ltd., Myverr Limited, and Myverr Inc. See
     <span>Payment Terms</span>
   </p >
 </template>

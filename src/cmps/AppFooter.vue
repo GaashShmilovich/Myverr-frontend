@@ -2,8 +2,8 @@
   <footer>
     <div class="footer-container">
       <div class="left">
-        <span class="logo">fiverr<span>&reg</span></span>
-        <p><span>&copy Fiverr International Ltd. 2023</span></p>
+        <span class="logo">Myverr<span>&reg</span></span>
+        <p><span>&copy Myverr International Ltd. 2023</span></p>
       </div>
       <div class="right">
         <ul class="social">

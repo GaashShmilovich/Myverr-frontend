@@ -1,0 +1,43 @@
+.profile-menu-container {
+  position: absolute;
+  //   top: -20px; /* Adjust the value to position the bubble correctly */
+  //   left: 30px; /* Adjust the value to position the bubble correctly */
+  width: 200px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  &::after {
+    content: "";
+    position: absolute;
+    top: -10px; /* Adjust the value to position the triangle correctly */
+    left: 10%;
+    transform: translateX(-50%) rotate(180deg);
+    border-style: solid;
+    border-width: 10px 8px 0;
+    border-color: white transparent transparent transparent;
+  }
+  .profile-menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      padding: 8px 16px;
+      font-size: 14px;
+      color: #333333;
+      cursor: pointer;
+      a {
+        text-decoration: none;
+        color: $green1;
+      }
+    }
+  }
+}
+
+/* Optional: Add styles to customize the links */
+
+// .profile-menu-wrapper {
+//   position: relative;
+//   display: inline-block;
+// }

@@ -12,16 +12,16 @@
       <ul>
         <!-- Add the click event listener to call the function with the category name -->
         <li>
-          <p @click="navigateToExplore('Website Design')">Website Design</p>
+          <a @click="navigateToExplore('Website Design')">Website Design</a>
         </li>
         <li>
-          <p @click="navigateToExplore('WordPress')">WordPress</p>
+          <a @click="navigateToExplore('WordPress')">WordPress</a>
         </li>
         <li>
-          <p @click="navigateToExplore('Logo Design')">Logo Design</p>
+          <a @click="navigateToExplore('Logo Design')">Logo Design</a>
         </li>
         <li>
-          <p @click="navigateToExplore('AI Services')">AI Services</p>
+          <a @click="navigateToExplore('AI Services')">AI Services</a>
         </li>
       </ul>
     </div>

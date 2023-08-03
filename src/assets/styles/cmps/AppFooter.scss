@@ -30,7 +30,7 @@
   .right {
     display: flex;
     align-items: center;
-    ul {
+    .social {
       padding-inline-start: 0;
       display: flex;
       width: auto;
@@ -39,11 +39,11 @@
       align-items: center;
       li {
         margin-inline-end: rem(24px);
-      }
-      i {
-        display: flex;
-        align-items: center;
-        fill: rgb(116, 118, 126);
+        .search {
+          display: flex;
+          align-items: center;
+          fill: rgb(116, 118, 126);
+        }
       }
     }
   }
