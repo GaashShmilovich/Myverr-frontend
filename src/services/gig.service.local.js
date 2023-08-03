@@ -14,38 +14,28 @@ export const gigService = {
 window.cs = gigService
 
 async function query(filters, sortBy) {
+	console.log(filters)
 	var gigs = await storageService.query(STORAGE_KEY)
 
-	if (filters.subCategory) {
-		const subCategoryLower = filters.subCategory.toLowerCase()
-		gigs = gigs.filter((gig) => {
-			return gig.tags.some((tag) =>
-				tag.toLowerCase().includes(subCategoryLower)
+	if (gigs && filters) {
+		if (filters.min && filters.max) {
+			gigs = gigs.filter(
+				(gig) => gig.price >= filters.min && gig.price <= filters.max
 			)
-		})
-	}
-
-	// Text filter
-	if (filters.txt) {
-		const txtLower = filters.txt.toLowerCase()
-		gigs = gigs.filter((gig) => {
-			return (
-				gig.title.toLowerCase().includes(txtLower) ||
-				gig.tags.some((tag) => tag.toLowerCase().includes(txtLower))
+		}
+		if (filters.delivery) {
+			gigs = gigs.filter((gig) => gig.daysToMake <= filters.delivery)
+		}
+		if (filters.subCategory) {
+			gigs = gigs.filter((gig) =>
+				gig.tags.includes(filters.subCategory.toLowerCase())
 			)
-		})
-	}
-
-	// Budget filter (removed subCategory condition from here, as it's already handled)
-	if (filters.min && filters.max) {
-		gigs = gigs.filter(
-			(gig) => gig.price >= filters.min && gig.price <= filters.max
-		)
-	}
-
-	// Delivery filter
-	if (filters.delivery) {
-		gigs = gigs.filter((gig) => gig.daysToMake <= filters.delivery)
+		}
+		if (filters.txt) {
+			gigs = gigs.filter((gig) =>
+				gig.title.toLowerCase().includes(filters.txt.toLowerCase())
+			)
+		}
 	}
 
 	// Sorting
@@ -61,30 +51,7 @@ async function query(filters, sortBy) {
 				return avgRatingB - avgRatingA
 			})
 		}
-		// Sorting
-		if (sortBy) {
-			if (sortBy === 'Highest Rating') {
-				gigs = gigs.sort((a, b) => {
-					const avgRatingA =
-						a.reviews.reduce(
-							(acc, review) => acc + review.rate,
-							0
-						) / a.reviews.length
-					const avgRatingB =
-						b.reviews.reduce(
-							(acc, review) => acc + review.rate,
-							0
-						) / b.reviews.length
-					return avgRatingB - avgRatingA
-				})
-			}
 
-			if (sortBy === 'Most Reviews') {
-				gigs = gigs.sort((a, b) => {
-					return b.reviews.length - a.reviews.length
-				})
-			}
-		}
 		if (sortBy === 'Most Reviews') {
 			gigs = gigs.sort((a, b) => {
 				return b.reviews.length - a.reviews.length

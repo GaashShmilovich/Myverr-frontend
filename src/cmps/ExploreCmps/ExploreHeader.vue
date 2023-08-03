@@ -1,10 +1,7 @@
 <template>
 	<div class="explore-gig-category">
 		<router-link
-			:to="{
-				path: '/',
-				query: { category: categoryFromUrl, subcategory: '5' },
-			}"
+			to="/"
 			class="home-icon explore-header-home-icon"
 			v-html="$getSvg('home-icon')"
 		></router-link>
@@ -64,15 +61,7 @@ export default {
 				if (decodedCategory) {
 					this.categoryFromUrl = decodedCategory
 				} else {
-					this.categoryFromUrl = 'Graphics & Design'
-					this.$router.replace({
-						path: this.$route.path,
-						query: {
-							...this.$route.query,
-							category: 'Graphics & Design',
-							subCategory: 'Logo Design',
-						},
-					})
+					this.categoryFromUrl = 'No Category'
 				}
 			},
 		},

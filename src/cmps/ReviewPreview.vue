@@ -16,7 +16,6 @@
       /> 
     </span> || 
     <span> {{ createdAt }}</span>
-    <!-- <span> {{ review.createdAt }}</span> -->
     </section>
     <p class="review-txt"> {{ review.txt }}</p>
     <section class="helpful-grid">
@@ -25,7 +24,7 @@
       <span @click="helpful('no')" class="no" :class="{'red': isHelpful === 'no'}"><i class="unlike" v-html="$getSvg('unlike')"></i> No</span>
     </p> 
     <span class="helpful-span" :class="{'show': isHelpful === 'yes'}">You found this review helpful.</span>
-   </section>  
+  </section>
   </section>
   
 </template>
