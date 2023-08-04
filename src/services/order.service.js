@@ -1,6 +1,6 @@
 import { httpService } from './http.service.js'
 import { utilService } from './util.service.js'
-import { orderService } from './order.service.js'
+// import { orderService } from './order.service.js'
 
 export const orderService = {
     query,

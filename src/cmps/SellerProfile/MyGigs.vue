@@ -10,8 +10,10 @@
 
 <script>
 import { showErrorMsg, showSuccessMsg } from "../../services/event-bus.service";
-import { gigService } from "../../services/gig.service.local";
-import { userService } from "../../services/user.service.local";
+// import { gigService } from "../../services/gig.service.local";
+import { gigService } from "../../services/gig.service";
+// import { userService } from "../../services/user.service.local";
+import { userService } from "../../services/user.service";
 import GigPreviewCarousel from "../../cmps/ExploreCmps/GigPreviewCarousel.vue";
 import {
   getActionRemoveGig,
@@ -42,11 +44,7 @@ export default {
         return this.$store.getters.gigs.filter(
           (gig) => gig.owner._id === this.user.id
         );
-      } else {
-        return this.$store.getters.gigs.filter(
-          (gig) => gig.owner._id === this.user.id
-        );
-      }
+      } 
     },
   },
   created() {
