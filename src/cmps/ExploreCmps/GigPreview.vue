@@ -41,7 +41,7 @@
 					{{ gig.title }}
 				</h4>
 				<div class="preview-reviews-container">
-					<p class="preview-star">★</p>
+					<p class="preview-star"><i v-html="$getSvg('rate-star')"></i></p>
 					<p v-if="gig.owner" class="gig-preview-rate">
 						{{ avgRating }}
 					</p>
@@ -49,7 +49,7 @@
 				</div>
 				<div class="gig-preview-footer-container">
 					<p v-if="gig.price" class="gig-preview__price">
-						From <span>{{ gig.price }}$</span>
+						From <span>₪{{ gig.price }}</span>
 					</p>
 				</div>
 			</div>
@@ -111,7 +111,7 @@ export default {
 			const totalRating = this.gig.reviews.reduce((acc, review) => {
 				return acc + review.rate
 			}, 0)
-			return (totalRating / this.gig.reviews.length).toFixed(2)
+			return (totalRating / this.gig.reviews.length).toFixed(1)
 		},
 	},
 	components: {

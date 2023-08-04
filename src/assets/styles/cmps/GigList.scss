@@ -1,19 +1,23 @@
+.gig-list-container {
+	white-space: nowrap;
+}
+
 .gig-list {
 	display: grid;
 	width: 100%;
 	grid-template-columns: repeat(4, 1fr);
-	grid-gap: 24px;
+	grid-gap: 30px;
 	margin-top: 16px;
 	line-height: 24px;
-	list-style: none;
 	border: 0;
 	outline: 0;
 	padding: 0;
 	font-family: macanBold, sans-serif;
+	margin-bottom: 90px;
 
 	@include for-narrow-layout-grid {
 		grid-template-columns: repeat(3, 1fr);
-		grid-gap: 16px;
+		grid-gap: 20px;
 	}
 
 	@include for-narrower-layout-grid {

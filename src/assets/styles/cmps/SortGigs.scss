@@ -9,9 +9,18 @@
 	color: $clr4;
 	cursor: pointer;
 	padding: 10px 8px;
+	padding-right: 0;
 	font-size: 1em;
 	font-weight: 600;
 	border-radius: 8px;
+}
+
+.gig-count {
+	margin-top: 40px;
+}
+
+.sort-by-container {
+	margin-top: 0px; ///////////////// what
 }
 
 .current-sort span::before {

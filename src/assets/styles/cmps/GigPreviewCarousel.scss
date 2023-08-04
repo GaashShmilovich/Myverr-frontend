@@ -29,6 +29,16 @@
 			// width: 330px;
 			border-radius: 8px;
 			overflow: hidden;
+
+			@include for-narrower-layout-grid {
+				width: 410px;
+				height: 246px;
+			}
+
+			@include for-mobile-layout-grid {
+				height: 330px;
+				width: 545px;
+			}
 		}
 
 		.vueperslides__arrow {

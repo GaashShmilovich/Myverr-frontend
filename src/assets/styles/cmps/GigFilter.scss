@@ -12,7 +12,12 @@
 	gap: 10px;
 	padding: 5px;
 	padding-left: 0;
-	flex-wrap: wrap;
+	// flex-wrap: wrap;
+
+	@include for-narrower-layout-grid {
+		padding: 5px;
+		padding-left: 0;
+	}
 }
 
 .filter-group {
@@ -37,7 +42,7 @@
 	font-size: 1em;
 	font-weight: 600;
 	cursor: pointer;
-	transition: all 0.3s ease-in-out;
+	transition: all 0.1s ease-in-out;
 
 	&:hover {
 		border: 1px solid $clr4;
@@ -245,6 +250,8 @@ input::placeholder {
 	border: 0;
 	width: 31px;
 	height: 18px;
+	margin-left: 30px;
+	margin-bottom: 2px;
 
 	&:before {
 		content: '';
@@ -288,8 +295,8 @@ input::placeholder {
 	font-size: 16px;
 	font-weight: 600;
 	color: $clr2;
-	margin-right: 30px;
 	margin-top: 17px;
+	margin-right: 3px;
 }
 
 .custom-radio {

@@ -3,22 +3,23 @@
 	outline: 0;
 	margin: 0;
 	padding: 0;
-	// min-width: 245px;
-	// width: 325px;
-	// height: 360px;
 
-	&:hover {
-		.gig-preview__info,
-		.gig-preview-owner,
-		.gig-preview-owner span,
-		.gig-preview__title,
-		.gig-preview-rate,
-		.gig-preview-rate span,
-		.gig-like-btn,
-		.gig-preview__price,
-		.gig-preview__price span {
-			// color: $green1;
-		}
+	// min-width: 245px;
+	width: 325px;
+	height: 360px;
+
+	@include for-narrow-layout-grid {
+		width: 350px;
+		height: 380px;
+	}
+
+	@include for-narrower-layout-grid {
+		width: 410px;
+		height: 410px;
+	}
+
+	@include for-mobile-layout-grid {
+		width: 545px;
 	}
 
 	&:hover .gig-preview__title {
@@ -54,7 +55,7 @@
 				width: 24px;
 				height: 24px;
 				border-radius: 50%;
-				margin-right: 15px;
+				margin-right: 8px;
 				margin-bottom: 3%;
 				flex-shrink: 0;
 			}
@@ -81,17 +82,20 @@
 				cursor: pointer;
 				font-size: 16px;
 				font-weight: 500;
-				margin: 8px 0;
+				margin-top: 10px;
 				overflow: hidden;
+				color: #404145;
 				height: 2.4em;
+				padding-right: 5px;
 				line-height: 1.2em;
 				display: -webkit-box;
 				-webkit-box-orient: vertical;
 				-webkit-line-clamp: 2;
+				white-space: normal;
 			}
 
 			.preview-reviews-container {
-				margin-top: 15px;
+				margin-top: 11px;
 				display: flex;
 				align-items: center;
 
@@ -101,6 +105,7 @@
 					font-size: 16px;
 					margin-right: 3px;
 					font-weight: 400;
+					margin-bottom: 7px;
 				}
 
 				.preview-star,
@@ -108,23 +113,21 @@
 					color: $clr4;
 				}
 
-				.preview-star {
-					font-size: 1.2em;
-				}
-
 				.gig-reviews-num {
-					color: $clr5;
+					color: #a2a2a7;
+					font-weight: 400;
 				}
 			}
 
 			.gig-preview-footer-container {
 				display: flex;
 				justify-content: space-between;
+				padding-top: 3px;
 			}
 
 			.gig-preview__price {
 				display: inline-block;
-				font-size: 1em;
+				font-size: 0.9em;
 				text-align: right;
 				color: black;
 				cursor: pointer;
