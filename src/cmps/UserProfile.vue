@@ -1,7 +1,7 @@
 <template>
   <div class="background-container main-layout full" v-if="user.isSeller">
     <SellerProfile :user="user" />
-  <!-- </div>
+  </div>
   <div v-else>
     <BuyerProfile class="background-container main-layout full" :user="user" />
   </div>

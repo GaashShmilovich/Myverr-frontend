@@ -137,27 +137,25 @@ export default {
       return this.package.price + 11.73 + 8.5;
     },
 
-        async addOrder() {
-            try {
-                const loggenInUser = await userService.getLoggedinUser()
-                const createdOrder = {
-                    createdAt: new Date(),
-                    buyerId: loggenInUser._id,
-                    sellerId: this.gig.owner._id,
-                    gigId: this.gig._id,
-                    packageType: this.package.level,
-                    status: "pending",
-                }
-                console.log('createdOrder-frontend', createdOrder);
-               await this.$store.dispatch({ type: 'addOrder', createdOrder })
-                
-                console.log( this.$store.getters.orders);
-            } catch (err) {
-                console.error(err)
-                console.log(err)
-            }
-        }
+    async addOrder() {
+      try {
+        const loggenInUser = await userService.getLoggedinUser();
+        const createdOrder = {
+          createdAt: new Date(),
+          buyerId: loggenInUser._id,
+          sellerId: this.gig.owner._id,
+          gigId: this.gig._id,
+          packageType: this.package.level,
+          status: "pending",
+        };
+        console.log("createdOrder-frontend", createdOrder);
+        await this.$store.dispatch({ type: "addOrder", createdOrder });
 
+        console.log(this.$store.getters.orders);
+      } catch (err) {
+        console.error(err);
+        console.log(err);
+      }
     },
   },
 };
