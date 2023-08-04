@@ -2,19 +2,57 @@
   display: grid;
   grid-template-columns: minmax(auto, 400px) minmax(auto, 1000px);
   column-gap: rem(20px);
-  .background {
-    background-color: rgba(
-      0,
-      0,
-      0,
-      0.1
-    ); /* Change the color as desired (black with 50% transparency in this case) */
-    width: 100%;
-    height: 100%; /* Set the height to fill the entire container */
-    position: absolute;
-    top: 0;
-    left: 0;
-    pointer-events: none;
+  @include for-narrow-layout {
+    grid-template-columns: 1fr;
+    .gig-list {
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 12px;
+    }
+    li {
+      margin-block: 20px;
+    }
+    .user-description {
+      display: none;
+    }
+    .user-profile {
+      width: 100%;
+      .user-info {
+        width: 100%;
+      }
+    }
+    .buttons {
+      height: rem(50px);
+      button {
+        font-size: rem(20px);
+      }
+    }
+  }
+
+  .gig-list {
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      // padding: 10px;
+      button {
+        border-radius: 25px;
+        // border: 1px solid $clr1;
+        background-color: $green1;
+        color: $clr1;
+        font-family: macanBold;
+        width: 100%;
+        height: 100%;
+        // margin: 0;
+        &:hover {
+          background-color: $green4;
+          box-sizing: inherit;
+        }
+      }
+    }
+    li {
+      background-color: $clr1;
+      padding: 10px rem(30px);
+      border-radius: 5px;
+    }
   }
 
   .tabs {
@@ -60,6 +98,43 @@
     z-index: 10;
     background-color: $clr1;
     border-radius: 5px;
+    justify-content: space-around;
+    .country {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      font-family: macanBold;
+      font-size: rem(16px);
+      span {
+        font-family: macanRegular;
+        display: flex;
+        // align-items: center;
+        gap: 5px;
+      }
+      i {
+        display: flex;
+        align-items: center;
+        margin-block-end: 2px;
+      }
+    }
+    .sub-type {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      font-family: macanBold;
+      font-size: rem(16px);
+      span {
+        font-family: macanRegular;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      i {
+        display: flex;
+        align-items: center;
+        margin-block-end: 7px;
+      }
+    }
     img {
       height: 100px;
       width: 100px;
@@ -81,4 +156,8 @@
       font-size: rem(16px);
     }
   }
+}
+
+.background-container {
+  background-color: $clr6;
 }
