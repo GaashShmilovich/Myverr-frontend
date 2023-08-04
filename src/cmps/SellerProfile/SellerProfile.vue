@@ -1,13 +1,20 @@
 <template>
   <section class="dashboard-container">
-    <div class="background"></div>
-
     <div class="user-profile">
       <div class="user-info">
-        <h1>{{ user.fullname }}</h1>
-        <h3>{{ user.country }}</h3>
         <img :src="user.imgUrl" alt="" />
-        <button @click="doLogout">Logout</button>
+        <h1>{{ user.fullname }}</h1>
+        <div class="country">
+          <span><i class="search" v-html="$getSvg('place')"> </i> Country</span>
+          {{ user.country }}
+        </div>
+        <div class="sub-type">
+          <span
+            ><i class="search" v-html="$getSvg('member')"> </i>
+            Subscription</span
+          >
+          {{ user.level }}
+        </div>
       </div>
 
       <div class="user-description">
@@ -61,8 +68,8 @@
 <script>
 import { RouterLink, RouterView } from "vue-router";
 import { showErrorMsg, showSuccessMsg } from "../../services/event-bus.service";
-import { gigService } from "../../services/gig.service.local";
-import { userService } from "../../services/user.service.local";
+import { gigService } from "../../services/gig.service";
+import { userService } from "../../services/user.service";
 import {
   getActionRemoveGig,
   getActionUpdateGig,

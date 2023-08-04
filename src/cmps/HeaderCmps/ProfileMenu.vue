@@ -4,7 +4,7 @@
       <li>
         <RouterLink
           @click="isMenuOpen = false"
-          :to="'/user/' + loggedInUser._id"
+          :to="'/user/' + loggedInUser?._id"
           >Profile</RouterLink
         >
       </li>
