@@ -129,8 +129,8 @@
 <script>
 import SearchBar from './SearchBar.vue'
 import ProfileMenu from './ProfileMenu.vue'
-import { userService } from '../../services/user.service.local.js'
-// import { userService } from "../../services/user.service.js";
+// import { userService } from '../../services/user.service.local.js'
+import { userService } from "../../services/user.service.js";
 export default {
 	data() {
 		return {

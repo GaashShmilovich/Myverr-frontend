@@ -1,7 +1,7 @@
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
-import { userService } from './user.service.local.js'
-// import { userService } from './user.service.js'
+// import { userService } from './user.service.local.js'
+import { userService } from './user.service.js'
 
 const STORAGE_KEY = 'gig'
 
@@ -662,7 +662,7 @@ function getEmptyGig() {
 // 			price: 172,
 // 			owner: {
 // 				_id: '17QUq',
-// 				fullname: 'User 1',
+// 				fullname: 'Joshua Gansha',
 // 				moto: 'Never shy from a challange',
 // 				instagram: '@MMManager',
 // 				imgUrl: 'https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/4abf6f5b58e4d78cfb7c410cf8d7a9ac-1626111679444/4a04b77c-22ee-4ce8-b4be-747fd059e9ff.jpg',
@@ -1156,7 +1156,7 @@ function getEmptyGig() {
 // 				_id: 'u124',
 // 				fullname: 'Mario Suhnik',
 // 				moto: 'Expanding your social media presence.',
-// 				instagram: '@GioraSMManager',
+// 				instagram: '@MarioManager',
 // 				imgUrl: 'https://res.cloudinary.com/djm30uwim/image/upload/v1690559771/user_profiles/t8xv3vsvauvhwobepvrz.jpg',
 // 				level: 'basic',
 // 				rate: 1,
@@ -1250,9 +1250,9 @@ function getEmptyGig() {
 // 			price: 50,
 // 			owner: {
 // 				_id: 'u128',
-// 				fullname: 'Puki Junior',
+// 				fullname: 'Jason Junior',
 // 				moto: 'Crafting visuals that resonate.',
-// 				instagram: '@PukiDesigns',
+// 				instagram: '@PJJDesigns',
 // 				imgUrl: 'https://res.cloudinary.com/djm30uwim/image/upload/v1690559771/user_profiles/zqpwbbeu551js7dz4oqd.jpg',
 // 				level: 'premium',
 // 				rate: 5,
@@ -1335,9 +1335,9 @@ function getEmptyGig() {
 // 		price: 70,
 // 		owner: {
 // 			_id: 'u130',
-// 			fullname: 'Nod Nodejs',
-// 			moto: 'Enhancing server performance one line of code at a time.',
-// 			instagram: '@NodServerGuru',
+// 			fullname: 'Nadia Norejas',
+// 			moto: 'Put in the work and you will see the results.',
+// 			instagram: '@NadiaGuru',
 // 			imgUrl: 'https://res.cloudinary.com/djm30uwim/image/upload/v1690559770/user_profiles/wwdwqskifbrwuhg1vqgb.jpg',
 // 			level: 'premium',
 // 			rate: 4,
@@ -1445,7 +1445,7 @@ function getEmptyGig() {
 // 			rate: 5,
 // 			country: 'United Kingdom',
 // 			language: ['English'],
-// 			since: 'July 2017',
+// 			since: 'July 2023',
 // 			lastDelivery: '2 hours ago',
 // 			averageResponse: '50 minutes',
 // 			about: 'Hey! My name is Gaash, and I am excited to connect with you here on Fiverr! Since 2017, I have worked with over 11,000 customers and completed more than 20,000 orders on the platform. I am super passionate about design and eager to help you with every aspect of it. Over this short time, I have worked with a diverse range of creators, small businesses, celebrities, and Fortune 500 companies here on Fiverr. If you have any questions, please feel free to send me a message here, and I will be happy to help you!',
@@ -1503,7 +1503,7 @@ function getEmptyGig() {
 // 		reviews: [
 // 			{
 // 				id: 'r101',
-// 				txt: 'Sawn did an outstanding job designing our website! He was professional, responsive to our needs, and delivered the project on time. The design is sleek and user-friendly. Highly recommended!',
+// 				txt: 'Gaash did an outstanding job designing our website! He was professional, responsive to our needs, and delivered the project on time. The design is sleek and user-friendly. Highly recommended!',
 // 				rate: 5,
 // 				createdAt: '2023-08-12T14:30:00Z',
 // 				by: {
