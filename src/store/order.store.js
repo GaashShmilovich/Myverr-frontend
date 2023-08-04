@@ -18,6 +18,12 @@ export const orderStore = {
         removeOrder(state, { orderId }) {
             state.orders = state.orders.filter(order => order._id !== orderId)
         },
+        updateOrderStatus(state, { orderId, newStatus }) {
+            const order = state.orders.find((order) => order._id === orderId)
+            if (order) {
+                order.status = newStatus
+            }
+        },
     },
     actions: {
         async addOrder(context, { createdOrder }) {
@@ -48,6 +54,5 @@ export const orderStore = {
                 throw err
             }
         },
-
     }
 }

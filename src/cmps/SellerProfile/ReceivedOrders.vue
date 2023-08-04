@@ -30,7 +30,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(order, i) in orders" :key="order._id">
+        <tr
+          v-for="(order, i) in orders"
+          :key="order._id"
+          @click="openModal(order)"
+        >
           <th scope="row">{{ i + 1 }}</th>
           <td>{{ order.buyer.fullname }}</td>
           <td>{{ order.gig.name }}</td>
@@ -41,14 +45,21 @@
       </tbody>
     </table>
   </section>
+  <CustomModal
+    :show="modalVisible"
+    :order="selectedOrder"
+    @close="modalVisible = false"
+    @change-status="onStatusChange"
+  />
 </template>
 
 <script>
+import CustomModal from "./CustomModal.vue";
 export default {
-  components: {},
+  components: { CustomModal },
   props: { user: Object },
   data() {
-    return {};
+    return { modalVisible: false, selectedOrder: null };
   },
   computed: {
     orders() {
@@ -62,8 +73,24 @@ export default {
     async loadOrders() {
       try {
         await this.$store.dispatch("loadOrders");
+        console.log(this.orders);
       } catch (err) {
         console.log("Error loading orders:", err);
+      }
+    },
+    openModal(order) {
+      this.selectedOrder = order;
+      console.log("order", order);
+      this.modalVisible = true;
+    },
+    onStatusChange(status) {
+      try {
+        this.$store.commit("updateOrderStatus", {
+          orderId: this.selectedOrder._id,
+          newStatus: status,
+        });
+      } catch (err) {
+        console.log("Error updating order status:", err);
       }
     },
   },

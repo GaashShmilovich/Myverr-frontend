@@ -49,7 +49,7 @@
             <div class="profile-menu-wrapper">
               <img
                 class="profile-menu"
-                :src="loggedInUser.imgUrl"
+                :src="loggedInUser?.imgUrl"
                 alt=""
                 @click="toggleProfileMenu"
               />
