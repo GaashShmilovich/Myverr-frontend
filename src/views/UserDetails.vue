@@ -21,9 +21,13 @@
 </template>
 
 <script>
-import { SOCKET_EMIT_USER_WATCH, SOCKET_EVENT_USER_UPDATED, socketService } from '../services/socket.service'
-import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
-import { userService } from '../services/user.service.local'
+import {
+  SOCKET_EMIT_USER_WATCH,
+  SOCKET_EVENT_USER_UPDATED,
+  socketService,
+} from "../services/socket.service";
+import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service";
+import { userService } from "../services/user.service";
 
 export default {
   data() {
