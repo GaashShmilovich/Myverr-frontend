@@ -42,7 +42,7 @@
   // import { Router zxbcsyf7e534Link, RouterView } from "vue-router";
   import { gigService } from "../services/gig.service";
   // import { gigService } from "../services/gig.service.local";
-  import UserOrders from "../cmps/SellerProfile/UserOrders.vue"
+  // import UserOrders from "../cmps/SellerProfile/UserOrders.vue"
   
   export default {
     props: {
@@ -50,14 +50,14 @@
     },
     data() {
       return {
-        gigToAdd: gigService.getEmptyGig(),
-        activeTab: 0,
+        // gigToAdd: gigService.getEmptyGig(),
+        // activeTab: 0,
       };
     },
     computed: {
-      userGigsLink() {
-        return `/user/${this.user._id}/gigs`;
-      },
+      // userGigsLink() {
+      //   return `/user/${this.user._id}/gigs`;
+      // },
       userOrdersLink() {
         return `/user/${this.user._id}/orders`;
       },
@@ -75,15 +75,10 @@
         this.$store.dispatch({ type: "logout" });
       },
      
-      printGigToConsole(gig) {
-        console.log("Gig msgs:", gig.msgs);
-      },
-      setActiveTab(index) {
-        this.activeTab = index;
-      },
+     
     },
     components: {
-      UserOrders,
+      // UserOrders,
     }
   }
 }

@@ -1,5 +1,5 @@
 [
-    	await storageService.post(STORAGE_KEY, {
+    	 {
 		_id: 'i105',
 		title: 'I will design interactive UI/UX for your web app',
 		price: 50,
@@ -68,7 +68,7 @@
 				},
 			},
 		],
-	})
+	}
 
 	await storageService.post(STORAGE_KEY, {
 		_id: 'i106',

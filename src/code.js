@@ -1,35 +1,19 @@
-async addOrder() {
+function addOrder() {
     try {
-        const loggenInUser = await userService.getLoggedinUser()
         const createdOrder = {
             createdAt: new Date(),
-            buyer: {
-                _id: loggenInUser._id,
-                fullname: loggenInUser.fullname,
-                username: loggenInUser.username,
-                imgUrl: loggenInUser.imgUrl,
-            },
-            seller: {
-                _id: this.gig.owner._id,
-                fullname: this.gig.owner.fullname,
-                imgUrl: this.gig.owner.imgUrl,
-            },
-            gig: {
-                _id: this.gig._id,
-                name: this.gig.title,
-                imgUrls: this.gig.imgUrls,
-                price: this.package.price
-            },
+            sellerId: this.gig.owner._id,
+            gigId: this.gig._id,
             packageType: this.package.level,
             status: "pending",
-
         }
-        await this.$store.dispatch({ type: 'addOrder', createdOrder })
-
+       await this.$store.dispatch({ type: 'addOrder', createdOrder })
+        
+        console.log( this.$store.getters.orders);
     } catch (err) {
         console.error(err)
+        console.log(err)
     }
-
 }
 
 
@@ -54,12 +38,66 @@ async function save(order) {
     }
     return savedOrder
 }
-// then from seller dashboard:
 
-filteredGigs() {
-    if (this.user.isSeller) {
-      return this.$store.getters.gigs.filter(
-        (gig) => gig.owner._id === this.user.id
-      );
-    } 
-  },
+async function query(filterBy = {}) {
+  try {
+    const criteria = _buildCriteria(filterBy)
+    const collection = await dbService.getCollection('order')
+    // const orders = await collection.find(criteria).toArray()
+    var orders = await collection.aggregate([
+        {
+            $match: criteria
+        },
+        {
+            $lookup:
+            {
+                localField: 'buyerId',
+                from: 'user',
+                foreignField: '_id',
+                as: 'buyer'
+            }
+        },
+        {
+            $unwind: '$buyer'
+        },
+        {
+            $lookup:
+            {
+                localField: 'sellerId',
+                from: 'user',
+                foreignField: '_id',
+                as: 'seller'
+            }
+        },
+        {
+            $unwind: '$seller'
+        },
+        {
+            $lookup:
+            {
+                localField: 'gigId',
+                from: 'gig',
+                foreignField: '_id',
+                as: 'gig'
+            }
+        },
+        {
+            $unwind: '$gig'
+        }
+    ]).toArray()
+    orders = orders.map(order => {
+        order.buyer = { _id: order.buyer._id, fullname: order.buyer.fullname }
+        order.seller = { _id: order.seller._id, fullname: order.seller.fullname }
+        order.gig = { _id: order.gig._id,title: order.gig.title, price: order.gig.price }
+        delete order.buyerId
+        delete order.sellerId
+        delete order.gigId
+        return order
+    })
+    return orders
+} catch (err) {
+    logger.error('cannot find orders', err)
+    throw err
+}
+
+}

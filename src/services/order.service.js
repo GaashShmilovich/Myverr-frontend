@@ -28,6 +28,8 @@ async function save(order) {
     if (order._id) {
         savedOrder = await httpService.put(`order/${order._id}`, order)
     } else {
+        console.log(order);
+        // order.buyer = userService.getLoggedinUser()
         savedOrder = await httpService.post('order', order)
     }
     return savedOrder

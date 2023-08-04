@@ -113,31 +113,16 @@ export default {
                 const loggenInUser = await userService.getLoggedinUser()
                 const createdOrder = {
                     createdAt: new Date(),
-                    buyer: {
-                        _id: loggenInUser._id,
-                        fullname: loggenInUser.fullname,
-                        username: loggenInUser.username,
-                        imgUrl: loggenInUser.imgUrl,
-                    },
-                    seller: {
-                        _id: this.gig.owner._id,
-                        fullname: this.gig.owner.fullname,
-                        imgUrl: this.gig.owner.imgUrl,
-                    },
-                    gig: {
-                        _id: this.gig._id,
-                        name: this.gig.title,
-                        imgUrls: this.gig.imgUrls,
-                        price: this.package.price
-                    },
+                    buyerId: loggenInUser._id,
+                    sellerId: this.gig.owner._id,
+                    gigId: this.gig._id,
                     packageType: this.package.level,
                     status: "pending",
-
                 }
+                console.log('createdOrder-frontend', createdOrder);
                await this.$store.dispatch({ type: 'addOrder', createdOrder })
                 
                 console.log( this.$store.getters.orders);
-               
             } catch (err) {
                 console.error(err)
                 console.log(err)

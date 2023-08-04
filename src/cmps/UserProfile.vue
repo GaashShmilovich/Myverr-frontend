@@ -1,10 +1,10 @@
 <template>
-  <div v-if="user.isSeller">
+  <!-- <div v-if="user.isSeller"> -->
     <SellerProfile :user="user" />
-  </div>
+  <!-- </div>
   <div v-else>
     <BuyerProfile :user="user" />
-  </div>
+  </div> -->
 </template>
 
 <script>
