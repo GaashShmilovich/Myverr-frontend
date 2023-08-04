@@ -28,13 +28,6 @@
       </p>
     </div>
 
-    <!-- <div>
-      <p class="sortBy">Sort By <span class="place-holder" @click="openModal">{{ sortBy.placeHolder }}</span><span :class="{ 'arrow-up': sortBy.isOpen, 'arrow-down': !sortBy.isOpen }" v-html="$getSvg('arrow-down')"  @click="openModal"></span></p>  
-      <p class="sortByModal" :class="{'hidden': !sortBy.isOpen}">
-      <a v-for="type in sortBy.types" @click="setSort(`${type}`)"><i :class="{'hidden': sortBy.placeHolder !== `${type}`}" class="v-check" v-html="$getSvg('v-check')"></i>{{type}}</a>
-      </p>
-    </div> -->
-
       <ul class="review-list">
         <li
           v-for="review in filteredReviews"
@@ -45,7 +38,7 @@
         </li>
       </ul>
     </section>
-    <p class="see-more" @click="showMoreReviews">+ See More </p>
+    <p class="see-more" @click="seeMore">+ See More </p>
   </template>
 <script>
 import ReviewPreview from './ReviewPreview.vue'
@@ -59,6 +52,8 @@ export default {
     return {
       searchTxt: '',
       filteredReviews: [],
+      reviewsShown: 3,
+      reviewsToAdd: 3,
       sortBy: {
       isOpen: false,
       placeHolder: 'Most recent',
@@ -79,13 +74,17 @@ export default {
   },
   async created() {
     // console.log(this.reviews);
-    this.filteredReviews = this.reviews
+    this.filteredReviews = this.reviews.slice(0, this.reviewsShown)
   },
   components: {
     ReviewPreview,
     ReviewRateBar,
   },
   methods: {
+    seeMore() {
+      this.reviewsShown += this.reviewsToAdd
+      this.filteredReviews = this.reviews.slice(0, this.reviewsShown)
+    },
     searchReview() {
       console.log(this.searchTxt);
       const regex = new RegExp(this.searchTxt, 'i')
@@ -109,9 +108,6 @@ export default {
     openModal() {
       this.sortBy.isOpen = !this.sortBy.isOpen
     },
-    showMoreReviews() {
-      console.log('show more reviews');
-    }
   },
 }
 </script>

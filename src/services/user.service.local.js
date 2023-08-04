@@ -110,7 +110,6 @@ function getLoggedinUser() {
 // ; (async () => {
 // 	await userService.signup({
 // 		_id: "u101",
-// 		id: "gaash",
 // 		isSeller: true,
 // 		fullname: "Gaash Shmilovich",
 // 		imgUrl: "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/0d064bcfd4295551910a7bc05c0af05d-1661124606619/0831357d-de18-4877-a0c0-c4aff302f9d2.JPG",
@@ -118,7 +117,6 @@ function getLoggedinUser() {
 // 		password: "gaash",
 // 		level: "basic/premium",
 // 		country: 'Israel',
-// 		orders: [],
 // 	}
 
 // 	)

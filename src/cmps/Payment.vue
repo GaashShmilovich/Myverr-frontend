@@ -79,10 +79,10 @@
 
 <script>
 import Checkout from './Checkout.vue'
-import { userService } from '../services/user.service.local';
-// import { userService } from '../services/user.service';
-import { gigService } from '../services/gig.service.local';
-// import { gigService } from '../services/gig.service';
+// import { userService } from '../services/user.service.local';
+import { userService } from '../services/user.service';
+// import { gigService } from '../services/gig.service.local';
+import { gigService } from '../services/gig.service';
 export default {
   data() {
     return {

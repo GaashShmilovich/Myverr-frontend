@@ -15,7 +15,7 @@
         icon="fa-solid fa-star"
       /> 
     </span> || 
-    <span> {{ createdAt }}</span>
+    <span> {{ review.createdAt }} ago</span>
     </section>
     <p class="review-txt"> {{ review.txt }}</p>
     <section class="helpful-grid">
@@ -37,40 +37,41 @@ export default {
     return {
       createdAt: null,
       isHelpful: null,
+      
     }
   },
-  created() {
-    this.createdAt = this.getTimeAgo()
-  },
+  // created() {
+  //   this.createdAt = this.getTimeAgo()
+  // },
 
   methods: {
-    getTimeAgo() {
-      const currentTime = new Date();
-      const timestampDate = new Date(this.review.createdAt);
-      const timeDifference = currentTime - timestampDate;
+    // getTimeAgo() {
+    //   const currentTime = new Date();
+    //   const timestampDate = new Date(this.review.createdAt);
+    //   const timeDifference = currentTime - timestampDate;
 
-      const oneHour = 60 * 60 * 1000; // 1 hour in milliseconds
-      const oneDay = 24 * oneHour; // 1 day in milliseconds
-      const oneWeek = 7 * oneDay; // 1 week in milliseconds
-      const oneMonth = 30 * oneDay; // 1 week in milliseconds
-      const oneYear = 12 * oneMonth; // 1 week in milliseconds
+    //   const oneHour = 60 * 60 * 1000; // 1 hour in milliseconds
+    //   const oneDay = 24 * oneHour; // 1 day in milliseconds
+    //   const oneWeek = 7 * oneDay; // 1 week in milliseconds
+    //   const oneMonth = 30 * oneDay; // 1 week in milliseconds
+    //   const oneYear = 12 * oneMonth; // 1 week in milliseconds
 
-      if (timeDifference < oneHour) {
-        return Math.floor(timeDifference / (60 * 1000)) + ' minutes ago';
-      } else if (timeDifference < oneDay) {
-        return Math.floor(timeDifference / oneHour) + ' hours ago';
-      } else if (timeDifference < oneWeek) {
-        return Math.floor(timeDifference / oneDay) + ' days ago';
-      } else if (timeDifference < oneMonth) {
-        return Math.floor(timeDifference / oneWeek) + ' weeks ago';
-      } else if (timeDifference < oneYear) {
-        return Math.floor(timeDifference / oneMonth) + ' months ago';
-      } else  if (timeDifference >= oneYear) {
-        return Math.floor(timeDifference / oneYear) + ' years ago';
-        } else {
-          return 'Not working'
-        }
-      },
+    //   if (timeDifference < oneHour) {
+    //     return Math.floor(timeDifference / (60 * 1000)) + ' minutes ago';
+    //   } else if (timeDifference < oneDay) {
+    //     return Math.floor(timeDifference / oneHour) + ' hours ago';
+    //   } else if (timeDifference < oneWeek) {
+    //     return Math.floor(timeDifference / oneDay) + ' days ago';
+    //   } else if (timeDifference < oneMonth) {
+    //     return Math.floor(timeDifference / oneWeek) + ' weeks ago';
+    //   } else if (timeDifference < oneYear) {
+    //     return Math.floor(timeDifference / oneMonth) + ' months ago';
+    //   } else  if (timeDifference >= oneYear) {
+    //     return Math.floor(timeDifference / oneYear) + ' years ago';
+    //     } else {
+    //       return 'Not working'
+    //     }
+    //   },
       helpful(ans) {
         this.isHelpful = ans
       }
