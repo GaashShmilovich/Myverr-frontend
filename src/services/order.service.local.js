@@ -58,35 +58,35 @@ function getEmptyOrder() {
 // Initial data
 
 // ; (async () => {
-//     await storageService.post(STORAGE_KEY, { 
-//         "_id": "o1225", 
-//         "buyer": {fullname: 'Giora Marani', id: 'giora' },
-//         "seller": {fullname: 'Gaash Shmilovich', id: 'gaash' }, 
-//         "gig": { "_id": "i101", "name": "Design Logo", "imgUrl": "", "price": 20 }, 
-//         "packageType": "basic", "status": "pending" 
+//     await storageService.post(STORAGE_KEY, {
+//         "_id": "o1225",
+//         "buyer": { fullname: 'Giora Marani', id: 'giora' },
+//         "seller": { fullname: 'Gaash Shmilovich', id: 'gaash' },
+//         "gig": { "_id": "i101", "name": "Design Logo", "imgUrl": "", "price": 20 },
+//         "packageType": "basic", "status": "pending"
 //     })
-//     await storageService.post(STORAGE_KEY, { 
-//         "_id": "o1226", 
-//         "buyer": "mini-user", 
-//         "seller": "mini-user", 
-//         "gig": { "_id": "i102", "name": "Design Logo", "imgUrl": "", "price": 20 }, 
-//         "packageType": "standard", "status": "inProgress" 
+//     await storageService.post(STORAGE_KEY, {
+//         "_id": "o1226",
+//         "buyer": "mini-user",
+//         "seller": "mini-user",
+//         "gig": { "_id": "i102", "name": "Design Logo", "imgUrl": "", "price": 20 },
+//         "packageType": "standard", "status": "inProgress"
 //     })
-//     await storageService.post(STORAGE_KEY, { 
-//         "_id": "o1227", 
-//         "buyer": "mini-user", 
-//         "seller": "mini-user", 
-//         "gig": { "_id": "i103", "name": "Design Logo", "imgUrl": "", "price": 20 }, 
-//         "packageType": "basic", 
-//         "status": "pending" 
+//     await storageService.post(STORAGE_KEY, {
+//         "_id": "o1227",
+//         "buyer": "mini-user",
+//         "seller": "mini-user",
+//         "gig": { "_id": "i103", "name": "Design Logo", "imgUrl": "", "price": 20 },
+//         "packageType": "basic",
+//         "status": "pending"
 //     })
-//     await storageService.post(STORAGE_KEY, { 
-//         "_id": "o1228", 
-//         "buyer": "mini-user", 
-//         "seller": "mini-user", 
-//         "gig": { "_id": "i104", "name": "Design Logo", "imgUrl": "", "price": 20 }, 
-//         "packageType": "premium", 
-//         "status": "complited" 
+//     await storageService.post(STORAGE_KEY, {
+//         "_id": "o1228",
+//         "buyer": "mini-user",
+//         "seller": "mini-user",
+//         "gig": { "_id": "i104", "name": "Design Logo", "imgUrl": "", "price": 20 },
+//         "packageType": "premium",
+//         "status": "complited"
 //     })
 // })()
 

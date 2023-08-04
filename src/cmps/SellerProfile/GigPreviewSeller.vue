@@ -1,8 +1,4 @@
 <template>
-  <div>
-    <button @click="onDelete">Delete</button>
-    <button @click="onEdit">Edit</button>
-  </div>
   <div class="gig-preview-container">
     <div class="gig-preview">
       <div class="gig-preview__img-container">
@@ -37,9 +33,13 @@
         </div>
         <div class="gig-preview-footer-container">
           <p v-if="gig.price" class="gig-preview__price">
-            From <span>{{ gig.price }}$</span>
+            From <span>{{ gig.price }}$ </span>
           </p>
         </div>
+      </div>
+      <div class="buttons">
+        <button @click="onDelete">Delete</button>
+        <button @click="onEdit">Edit</button>
       </div>
     </div>
   </div>

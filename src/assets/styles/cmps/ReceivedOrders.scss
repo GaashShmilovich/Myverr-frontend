@@ -8,7 +8,7 @@
   padding: rem(30px) 0;
   background-color: $clr1;
   border: 1px solid $clr6;
-  border-radius: 10px;
+  border-radius: 5px;
   & > *:not(:last-child) {
     border-right: 2px solid $clr6;
   }
@@ -36,31 +36,44 @@
 
 /* Add styles for the table */
 table {
+  position: relative;
+  background-color: $clr1;
   width: 100%;
   max-width: 1000px;
   border-collapse: collapse;
+  border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
   overflow: hidden;
   margin: 0 auto;
+  thead {
+    border-bottom: 2px solid $green1;
+  }
+  tr {
+    position: relative;
+  }
 }
 
 th,
 td {
-  padding: 12px;
+  padding: 15px 20px;
   text-align: left;
 }
 
 th {
-  background-color: #f2f2f2;
   font-weight: bold;
 }
 
 tbody tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: $green6;
+  color: $clr1;
+  &:hover {
+    background-color: $green4;
+    cursor: pointer;
+  }
 }
-
-tbody tr:hover {
-  background-color: #e2e2e2;
-  cursor: pointer;
+tbody tr:nth-child(odd) {
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
 }

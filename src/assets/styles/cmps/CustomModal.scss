@@ -1,0 +1,55 @@
+.modal-overlay {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .modal-status {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: white;
+    margin-block-start: rem(10px);
+    padding: 10px;
+    width: auto;
+    right: 0;
+    top: 0;
+    border-radius: 5px;
+    text-align: center;
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: #404145;
+    }
+
+    p {
+      margin: 0;
+    }
+    .modal-buttons {
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        padding: 8px 16px;
+        border: none;
+        border-radius: 3px;
+        font-size: rem(14px);
+        font-family: macanRegular;
+        cursor: pointer;
+      }
+
+      .complete:hover {
+        background-color: $green1;
+        color: $clr1;
+      }
+      .reject:hover {
+        background-color: crimson;
+        color: $clr1;
+      }
+      .cancel:hover {
+        color: $clr2;
+      }
+    }
+  }
+}
