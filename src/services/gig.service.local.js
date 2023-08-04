@@ -110,7 +110,7 @@ function getEmptyGig() {
 	}
 }
 
-// ; (async () => {
+// ;(async () => {
 // 	await storageService.post(STORAGE_KEY, {
 // 		_id: 'i101',
 // 		title: 'I will design a creative minimalist business logo',
@@ -133,7 +133,10 @@ function getEmptyGig() {
 // 		daysToMake: 1,
 // 		description: {
 // 			title: 'Welcome to my logo design gig on Fiverr! I am a professional graphic designer with years of experience creating unique and memorable logos for businesses and individuals.',
-// 			questions: ['Why choose this gig?', 'Why choosing the higher packages?'],
+// 			questions: [
+// 				'Why choose this gig?',
+// 				'Why choosing the higher packages?',
+// 			],
 // 			answers: [
 // 				'Quality work and services',
 // 				'Excellent communication',
@@ -325,7 +328,10 @@ function getEmptyGig() {
 // 			daysToMake: 3,
 // 			description: {
 // 				title: 'Welcome to my gig on Fiverr! I am a professional with years of experience creating unique and memorable projects for businesses and individuals.',
-// 				questions: ['Why choose this gig?', 'Why choosing the higher packages?'],
+// 				questions: [
+// 					'Why choose this gig?',
+// 					'Why choosing the higher packages?',
+// 				],
 // 				answers: [
 // 					'Quality work and services',
 // 					'Excellent communication',
@@ -490,7 +496,10 @@ function getEmptyGig() {
 // 			daysToMake: 1,
 // 			description: {
 // 				title: 'Welcome to my gig on Fiverr! I am a professional with years of experience creating unique and memorable projects for businesses and individuals.',
-// 				questions: ['Why choose this gig?', 'Why choosing the higher packages?'],
+// 				questions: [
+// 					'Why choose this gig?',
+// 					'Why choosing the higher packages?',
+// 				],
 // 				answers: [
 // 					'Quality work and services',
 // 					'Excellent communication',
@@ -669,7 +678,10 @@ function getEmptyGig() {
 // 			daysToMake: 10,
 // 			description: {
 // 				title: 'Welcome to my gig on Fiverr! I am a professional with years of experience creating unique and memorable projects for businesses and individuals.',
-// 				questions: ['Why choose this gig?', 'Why choosing the higher packages?'],
+// 				questions: [
+// 					'Why choose this gig?',
+// 					'Why choosing the higher packages?',
+// 				],
 // 				answers: [
 // 					'Quality work and services',
 // 					'Excellent communication',
@@ -816,7 +828,10 @@ function getEmptyGig() {
 // 			daysToMake: 6,
 // 			description: {
 // 				title: 'Welcome to my gig on Fiverr! I am a professional with years of experience creating unique and memorable projects for businesses and individuals.',
-// 				questions: ['Why choose this gig?', 'Why choosing the higher packages?'],
+// 				questions: [
+// 					'Why choose this gig?',
+// 					'Why choosing the higher packages?',
+// 				],
 // 				answers: [
 // 					'Quality work and services',
 // 					'Excellent communication',
@@ -948,7 +963,10 @@ function getEmptyGig() {
 // 		daysToMake: 8,
 // 		description: {
 // 			title: 'Welcome to my gig on Fiverr! I am a professional with years of experience creating unique and memorable projects for businesses and individuals.',
-// 			questions: ['Why choose this gig?', 'Why choosing the higher packages?'],
+// 			questions: [
+// 				'Why choose this gig?',
+// 				'Why choosing the higher packages?',
+// 			],
 // 			answers: [
 // 				'Quality work and services',
 // 				'Excellent communication',
@@ -1075,7 +1093,10 @@ function getEmptyGig() {
 // 		daysToMake: 3,
 // 		description: {
 // 			title: 'Welcome to my gig on Fiverr! I am a professional with years of experience creating unique and memorable projects for businesses and individuals.',
-// 			questions: ['Why choose this gig?', 'Why choosing the higher packages?'],
+// 			questions: [
+// 				'Why choose this gig?',
+// 				'Why choosing the higher packages?',
+// 			],
 // 			answers: [
 // 				'Quality work and services',
 // 				'Excellent communication',
@@ -1149,7 +1170,10 @@ function getEmptyGig() {
 // 			daysToMake: 10,
 // 			description: {
 // 				title: 'Welcome to my gig on Fiverr! I am a professional with years of experience creating unique and memorable projects for businesses and individuals.',
-// 				questions: ['Why choose this gig?', 'Why choosing the higher packages?'],
+// 				questions: [
+// 					'Why choose this gig?',
+// 					'Why choosing the higher packages?',
+// 				],
 // 				answers: [
 // 					'Quality work and services',
 // 					'Excellent communication',
@@ -1242,7 +1266,10 @@ function getEmptyGig() {
 // 			daysToMake: 2,
 // 			description: {
 // 				title: 'Welcome to my gig on Fiverr! I am a professional with years of experience creating unique and memorable projects for businesses and individuals.',
-// 				questions: ['Why choose this gig?', 'Why choosing the higher packages?'],
+// 				questions: [
+// 					'Why choose this gig?',
+// 					'Why choosing the higher packages?',
+// 				],
 // 				answers: [
 // 					'Quality work and services',
 // 					'Excellent communication',
@@ -1324,7 +1351,10 @@ function getEmptyGig() {
 // 		daysToMake: 3,
 // 		description: {
 // 			title: 'Welcome to my gig on Fiverr! I am a professional with years of experience creating unique and memorable projects for businesses and individuals.',
-// 			questions: ['Why choose this gig?', 'Why choosing the higher packages?'],
+// 			questions: [
+// 				'Why choose this gig?',
+// 				'Why choosing the higher packages?',
+// 			],
 // 			answers: [
 // 				'Quality work and services',
 // 				'Excellent communication',
@@ -1423,7 +1453,10 @@ function getEmptyGig() {
 // 		daysToMake: 7,
 // 		description: {
 // 			title: 'Welcome to my gig on Fiverr! I am a professional with years of experience creating unique and memorable projects for businesses and individuals.',
-// 			questions: ['Why choose this gig?', 'Why choosing the higher packages?'],
+// 			questions: [
+// 				'Why choose this gig?',
+// 				'Why choosing the higher packages?',
+// 			],
 // 			answers: [
 // 				'Quality work and services',
 // 				'Excellent communication',
@@ -1507,7 +1540,10 @@ function getEmptyGig() {
 // 		daysToMake: 7,
 // 		description: {
 // 			title: 'Welcome to my gig on Fiverr! I am a professional with years of experience creating unique and memorable projects for businesses and individuals.',
-// 			questions: ['Why choose this gig?', 'Why choosing the higher packages?'],
+// 			questions: [
+// 				'Why choose this gig?',
+// 				'Why choosing the higher packages?',
+// 			],
 // 			answers: [
 // 				'Quality work and services',
 // 				'Excellent communication',
