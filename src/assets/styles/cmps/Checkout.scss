@@ -1,173 +1,171 @@
 .checkout {
-    display: grid;
-    border: 1px solid $clr11;
-    border-radius: 4px;
-    margin-top: 50px;
-    line-height: rem(22px);
-    color: $clr2;
-    font-size: rem(16px);
+  display: grid;
+  border: 1px solid $clr11;
+  border-radius: 4px;
+  margin-top: 50px;
+  line-height: rem(22px);
+  color: $clr2;
+  font-size: rem(16px);
 
-    @include for-narrow-layout {
+  @include for-narrow-layout {
     .ssl {
-        text-align: center;
+      text-align: center;
     }
-    }
-    
-    .upper-section {
-        padding: 16px 20px;
-        background-color: $clr8;
+  }
 
-        .gig-prev {
-            display: grid;
-            grid-template-columns: 1fr 3fr;
-            gap: 15px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid $clr11;
-            img {
-                height: 61px;
-                width: 100px;
-            }
-            span {
-                font-family: macanSemibold;
-            }
-        }
-        
-        .type-package {
-            display: flex;
-            flex-direction: column;
-            .header{
-                display: flex;
-                justify-content: space-between;
-                margin-top: 20px;
-                .title {
-                    font-family: macanBold;
-                    align-self: flex-start;
-                }
-                .price {
-                    align-self: flex-end;
-                }
-            }
-            .specials {
-                list-style: none;
-                color: $clr2;
-                font-size: rem(16px);
-                font-family: macanRegular;
-                padding-left: 5px;
-                li {
-                    margin-top: 10px;
-                }
-                i {
-                    padding-right: 10px;
-                    font-size: 5px;
-                }
-            }
-        }
+  .upper-section {
+    padding: 16px 20px;
+    background-color: $clr8;
+
+    .gig-prev {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      gap: 15px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid $clr11;
+      img {
+        height: 61px;
+        width: 100px;
+      }
+      span {
+        font-family: macanSemibold;
+      }
     }
-    .bottom-section {
-        padding: 16px 24px;
-        line-height: 24px;
+
+    .type-package {
+      display: flex;
+      flex-direction: column;
+      .header {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        .title {
+          font-family: macanBold;
+          align-self: flex-start;
+        }
+        .price {
+          align-self: flex-end;
+        }
+      }
+      .specials {
+        list-style: none;
+        color: $clr2;
+        font-size: rem(16px);
         font-family: macanRegular;
-        .promo-code {
-            font-family: macanRegular;
-            &:hover {
-                cursor: pointer;
-            }
-        }   
-        .fees {
-            border-top: 1px solid $clr11;
-            border-bottom: 1px solid $clr11;
-            padding: 20px 0 10px;
-            p {
-                font-family: macanRegular;
-            }
+        padding-left: 5px;
+        li {
+          margin-top: 10px;
         }
-        .service-fee , .ttl ,.vat, .del-time{
-            display: flex;
-            justify-content: space-between;
-            align-content: center;
-            
+        i {
+          padding-right: 10px;
+          font-size: 5px;
         }
-        
-        
-        .totals {
-            .total {
-                font-size: rem(18px);
-                margin-top: 20px;
-                font-family: macanBold;
-                color: $clr2;
-            }
-            .t-price {
-                font-size: rem(18px);
-                color: $clr2;
-                margin-top: 20px;
-            }
-            .delivery-time {
-                margin-bottom: 20px;
-                font-family: macanRegular;
-            }
-            .days{
-                font-family: macanRegular;
-            }
-        }
-        .confirm {
-            margin-top: 10px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .btn-pay {
-            text-align: center;
-            color: $clr1;
-            &:hover {
-                background-color: $clr2;
-                cursor: pointer;
-            }
-        }
-        .cc {
-            font-family: macanSemibold;
-            padding: 15px 109px;
-            border-radius: 4px;
-            background-color: $clr7;
-        }
-        .pp {
-            padding: 12px 60px;
-            background-color: $green7;
-            border-radius: 18px;
-            height: 35px;
-            width: 250px;
-            font-size: rem(11px);
-            span {
-                font-family: macanBold;
-                font-size: rem(20px);
-            }
-            // .paypal-icon {
-            //     fill: white;
-            //     color: aliceblue;
-            //     position: absolute;
-            //     translate: 0 5px;
-            // }
-        }
-        .secure {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .ssl {
-            font-size: rem(14px);
-            color: $clr2;
-            font-family: macanRegular;
-            
-        }
-        .be-charged {
-            font-size: rem(14px);
-            color: $clr10;
-            text-align: center;
-
-        }
+      }
     }
-    .ques-icon {
-        fill: aqua;
-        color: aqua;
-        background-color: aqua;
+  }
+  .bottom-section {
+    padding: 16px 24px;
+    line-height: 24px;
+    font-family: macanRegular;
+    .promo-code {
+      font-family: macanRegular;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .fees {
+      border-top: 1px solid $clr11;
+      border-bottom: 1px solid $clr11;
+      padding: 20px 0 10px;
+      p {
+        font-family: macanRegular;
+      }
+    }
+    .service-fee,
+    .ttl,
+    .vat,
+    .del-time {
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
     }
 
+    .totals {
+      .total {
+        font-size: rem(18px);
+        margin-top: 20px;
+        font-family: macanBold;
+        color: $clr2;
+      }
+      .t-price {
+        font-size: rem(18px);
+        color: $clr2;
+        margin-top: 20px;
+      }
+      .delivery-time {
+        margin-bottom: 20px;
+        font-family: macanRegular;
+      }
+      .days {
+        font-family: macanRegular;
+      }
+    }
+    .confirm {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .btn-pay {
+      text-align: center;
+      color: $clr1;
+      &:hover {
+        background-color: $clr2;
+        cursor: pointer;
+      }
+    }
+    .cc {
+      font-family: macanSemibold;
+      padding: 15px 65px;
+      border-radius: 4px;
+      background-color: $clr7;
+    }
+    .pp {
+      padding: 12px 60px;
+      background-color: $green7;
+      border-radius: 18px;
+      height: 35px;
+      width: 250px;
+      font-size: rem(11px);
+      span {
+        font-family: macanBold;
+        font-size: rem(20px);
+      }
+      // .paypal-icon {
+      //     fill: white;
+      //     color: aliceblue;
+      //     position: absolute;
+      //     translate: 0 5px;
+      // }
+    }
+    .secure {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .ssl {
+      font-size: rem(14px);
+      color: $clr2;
+      font-family: macanRegular;
+    }
+    .be-charged {
+      font-size: rem(14px);
+      color: $clr10;
+      text-align: center;
+    }
+  }
+  .ques-icon {
+    fill: aqua;
+    color: aqua;
+    background-color: aqua;
+  }
 }

@@ -10,17 +10,9 @@
   border: 1px solid $clr6;
   border-radius: 5px;
 
-  &>*:not(:last-child) {
+  & > *:not(:last-child) {
     border-right: 2px solid $clr6;
   }
-
-  th,
-  td {
-    padding: 15px 20px;
-    text-align: left;
-  }
-
-
   .item {
     display: flex;
     flex-direction: column;
@@ -31,17 +23,21 @@
     max-width: rem(250px);
     padding: 0 rem(10px);
   }
-  
-  .table-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-    max-width: 100%;
-    overflow-x: auto;
+}
+
+/* Add styles for the table */
+.table-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-block: rem(20px);
+  max-width: 100%;
+  overflow-x: auto;
+  th,
+  td {
+    padding: 15px 20px;
+    text-align: left;
   }
-  
-  /* Add styles for the table */
   table {
     position: relative;
     background-color: $clr1;
@@ -52,35 +48,34 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     margin: 0 auto;
-    
+
     thead {
       border-bottom: 2px solid $green1;
     }
-    
+
     tr {
       position: relative;
     }
   }
-  
-  
+
   th {
     font-weight: bold;
-}
-
-tbody tr:nth-child(even) {
-  background-color: $green6;
-  color: $clr1;
-  
-  &:hover {
-    background-color: $green4;
-    cursor: pointer;
   }
-}
 
-tbody tr:nth-child(odd) {
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-    cursor: pointer;
+  tbody tr:nth-child(even) {
+    background-color: $green6;
+    color: $clr1;
+
+    &:hover {
+      background-color: $green4;
+      cursor: pointer;
+    }
   }
-}
+
+  tbody tr:nth-child(odd) {
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+  }
 }

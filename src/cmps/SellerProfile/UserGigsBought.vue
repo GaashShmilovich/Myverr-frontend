@@ -1,10 +1,10 @@
 <template>
   <section>
-    <GigListSeller
+    <UserOrders
       :gigs="filteredGigs"
       @remove-gig="removeGig"
       @edit-gig="updateGig"
-    ></GigListSeller>
+    ></UserOrders>
   </section>
 </template>
 
@@ -20,11 +20,11 @@ import {
   getActionUpdateGig,
   getActionAddGigMsg,
 } from "../../store/gig.store";
-import GigListSeller from "../SellerProfile/GigListSeller.vue";
+import UserOrders from "./UserOrders.vue";
 export default {
   components: {
     GigPreviewCarousel,
-    GigListSeller,
+    UserOrders,
   },
   props: {
     user: Object,
@@ -40,9 +40,9 @@ export default {
       return this.$store.getters.gigs;
     },
     filteredGigs() {
-      if (this.user.isSeller) {
-        return this.$store.getters.gigs.filter(
-          (gig) => gig.owner._id === this.user._id
+      if (!this.user.isSeller) {
+        return this.$store.getters.orders.filter(
+          (order) => order.buyer._id === this.user._id
         );
       }
     },
