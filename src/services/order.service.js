@@ -15,7 +15,7 @@ import { utilService } from './util.service.js'
     })
     socketService.on(SOCKET_EVENT_ORDER_FOR_YOU, (order) => {
         showSuccessMsg(`You recieved a new order: ${order}`)
-        console.log('got from socket order about you', order);
+        console.log(`You recieved a new order:`, order);
     })
     // socketService.on(SOCKET_EVENT_ORDER_UPDATED, (order) => {
     //     showSuccessMsg(`You recieved a new order: ${order}`)
