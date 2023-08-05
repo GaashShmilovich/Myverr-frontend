@@ -10,6 +10,10 @@
 	line-height: rem(21px);
 	color: #404145;
 
+	@include for-mobile {
+		display: none;
+	}
+
 	.breadcrumb-item {
 		&.last-category {
 			font-size: rem(32px);
@@ -31,4 +35,8 @@
 
 .explore-header-home-icon:hover {
 	cursor: pointer;
+}
+
+.mobile-explore-header-container {
+	display: flex;
 }

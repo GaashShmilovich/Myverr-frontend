@@ -2,12 +2,13 @@
 	<section class="filter-btns-container">
 		<!-- Budget Button and Modal -->
 		<div class="filter-group">
+			<button class="all-btn filter-btn"><span>☰</span> All</button>
 			<button
 				class="budget-btn filter-btn"
 				:class="{ active: filterBy === 'budget' }"
 				@click="setFilter('budget')"
 			>
-				Budget <span></span>
+				Budget <span class="arrow-btn"></span>
 			</button>
 			<div v-if="filterBy === 'budget'" class="modal budget-modal">
 				<div class="input-labels">
@@ -47,7 +48,7 @@
 				:class="{ active: filterBy === 'delivery' }"
 				@click="setFilter('delivery')"
 			>
-				Delivery Time <span></span>
+				Delivery Time <span class="arrow-btn"></span>
 			</button>
 			<div v-if="filterBy === 'delivery'" class="modal delivery-modal">
 				<label class="delivery-input custom-radio">
@@ -81,6 +82,7 @@
 					</button>
 				</div>
 			</div>
+			<button class="seller-lvl-btn filter-btn">Seller Level</button>
 		</div>
 		<section class="seller-filter-container">
 			<div class="checkbox-container">

@@ -17,6 +17,12 @@
 			subCategory
 		}}</span>
 	</div>
+
+	<div class="mobile-explore-header-container">
+		<p class="explore-mobile-arrow">➜</p>
+		<p>PLACEHOLDER HEADER</p>
+		<i class="search" v-html="$getSvg('white-search')"></i>
+	</div>
 </template>
 
 <script>
