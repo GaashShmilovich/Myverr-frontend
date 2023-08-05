@@ -19,6 +19,7 @@ export const orderStore = {
             state.orders = state.orders.filter(order => order._id !== orderId)
         },
         updateOrder(state, { newOrder }) {
+            console.log(newOrder);
             const idx = state.orders.findIndex(c => c._id === newOrder._id)
             state.orders.splice(idx, 1, newOrder)
         },
@@ -41,12 +42,11 @@ export const orderStore = {
                 throw err
             }
         },
-        async updateOrder(context, { payload }) {
+        async updateOrder(context, order) {
             try {
-                const {order, status } = payload
-                order.status = status
                 console.log(order);
-                newOrder = await orderService.save(order)
+                const newOrder = await orderService.save(order)
+                console.log(newOrder);
                 context.commit({ type: 'updateOrder', newOrder})
                 return newOrder
             } catch (err) {

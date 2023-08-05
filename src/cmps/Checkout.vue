@@ -96,6 +96,7 @@
 import { gigService } from "../services/gig.service";
 // import { gigService } from "../services/gig.service.local";
 import { userService } from "../services/user.service";
+import { showSuccessMsg } from "../services/event-bus.service";
 // import { userService } from "../services/user.service.local";
 
 export default {
@@ -138,6 +139,7 @@ export default {
     },
     async addOrder() {
       try {
+        showSuccessMsg('wohoo')
         // const loggenInUser = await userService.getLoggedinUser();
         const createdOrder = {
           createdAt: new Date(),

@@ -41,7 +41,7 @@ export default {
     },
     filteredGigs() {
       if (!this.user.isSeller) {
-        return this.$store.getters.orders.filter(
+        return this.$store.getters.orders?.filter(
           (order) => order.buyer._id === this.user._id
         );
       }
