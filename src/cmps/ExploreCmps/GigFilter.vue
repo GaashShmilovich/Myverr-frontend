@@ -2,7 +2,11 @@
 	<section class="filter-btns-container">
 		<!-- Budget Button and Modal -->
 		<div class="filter-group">
-			<button class="all-btn filter-btn"><span>☰</span> All</button>
+			<button @click="openMobileFilterModal" class="all-btn filter-btn">
+				<i v-html="$getSvg('slider')"></i>
+				All
+			</button>
+
 			<button
 				class="budget-btn filter-btn"
 				:class="{ active: filterBy === 'budget' }"
@@ -125,7 +129,7 @@
 
 <script>
 export default {
-	emits: ['filterChanged'],
+	emits: ['filterChanged', 'allButtonClicked'],
 	data() {
 		return {
 			filterBy: null,
@@ -137,6 +141,7 @@ export default {
 			displayMinBudget: null,
 			displayMaxBudget: null,
 			showFilters: false,
+			showMobileFilterModal: false,
 		}
 	},
 	created() {
@@ -159,6 +164,10 @@ export default {
 		}
 	},
 	methods: {
+		openMobileFilterModal() {
+			this.showMobileFilterModal = !this.showMobileFilterModal
+			this.$emit('allButtonClicked')
+		},
 		setFilter(filterType) {
 			this.filterBy = this.filterBy === filterType ? null : filterType
 		},

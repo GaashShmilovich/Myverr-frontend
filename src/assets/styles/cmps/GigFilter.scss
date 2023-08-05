@@ -23,6 +23,7 @@
 		width: 410px;
 		height: 60px;
 		overflow-y: hidden;
+		top: 33px;
 		overflow-x: auto;
 		white-space: nowrap;
 		-ms-overflow-style: none;
@@ -112,10 +113,6 @@
 .all-btn {
 	padding-left: 18px;
 	padding-right: 18px;
-}
-
-.all-btn span {
-	margin-right: 4px;
 }
 
 .modal {

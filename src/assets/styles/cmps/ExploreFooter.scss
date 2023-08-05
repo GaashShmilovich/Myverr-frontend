@@ -1,0 +1,29 @@
+.mobile-explore-footer-container {
+	display: none;
+
+	@include for-mobile {
+		background-color: white;
+		height: 50px;
+		z-index: 100;
+		position: sticky;
+		display: flex;
+		bottom: 0;
+		justify-content: space-between;
+	}
+
+	.explore-footer-icon {
+		margin-top: 12px;
+	}
+
+	.mobile-explore-footer-home {
+		margin-left: 5px;
+	}
+
+	.mobile-explore-footer-profile {
+		margin-right: 5px;
+	}
+
+	.mobile-explore-footer-search {
+		margin-top: 14px;
+	}
+}
