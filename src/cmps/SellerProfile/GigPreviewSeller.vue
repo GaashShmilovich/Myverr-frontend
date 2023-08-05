@@ -29,7 +29,7 @@
           <p v-if="gig.owner" class="gig-preview-rate">
             {{ avgRating }}
           </p>
-          <p class="gig-reviews-num">({{ gig.reviews.length }})</p>
+          <p class="gig-reviews-num">({{ gig.reviews?.length }})</p>
         </div>
         <div class="gig-preview-footer-container">
           <p v-if="gig.price" class="gig-preview__price">
@@ -62,6 +62,7 @@ export default {
     },
     onDelete() {
       this.$emit("delete", this.gig._id);
+      console.log(this.gig);
     },
     onEdit() {
       this.$router.push(`/user/${this.gig._id}/edit`);

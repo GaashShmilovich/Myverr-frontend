@@ -1,9 +1,12 @@
 <template>
-  <div class="background-container main-layout full" v-if="user.isSeller">
-    <SellerProfile :user="user" />
+  <div
+    class="background-container main-layout full"
+    v-if="loggedinUser?.isSeller"
+  >
+    <SellerProfile :user="loggedinUser" />
   </div>
-  <div v-else>
-    <BuyerProfile class="background-container main-layout full" :user="user" />
+  <div class="background-container main-layout full" v-else>
+    <BuyerProfile :user="loggedinUser" />
   </div>
 </template>
 
@@ -16,18 +19,18 @@ import { userService } from "../services/user.service.js";
 export default {
   data() {
     return {
-      user: null,
+      // user: null,
       // loggedInUser: null,
     };
   },
-  created() {
-    this.user = userService.getLoggedinUser();
-  },
+  // created() {
+  //   this.user = userService.getLoggedinUser();
+  // },
   computed: {
-    // loggedInUser() {
-    // console.log(this.$store.getters.loggedInUser);
-    // return this.$store.getters.loggedInUser;
-    // },
+    loggedinUser() {
+      console.log(this.$store.getters.loggedinUser);
+      return this.$store.getters.loggedinUser;
+    },
   },
   components: {
     SellerProfile,

@@ -41,6 +41,12 @@
 	}
 }
 
+@mixin for-mobile {
+	@media (max-width: 420px) {
+		@content;
+	}
+}
+
 // $mobile-breakpoint: 560px;
 // $narrow-breakpoint: 860px;
 // $normal-breakpoint: 960px;

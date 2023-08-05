@@ -3,8 +3,9 @@
     <ul class="profile-menu-list">
       <li>
         <RouterLink
+          v-if="loggedInUser"
           @click="isMenuOpen = false"
-          :to="'/user/' + loggedInUser?._id"
+          :to="`/user/${loggedInUser._id}/gigs`"
           >Profile</RouterLink
         >
       </li>
@@ -24,6 +25,7 @@ export default {
   methods: {
     doLogout() {
       this.$store.dispatch({ type: "logout" });
+      this.$router.push(`/`);
     },
   },
 };

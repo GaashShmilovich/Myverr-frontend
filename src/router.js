@@ -14,6 +14,7 @@ import MyGigs from '../src/cmps/SellerProfile/MyGigs.vue'
 import UserOrders from '../src/cmps/SellerProfile/UserOrders.vue'
 import ReceivedOrders from '../src/cmps/SellerProfile/ReceivedOrders.vue'
 import SellerReviews from '../src/cmps/SellerProfile/SellerReviews.vue'
+import UserGigsBought from '../src/cmps/SellerProfile/UserGigsBought.vue'
 
 const routes = [
   {
@@ -71,11 +72,11 @@ const routes = [
         name: 'ReceivedOrders',
         component: ReceivedOrders
       },
-      // {
-      //   path: '/orders',
-      //   name: 'UserOrders',
-      //   component: UserOrders
-      // },
+      {
+        path: 'buyerOrders',
+        name: 'BuyerOrders',
+        component: UserGigsBought
+      },
 
       {
         path: 'reviews',

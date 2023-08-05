@@ -2,19 +2,19 @@
   <section class="orders-manager-container">
     <div class="item">
       <span>Annual Revenue</span>
-      <h3>$30</h3>
+      <h3>${{ annualRevenue }}</h3>
     </div>
     <div class="item">
       <span>Monthly Revenue</span>
-      <h3>$30</h3>
+      <h3>${{ monthlyRevenue }}</h3>
     </div>
     <div class="item">
       <span>Completed Orders </span>
-      <h3>1</h3>
+      <h3>{{ completedOrdersCount }}</h3>
     </div>
     <div class="item">
       <span>Pending Orders </span>
-      <h3>0</h3>
+      <h3>{{ pendingOrdersCount }}</h3>
     </div>
   </section>
   <section class="table-container">
@@ -37,7 +37,7 @@
         >
           <th scope="row">{{ i + 1 }}</th>
           <td>{{ order.buyer.fullname }}</td>
-          <td>{{ order.gig.name }}</td>
+          <td>{{ order.gig.title }}</td>
           <td>{{ order.createdAt }}</td>
           <td>${{ order.gig.price }}</td>
           <td>{{ order.status }}</td>
@@ -64,6 +64,34 @@ export default {
   computed: {
     orders() {
       return this.$store.getters.orders;
+    },
+    monthlyRevenue() {
+      const currentDate = new Date();
+      const currentMonth = currentDate.getMonth();
+      return this.orders.reduce((total, order) => {
+        const orderDate = new Date(order.createdAt);
+        if (orderDate.getMonth() === currentMonth) {
+          return total + order.gig.price;
+        }
+        return total;
+      }, 0);
+    },
+    annualRevenue() {
+      const currentDate = new Date();
+      const currentYear = currentDate.getFullYear();
+      return this.orders.reduce((total, order) => {
+        const orderDate = new Date(order.createdAt);
+        if (orderDate.getFullYear() === currentYear) {
+          return total + order.gig.price;
+        }
+        return total;
+      }, 0);
+    },
+    pendingOrdersCount() {
+      return this.orders.filter((order) => order.status === "pending").length;
+    },
+    completedOrdersCount() {
+      return this.orders.filter((order) => order.status === "completed").length;
     },
   },
   mounted() {

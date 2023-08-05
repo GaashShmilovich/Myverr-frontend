@@ -1,5 +1,7 @@
 .gig-list-container {
 	white-space: nowrap;
+	@include for-mobile {
+	}
 }
 
 .gig-list {

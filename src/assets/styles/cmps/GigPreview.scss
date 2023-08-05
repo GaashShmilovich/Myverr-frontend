@@ -22,6 +22,16 @@
 		width: 545px;
 	}
 
+	@include for-mobile {
+		margin-left: 7px;
+		margin-right: 7px;
+		border: 0px solid #e4e5e7;
+		box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.05);
+		border-radius: 10px;
+		width: 400px;
+		height: 140px;
+	}
+
 	&:hover .gig-preview__title {
 		text-decoration: underline;
 	}
@@ -49,6 +59,10 @@
 				margin-bottom: 10px;
 				justify-content: space-between;
 				flex-wrap: nowrap;
+
+				@include for-mobile {
+					display: none;
+				}
 			}
 
 			.gig-owner-img {
@@ -92,6 +106,16 @@
 				-webkit-box-orient: vertical;
 				-webkit-line-clamp: 2;
 				white-space: normal;
+
+				@include for-mobile {
+					position: relative;
+					top: 10px;
+					margin-left: 15px;
+					height: 2.4em;
+					font-size: 16px;
+					width: 185px;
+					text-align: left;
+				}
 			}
 
 			.preview-reviews-container {
@@ -99,9 +123,18 @@
 				display: flex;
 				align-items: center;
 
+				@include for-mobile {
+					margin-left: 15px;
+				}
+
 				.preview-star,
 				.gig-preview-rate,
 				.gig-reviews-num {
+					@include for-mobile {
+						position: relative;
+						bottom: 80px;
+						font-family: macanSemibold;
+					}
 					font-size: 16px;
 					margin-right: 3px;
 					font-weight: 400;
@@ -111,10 +144,16 @@
 				.preview-star,
 				.gig-preview-rate {
 					color: $clr4;
+
+					@include for-mobile {
+						filter: invert(89%) sepia(15%) saturate(5231%)
+							hue-rotate(343deg) brightness(103%) contrast(103%);
+					}
 				}
 
 				.gig-reviews-num {
-					color: #a2a2a7;
+					color: #949499;
+					font-family: macanRegular;
 					font-weight: 400;
 				}
 			}
@@ -123,6 +162,14 @@
 				display: flex;
 				justify-content: space-between;
 				padding-top: 3px;
+
+				@include for-mobile {
+					margin-left: 15px;
+					position: relative;
+					bottom: 15px;
+					left: 85px;
+					width: 50px;
+				}
 			}
 
 			.gig-preview__price {
@@ -131,6 +178,12 @@
 				text-align: right;
 				color: black;
 				cursor: pointer;
+
+				@include for-mobile {
+					font-size: 14px;
+					font-family: macanRegular;
+					color: #949499;
+				}
 			}
 
 			.gig-preview__price span {
@@ -138,6 +191,16 @@
 				font-weight: normal;
 				color: black;
 				font-weight: bold;
+
+				@include for-mobile {
+					font-family: macanBold;
+					font-size: 20px;
+					margin-left: 5px;
+				}
+			}
+
+			@include for-mobile {
+				display: inline-block;
 			}
 		}
 	}

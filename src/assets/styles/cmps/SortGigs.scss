@@ -3,6 +3,9 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	@include for-mobile {
+		display: none;
+	}
 }
 
 .current-sort {
