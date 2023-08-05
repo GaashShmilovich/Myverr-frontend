@@ -18,7 +18,12 @@
 
   @include for-mobile-layout {
     grid-template-columns: 1fr;
-    
+    &.full {
+      display: none;
+    }
+    .footer-container {
+      display: none;
+    }
   }
 
   // @include for-narrow-layout {
