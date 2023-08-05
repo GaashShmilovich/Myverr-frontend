@@ -18,9 +18,9 @@
 
   @include for-mobile-layout {
     grid-template-columns: 1fr;
-    &.full { 
-      display: none;
-    }
+    // &.full {
+    //   display: none;
+    // }
     .footer-container {
       display: none;
     }
