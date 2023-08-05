@@ -32,7 +32,7 @@ export default {
       const orders = this.$store.getters.orders
       const updatedOrder = orders.find((o) => o._id === order._id)
       console.log(updatedOrder);
-      this.$store.dispatch('updateOrder', {order: updatedOrder})
+      this.$store.commit('updateOrder', {newOrder: updatedOrder})
       // orderService.save(updatedOrder)
 
       this.closeModal();
