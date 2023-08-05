@@ -2,7 +2,7 @@
   <section class="orders-manager-container">
     <div class="item">
       <span>Annual Revenue</span>
-      <h3>${{ annualRevenue }}</h3>
+      <!-- <h3>${{ annualRevenue }}</h3> -->
     </div>
     <div class="item">
       <span>Monthly Revenue</span>

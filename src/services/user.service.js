@@ -22,8 +22,18 @@ function getUsers() {
     return httpService.get(`user`)
 }
 
+function onUserUpdate(user) {
+    showSuccessMsg(`This user ${user.fullname} just got updated from socket`)
+    store.dispatch({ type: 'setWatchedUser', user })
+}
+
 async function getById(userId) {
     const user = await httpService.get(`user/${userId}`)
+
+    socketService.off(SOCKET_EVENT_USER_UPDATED, onUserUpdate)
+    socketService.emit(SOCKET_EMIT_USER_WATCH, userId)
+    socketService.on(SOCKET_EVENT_USER_UPDATED, onUserUpdate)
+
     return user
 }
 
