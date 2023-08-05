@@ -8,3 +8,15 @@
 		display: none;
 	}
 }
+
+.mobile-filter-modal {
+	@include for-mobile {
+		background-color: #ffffff;
+		position: fixed;
+		min-height: 100vh;
+		width: 100%;
+		top: 0;
+		left: 0;
+		z-index: 12345654321;
+	}
+}

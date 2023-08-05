@@ -1,13 +1,82 @@
 <template>
 	<div class="gig-list-container">
+		<div v-if="showMobileFilterModal" class="mobile-filter-modal">
+			<div>
+				<h1>-----Placeholder HEADER-----</h1>
+			</div>
+
+			<div>
+				<h1>Price range</h1>
+				<div class="input-labels">
+					<p class="min-btn">MIN.</p>
+					<p class="max-btn">MAX.</p>
+				</div>
+				<div class="input-fields">
+					<input
+						class="budget-input"
+						type="number"
+						placeholder="Any"
+						v-model="minBudget"
+						min="1"
+					/>
+					<input
+						class="budget-input"
+						type="number"
+						placeholder="Any"
+						v-model="maxBudget"
+					/>
+				</div>
+			</div>
+			<div>
+				<h1>Gig delivery time</h1>
+				<label class="delivery-input custom-radio">
+					<input type="radio" value="1" v-model="deliveryTime" />
+					<span class="custom-radio-btn"></span>
+					Express 24h
+				</label>
+				<label class="delivery-input custom-radio">
+					<input type="radio" value="3" v-model="deliveryTime" />
+					<span class="custom-radio-btn"></span>
+					Up to 3 days
+				</label>
+				<label class="delivery-input custom-radio">
+					<input type="radio" value="7" v-model="deliveryTime" />
+					<span class="custom-radio-btn"></span>
+					Up to 7 days
+				</label>
+				<label class="delivery-input custom-radio">
+					<input type="radio" value="999" v-model="deliveryTime" />
+					<span class="custom-radio-btn"></span>
+					Anytime
+				</label>
+			</div>
+			<div>
+				<h1>Seller level</h1>
+				<button>Top Rated Seller</button>
+				<button>Level Two</button>
+				<button>Level One</button>
+			</div>
+			<div>
+				<h1>Seller is currently online</h1>
+				<input type="checkbox" />
+			</div>
+
+			<div>
+				<button>Show Results</button>
+			</div>
+		</div>
 		<ExploreHeader></ExploreHeader>
 		<hr class="index-separator-line" />
-		<GigFilter @filterChanged="onFilterChanged"></GigFilter>
+		<GigFilter
+			@allButtonClicked="handleAllButtonClick"
+			@filterChanged="onFilterChanged"
+		></GigFilter>
 		<SortGigs
 			:gigCount="gigs.length"
 			@sortChanged="onSortChanged"
 		></SortGigs>
 		<GigList :gigs="gigs"></GigList>
+		<ExploreFooter></ExploreFooter>
 	</div>
 </template>
 
@@ -16,6 +85,7 @@ import GigList from '../cmps/ExploreCmps/GigList.vue'
 import GigFilter from '../cmps/ExploreCmps/GigFilter.vue'
 import SortGigs from '../cmps/ExploreCmps/SortGigs.vue'
 import ExploreHeader from '../cmps/ExploreCmps/ExploreHeader.vue'
+import ExploreFooter from '../cmps/ExploreCmps/ExploreFooter.vue'
 
 export default {
 	data() {
@@ -28,6 +98,7 @@ export default {
 				delivery: null,
 				subCategory: null,
 			},
+			showMobileFilterModal: false,
 		}
 	},
 	components: {
@@ -35,6 +106,7 @@ export default {
 		GigFilter,
 		SortGigs,
 		ExploreHeader,
+		ExploreFooter,
 	},
 	computed: {
 		gigs() {
@@ -54,6 +126,11 @@ export default {
 	},
 
 	methods: {
+		handleAllButtonClick() {
+			this.showMobileFilterModal = !this.showMobileFilterModal
+			console.log(5)
+		},
+
 		loadGigs() {
 			this.$store.dispatch({ type: 'loadGigs' })
 		},

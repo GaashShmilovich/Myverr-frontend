@@ -19,9 +19,9 @@
 	</div>
 
 	<div class="mobile-explore-header-container">
-		<p class="explore-mobile-arrow">➜</p>
-		<p>PLACEHOLDER HEADER</p>
-		<i class="search" v-html="$getSvg('white-search')"></i>
+		<router-link to="/" class="explore-mobile-arrow">➜</router-link>
+		<p class="mobile-explore-header">{{ subCategory }}</p>
+		<i class="search-explore" v-html="$getSvg('white-search-big-2')"></i>
 	</div>
 </template>
 
