@@ -31,16 +31,23 @@
   </script>
   
   <style>
-  .star-rating {
-    font-size: 24px;
+  /* .star-rating {
+    font-size: 22px;
     cursor: pointer;
+    
   }
   
   .filled-star {
     color: gold;
+    &:hover {
+        color: orange;
+    }
   }
   
   .empty-star {
     color: #ccc;
-  }
+    &:hover {
+        color: orange;
+    }
+  } */
   </style>

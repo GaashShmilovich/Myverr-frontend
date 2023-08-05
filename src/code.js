@@ -118,3 +118,17 @@ async function query(filterBy = {}) {
     }
 
 }
+
+;(() => {
+    setTimeout(() => {
+    socketService.on(SOCKET_EVENT_ORDER_ADDED, (order) => {
+        console.log('got from socket order added', order);
+        store.commit({type: 'addOrder', order})
+        showSuccessMsg(`There is a new order : ${order}`)
+    })
+    socketService.on(SOCKET_EVENT_ORDER_FOR_YOU, (order) => {
+        showSuccessMsg(`You recieved a new order: ${order}`)
+        console.log('got from socket order about you', order);
+    })
+    }, 0)
+})()
