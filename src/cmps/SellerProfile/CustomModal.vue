@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import { orderService } from '../../services/order.service'
 export default {
   props: {
     show: Boolean,
@@ -24,7 +25,15 @@ export default {
       this.$emit("close");
     },
     changeStatus(status) {
-      this.$emit("change-status", status);
+      const order = this.order
+      this.$store.dispatch('changeOrderStatus', { order, status})
+      // console.log(order);
+
+      const orders = this.$store.getters.orders
+      const updatedOrder = orders.find((o) => o._id === order._id)
+      console.log(updatedOrder);
+      orderService.save(updatedOrder)
+
       this.closeModal();
     },
   },

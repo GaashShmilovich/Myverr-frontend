@@ -22,6 +22,13 @@ export const orderStore = {
             const idx = state.orders.findIndex(c => c._id === newOrder._id)
             state.orders.splice(idx, 1, newOrder)
         },
+        setOrderStatus(state, { order, status }) {
+            const currOrder = state.orders.find((o) => o._id === order._id);
+            if (currOrder) {
+              order.status = status;
+            }
+          },
+    
     },
     actions: {
         async addOrder(context, { createdOrder }) {
@@ -46,6 +53,9 @@ export const orderStore = {
                 console.log('orderStore: Error in updateOrder', err)
                 throw err
             }
+        },
+        async changeOrderStatus({ commit }, { order, status}) {
+            commit('setOrderStatus', { order, status})
         },
         async loadOrders(context) {
             try {

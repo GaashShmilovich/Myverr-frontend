@@ -49,7 +49,6 @@
     :show="modalVisible"
     :order="selectedOrder"
     @close="modalVisible = false"
-    @change-status="onStatusChange"
   />
 </template>
 
@@ -111,23 +110,21 @@ export default {
       // console.log("order", order);
       this.modalVisible = true;
     },
-    async onStatusChange(status) {
-      try {
-        const payload = {
-        order: this.selectedOrder,
-        status: status
-      }    
-        console.log(payload);
-        // console.log('status changed to', status);
-       await this.$store.dispatch({ type: 'updateOrder', payload})
-        // this.$store.commit("updateOrderStatus", {
-        //   orderId: this.selectedOrder._id,
-        //   newStatus: status,
-        // });
-      } catch (err) {
-        console.log("Error updating order status:", err);
-      }
-    },
+    // async onStatusChange(status) {
+    //   try {
+
+    //     const payload = {
+    //     order: this.selectedOrder,
+    //     order.status = status
+    //     status: status
+    //   }    
+    //     console.log(payload);
+    //    await this.$store.dispatch({ type: 'updateOrder', payload})
+      
+    //   } catch (err) {
+    //     console.log("Error updating order status:", err);
+    //   }
+    // },
   },
 };
 </script>
