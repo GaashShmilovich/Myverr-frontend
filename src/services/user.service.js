@@ -1,4 +1,5 @@
 import { httpService } from './http.service'
+import { socketService } from './socket.service'
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 

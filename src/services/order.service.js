@@ -43,7 +43,6 @@ async function add(order) {
             password: order.password,
             fullname: order.fullname,
             imgUrl: order.imgUrl,
-            score: 100
         }
         const collection = await dbService.getCollection('order')
         await collection.insertOne(orderToAdd)
@@ -61,3 +60,5 @@ function getEmptyOrder() {
         price: utilService.getRandomIntInclusive(1000, 9000),
     }
 }
+
+
