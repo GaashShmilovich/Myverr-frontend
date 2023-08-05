@@ -1,68 +1,103 @@
 <template>
 	<div class="gig-list-container">
 		<div v-if="showMobileFilterModal" class="mobile-filter-modal">
-			<div>
-				<h1>-----Placeholder HEADER-----</h1>
+			<div class="explore-mobile-modal-header">
+				<button
+					@click="handleAllButtonClick"
+					class="close-mobile-modal-btn"
+				>
+					✖
+				</button>
+				<h1 class="header-mobile-modal-explore">All Filters</h1>
+				<button class="clear-mobile-modal-btn">Clear All</button>
 			</div>
 
-			<div>
-				<h1>Price range</h1>
+			<div class="mobile-price-filter-container">
+				<h1 class="mobile-price-filter-header">Price range</h1>
 				<div class="input-labels">
 					<p class="min-btn">MIN.</p>
 					<p class="max-btn">MAX.</p>
 				</div>
 				<div class="input-fields">
 					<input
-						class="budget-input"
+						class="budget-input mobile-budget-input"
 						type="number"
-						placeholder="Any"
+						placeholder="$ Any"
 						v-model="minBudget"
 						min="1"
 					/>
+					<i class="minus-mobile-sign">-</i>
 					<input
-						class="budget-input"
+						class="budget-input mobile-budget-input right-budget-input"
 						type="number"
-						placeholder="Any"
+						placeholder="$ Any"
 						v-model="maxBudget"
 					/>
 				</div>
 			</div>
-			<div>
-				<h1>Gig delivery time</h1>
-				<label class="delivery-input custom-radio">
-					<input type="radio" value="1" v-model="deliveryTime" />
-					<span class="custom-radio-btn"></span>
-					Express 24h
-				</label>
-				<label class="delivery-input custom-radio">
-					<input type="radio" value="3" v-model="deliveryTime" />
-					<span class="custom-radio-btn"></span>
-					Up to 3 days
-				</label>
-				<label class="delivery-input custom-radio">
-					<input type="radio" value="7" v-model="deliveryTime" />
-					<span class="custom-radio-btn"></span>
-					Up to 7 days
-				</label>
-				<label class="delivery-input custom-radio">
-					<input type="radio" value="999" v-model="deliveryTime" />
-					<span class="custom-radio-btn"></span>
-					Anytime
-				</label>
+			<div class="mobile-delivery-filter-container">
+				<h1 class="mobile-delivery-header">Gig delivery time</h1>
+				<div class="delivery-options-mobile">
+					<button
+						:class="{
+							'selected-delivery-option': deliveryTime === '1',
+						}"
+						@click="deliveryTime = '1'"
+					>
+						Express 24h
+					</button>
+					<button
+						:class="{
+							'selected-delivery-option': deliveryTime === '3',
+						}"
+						@click="deliveryTime = '3'"
+					>
+						Up to 3 days
+					</button>
+					<button
+						:class="{
+							'selected-delivery-option': deliveryTime === '7',
+						}"
+						@click="deliveryTime = '7'"
+					>
+						Up to 7 days
+					</button>
+					<button
+						:class="{
+							'selected-delivery-option': deliveryTime === '999',
+						}"
+						@click="deliveryTime = '999'"
+					>
+						Anytime
+					</button>
+				</div>
 			</div>
-			<div>
-				<h1>Seller level</h1>
-				<button>Top Rated Seller</button>
-				<button>Level Two</button>
-				<button>Level One</button>
+			<div class="mobile-level-filter-container">
+				<h1 class="mobile-level-header">Seller level</h1>
+				<div class="seller-mobile-options">
+					<button class="selected-seller-lvl-option">
+						Top Rated Seller
+					</button>
+					<button class="selected-seller-lvl-option">
+						Level Two
+					</button>
+					<button class="selected-seller-lvl-option">
+						Level One
+					</button>
+				</div>
 			</div>
-			<div>
-				<h1>Seller is currently online</h1>
-				<input type="checkbox" />
+			<div class="mobile-on-filter-container">
+				<h1 for="onlineSwitch" class="mobile-on-filter-text">
+					Seller is currently online
+				</h1>
+				<div class="switch">
+					<input type="checkbox" id="onlineSwitch" />
+					<span class="slider"></span>
+				</div>
 			</div>
 
-			<div>
-				<button>Show Results</button>
+			<div class="results-btn-container">
+				<button class="results-btn">Show Results</button>
 			</div>
 		</div>
 		<ExploreHeader></ExploreHeader>
