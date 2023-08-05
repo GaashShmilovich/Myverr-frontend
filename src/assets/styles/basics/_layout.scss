@@ -16,6 +16,10 @@
     }
   }
 
+  @include for-mobile-layout {
+    grid-template-columns: 1fr;
+    
+  }
 
   // @include for-narrow-layout {
   //   grid-template-columns:
