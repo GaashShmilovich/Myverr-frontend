@@ -48,6 +48,7 @@
         <FAQ :gig="gig" />
 
       <ReviewList :reviews="gig.reviews" />
+      <ChatRoom :gigId="gig._id" :msgHistory="gig?.msgs || []"/>
     </div>
   <!-- </div> -->
 
@@ -69,6 +70,8 @@ import GigDetailsCarusela from '../cmps/GigDetailsCarusela.vue'
 import FAQ from '../cmps/FAQ.vue'
 import AboutSeller from '../cmps/AboutSeller.vue'
 import VoiceInput from '../cmps/VoiceInput.vue'
+import ChatRoom from '../cmps/ChatRoom.vue'
+// import Chat from './Chat.vue'
 
 // import { gigService } from '../services/gig.service.local.js'
 import { gigService } from '../services/gig.service.js'
@@ -121,7 +124,9 @@ export default {
     GigDetailsCarusela,
     FAQ,
     AboutSeller,
-    VoiceInput
+    VoiceInput,
+    ChatRoom,
+    // Chat
   },
 }
 </script>

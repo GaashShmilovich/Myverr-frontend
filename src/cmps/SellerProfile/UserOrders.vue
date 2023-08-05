@@ -2,12 +2,7 @@
   <div>
     <ul class="gig-list">
       <li v-for="gig in gigs" :key="gig.id">
-        <GigPreview
-          :gig="gig"
-          @delete="removeGig"
-          @edit="editGig"
-          ref="gigPreview"
-        ></GigPreview>
+        <GigPreview :gig="gig" @delete="removeGig" @edit="editGig"></GigPreview>
       </li>
     </ul>
   </div>
@@ -24,9 +19,6 @@ export default {
     gigs: Array,
   },
   methods: {
-    toggleGigSlideshow() {
-      this.$refs.gigPreview.toggleSlideshow();
-    },
     removeGig(gig) {
       this.$emit("remove-gig", gig);
     },

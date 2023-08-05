@@ -75,6 +75,8 @@
 </template>
 
 <script>
+import { socketService } from '../services/socket.service'
+
 export default {
 	name: 'login',
 	data() {
@@ -90,9 +92,9 @@ export default {
 		isLoading() {
 			return this.$store.getters.usersIsLoading
 		},
-		loggedinUser() {
-			return this.$store.getters.loggedinUser
-		},
+		// loggedinUser() {
+		// 	return this.$store.getters.loggedinUser
+		// },
 	},
 	created() {
 		this.loadUsers()

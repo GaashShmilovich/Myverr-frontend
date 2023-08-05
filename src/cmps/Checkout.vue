@@ -93,9 +93,9 @@
 </template>
 
 <script>
-import { gigService } from '../services/gig.service';
+import { gigService } from "../services/gig.service";
 // import { gigService } from "../services/gig.service.local";
-import { userService } from '../services/user.service';
+import { userService } from "../services/user.service";
 // import { userService } from "../services/user.service.local";
 
 export default {
@@ -136,7 +136,6 @@ export default {
     totalPrice() {
       return this.package.price + 11.73 + 8.5;
     },
-
     async addOrder() {
       try {
         const loggenInUser = await userService.getLoggedinUser();

@@ -100,6 +100,8 @@ export default {
       return this.$store.getters.loggedinUser;
     },
     gigs() {
+      console.log("user", user);
+
       return this.$store.getters.gigs;
     },
   },

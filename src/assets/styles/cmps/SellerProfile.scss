@@ -29,6 +29,7 @@
   }
 
   .gig-list {
+    grid-template-columns: repeat(auto-fit, minmax(250px, auto));
     .buttons {
       display: flex;
       justify-content: space-between;
@@ -52,6 +53,11 @@
       background-color: $clr1;
       padding: 10px rem(30px);
       border-radius: 5px;
+      list-style-type: none;
+    }
+    .gig-preview-container {
+      width: auto;
+      height: auto;
     }
   }
 

@@ -2,20 +2,24 @@ import io from 'socket.io-client'
 import { userService } from './user.service'
 
 export const SOCKET_EVENT_ADD_MSG = 'chat-add-msg'
+// export const SOCKET_EVENT_ADD_MSGS = 'chat-add-msgs'
 export const SOCKET_EMIT_SEND_MSG = 'chat-send-msg'
 export const SOCKET_EMIT_SET_TOPIC = 'chat-set-topic'
 export const SOCKET_EMIT_USER_WATCH = 'user-watch'
 export const SOCKET_EVENT_USER_UPDATED = 'user-updated'
-export const SOCKET_EVENT_REVIEW_ADDED = 'review-added'
-export const SOCKET_EVENT_REVIEW_ABOUT_YOU = 'review-about-you'
+export const SOCKET_EVENT_ORDER_ADDED = 'order-added'
+export const SOCKET_EVENT_ORDER_ABOUT_YOU = 'order-about-you'
+export const SOCKET_EVENT_USER_IS_TYPING = 'chat-user-is-typing'
+export const SOCKET_EMIT_USER_IS_TYPING = 'chat-set-user-is-typing'
+// export const SOCKET_EVENT_SET_USERS = 'chat-set-users'
 
 const SOCKET_EMIT_LOGIN = 'set-user-socket'
 const SOCKET_EMIT_LOGOUT = 'unset-user-socket'
 
-
+// render url?
 const baseUrl = (process.env.NODE_ENV === 'production') ? '' : '//localhost:3030'
-// export const socketService = createSocketService()
-export const socketService = createDummySocketService()
+export const socketService = createSocketService()
+// export const socketService = createDummySocketService()
 
 // for debugging from console
 window.socketService = socketService
@@ -30,7 +34,10 @@ function createSocketService() {
       socket = io(baseUrl)
       setTimeout(()=>{
         const user = userService.getLoggedinUser()
-        if (user) this.login(user._id)
+        if (user){
+         console.log(user);
+          this.login(user._id)
+        }  
       }, 500)
     },
     on(eventName, cb) {
@@ -46,6 +53,7 @@ function createSocketService() {
       socket.emit(eventName, data)
     },
     login(userId) {
+      console.log(userId);
       socket.emit(SOCKET_EMIT_LOGIN, userId)
     },
     logout() {
