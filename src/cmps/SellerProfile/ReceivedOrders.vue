@@ -108,15 +108,22 @@ export default {
     },
     openModal(order) {
       this.selectedOrder = order;
-      console.log("order", order);
+      // console.log("order", order);
       this.modalVisible = true;
     },
-    onStatusChange(status) {
+    async onStatusChange(status) {
       try {
-        this.$store.commit("updateOrderStatus", {
-          orderId: this.selectedOrder._id,
-          newStatus: status,
-        });
+        const payload = {
+        order: this.selectedOrder,
+        status: status
+      }    
+        console.log(payload);
+        // console.log('status changed to', status);
+       await this.$store.dispatch({ type: 'updateOrder', payload})
+        // this.$store.commit("updateOrderStatus", {
+        //   orderId: this.selectedOrder._id,
+        //   newStatus: status,
+        // });
       } catch (err) {
         console.log("Error updating order status:", err);
       }

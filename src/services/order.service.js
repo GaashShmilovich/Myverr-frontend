@@ -1,5 +1,6 @@
 import { httpService } from './http.service.js'
-import {  socketService, SOCKET_EVENT_ORDER_ADDED, SOCKET_EVENT_ORDER_ABOUT_YOU } from './socket.service.js'
+import {  socketService, SOCKET_EVENT_ORDER_ADDED, SOCKET_EVENT_ORDER_FOR_YOU,
+     SOCKET_EVENT_YOUR_ORDER_UPDATED } from './socket.service.js'
 import { showSuccessMsg } from './event-bus.service.js'
 import { store } from '../store/store.js'
 import { utilService } from './util.service.js'
@@ -12,9 +13,17 @@ import { utilService } from './util.service.js'
         store.commit({type: 'addOrder', order})
         showSuccessMsg(`There is a new order : ${order}`)
     })
-    socketService.on(SOCKET_EVENT_ORDER_ABOUT_YOU, (order) => {
+    socketService.on(SOCKET_EVENT_ORDER_FOR_YOU, (order) => {
         showSuccessMsg(`You recieved a new order: ${order}`)
         console.log('got from socket order about you', order);
+    })
+    // socketService.on(SOCKET_EVENT_ORDER_UPDATED, (order) => {
+    //     showSuccessMsg(`You recieved a new order: ${order}`)
+    //     console.log('got from socket order about you', order);
+    // })
+    socketService.on(SOCKET_EVENT_YOUR_ORDER_UPDATED, (order) => {
+        showSuccessMsg(`Your order status has changed. ${order}`)
+        console.log('Order status has changed from socket', order);
     })
     }, 0)
 })()
@@ -25,7 +34,7 @@ export const orderService = {
     save,
     remove,
     getEmptyOrder,
-    add
+    // add
 }
 
 window.cs = orderService // for console usage
@@ -50,24 +59,6 @@ async function save(order) {
         savedOrder = await httpService.post('order', order)
     }
     return savedOrder
-}
-
-async function add(order) {
-    try {
-        // peek only updatable fields!
-        const orderToAdd = {
-            ordername: order.ordername,
-            password: order.password,
-            fullname: order.fullname,
-            imgUrl: order.imgUrl,
-        }
-        const collection = await dbService.getCollection('order')
-        await collection.insertOne(orderToAdd)
-        return orderToAdd
-    } catch (err) {
-        logger.error('cannot add order', err)
-        throw err
-    }
 }
 
 

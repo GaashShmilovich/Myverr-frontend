@@ -1,7 +1,7 @@
 <template>
   <header
     ref="header"
-    class="full main-layout"
+    class="full main-layout app-header"
     :class="{
       openHeader: isFirstNavShown,
       'main-layout': isFirstNavShown,
