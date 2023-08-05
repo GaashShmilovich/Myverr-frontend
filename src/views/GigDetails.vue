@@ -1,17 +1,16 @@
 <template>
-  
-
   <section v-if="gig" class="gig-details" :class="{ darkmode: darkMode }">
-    <!-- <div class="main"> -->
-
-      <button class="gig-btn-dark" @click="onDarkMode">Dark Mode</button>
-      <header class="gig-header">
-      <p class="gig-category">  
-        <i class="home-icon" v-html="$getSvg('home-icon')"></i> <span>/</span><p>logo-design</p>
-        <span>/</span><p>artisitic</p><span>/</span>
+    <header class="gig-header">
+      <p class="gig-category">
+        <i class="home-icon" v-html="$getSvg('home-icon')"></i>
+        <span>/</span>
+        <p>logo-design</p>
+        <span>/</span>
+        <p>artisitic</p>
+        <span>/</span>
       </p>
 
-      <h1 class="gig-title"> {{ gig.title }}</h1>
+      <h1 class="gig-title">{{ gig.title }}</h1>
 
       <section class="gig-owner-details">
         <img :src="gig.owner.imgUrl" alt="">
@@ -25,39 +24,52 @@
           </span>
         </section>
 
-        <p class="rate-number" :style="{ color: '#ffb33e' }">{{ gig.owner.rate }} <span>({{ gig.reviews.length }})</span></p>
+        <p class="rate-number" :style="{ color: '#ffb33e' }">
+          {{ gig.owner.rate }} <span>({{ gig.reviews.length }})</span>
+        </p>
       </section>
 
       <figure class="gig-gallery">
         <GigDetailsCarusela :gig="gig" />
       </figure>
     </header>
+
     <div class="gig-about">
       <p class="about-title">About this gig </p>
       <VoiceInput />
-      <div class="about"> {{ gig.description.title }}</div>
+      <div class="about">{{ gig.description.title }}</div>
       <p class="des-question">{{ questions[0] }}</p>
-      <ul > <li v-for="a in answers" class="des-answer"> {{ a }}</li> </ul>
-      <p  class="des-question">{{ questions[1] }}</p>
-      <ul> <li v-for="b in answers2" class="des-answer">{{ b }}</li> </ul>
-      <p class="des-closer"> {{ gig.description.closer }}</p>
+      <ul>
+        <li v-for="a in answers" class="des-answer">{{ a }}</li>
+      </ul>
+      <p class="des-question">{{ questions[1] }}</p>
+      <ul>
+        <li v-for="b in answers2" class="des-answer">{{ b }}</li>
+      </ul>
+      <p class="des-closer">{{ gig.description.closer }}</p>
 
       <p class="title">About the seller</p>
-      <AboutSeller :gig="gig"/>
-      
-        <FAQ :gig="gig" />
-
+      <AboutSeller :gig="gig" />
+      <FAQ :gig="gig" />
       <ReviewList :reviews="gig.reviews" />
-      <ChatRoom :gigId="gig._id" :msgHistory="gig?.msgs || []"/>
-    </div>
-  <!-- </div> -->
 
-    <div class="packages" >
+      <button class="gig-btn-chat" @click="showChatRoom = !showChatRoom">
+        Toggle Chat Room
+      </button>
+
+      <ChatRoom
+        v-if="showChatRoom"
+        :gigId="gig._id"
+        :msgHistory="gig?.msgs || []"
+        @toggle-chat-room="toggleChatRoom"
+      />
+    </div>
+
+    <div class="packages">
       <PackageType :gig="gig" />
     </div>
   </section>
 
-  
   <section v-else>
     loading..
   </section>
@@ -86,7 +98,8 @@ export default {
       darkMode: false,
       questions: null,
       answers: null,
-      answers2: null,
+      answers2: null,   
+      showChatRoom: false,
     }
   },
 
@@ -111,9 +124,11 @@ export default {
         console.error('Failed to load gig', err)
       }
     },
-    onDarkMode() {
-      this.darkMode = !this.darkMode
-    },
+    toggleChatRoom() {
+      console.log('Toggling chat room...');
+
+    this.showChatRoom = !this.showChatRoom;
+  },
     
   },
   computed: {

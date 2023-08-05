@@ -1,292 +1,282 @@
 .gig-details {
-    display: grid;
-    grid-template-columns: 1fr 33%;
-    column-gap: 60px;
+  display: grid;
+  grid-template-columns: 1fr 33%;
+  column-gap: 60px;
 
-    grid-template-areas: 
-    'b p'
-    'h p'
-    'a p'
-    ;
+  grid-template-areas:
+    "b p"
+    "h p"
+    "a p";
 
-    > *:not(.packages) {
-        grid-column: 1;
+  > *:not(.packages) {
+    grid-column: 1;
+  }
+  .packages {
+    grid-area: p;
+  }
+
+  .gig-btn-dark {
+    grid-area: b;
+  }
+
+  .gig-about {
+    grid-area: a;
+  }
+
+  .gig-header {
+    grid-area: h;
+  }
+
+  @include for-mobile-layout {
+  }
+  // gig-carusela: different a smaller
+  // about the seller different layout
+  // FAQ
+  // reviews
+
+  @include for-narrow-layout {
+    grid-template-areas:
+      "b"
+      "h"
+      "p"
+      "a";
+
+    grid-template-columns: 1fr;
+  }
+
+  .gig-category {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: rem(10px);
+    font-size: rem(14px);
+    color: $clr4;
+    font-family: macanRegular;
+    line-height: rem(21px);
+    margin-top: rem(15px);
+    span {
+      color: $clr12;
     }
-    .packages {
-        grid-area: p;
-    }
+  }
 
-    .gig-btn-dark {
-        grid-area: b;
-    }
+  .gig-title {
+    font-size: rem(28px);
+    padding-bottom: 16px;
+    line-height: 130%;
 
-    .gig-about {
-        grid-area: a;
-    }
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
 
-    .gig-header {
-        grid-area: h;
-    }
+    font-family: macanBold;
+    color: $clr3;
+    overflow-wrap: break-word;
+  }
 
-    
-    @include for-mobile-layout {}
-        // gig-carusela: different a smaller
-        // about the seller different layout
-        // FAQ
-        // reviews  
+  .gig-owner-details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 
-    
-    @include for-narrow-layout {
-
-        grid-template-areas: 
-        'b'
-        'h'
-        'p'
-        'a'
-        ; 
-
-        grid-template-columns: 1fr;
-        
-    }
- 
-        .gig-category {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            column-gap: rem(10px);
-            font-size: rem(14px);
-            color: $clr4;
-            font-family: macanRegular;
-            line-height: rem(21px);
-            margin-top: rem(15px);
-            span {
-                color: $clr12;
-            }
-        }
-
-        .gig-title {
-            font-size: rem(28px);
-            padding-bottom: 16px;
-            line-height: 130%;
-
-            margin-block-start: 0.67em;
-            margin-block-end: 0.67em;
-
-            font-family: macanBold;
-            color: $clr3;
-            overflow-wrap: break-word;
-        }
-
-        .gig-owner-details {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-
-            img {
-                // overflow-clip-margin: content-box;
-                height: 30px;
-                width: 30px;
-                line-height: rem(24px);
-                font-stretch: 100%;
-                border-radius: 50%;
-                margin-right: 10px;
-            }
-
-            .name {
-                font-size: rem(18px);
-                font-family: macanBold;
-                line-height: rem(26px);
-                margin-right: rem(8px);
-                color: $clr4;
-                align-self: center;
-
-                &:hover {
-                    cursor: pointer;
-                }
-            }
-
-            .instagram {
-                font-size: rem(14px);
-                line-height: rem(21px);
-                color: $clr5;
-                font-family: macanRegular;
-                margin-right: rem(8px);
-                align-self: center;
-
-                &:hover {
-                    cursor: pointer;
-                }
-            }
-
-            .level {
-                font-family: macanRegular;
-                line-height: rem(21px);
-                color: $clr2;
-                font-size: rem(14px);
-                margin-right: 8px;
-                align-self: center;
-            }
-
-            .gig-owner-rate {
-                align-self: center;
-            }
-
-            .rate-number {
-                margin-left: 8px;
-                translate: 0 8px;
-
-                span {
-                    color: $clr2;
-                }
-            }
-        }
-
-        .gig-gallery {
-            width: 100%;
-            height: 500px ;
-            margin-left: 0;
-        }
-    // }
-
-    .about-title {
-        margin-top: rem(120px);
-        font-size: rem(20px);
-        line-height: rem(28px);
-        padding-bottom: rem(15px);
-        font-family: macanBold;
-        color: $clr3;
+    img {
+      // overflow-clip-margin: content-box;
+      height: 30px;
+      width: 30px;
+      line-height: rem(24px);
+      font-stretch: 100%;
+      border-radius: 50%;
+      margin-right: 10px;
     }
 
-    .about {
-        font-size: rem(16px);
-        font-family: macanBold;
-        font-stretch: 100%;
-        word-wrap: break-word;
-        line-height: rem(24px);
-        padding-bottom: rem(20px);
+    .name {
+      font-size: rem(18px);
+      font-family: macanBold;
+      line-height: rem(26px);
+      margin-right: rem(8px);
+      color: $clr4;
+      align-self: center;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .instagram {
+      font-size: rem(14px);
+      line-height: rem(21px);
+      color: $clr5;
+      font-family: macanRegular;
+      margin-right: rem(8px);
+      align-self: center;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .level {
+      font-family: macanRegular;
+      line-height: rem(21px);
+      color: $clr2;
+      font-size: rem(14px);
+      margin-right: 8px;
+      align-self: center;
+    }
+
+    .gig-owner-rate {
+      align-self: center;
+    }
+
+    .rate-number {
+      margin-left: 8px;
+      translate: 0 8px;
+
+      span {
         color: $clr2;
+      }
     }
-    .des-question {
-        margin-top: rem(20px);
-        color: $clr2;
-        font-size: rem(16px);
+  }
+
+  .gig-gallery {
+    width: 100%;
+    height: 500px;
+    margin-left: 0;
+  }
+  // }
+
+  .about-title {
+    margin-top: rem(120px);
+    font-size: rem(20px);
+    line-height: rem(28px);
+    padding-bottom: rem(15px);
+    font-family: macanBold;
+    color: $clr3;
+  }
+
+  .about {
+    font-size: rem(16px);
+    font-family: macanBold;
+    font-stretch: 100%;
+    word-wrap: break-word;
+    line-height: rem(24px);
+    padding-bottom: rem(20px);
+    color: $clr2;
+  }
+  .des-question {
+    margin-top: rem(20px);
+    color: $clr2;
+    font-size: rem(16px);
+    font-family: macanBold;
+  }
+  .des-answer {
+    font-size: rem(16px);
+    color: $clr2;
+    line-height: rem(24px);
+    font-family: macanRegular;
+  }
+  .des-closer {
+    font-size: rem(16px);
+    color: $clr2;
+    line-height: rem(24px);
+    font-family: macanRegular;
+    margin-top: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $clr6;
+  }
+  .title {
+    font-family: macanBold;
+    font-size: rem(20px);
+    color: $clr3;
+    margin-top: 80px;
+  }
+
+  .about-the-seller {
+    display: flex;
+    flex-direction: row;
+
+    img {
+      height: 110px;
+      width: 110px;
+      border-radius: 50%;
+    }
+
+    .details {
+      padding-left: rem(15px);
+    }
+
+    .name {
+      font-size: rem(18px);
+      font-family: macanBold;
+      color: $clr3;
+    }
+
+    .instagram {
+      margin-left: 8px;
+      font-family: macanRegular;
+      color: $clr5;
+      margin-right: 8px;
+      font-size: rem(16px);
+    }
+
+    .moto {
+      line-height: rem(21px);
+      padding-top: 5px;
+      margin-bottom: 5px;
+      color: $clr3;
+      font-size: rem(16px);
+      font-family: macanRegular;
+    }
+
+    .gig-owner-rate {
+      font-size: 14px;
+    }
+
+    .rate-number {
+      padding-left: 5px;
+    }
+
+    .btn-contact {
+      color: $clr2;
+      font-size: rem(14px);
+      font-family: macanSemibold;
+      margin-top: rem(20px);
+      margin-bottom: rem(20px);
+      border: 1px solid $clr2;
+      border-radius: rem(4px);
+      padding: 10px 24px;
+    }
+  }
+  .information {
+    padding: rem(24px);
+    border: 1px solid $clr6;
+    .titles {
+      margin-top: -30px;
+      display: grid;
+      // grid-template-columns: 1fr 1fr;
+      grid-column: 2;
+      grid-template-areas:
+        "1 2"
+        "3 4";
+      padding-top: rem(24px);
+      border-bottom: 1px solid $clr6;
+      span {
         font-family: macanBold;
+      }
     }
-    .des-answer {
-        font-size: rem(16px);
-        color: $clr2;
-        line-height: rem(24px);
-        font-family: macanRegular;
+    .text {
+      padding-top: rem(24px);
+      margin: 0;
     }
-    .des-closer {
-        font-size: rem(16px);
-        color: $clr2;
-        line-height: rem(24px);
-        font-family: macanRegular;
-        margin-top: 30px;
-        padding-bottom: 20px;
-        border-bottom: 1px solid $clr6;
-    }
-    .title {
-        font-family: macanBold;
-        font-size: rem(20px);
-        color: $clr3;
-        margin-top: 80px;
-    }
-
-    .about-the-seller {
-        display: flex;
-        flex-direction: row;
-
-        img {
-            height: 110px;
-            width: 110px;
-            border-radius: 50%;
-        }
-
-        .details {
-            padding-left: rem(15px);
-        }
-
-        .name {
-            font-size: rem(18px);
-            font-family: macanBold;
-            color: $clr3;
-        }
-
-        .instagram {
-            margin-left: 8px;
-            font-family: macanRegular;
-            color: $clr5;
-            margin-right: 8px;
-            font-size: rem(16px);
-
-        }
-
-        .moto {
-            line-height: rem(21px);
-            padding-top: 5px;
-            margin-bottom: 5px;
-            color: $clr3;
-            font-size: rem(16px);
-            font-family: macanRegular;
-
-        }
-
-        .gig-owner-rate {
-            font-size: 14px;
-        }
-
-        .rate-number {
-            padding-left: 5px;
-        }
-
-        .btn-contact {
-            color: $clr2;
-            font-size: rem(14px);
-            font-family: macanSemibold;
-            margin-top: rem(20px);
-            margin-bottom: rem(20px);
-            border: 1px solid $clr2;
-            border-radius: rem(4px);
-            padding: 10px 24px;
-        }
-    }
-    .information{
-        padding: rem(24px);
-        border: 1px solid $clr6;
-        .titles {
-            margin-top: -30px;
-            display: grid;
-            // grid-template-columns: 1fr 1fr;
-            grid-column: 2;
-            grid-template-areas: 
-            "1 2"
-            "3 4" ;
-            padding-top: rem(24px);
-            border-bottom: 1px solid $clr6;
-            span {
-                font-family: macanBold;
-            }
-        }
-        .text {
-            padding-top: rem(24px);
-            margin: 0;
-        }
-    }
-    .star {
-        padding: 2px;
-        height: 15px;
-    
-    }
-        .yellow {
-            color: $yellow1 ;
-        }
-    
+  }
+  .star {
+    padding: 2px;
+    height: 15px;
+  }
+  .yellow {
+    color: $yellow1;
+  }
 }
 
 .darkmode {
-    background-color: black;
-    color: antiquewhite;
+  background-color: black;
+  color: antiquewhite;
 }
-
