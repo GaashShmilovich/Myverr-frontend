@@ -40,10 +40,15 @@ export default {
       return this.$store.getters.gigs;
     },
     filteredGigs() {
+      console.log(this.user);
+      const orders = this.$store.getters.orders
+      console.log(orders);
       if (!this.user.isSeller) {
-        return this.$store.getters.orders?.filter(
-          (order) => order.buyer._id === this.user._id
-        );
+         orders.filter(
+          (order) => order.buyer._id === this.user._id);
+          return orders
+      } else {
+        return orders
       }
     },
   },

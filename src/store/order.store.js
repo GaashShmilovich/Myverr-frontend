@@ -20,14 +20,17 @@ export const orderStore = {
         },
         updateOrder(state, { newOrder }) {
             console.log(newOrder);
-            const idx = state.orders.findIndex(c => c._id === newOrder._id)
+            const idx = state.orders.findIndex(o => o._id === newOrder._id)
             state.orders.splice(idx, 1, newOrder)
         },
         setOrderStatus(state, { order, status }) {
-            const currOrder = state.orders.find((o) => o._id === order._id);
-            if (currOrder) {
-              order.status = status;
-            }
+            const idx = state.orders.findIndex(o => o._id === order._id)
+                console.log(order);
+                order.status = status
+                console.log(order);
+                state.orders.splice(idx, 1, order)
+                // return order
+            
           },
     
     },
@@ -56,6 +59,7 @@ export const orderStore = {
         },
         async changeOrderStatus({ commit }, { order, status}) {
             commit('setOrderStatus', { order, status})
+            // const newOrder = await orderService.save(updatedOrder)
         },
         async loadOrders(context) {
             try {

@@ -140,10 +140,10 @@ export default {
     async addOrder() {
       try {
         showSuccessMsg('wohoo')
-        // const loggenInUser = await userService.getLoggedinUser();
+        const loggenInUser = await userService.getLoggedinUser();
         const createdOrder = {
           createdAt: new Date(),
-          // buyerId: loggenInUser._id,
+          buyerId: loggenInUser._id,
           sellerId: this.gig.owner._id,
           gigId: this.gig._id,
           packageType: this.package.level,
