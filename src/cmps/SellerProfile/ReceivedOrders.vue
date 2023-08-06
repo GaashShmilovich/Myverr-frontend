@@ -36,7 +36,7 @@
           @click="openModal(order)"
         >
           <th scope="row">{{ i + 1 }}</th>
-          <td>{{ order.buyer.fullname }}</td>
+          <td>{{ order.buyer.username }}</td>
           <td>{{ order.gig.title }}</td>
           <td>{{ order.createdAt }}</td>
           <td>${{ order.gig.price }}</td>
@@ -65,32 +65,32 @@ export default {
     orders() {
       return this.$store.getters.orders;
     },
-    monthlyRevenue() {
-      const currentDate = moment().format("MMMM Do YYYY, h:mm:ss a");
-      const currentMonth = currentDate;
-      return this.orders.reduce((total, order) => {
-        const orderDate = moment().format("MMMM Do YYYY, h:mm:ss a")(
-          order.createdAt
-        );
-        if (orderDate.getMonth() === currentMonth) {
-          return total + order.gig.price;
-        }
-        return total;
-      }, 0);
-    },
-    annualRevenue() {
-      const currentDate = moment().format("MMMM Do YYYY, h:mm:ss a");
-      const currentYear = currentDate;
-      return this.orders.reduce((total, order) => {
-        const orderDate = moment().format("MMMM Do YYYY, h:mm:ss a")(
-          order.createdAt
-        );
-        if (orderDate.getFullYear() === currentYear) {
-          return total + order.gig.price;
-        }
-        return total;
-      }, 0);
-    },
+    // monthlyRevenue() {
+    //   const currentDate = moment().format("MMMM Do YYYY, h:mm:ss a");
+    //   const currentMonth = currentDate;
+    //   return this.orders.reduce((total, order) => {
+    //     const orderDate = moment().format("MMMM Do YYYY, h:mm:ss a")(
+    //       order.createdAt
+    //     );
+    //     if (orderDate.getMonth() === currentMonth) {
+    //       return total + order.gig.price;
+    //     }
+    //     return total;
+    //   }, 0);
+    // },
+    // annualRevenue() {
+    //   const currentDate = moment().format("MMMM Do YYYY, h:mm:ss a");
+    //   const currentYear = currentDate;
+    //   return this.orders.reduce((total, order) => {
+    //     const orderDate = moment().format("MMMM Do YYYY, h:mm:ss a")(
+    //       order.createdAt
+    //     );
+    //     if (orderDate.getFullYear() === currentYear) {
+    //       return total + order.gig.price;
+    //     }
+    //     return total;
+    //   }, 0);
+    // },
     pendingOrdersCount() {
       return this.orders.filter((order) => order.status === "pending").length;
     },
@@ -104,8 +104,8 @@ export default {
   methods: {
     async loadOrders() {
       try {
-        await this.$store.dispatch({type: 'loadOrders'})
-       
+        await this.$store.dispatch({ type: "loadOrders" });
+        console.log(this.orders);
       } catch (err) {
         console.log("Error loading orders:", err);
       }
