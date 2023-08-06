@@ -1,4 +1,6 @@
-function addOrder() {
+    //  From Payment: 
+
+async function addOrder() {
     try {
         const createdOrder = {
             createdAt: new Date(),
@@ -10,123 +12,25 @@ function addOrder() {
         }
         await this.$store.dispatch({ type: 'addOrder', createdOrder })
 
-        console.log(this.$store.getters.orders)
-    } catch (err) {
-        console.error(err)
-        console.log(err)
-    }
-}
+
+     //  Send to Backend: 
+
+        await storageService.post(STORAGE_KEY, order)
 
 
-async addOrder(context, { createdOrder }) {
-    try {
-        const newOrder = await orderService.save(createdOrder)
-        context.commit({ type: 'addOrder', newOrder })
-        return newOrder
-    } catch (err) {
-        console.log('orderStore: Error in addOrder', err)
-        throw err
-    }
-}
+     // Backend:
 
-async function save(order) {
-    var savedOrder
-    if (order._id) {
-        savedOrder = await storageService.put(STORAGE_KEY, order)
-    } else {
-
-        savedOrder = await storageService.post(STORAGE_KEY, order)
-    }
-    return savedOrder
-}
-
-// Backend:
-
-var recievedOrder = req.body
-order = await orderService.add(recievedOrder)
-
-order.seller = await userService.getById(order.sellerId)
-
-order.buyer = loggedinUser
-
-
-socketService.emitToUser({ type: 'order-for-you', data: order, userId: order.seller._id })
-
-
-
-async function query(filterBy = {}) {
-    try {
-        const criteria = _buildCriteria(filterBy)
         const collection = await dbService.getCollection('order')
-        // const orders = await collection.find(criteria).toArray()
-        var orders = await collection.aggregate([
-            {
-                $match: criteria
-            },
-            {
-                $lookup:
-                {
-                    localField: 'buyerId',
-                    from: 'user',
-                    foreignField: '_id',
-                    as: 'buyer'
-                }
-            },
-            {
-                $unwind: '$buyer'
-            },
-            {
-                $lookup:
-                {
-                    localField: 'sellerId',
-                    from: 'user',
-                    foreignField: '_id',
-                    as: 'seller'
-                }
-            },
-            {
-                $unwind: '$seller'
-            },
-            {
-                $lookup:
-                {
-                    localField: 'gigId',
-                    from: 'gig',
-                    foreignField: '_id',
-                    as: 'gig'
-                }
-            },
-            {
-                $unwind: '$gig'
-            }
-        ]).toArray()
-        orders = orders.map(order => {
-            order.buyer = { _id: order.buyer._id, fullname: order.buyer.fullname }
-            order.seller = { _id: order.seller._id, fullname: order.seller.fullname }
-            order.gig = { _id: order.gig._id, title: order.gig.title, price: order.gig.price }
-            delete order.buyerId
-            delete order.sellerId
-            delete order.gigId
-            return order
-        })
-        return orders
-    } catch (err) {
-        logger.error('cannot find orders', err)
-        throw err
-    }
+        await collection.insertOne(recievedOrder)
 
-}
+        socketService.emitToUser({ type: 'order-for-you', data: order, userId: order.seller._id })
 
-; (() => {
-    setTimeout(() => {
-        socketService.on(SOCKET_EVENT_ORDER_ADDED, (order) => {
-            console.log('got from socket order added', order)
-            store.commit({ type: 'addOrder', order })
-            showSuccessMsg(`There is a new order : ${order}`)
-        })
-        socketService.on(SOCKET_EVENT_ORDER_FOR_YOU, (order) => {
-            showSuccessMsg(`You recieved a new order: ${order}`)
-            console.log('got from socket order about you', order)
-        })
-    }, 0)
-})()
+
+            ; (() => {
+                setTimeout(() => {
+                    socketService.on(SOCKET_EVENT_ORDER_ADDED, (order) => {
+                        store.commit({ type: 'addOrder', order })
+                        showSuccessMsg(`You recieved a new order!`)
+                    })
+                }, 0)
+            })()

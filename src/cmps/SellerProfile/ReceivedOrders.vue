@@ -63,7 +63,6 @@ export default {
   },
   computed: {
     orders() {
-      console.log(this.);
       return this.$store.getters.orders;
     },
     // monthlyRevenue() {
