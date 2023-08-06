@@ -60,10 +60,12 @@ export default {
       msgTxt: "",
       msgs: [...this.msgHistory],
       typingUser: "",
+      socketType: 'room1'
     };
   },
   created() {
-    socketService.emit(SOCKET_EMIT_SET_TOPIC, this.gigId);
+    // socketService.emit(SOCKET_EMIT_SET_TOPIC, this.gigId);
+    socketService.emit(SOCKET_EMIT_SET_TOPIC, this.socketType);
     socketService.on(SOCKET_EVENT_ADD_MSG, this.addMsg);
     socketService.on(SOCKET_EVENT_USER_IS_TYPING, (fullname) => {
       this.typingUser = fullname;
