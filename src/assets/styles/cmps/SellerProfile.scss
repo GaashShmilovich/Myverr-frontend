@@ -29,6 +29,7 @@
       padding: 10px rem(30px);
       border-radius: 5px;
       list-style-type: none;
+      max-width: 280px;
     }
     .gig-preview-container {
       width: auto;
@@ -44,18 +45,32 @@
     height: rem(50px);
     margin-block-start: rem(20px);
     background: $clr1;
-    position: relative;
+    position: static;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100; /* Ensure tabs appear above other content */
+
     a {
       font-family: macanSemibold;
       font-size: rem(16px);
       color: $clr3;
       display: flex;
       align-items: center;
+
       &:hover {
         box-shadow: inset 0 -4px $green1;
       }
       &.router-link-active {
         box-shadow: inset 0 -4px $green1;
+      }
+    }
+
+    @include for-mobile-layout {
+      position: fixed; /* Remove fixed position on mobile */
+      margin-block-start: 0; /* Remove top margin on mobile */
+      a {
+        font-size: rem(14px); /* Adjust font size for mobile */
       }
     }
   }

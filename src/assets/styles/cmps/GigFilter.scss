@@ -8,7 +8,7 @@
 	border-radius: 5px;
 	font-size: 1em;
 	font-weight: 600;
-	font-family: macanBold;
+	font-family: 'macanRegular';
 	gap: 10px;
 	padding: 5px;
 	padding-left: 0;
@@ -425,6 +425,10 @@ input::placeholder {
 			font-size: 2em;
 			color: white;
 			cursor: pointer;
+
+			@include for-mobile {
+				display: none;
+			}
 		}
 	}
 }

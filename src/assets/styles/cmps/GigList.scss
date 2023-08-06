@@ -9,12 +9,12 @@
 	width: 100%;
 	grid-template-columns: repeat(4, 1fr);
 	grid-gap: 30px;
-	margin-top: 16px;
+	margin-top: 45px;
 	line-height: 24px;
 	border: 0;
 	outline: 0;
 	padding: 0;
-	font-family: macanBold, sans-serif;
+	font-family: 'macanBold', sans-serif;
 	margin-bottom: 90px;
 
 	@include for-narrow-layout-grid {

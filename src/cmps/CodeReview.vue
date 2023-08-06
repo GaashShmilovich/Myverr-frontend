@@ -1,13 +1,14 @@
 <template></template>
 
 <script>
+import moment from "moment";
 export default {
   methods: {
     async addOrder() {
       try {
         const loggenInUser = await userService.getLoggedinUser();
         const createdOrder = {
-          createdAt: new Date(),
+          createdAt: moment().format("MMMM Do YYYY, h:mm:ss a"),
           buyer: {
             _id: loggenInUser._id,
             fullname: loggenInUser.fullname,
