@@ -16,8 +16,8 @@
         </section>
 
         <section class="benefits">
-            <i class="v-check" v-html="$getSvg('reload')"></i> <span>{{ getType.benefit1 }}</span>
-            <i class="v-check" v-html="$getSvg('clock')"></i>  <span>{{ getType.benefit2 }}</span>
+            <i class="v-check" v-html="$getSvg('clock')"></i> <span>{{ getType.benefit1 }}</span>
+             <!-- <span>{{ getType.benefit2 }}</span> -->
         </section>
 
         <ul class="specials">

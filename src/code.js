@@ -3,6 +3,7 @@ function addOrder() {
         const createdOrder = {
             createdAt: new Date(),
             sellerId: this.gig.owner._id,
+            buyerId: this.user._id,
             gigId: this.gig._id,
             packageType: this.package.level,
             status: "pending",
@@ -48,10 +49,7 @@ order.seller = await userService.getById(order.sellerId)
 
 order.buyer = loggedinUser
 
-delete order.sellerId
-delete order.buyerId
 
-socketService.broadcast({ type: 'order-added', data: order, userId: loggedinUser._id })
 socketService.emitToUser({ type: 'order-for-you', data: order, userId: order.seller._id })
 
 

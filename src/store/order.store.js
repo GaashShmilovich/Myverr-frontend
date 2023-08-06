@@ -58,12 +58,20 @@ export const orderStore = {
             }
         },
         async changeOrderStatus({ commit }, { order, status}) {
+            console.log(order);
+            const newOrder = JSON.parse(JSON.stringify(order))
+            console.log(newOrder);
+            newOrder.status = status
             commit('setOrderStatus', { order, status})
-            // const newOrder = await orderService.save(updatedOrder)
+            console.log(newOrder);
+            return await orderService.save(newOrder)
         },
-        async loadOrders(context) {
+        async loadOrders(context,{buyerId}) {
+            console.log("🚀 ~ file: order.store.js:67 ~ loadOrders ~ buyerId:", buyerId)
+            const filterBy = {}
+            if(buyerId) filterBy.buyerId = buyerId
             try {
-                const orders = await orderService.query()
+                const orders = await orderService.query(filterBy)
                 context.commit({ type: 'setOrders', orders })
             } catch (err) {
                 console.log('orderStore: Error in loadOrders', err)

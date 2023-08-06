@@ -139,7 +139,6 @@ export default {
     },
     async addOrder() {
       try {
-        showSuccessMsg('wohoo')
         const loggenInUser = await userService.getLoggedinUser();
         const createdOrder = {
           createdAt: new Date(),

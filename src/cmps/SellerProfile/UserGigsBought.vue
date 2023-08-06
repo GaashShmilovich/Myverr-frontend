@@ -1,29 +1,30 @@
 <template>
   <section>
+    <h2>hollas</h2>
     <UserOrders
-      :gigs="filteredGigs"
-      @remove-gig="removeGig"
-      @edit-gig="updateGig"
+      :orders="ordersToDisplay"
+      @remove-order="removeOrder"
+      @edit-order="updateOrder"
     ></UserOrders>
   </section>
 </template>
 
 <script>
 import { showErrorMsg, showSuccessMsg } from "../../services/event-bus.service";
-// import { gigService } from "../../services/gig.service.local";
-import { gigService } from "../../services/gig.service";
+// import { orderService } from "../../services/order.service.local";
+import { orderService } from "../../services/order.service";
 // import { userService } from "../../services/user.service.local";
 import { userService } from "../../services/user.service";
-import GigPreviewCarousel from "../../cmps/ExploreCmps/GigPreviewCarousel.vue";
-import {
-  getActionRemoveGig,
-  getActionUpdateGig,
-  getActionAddGigMsg,
-} from "../../store/gig.store";
+// import OrderPreviewCarousel from "../../cmps/ExploreCmps/OrderPreviewCarousel.vue";
+// import {
+//   getActionRemoveOrder,
+//   getActionUpdateOrder,
+//   getActionAddOrderMsg,
+// } from "../../store/order.store";
 import UserOrders from "./UserOrders.vue";
 export default {
   components: {
-    GigPreviewCarousel,
+    // OrderPreviewCarousel,
     UserOrders,
   },
   props: {
@@ -31,15 +32,19 @@ export default {
   },
   data() {
     return {
-      gigToAdd: gigService.getEmptyGig(),
+      orderToAdd: orderService.getEmptyOrder(),
     };
   },
 
   computed: {
-    gigs() {
-      return this.$store.getters.gigs;
+    orders() {
+      return this.$store.getters.orders;
     },
-    filteredGigs() {
+    ordersToDisplay(){
+      const orders = this.$store.getters.orders
+      return orders
+    },
+    filteredOrders() {
       console.log(this.user);
       const orders = this.$store.getters.orders
       console.log(orders);
@@ -53,56 +58,54 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch({
-      type: "loadGigs",
-    });
+     this.$store.dispatch("loadOrders",{buyerId:this.user._id});
   },
-  methods: {
-    async addGig() {
-      try {
-        await this.$store.dispatch({
-          type: "addGig",
-          gig: this.gigToAdd,
-        });
-        showSuccessMsg("Gig added");
-        this.gigToAdd = gigService.getEmptyGig();
-      } catch (err) {
-        console.log(err);
-        showErrorMsg("Cannot add gig");
-      }
-    },
-    async removeGig(gigId) {
-      try {
-        await this.$store.dispatch(getActionRemoveGig(gigId));
-        showSuccessMsg("Gig removed");
-      } catch (err) {
-        console.log(err);
-        showErrorMsg("Cannot remove gig");
-      }
-    },
-    async updateGig(gig) {
-      try {
-        gig = { ...gig };
-        gig.price = +prompt("New price?", gig.price);
-        await this.$store.dispatch(getActionUpdateGig(gig));
-        showSuccessMsg("Gig updated");
-      } catch (err) {
-        console.log(err);
-        showErrorMsg("Cannot update gig");
-      }
-    },
-    async addGigMsg(gigId) {
-      try {
-        await this.$store.dispatch(getActionAddGigMsg(gigId));
-        showSuccessMsg("Gig msg added");
-      } catch (err) {
-        console.log(err);
-        showErrorMsg("Cannot add gig msg");
-      }
-    },
-    printGigToConsole(gig) {
-      console.log("Gig msgs:", gig.msgs);
-    },
-  },
+  // methods: {
+  //   async addOrder() {
+  //     try {
+  //       await this.$store.dispatch({
+  //         type: "addOrder",
+  //         order: this.orderToAdd,
+  //       });
+  //       showSuccessMsg("Order added");
+  //       this.orderToAdd = orderService.getEmptyOrder();
+  //     } catch (err) {
+  //       console.log(err);
+  //       showErrorMsg("Cannot add order");
+  //     }
+  //   },
+  //   async removeOrder(orderId) {
+  //     try {
+  //       await this.$store.dispatch(getActionRemoveOrder(orderId));
+  //       showSuccessMsg("Order removed");
+  //     } catch (err) {
+  //       console.log(err);
+  //       showErrorMsg("Cannot remove order");
+  //     }
+  //   },
+  //   async updateOrder(order) {
+  //     try {
+  //       order = { ...order };
+  //       order.price = +prompt("New price?", order.price);
+  //       await this.$store.dispatch(getActionUpdateOrder(order));
+  //       showSuccessMsg("Order updated");
+  //     } catch (err) {
+  //       console.log(err);
+  //       showErrorMsg("Cannot update order");
+  //     }
+  //   },
+  //   async addOrderMsg(orderId) {
+  //     try {
+  //       await this.$store.dispatch(getActionAddOrderMsg(orderId));
+  //       showSuccessMsg("Order msg added");
+  //     } catch (err) {
+  //       console.log(err);
+  //       showErrorMsg("Cannot add order msg");
+  //     }
+  //   },
+  //   printOrderToConsole(order) {
+  //     console.log("Order msgs:", order.msgs);
+  //   },
+  // },
 };
 </script>

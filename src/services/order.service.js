@@ -67,6 +67,7 @@ async function save(order) {
         // order.buyer = userService.getLoggedinUser()
         savedOrder = await httpService.post('order', order)
     }
+    console.log(savedOrder);
     return savedOrder
 }
 

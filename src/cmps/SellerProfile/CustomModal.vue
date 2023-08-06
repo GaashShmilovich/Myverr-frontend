@@ -24,9 +24,9 @@ export default {
     closeModal() {
       this.$emit("close");
     },
-    changeStatus(status) {
+    async changeStatus(status) {
       const order = this.order
-      this.$store.dispatch('changeOrderStatus', { order, status})
+      await this.$store.dispatch('changeOrderStatus', {order, status})
       console.log(order);
 
       const orders = this.$store.getters.orders
@@ -34,7 +34,7 @@ export default {
       const updatedOrder = orders.find((o) => o._id === order._id)
       // console.log(updatedOrder);
       // this.$store.commit('updateOrder', {newOrder: updatedOrder})
-      orderService.save({order: updatedOrder})
+      // orderService.save({order: updatedOrder})
 
       this.closeModal();
     },

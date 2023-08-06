@@ -99,8 +99,8 @@ export default {
   methods: {
     async loadOrders() {
       try {
-        await this.$store.dispatch("loadOrders");
-        console.log(this.orders);
+        await this.$store.dispatch({type: 'loadOrders'})
+       
       } catch (err) {
         console.log("Error loading orders:", err);
       }
