@@ -3,13 +3,14 @@ function addOrder() {
         const createdOrder = {
             createdAt: new Date(),
             sellerId: this.gig.owner._id,
+            buyerId: this.user._id,
             gigId: this.gig._id,
             packageType: this.package.level,
             status: "pending",
         }
         await this.$store.dispatch({ type: 'addOrder', createdOrder })
 
-        console.log(this.$store.getters.orders);
+        console.log(this.$store.getters.orders)
     } catch (err) {
         console.error(err)
         console.log(err)
@@ -51,7 +52,6 @@ order.buyer = loggedinUser
 delete order.sellerId
 delete order.buyerId
 
-socketService.broadcast({ type: 'order-added', data: order, userId: loggedinUser._id })
 socketService.emitToUser({ type: 'order-for-you', data: order, userId: order.seller._id })
 
 
@@ -119,16 +119,16 @@ async function query(filterBy = {}) {
 
 }
 
-;(() => {
+; (() => {
     setTimeout(() => {
-    socketService.on(SOCKET_EVENT_ORDER_ADDED, (order) => {
-        console.log('got from socket order added', order);
-        store.commit({type: 'addOrder', order})
-        showSuccessMsg(`There is a new order : ${order}`)
-    })
-    socketService.on(SOCKET_EVENT_ORDER_FOR_YOU, (order) => {
-        showSuccessMsg(`You recieved a new order: ${order}`)
-        console.log('got from socket order about you', order);
-    })
+        socketService.on(SOCKET_EVENT_ORDER_ADDED, (order) => {
+            console.log('got from socket order added', order)
+            store.commit({ type: 'addOrder', order })
+            showSuccessMsg(`There is a new order : ${order}`)
+        })
+        socketService.on(SOCKET_EVENT_ORDER_FOR_YOU, (order) => {
+            showSuccessMsg(`You recieved a new order: ${order}`)
+            console.log('got from socket order about you', order)
+        })
     }, 0)
 })()

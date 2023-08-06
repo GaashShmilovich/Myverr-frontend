@@ -54,6 +54,7 @@
 
 <script>
 import CustomModal from "./CustomModal.vue";
+import moment from "moment";
 export default {
   components: { CustomModal },
   props: { user: Object },
@@ -65,10 +66,12 @@ export default {
       return this.$store.getters.orders;
     },
     monthlyRevenue() {
-      const currentDate = new Date();
-      const currentMonth = currentDate.getMonth();
+      const currentDate = moment().format("MMMM Do YYYY, h:mm:ss a");
+      const currentMonth = currentDate;
       return this.orders.reduce((total, order) => {
-        const orderDate = new Date(order.createdAt);
+        const orderDate = moment().format("MMMM Do YYYY, h:mm:ss a")(
+          order.createdAt
+        );
         if (orderDate.getMonth() === currentMonth) {
           return total + order.gig.price;
         }
@@ -76,10 +79,12 @@ export default {
       }, 0);
     },
     annualRevenue() {
-      const currentDate = new Date();
-      const currentYear = currentDate.getFullYear();
+      const currentDate = moment().format("MMMM Do YYYY, h:mm:ss a");
+      const currentYear = currentDate;
       return this.orders.reduce((total, order) => {
-        const orderDate = new Date(order.createdAt);
+        const orderDate = moment().format("MMMM Do YYYY, h:mm:ss a")(
+          order.createdAt
+        );
         if (orderDate.getFullYear() === currentYear) {
           return total + order.gig.price;
         }

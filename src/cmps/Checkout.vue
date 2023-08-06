@@ -93,6 +93,8 @@
 </template>
 
 <script>
+import moment from "moment";
+
 import { gigService } from "../services/gig.service";
 // import { gigService } from "../services/gig.service.local";
 import { userService } from "../services/user.service";
@@ -139,16 +141,17 @@ export default {
     },
     async addOrder() {
       try {
-        showSuccessMsg('wohoo')
+        showSuccessMsg("wohoo");
         // const loggenInUser = await userService.getLoggedinUser();
         const createdOrder = {
-          createdAt: new Date(),
+          createdAt: moment().format("MMMM Do YYYY, h:mm:ss a"),
           // buyerId: loggenInUser._id,
           sellerId: this.gig.owner._id,
           gigId: this.gig._id,
           packageType: this.package.level,
           status: "pending",
         };
+        console.log(createdOrder.createdAt);
         console.log("createdOrder-frontend", createdOrder);
         await this.$store.dispatch({ type: "addOrder", createdOrder });
 

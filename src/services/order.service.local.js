@@ -46,7 +46,7 @@ async function save(order) {
 function getEmptyOrder() {
     return {
         _id: utilService.makeId(),
-        createdAt: new Date(),
+        createdAt: moment().format("MMMM Do YYYY, h:mm:ss a"),
         buyer: '',
         seller: '',
         gig: {},

@@ -39,12 +39,6 @@
           :to="userGigsLink"
           >My gigs</RouterLink
         >
-        <!-- <RouterLink
-          @click="setActiveTab"
-          :class="{ active: activeTab }"
-          :to="userOrdersLink"
-          >My orders</RouterLink
-        > -->
         <RouterLink
           @click="setActiveTab"
           :class="{ active: activeTab }"
