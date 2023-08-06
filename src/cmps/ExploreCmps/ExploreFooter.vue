@@ -13,14 +13,16 @@
 			class="explore-footer-icon mobile-explore-footer-search"
 			v-html="$getSvg('white-search-big-2')"
 		></i>
-		<i
+		<router-link
+			to="/user/:id/orders"
 			class="explore-footer-icon mobile-explore-footer-orders"
 			v-html="$getSvg('notepad')"
-		></i>
-		<i
+		></router-link>
+		<router-link
+			to="/user/:id"
 			class="explore-footer-icon mobile-explore-footer-profile"
 			v-html="$getSvg('big-profile')"
-		></i>
+		></router-link>
 	</div>
 </template>
 

@@ -1,49 +1,49 @@
 .main-layout {
-  display: grid;
-  grid-template-columns:
-    minmax(33px, 1fr)
-    minmax(auto, 1400px)
-    minmax(33px, 1fr);
-  // grid-template-rows: 120px 1fr 85px;
-  margin: 0;
-  padding: 0;
+	display: grid;
+	grid-template-columns:
+		minmax(33px, 1fr)
+		minmax(auto, 1400px)
+		minmax(33px, 1fr);
+	// grid-template-rows: 120px 1fr 85px;
+	margin: 0;
+	padding: 0;
 
-  > * {
-    grid-column: 2;
+	> * {
+		grid-column: 2;
 
-    &.full {
-      grid-column: 1 /-1;
-    }
-  }
+		&.full {
+			grid-column: 1 /-1;
+		}
+	}
 
-  @include for-mobile-layout {
-    grid-template-columns: 1fr;
-    .app-header { 
-      display: none;
-    }
-    .footer-container {
-      display: none;
-    }
-  }
+	@include for-mobile-layout {
+		grid-template-columns: 1fr;
+		.app-header {
+			display: none;
+		}
+		.footer-container {
+			display: none;
+		}
+	}
 
-  // @include for-narrow-layout {
-  //   grid-template-columns:
-  //     minmax(20px, 1fr)
-  //     minmax(auto, $mobile-breakpoint)
-  //     minmax(20px, 1fr);
-  // }
-  // @include for-normal-layout {
-  //   grid-template-columns:
-  //     minmax(20px, 1fr)
-  //     minmax(auto, $narrow-breakpoint)
-  //     minmax(20px, 1fr);
-  // }
-  // @include for-wide-layout {
-  //   grid-template-columns:
-  //     minmax(20px, 1fr)
-  //     minmax(auto, $normal-breakpoint)
-  //     minmax(20px, 1fr);
-  // }
+	// @include for-narrow-layout {
+	//   grid-template-columns:
+	//     minmax(20px, 1fr)
+	//     minmax(auto, $mobile-breakpoint)
+	//     minmax(20px, 1fr);
+	// }
+	// @include for-normal-layout {
+	//   grid-template-columns:
+	//     minmax(20px, 1fr)
+	//     minmax(auto, $narrow-breakpoint)
+	//     minmax(20px, 1fr);
+	// }
+	// @include for-wide-layout {
+	//   grid-template-columns:
+	//     minmax(20px, 1fr)
+	//     minmax(auto, $normal-breakpoint)
+	//     minmax(20px, 1fr);
+	// }
 }
 
 // .gigd-grid {

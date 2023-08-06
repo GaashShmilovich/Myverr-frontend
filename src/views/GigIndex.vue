@@ -113,6 +113,21 @@
 		<GigList :gigs="gigs"></GigList>
 		<ExploreFooter></ExploreFooter>
 	</div>
+
+	<section class="explore-pagination-container">
+		<a class="explore-pagination-left-arrow">➜</a>
+		<a class="explore-pagination-page-num first-page">1</a>
+		<a class="explore-pagination-page-num">2</a>
+		<a class="explore-pagination-page-num">3</a>
+		<a class="explore-pagination-page-num">4</a>
+		<a class="explore-pagination-page-num">5</a>
+		<a class="explore-pagination-page-num">6</a>
+		<a class="explore-pagination-page-num">7</a>
+		<a class="explore-pagination-page-num">8</a>
+		<a class="explore-pagination-page-num">9</a>
+		<a class="explore-pagination-page-num">10</a>
+		<a class="explore-pagination-right-arrow">➜</a>
+	</section>
 </template>
 
 <script>
@@ -163,14 +178,13 @@ export default {
 	methods: {
 		handleAllButtonClick() {
 			this.showMobileFilterModal = !this.showMobileFilterModal
-			console.log(5)
 		},
 
 		loadGigs() {
 			this.$store.dispatch({ type: 'loadGigs' })
 		},
 		onFilterChanged(filterBy) {
-			this.$store.dispatch({ type: 'loadGigs', filterBy })
+			// this.$store.dispatch({ type: 'loadGigs', filterBy })
 		},
 		onSortChanged(sortBy) {
 			this.$store.dispatch({
@@ -189,6 +203,10 @@ export default {
 				delivery: delivery || null,
 				subCategory: subCategory || null,
 			}
+			console.log(
+				'🚀 ~ file: GigIndex.vue:191 ~ loadGigsFromQuery ~ filterBy:',
+				filterBy
+			)
 
 			this.$store.dispatch({
 				type: 'loadGigs',
