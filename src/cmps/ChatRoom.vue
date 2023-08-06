@@ -4,9 +4,9 @@
     <div class="seller-info-container">
       <button class="close-chat-button" @click="toggleChatRoom">X</button>
       <div class="seller-info">
-        <div class="avatar"><img :src="owner.imgUrl" alt="" /></div>
+        <div class="avatar"><img :src="owner?.imgUrl" alt="" /></div>
         <div class="content">
-          <p>Message {{ owner.fullname }}</p>
+          <p>Message {{ owner?.fullname }}</p>
           <span>Available &#183 Avg. response time:
             <!-- <span class="time-to-make"> {{ gig.daysToMake }} Hour</span> -->
           </span>
@@ -64,6 +64,7 @@ export default {
     };
   },
   created() {
+    console.log('chat rendered');
     // socketService.emit(SOCKET_EMIT_SET_TOPIC, this.gigId);
     socketService.emit(SOCKET_EMIT_SET_TOPIC, this.socketType);
     socketService.on(SOCKET_EVENT_ADD_MSG, this.addMsg);

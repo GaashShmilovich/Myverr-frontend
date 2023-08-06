@@ -35,7 +35,7 @@
 
     <div class="gig-about">
       <p class="about-title">About this gig </p>
-      <VoiceInput />
+      <!-- <VoiceInput /> -->
       <div class="about">{{ gig.description.title }}</div>
       <p class="des-question">{{ questions[0] }}</p>
       <ul>
@@ -88,7 +88,6 @@ import FAQ from '../cmps/FAQ.vue'
 import AboutSeller from '../cmps/AboutSeller.vue'
 import VoiceInput from '../cmps/VoiceInput.vue'
 import ChatRoom from '../cmps/ChatRoom.vue'
-// import Chat from './Chat.vue'
 
 // import { gigService } from '../services/gig.service.local.js'
 import { gigService } from '../services/gig.service.js'
@@ -146,7 +145,6 @@ export default {
     AboutSeller,
     VoiceInput,
     ChatRoom,
-    // Chat
   },
 }
 </script>
