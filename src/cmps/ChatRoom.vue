@@ -26,7 +26,9 @@
         rows="10"
         v-model="msgTxt"
         @input="onType"
+        @keyup.enter="sendMsg"
         placeholder="Write your message"
+        class="custom-textarea"
       ></textarea>
       <button @click="sendMsg" class="btn">
         <i class="send" v-html="$getSvg('send-msg')"></i>
