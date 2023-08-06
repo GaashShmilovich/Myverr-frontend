@@ -1,7 +1,7 @@
 <template>
 	<section class="filter-btns-container">
 		<!-- Budget Button and Modal -->
-		<div class="filter-group">
+		<div class="filter-group-mobile">
 			<button @click="openMobileFilterModal" class="all-btn filter-btn">
 				<i v-html="$getSvg('slider')"></i>
 				All

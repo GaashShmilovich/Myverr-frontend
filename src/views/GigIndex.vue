@@ -169,7 +169,7 @@ export default {
 			this.$store.dispatch({ type: 'loadGigs' })
 		},
 		onFilterChanged(filterBy) {
-			this.$store.dispatch({ type: 'loadGigs', filterBy })
+			// this.$store.dispatch({ type: 'loadGigs', filterBy })
 		},
 		onSortChanged(sortBy) {
 			this.$store.dispatch({
@@ -188,6 +188,10 @@ export default {
 				delivery: delivery || null,
 				subCategory: subCategory || null,
 			}
+			console.log(
+				'🚀 ~ file: GigIndex.vue:191 ~ loadGigsFromQuery ~ filterBy:',
+				filterBy
+			)
 
 			this.$store.dispatch({
 				type: 'loadGigs',
