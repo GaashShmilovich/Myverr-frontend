@@ -23,7 +23,7 @@
   <section class="chat-room">
   <ChatRoom
         v-if="showChatRoom"
-        :owner="gig?.owner"
+        :othersideUser="findUserOnOtherSide()"
         :msgHistory="gig?.msgs || []"
         @toggle-chat-room="toggleChatRoom"
       />
@@ -42,9 +42,9 @@ export default {
   data() {
     return {
       showChatRoom: false,
-
+      userOnOtherSide: this.findUserOnOtherSide,
       // user: null,
-      // loggedInUser: null,
+      userLoggedIn: this.loggedinUser,
     };
   },
   methods: {
@@ -53,14 +53,28 @@ export default {
 
     this.showChatRoom = !this.showChatRoom;
   },
+  findUserOnOtherSide() {
+    // if(this.loggedinUser.isSeller) console.log('isSeller');
+    if(this.loggedinUser.isSeller) {
+      console.log(this.loggedinUser);
+      console.log('send buyer');
+      return {id: '64cd0e6d856dea9794a616a5'}
+    } else {
+       console.log(this.loggedinUser);
+     console.log('send seller');
+     return {id: '64cd35578f0ee9ee8c823586'}
+     }
+  }
   },
   // created() {
   //   this.user = userService.getLoggedinUser();
   // },
   computed: {
     loggedinUser() {
-      console.log(this.$store.getters.loggedinUser);
-      return this.$store.getters.loggedinUser;
+      const loggedInUser = this.$store.getters.loggedinUser
+      console.log(loggedInUser);
+      // this.loggedInUser = loggedInUser
+      return loggedInUser
     },
   },
   components: {

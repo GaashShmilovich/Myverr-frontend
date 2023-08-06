@@ -7,9 +7,9 @@
         <div class="avatar"><img :src="owner?.imgUrl" alt="" /></div>
         <div class="content">
           <p>Message {{ owner?.fullname }}</p>
-          <span>Available &#183 Avg. response time:
+          <!-- <span>Available &#183 Avg. response time: -->
             <!-- <span class="time-to-make"> {{ gig.daysToMake }} Hour</span> -->
-          </span>
+          <!-- </span> -->
         </div>
       </div>
     </div>
@@ -47,6 +47,7 @@ import {
   SOCKET_EMIT_USER_IS_TYPING,
 } from "../services/socket.service.js";
 import { utilService } from "../../src/services/util.service.js";
+import { userService } from "../services/user.service";
 
 export default {
   name: "chat-room",
@@ -54,13 +55,15 @@ export default {
     gigId: String,
     msgHistory: Array,
     owner: Object,
+    othersideUser: Object
   },
   data() {
     return {
       msgTxt: "",
       msgs: [...this.msgHistory],
       typingUser: "",
-      socketType: 'room1'
+      socketType: 'room1',
+      otherUser: this.GetOtherUser
     };
   },
   created() {
@@ -71,6 +74,7 @@ export default {
     socketService.on(SOCKET_EVENT_USER_IS_TYPING, (fullname) => {
       this.typingUser = fullname;
     });
+    
   },
   computed: {
     user() {
@@ -79,6 +83,11 @@ export default {
     },
   },
   methods: {
+    GetOtherUser() {
+      const user = userService.getById(this.othersideUser.id)
+      console.log(user);
+      return user
+    },
     toggleChatRoom() {
       this.$emit("toggle-chat-room");
     },

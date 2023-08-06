@@ -18,7 +18,7 @@
         <span class="level">{{ gig.owner.level }} |</span>
 
         <section class="gig-owner-rate">
-          <span v-for="i in gig.owner.rate || 1">
+          <span v-for="i in Math.ceil(gig.owner.rate) || 1">
             <font-awesome-icon class="star yellow" icon="fa-solid fa-star" />
           </span>
         </section>

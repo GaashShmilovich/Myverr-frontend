@@ -41,12 +41,15 @@
         <RouterView :user="user" />
       </div>
     </div>
+
+    
   </section>
 </template>
 
 <script>
 import { RouterLink, RouterView } from "vue-router";
 import { gigService } from "../services/gig.service";
+
 // import { gigService } from "../services/gig.service.local";
 
 export default {
@@ -57,6 +60,7 @@ export default {
     return {
       gigToAdd: gigService.getEmptyGig(),
       activeTab: 0,
+
     };
   },
   computed: {
@@ -83,7 +87,8 @@ export default {
     printGigToConsole(gig) {
       console.log("Gig msgs:", gig.msgs);
     },
+    
   },
-  components: { RouterView, RouterLink },
+  components: { RouterView, RouterLink }
 };
 </script>

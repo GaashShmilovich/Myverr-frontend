@@ -56,6 +56,7 @@
         <RouterView :user="user" />
       </div>
     </div>
+    
   </section>
 </template>
 
@@ -63,6 +64,7 @@
 import { RouterLink, RouterView } from "vue-router";
 import { showErrorMsg, showSuccessMsg } from "../../services/event-bus.service";
 import { gigService } from "../../services/gig.service";
+
 import { userService } from "../../services/user.service";
 import {
   getActionRemoveGig,
@@ -151,7 +153,8 @@ export default {
     setActiveTab(index) {
       this.activeTab = index;
     },
+   
   },
-  components: { RouterView, RouterLink },
+  components: { RouterView, RouterLink }
 };
 </script>
