@@ -34,7 +34,7 @@ export default {
         id: utilService.makeId(),
         txt: this.txt,
         rate: this.rate,
-        createdAt: moment().format("MMMM Do YYYY, h:mm:ss a"),
+        createdAt: "Just now",
         by: {
           _id: this.user._id,
           fullname: this.user.fullname,

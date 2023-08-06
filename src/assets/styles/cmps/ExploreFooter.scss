@@ -5,10 +5,13 @@
 		background-color: white;
 		height: 50px;
 		z-index: 100;
-		position: sticky;
+		position: fixed;
 		display: flex;
-		bottom: 0;
+		bottom: -1px;
+		left: 0;
+		right: 0;
 		justify-content: space-between;
+		box-shadow: 0px -2px 1px rgba(128, 123, 123, 0.1);
 	}
 
 	.explore-footer-icon {
@@ -16,14 +19,14 @@
 	}
 
 	.mobile-explore-footer-home {
-		margin-left: 5px;
-	}
-
-	.mobile-explore-footer-profile {
-		margin-right: 5px;
+		margin-left: 15px;
 	}
 
 	.mobile-explore-footer-search {
 		margin-top: 14px;
+	}
+
+	.mobile-explore-footer-profile {
+		margin-right: 15px;
 	}
 }

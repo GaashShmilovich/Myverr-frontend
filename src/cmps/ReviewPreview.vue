@@ -15,7 +15,7 @@
         icon="fa-solid fa-star"
       /> 
     </span> || 
-    <span> {{ review.createdAt }} ago</span>
+    <span> {{ getTimeAgoSimple() }}</span>
     </section>
     <p class="review-txt"> {{ review.txt }}</p>
     <section class="helpful-grid">
@@ -45,6 +45,10 @@ export default {
   // },
 
   methods: {
+    getTimeAgoSimple() {
+      if(this.review.createdAt === 'Just now') return 'Just now'
+      else return `${this.review.createdAt} ago`
+    },
     // getTimeAgo() {
     //   const currentTime = new Date();
     //   const timestampDate = new Date(this.review.createdAt);

@@ -7,10 +7,9 @@
         <p>logo-design</p>
         <span>/</span>
         <p>artisitic</p>
-        <span>/</span>
       </p>
 
-      <h1 class="gig-title">{{ gig.title }}</h1>
+      <p class="gig-title">{{ gig.title }}</p>
 
       <section class="gig-owner-details">
         <img :src="gig.owner.imgUrl" alt="">

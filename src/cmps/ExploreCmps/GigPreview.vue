@@ -49,7 +49,7 @@
 				</div>
 				<div class="gig-preview-footer-container">
 					<p v-if="gig.price" class="gig-preview__price">
-						From <span>₪{{ gig.price }}</span>
+						From <span>${{ gig.price }}</span>
 					</p>
 				</div>
 			</div>

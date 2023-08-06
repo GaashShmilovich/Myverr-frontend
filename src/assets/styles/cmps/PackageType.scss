@@ -84,16 +84,18 @@
     }
 
     .benefits {
-        padding: 20px 24px 20px 18px;
+        padding: 20px 24px 20px 25px;
         font-family: macanBold;
         font-size: rem(14px);
         display: flex;
-        justify-content: space-around;
+        justify-content: left;
         align-content: center;
         margin-bottom: 20px;
         i {
             fill: $clr3;
             padding-top: 2px;
+            padding-right: 8px;
+            
         }
 
     }

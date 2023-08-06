@@ -20,14 +20,17 @@ export const orderStore = {
         },
         updateOrder(state, { newOrder }) {
             console.log(newOrder);
-            const idx = state.orders.findIndex(c => c._id === newOrder._id)
+            const idx = state.orders.findIndex(o => o._id === newOrder._id)
             state.orders.splice(idx, 1, newOrder)
         },
         setOrderStatus(state, { order, status }) {
-            const currOrder = state.orders.find((o) => o._id === order._id);
-            if (currOrder) {
-              order.status = status;
-            }
+            const idx = state.orders.findIndex(o => o._id === order._id)
+                console.log(order);
+                order.status = status
+                console.log(order);
+                state.orders.splice(idx, 1, order)
+                // return order
+            
           },
     
     },
@@ -55,11 +58,20 @@ export const orderStore = {
             }
         },
         async changeOrderStatus({ commit }, { order, status}) {
+            console.log(order);
+            const newOrder = JSON.parse(JSON.stringify(order))
+            console.log(newOrder);
+            newOrder.status = status
             commit('setOrderStatus', { order, status})
+            console.log(newOrder);
+            return await orderService.save(newOrder)
         },
-        async loadOrders(context) {
+        async loadOrders(context,{buyerId}) {
+            console.log("🚀 ~ file: order.store.js:67 ~ loadOrders ~ buyerId:", buyerId)
+            const filterBy = {}
+            if(buyerId) filterBy.buyerId = buyerId
             try {
-                const orders = await orderService.query()
+                const orders = await orderService.query(filterBy)
                 context.commit({ type: 'setOrders', orders })
             } catch (err) {
                 console.log('orderStore: Error in loadOrders', err)

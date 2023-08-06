@@ -1,29 +1,30 @@
 <template>
   <div>
-    <ul class="gig-list">
-      <li v-for="gig in gigs" :key="gig.id">
-        <GigPreview :gig="gig" @delete="removeGig" @edit="editGig"></GigPreview>
+    <ul class="order-list">
+      <li v-for="order in orders" :key="order._id">
+        <pre>{{ order }}</pre>
+        <!-- <OrderPreview :order="order" @delete="removeOrder" @edit="editOrder"></OrderPreview> -->
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import GigPreview from "./GigPreviewSeller.vue";
+// import OrderPreview from "./OrderPreviewSeller.vue";
 
 export default {
   components: {
-    GigPreview,
+    // OrderPreview,
   },
   props: {
-    gigs: Array,
+    orders: Array,
   },
   methods: {
-    removeGig(gig) {
-      this.$emit("remove-gig", gig);
+    removeOrder(order) {
+      this.$emit("remove-order", order);
     },
-    editGig(gig) {
-      this.$emit("edit-gig", gig);
+    editOrder(order) {
+      this.$emit("edit-order", order);
     },
   },
 };

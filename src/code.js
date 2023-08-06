@@ -49,8 +49,6 @@ order.seller = await userService.getById(order.sellerId)
 
 order.buyer = loggedinUser
 
-delete order.sellerId
-delete order.buyerId
 
 socketService.emitToUser({ type: 'order-for-you', data: order, userId: order.seller._id })
 
