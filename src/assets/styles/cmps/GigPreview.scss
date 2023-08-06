@@ -151,6 +151,12 @@
 					}
 				}
 
+				.preview-star {
+					@include for-mobile {
+						margin-top: 4px;
+					}
+				}
+
 				.gig-reviews-num {
 					color: #949499;
 					font-family: 'macanRegular';
@@ -288,9 +294,12 @@
 .mobile-heart {
 	display: none;
 	@include for-mobile {
-		display: block;
+		display: inline-block;
+		position: absolute;
 		color: #222325;
-		z-index: 555;
+		z-index: 5;
+		margin-left: 155px;
+		margin-bottom: 170px;
 	}
 }
 
