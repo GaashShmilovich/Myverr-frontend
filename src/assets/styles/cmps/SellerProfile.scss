@@ -148,6 +148,21 @@
         padding: 15px;
       }
     }
+    .gig-list {
+      .gig-preview-container {
+        width: rem(390px);
+        .gig-preview__title {
+          top: 0;
+        }
+        .gig-preview-footer-container {
+          left: 0;
+          bottom: 40px;
+          span {
+            font-size: 25px;
+          }
+        }
+      }
+    }
 
     .user-description {
       display: none;

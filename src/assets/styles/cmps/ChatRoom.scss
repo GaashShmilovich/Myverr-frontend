@@ -15,12 +15,60 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  // justify-content: space-between;
   margin: 20px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #fff;
+
+  div:last-child {
+    margin-block-start: auto; /* Add the margin only to the last div */
+  }
+
+  .seller-info-container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid $clr6;
+
+    .close-chat-button {
+      padding: 0;
+      margin: 0;
+      align-self: start;
+    }
+
+    .seller-info {
+      display: flex;
+      margin-block-end: rem(10px);
+    }
+
+    .avatar {
+      width: 48px;
+      display: flex;
+
+      img {
+        border-radius: 50%;
+      }
+    }
+
+    .content {
+      font-size: rem(14px);
+      line-height: rem(21px);
+      padding-inline-start: rem(16px);
+      display: flex;
+      flex-direction: column;
+      margin-block-start: 0;
+      justify-content: center;
+      p {
+        margin: 0;
+        font-size: rem(18px);
+        font-family: macanSemibold;
+        color: #404145;
+      }
+    }
+  }
 
   h2 {
     font-size: 24px;
@@ -37,7 +85,7 @@
     width: 100%;
     max-height: 300px;
     overflow-y: auto;
-    margin-bottom: 10px;
+    margin-block: 10px;
 
     .chat-msg {
       margin: 5px 0;
@@ -59,7 +107,7 @@
       border: 1px solid #ccc;
       border-radius: 5px;
       resize: vertical;
-      height: rem(70px);
+      height: rem(40px);
       font-family: inherit;
       outline: none;
       resize: none;
@@ -96,6 +144,58 @@
 
       &:hover {
         background-color: #0056b3;
+      }
+    }
+  }
+}
+
+.chat-button-container {
+  background-color: $clr1;
+  display: flex;
+  border-radius: 68px;
+  cursor: pointer;
+  padding: 8px 24px 8px 8px;
+  width: fit-content;
+  box-shadow: 0 0 2.17382px rgba(0, 0, 0, 0.049),
+    0 1.75px 6.01034px rgba(0, 0, 0, 0.07),
+    0 3.63px 14.4706px rgba(0, 0, 0, 0.091), 0 22px 48px rgba(0, 0, 0, 0.14);
+  position: fixed;
+  bottom: rem(33px);
+  margin-inline-start: rem(33px);
+  z-index: 100;
+  .avatar {
+    width: 48px;
+    height: 48px;
+    img {
+      border-radius: 50%;
+    }
+  }
+  .content {
+    font-size: rem(14px);
+    line-height: rem(21px);
+    padding-inline-start: rem(16px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    p {
+      font-family: macanSemibold;
+      font-size: rem(16px);
+      display: flex;
+      align-items: center;
+      margin: 0;
+      color: #404145;
+    }
+    span {
+      display: inline-flex;
+      align-items: center;
+      margin-block-start: rem(2px);
+      white-space: nowrap;
+      font-size: rem(12px);
+      line-height: rem(20px);
+      color: #62646a;
+      .time-to-make {
+        font-family: macanSemibold;
+        margin-inline-start: rem(4px);
       }
     }
   }

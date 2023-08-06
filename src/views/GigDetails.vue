@@ -52,14 +52,20 @@
       <AboutSeller :gig="gig" />
       <FAQ :gig="gig" />
       <ReviewList :reviews="gig.reviews" />
-
-      <button class="gig-btn-chat" @click="showChatRoom = !showChatRoom">
-        Toggle Chat Room
-      </button>
+      <div class="chat-button-container" @click="showChatRoom = !showChatRoom">
+        <div class="avatar"><img :src="gig.owner.imgUrl" alt=""></div>
+        <div class="content">
+          <p>Message {{ gig.owner.fullname }}</p>
+          <span>Available &#183 Avg. response time:
+            <span class="time-to-make"> {{ gig.daysToMake }} Hour</span>
+          </span>
+        </div>
+      </div>
 
       <ChatRoom
         v-if="showChatRoom"
         :gigId="gig._id"
+        :owner="gig.owner"
         :msgHistory="gig?.msgs || []"
         @toggle-chat-room="toggleChatRoom"
       />

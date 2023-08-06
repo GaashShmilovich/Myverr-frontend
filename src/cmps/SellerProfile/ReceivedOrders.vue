@@ -2,7 +2,7 @@
   <section class="orders-manager-container">
     <div class="item">
       <span>Annual Revenue</span>
-      <!-- <h3>${{ annualRevenue }}</h3> -->
+      <h3>${{ annualRevenue }}</h3>
     </div>
     <div class="item">
       <span>Monthly Revenue</span>
@@ -114,12 +114,12 @@ export default {
     async onStatusChange(status) {
       try {
         const payload = {
-        order: this.selectedOrder,
-        status: status
-      }    
+          order: this.selectedOrder,
+          status: status,
+        };
         console.log(payload);
         // console.log('status changed to', status);
-       await this.$store.dispatch({ type: 'updateOrder', payload})
+        await this.$store.dispatch({ type: "updateOrder", payload });
         // this.$store.commit("updateOrderStatus", {
         //   orderId: this.selectedOrder._id,
         //   newStatus: status,

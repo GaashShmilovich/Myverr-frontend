@@ -1,9 +1,19 @@
 <template>
   <div class="chat-room-container">
     <h3 v-if="typingUser">{{ typingUser }} is typing...</h3>
-    <button class="close-chat-button" @click="toggleChatRoom">X</button>
+    <div class="seller-info-container">
+      <button class="close-chat-button" @click="toggleChatRoom">X</button>
+      <div class="seller-info">
+        <div class="avatar"><img :src="owner.imgUrl" alt="" /></div>
+        <div class="content">
+          <p>Message {{ owner.fullname }}</p>
+          <span>Available &#183 Avg. response time:
+            <!-- <span class="time-to-make"> {{ gig.daysToMake }} Hour</span> -->
+          </span>
+        </div>
+      </div>
+    </div>
     <div class="chat-list">
-      <h2>Chat</h2>
       <p v-for="(msg, idx) in msgs" :key="idx" class="chat-msg">
         {{ msg.fullname }}: {{ msg.txt }}
       </p>
@@ -24,6 +34,7 @@
       </button>
     </div>
   </div>
+  
 </template>
 
 <script>
@@ -42,6 +53,7 @@ export default {
   props: {
     gigId: String,
     msgHistory: Array,
+    owner: Object,
   },
   data() {
     return {
