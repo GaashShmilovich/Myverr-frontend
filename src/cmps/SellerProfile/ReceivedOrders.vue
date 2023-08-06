@@ -63,6 +63,7 @@ export default {
   },
   computed: {
     orders() {
+      console.log(this.);
       return this.$store.getters.orders;
     },
     monthlyRevenue() {
@@ -105,6 +106,7 @@ export default {
     async loadOrders() {
       try {
         await this.$store.dispatch({type: 'loadOrders'})
+        console.log();
        
       } catch (err) {
         console.log("Error loading orders:", err);
