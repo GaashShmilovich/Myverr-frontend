@@ -49,7 +49,6 @@
     :show="modalVisible"
     :order="selectedOrder"
     @close="modalVisible = false"
-    @change-status="onStatusChange"
   />
 </template>
 

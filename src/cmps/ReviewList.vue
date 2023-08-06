@@ -28,6 +28,11 @@
       </p>
     </div>
 
+      <section class="add-review">
+        <button class="btn-add-rev" @click="toggleAddReviewInput">Add Review</button>
+        <AddReview @addReview="addReview" v-if="addReviewInput"/>
+      </section>
+
       <ul class="review-list">
         <li
           v-for="review in filteredReviews"
@@ -43,6 +48,7 @@
 <script>
 import ReviewPreview from './ReviewPreview.vue'
 import ReviewRateBar from './ReviewRateBar.vue'
+import AddReview from './AddReview.vue'
 export default {
   props: {
     reviews: Array,
@@ -54,6 +60,7 @@ export default {
       filteredReviews: [],
       reviewsShown: 3,
       reviewsToAdd: 3,
+      addReviewInput: false,
       sortBy: {
       isOpen: false,
       placeHolder: 'Most recent',
@@ -79,8 +86,19 @@ export default {
   components: {
     ReviewPreview,
     ReviewRateBar,
+    AddReview,
   },
   methods: {
+    addReview(review) {
+      // this.filteredReviews.unshift(review)
+      this.reviews.unshift(review)
+      this.filteredReviews = this.reviews
+      console.log(this.reviews);
+      this.toggleAddReviewInput()
+    },
+    toggleAddReviewInput() {
+      this.addReviewInput = !this.addReviewInput
+    },
     seeMore() {
       this.reviewsShown += this.reviewsToAdd
       this.filteredReviews = this.reviews.slice(0, this.reviewsShown)

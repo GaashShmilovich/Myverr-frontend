@@ -7,9 +7,9 @@ function addOrder() {
             packageType: this.package.level,
             status: "pending",
         }
-       await this.$store.dispatch({ type: 'addOrder', createdOrder })
-        
-        console.log( this.$store.getters.orders);
+        await this.$store.dispatch({ type: 'addOrder', createdOrder })
+
+        console.log(this.$store.getters.orders);
     } catch (err) {
         console.error(err)
         console.log(err)
@@ -39,65 +39,96 @@ async function save(order) {
     return savedOrder
 }
 
+// Backend:
+
+var recievedOrder = req.body
+order = await orderService.add(recievedOrder)
+
+order.seller = await userService.getById(order.sellerId)
+
+order.buyer = loggedinUser
+
+delete order.sellerId
+delete order.buyerId
+
+socketService.broadcast({ type: 'order-added', data: order, userId: loggedinUser._id })
+socketService.emitToUser({ type: 'order-for-you', data: order, userId: order.seller._id })
+
+
+
 async function query(filterBy = {}) {
-  try {
-    const criteria = _buildCriteria(filterBy)
-    const collection = await dbService.getCollection('order')
-    // const orders = await collection.find(criteria).toArray()
-    var orders = await collection.aggregate([
-        {
-            $match: criteria
-        },
-        {
-            $lookup:
+    try {
+        const criteria = _buildCriteria(filterBy)
+        const collection = await dbService.getCollection('order')
+        // const orders = await collection.find(criteria).toArray()
+        var orders = await collection.aggregate([
             {
-                localField: 'buyerId',
-                from: 'user',
-                foreignField: '_id',
-                as: 'buyer'
-            }
-        },
-        {
-            $unwind: '$buyer'
-        },
-        {
-            $lookup:
+                $match: criteria
+            },
             {
-                localField: 'sellerId',
-                from: 'user',
-                foreignField: '_id',
-                as: 'seller'
-            }
-        },
-        {
-            $unwind: '$seller'
-        },
-        {
-            $lookup:
+                $lookup:
+                {
+                    localField: 'buyerId',
+                    from: 'user',
+                    foreignField: '_id',
+                    as: 'buyer'
+                }
+            },
             {
-                localField: 'gigId',
-                from: 'gig',
-                foreignField: '_id',
-                as: 'gig'
+                $unwind: '$buyer'
+            },
+            {
+                $lookup:
+                {
+                    localField: 'sellerId',
+                    from: 'user',
+                    foreignField: '_id',
+                    as: 'seller'
+                }
+            },
+            {
+                $unwind: '$seller'
+            },
+            {
+                $lookup:
+                {
+                    localField: 'gigId',
+                    from: 'gig',
+                    foreignField: '_id',
+                    as: 'gig'
+                }
+            },
+            {
+                $unwind: '$gig'
             }
-        },
-        {
-            $unwind: '$gig'
-        }
-    ]).toArray()
-    orders = orders.map(order => {
-        order.buyer = { _id: order.buyer._id, fullname: order.buyer.fullname }
-        order.seller = { _id: order.seller._id, fullname: order.seller.fullname }
-        order.gig = { _id: order.gig._id,title: order.gig.title, price: order.gig.price }
-        delete order.buyerId
-        delete order.sellerId
-        delete order.gigId
-        return order
-    })
-    return orders
-} catch (err) {
-    logger.error('cannot find orders', err)
-    throw err
-}
+        ]).toArray()
+        orders = orders.map(order => {
+            order.buyer = { _id: order.buyer._id, fullname: order.buyer.fullname }
+            order.seller = { _id: order.seller._id, fullname: order.seller.fullname }
+            order.gig = { _id: order.gig._id, title: order.gig.title, price: order.gig.price }
+            delete order.buyerId
+            delete order.sellerId
+            delete order.gigId
+            return order
+        })
+        return orders
+    } catch (err) {
+        logger.error('cannot find orders', err)
+        throw err
+    }
 
 }
+
+;(() => {
+    setTimeout(() => {
+    socketService.on(SOCKET_EVENT_ORDER_ADDED, (order) => {
+        console.log('got from socket order added', order);
+        store.commit({type: 'addOrder', order})
+        showSuccessMsg(`There is a new order : ${order}`)
+    })
+    socketService.on(SOCKET_EVENT_ORDER_FOR_YOU, (order) => {
+        showSuccessMsg(`You recieved a new order: ${order}`)
+        console.log('got from socket order about you', order);
+    })
+    }, 0)
+})()
