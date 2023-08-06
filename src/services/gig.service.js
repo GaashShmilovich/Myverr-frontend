@@ -14,7 +14,12 @@ export const gigService = {
 window.cs = gigService // for console usage
 
 async function query(
-	filterBy = { txt: '', price: { min: null, max: null }, delivery: null }
+	filterBy = {
+		txt: '',
+		price: { min: null, max: null },
+		delivery: null,
+		sortBy: null,
+	}
 ) {
 	// Modify your request to incorporate the filter values
 	return httpService.get('gig', filterBy)
