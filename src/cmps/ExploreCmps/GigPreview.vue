@@ -46,6 +46,7 @@
 						{{ avgRating }}
 					</p>
 					<p class="gig-reviews-num">({{ gig.reviews.length }})</p>
+					<i class="mobile-heart" v-html="$getSvg('heart-filled-2')"></i>
 				</div>
 				<div class="gig-preview-footer-container">
 					<p v-if="gig.price" class="gig-preview__price">

@@ -15,12 +15,7 @@ import { showErrorMsg, showSuccessMsg } from "../../services/event-bus.service";
 import { orderService } from "../../services/order.service";
 // import { userService } from "../../services/user.service.local";
 import { userService } from "../../services/user.service";
-// import OrderPreviewCarousel from "../../cmps/ExploreCmps/OrderPreviewCarousel.vue";
-// import {
-//   getActionRemoveOrder,
-//   getActionUpdateOrder,
-//   getActionAddOrderMsg,
-// } from "../../store/order.store";
+
 import UserOrders from "./UserOrders.vue";
 export default {
   components: {
