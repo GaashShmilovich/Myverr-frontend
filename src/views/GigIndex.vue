@@ -163,7 +163,6 @@ export default {
 	methods: {
 		handleAllButtonClick() {
 			this.showMobileFilterModal = !this.showMobileFilterModal
-			console.log(5)
 		},
 
 		loadGigs() {

@@ -29,6 +29,14 @@
 		-ms-overflow-style: none;
 		scrollbar-width: none;
 
+		.all-btn {
+			display: inline-block;
+		}
+
+		.seller-lvl-btn {
+			display: inline-block;
+		}
+
 		&::-webkit-scrollbar {
 			display: none;
 		}
@@ -111,6 +119,7 @@
 }
 
 .all-btn {
+	display: none;
 	padding-left: 18px;
 	padding-right: 18px;
 }
@@ -279,6 +288,7 @@ input::placeholder {
 }
 
 .seller-lvl-btn {
+	display: none;
 	padding-right: 16px;
 }
 

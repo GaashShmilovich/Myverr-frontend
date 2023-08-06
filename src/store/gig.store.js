@@ -32,8 +32,9 @@ export const gigStore = {
 		gigs: [],
 		filterBy: {
 			budget: { min: 0, max: 10000 },
-			delivery: null,
+			delivery: 9999,
 			subCategory: null,
+			txt: '',
 		},
 	},
 	getters: {
