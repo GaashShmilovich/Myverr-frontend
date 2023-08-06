@@ -27,13 +27,14 @@ export default {
     changeStatus(status) {
       const order = this.order
       this.$store.dispatch('changeOrderStatus', { order, status})
-      // console.log(order);
+      console.log(order);
 
       const orders = this.$store.getters.orders
+      console.log(orders);
       const updatedOrder = orders.find((o) => o._id === order._id)
-      console.log(updatedOrder);
-      this.$store.commit('updateOrder', {newOrder: updatedOrder})
-      // orderService.save(updatedOrder)
+      // console.log(updatedOrder);
+      // this.$store.commit('updateOrder', {newOrder: updatedOrder})
+      orderService.save({order: updatedOrder})
 
       this.closeModal();
     },
