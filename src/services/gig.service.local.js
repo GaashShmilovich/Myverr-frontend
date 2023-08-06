@@ -14,26 +14,26 @@ export const gigService = {
 }
 window.cs = gigService
 
-async function query(filters, sortBy) {
+async function query(filterBy, sortBy) {
 	var gigs = await storageService.query(STORAGE_KEY)
 
-	if (gigs && filters) {
-		if (filters.min && filters.max) {
+	if (gigs && filterBy) {
+		if (filterBy.min && filterBy.max) {
 			gigs = gigs.filter(
-				(gig) => gig.price >= filters.min && gig.price <= filters.max
+				(gig) => gig.price >= filterBy.min && gig.price <= filterBy.max
 			)
 		}
-		if (filters.delivery) {
-			gigs = gigs.filter((gig) => gig.daysToMake <= filters.delivery)
+		if (filterBy.delivery) {
+			gigs = gigs.filter((gig) => gig.daysToMake <= filterBy.delivery)
 		}
-		if (filters.subCategory) {
+		if (filterBy.subCategory) {
 			gigs = gigs.filter((gig) =>
-				gig.tags.includes(filters.subCategory.toLowerCase())
+				gig.tags.includes(filterBy.subCategory.toLowerCase())
 			)
 		}
-		if (filters.txt) {
+		if (filterBy.txt) {
 			gigs = gigs.filter((gig) =>
-				gig.title.toLowerCase().includes(filters.txt.toLowerCase())
+				gig.title.toLowerCase().includes(filterBy.txt.toLowerCase())
 			)
 		}
 	}
