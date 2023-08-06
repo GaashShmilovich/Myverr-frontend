@@ -31,9 +31,13 @@ async function query(filterBy, sortBy) {
 				gig.tags.includes(filterBy.subCategory.toLowerCase())
 			)
 		}
-		if (filterBy.txt) {
-			gigs = gigs.filter((gig) =>
-				gig.title.toLowerCase().includes(filterBy.txt.toLowerCase())
+		if (filters.txt) {
+			const searchText = filters.txt.toLowerCase()
+			gigs = gigs.filter(
+				(gig) =>
+					gig.title.toLowerCase().includes(searchText) ||
+					(gig.owner &&
+						gig.owner.fullname.toLowerCase().includes(searchText))
 			)
 		}
 	}
