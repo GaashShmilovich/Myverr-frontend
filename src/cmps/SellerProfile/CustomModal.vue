@@ -1,16 +1,21 @@
 <template>
-  <!-- <div v-if="show" class="modal-overlay" @click="closeModal"> -->
-  <div class="modal-status">
-    <h2>Change Order Status</h2>
-    <div class="modal-buttons">
-      <button class="complete" @click="changeStatus('complete')">
-        Complete
-      </button>
-      <button class="reject" @click="changeStatus('reject')">Reject</button>
-      <button class="cancel" @click="closeModal">Cancel</button>
+  <div class="modal-overlay">
+    <div class="modal-status">
+      <h2>Change Order Status</h2>
+      <div class="modal-buttons">
+        <button
+          class="status-button complete"
+          @click="changeStatus('complete')"
+        >
+          Complete
+        </button>
+        <button class="status-button reject" @click="changeStatus('reject')">
+          Reject
+        </button>
+        <button class="status-button cancel" @click="closeModal">Cancel</button>
+      </div>
     </div>
   </div>
-  <!-- </div> -->
 </template>
 
 <script>
