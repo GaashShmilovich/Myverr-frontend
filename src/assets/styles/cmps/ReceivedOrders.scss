@@ -1,262 +1,301 @@
 .orders-manager-container {
-  display: flex;
-  flex: 1;
-  position: relative;
-  justify-content: space-evenly;
-  align-items: center;
-  height: rem(150px);
-  margin-block: rem(40px);
-  padding: rem(30px) 0;
-  background-color: $clr1;
-  border-radius: 5px;
+	display: flex;
+	flex: 1;
+	position: relative;
+	justify-content: space-evenly;
+	align-items: center;
+	height: rem(150px);
+	margin-block: rem(40px);
+	padding: rem(30px) 0;
+	background-color: $clr1;
+	border-radius: 5px;
 
-  @include for-mobile {
-    margin-right: 15px;
-    margin-left: 15px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    background-color: transparent;
-    gap: 5px;
-  }
+	@include for-mobile {
+		margin-right: 15px;
+		margin-left: 15px;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		background-color: transparent;
+		gap: 5px;
+	}
 
-  & > *:not(:last-child) {
-    border-right: 2px solid $clr6;
-    @include for-mobile {
-      border-right: none;
-    }
-  }
-  .item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
-    height: 100%;
-    justify-content: space-between;
-    max-width: rem(250px);
-    padding: 0 rem(10px);
+	& > *:not(:last-child) {
+		border-right: 2px solid $clr6;
+		@include for-mobile {
+			border-right: none;
+		}
+	}
+	.item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		flex: 1;
+		height: 100%;
+		justify-content: space-between;
+		max-width: rem(250px);
+		padding: 0 rem(10px);
 
-    @include for-mobile {
-      background-color: rgb(255, 255, 255);
-      border-radius: 6px;
-      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
-      height: 95px;
-      color: rgba(73, 75, 71, 0.856);
-      font-family: "macanBold";
-      font-weight: 400;
-      border: 1px solid rgb(203, 209, 198);
-    }
+		@include for-mobile {
+			background-color: rgb(255, 255, 255);
+			border-radius: 6px;
+			box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+			height: 95px;
+			color: rgba(73, 75, 71, 0.856);
+			font-family: 'macanBold';
+			font-weight: 400;
+			border: 1px solid rgb(203, 209, 198);
+		}
 
-    h3 {
-      @include for-mobile {
-        color: rgba(30, 31, 30, 0.993);
-        font-size: 32px;
-      }
-    }
-  }
+		h3 {
+			@include for-mobile {
+				color: rgba(30, 31, 30, 0.993);
+				font-size: 32px;
+			}
+		}
+	}
 }
 
 /* Add styles for the table */
 .table-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-block: rem(20px);
-  max-width: 100%;
-  overflow-x: auto;
-  th,
-  td {
-    padding: 15px 20px;
-    text-align: left;
-    &.buyer {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-  }
-  table {
-    position: relative;
-    background-color: $clr1;
-    width: 100%;
-    max-width: 1000px;
-    border-collapse: collapse;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-block: rem(20px);
+	max-width: 100%;
+	overflow-x: auto;
+	th,
+	td {
+		padding: 15px 20px;
+		text-align: left;
+		&.buyer {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+	}
+	table {
+		position: relative;
+		background-color: $clr1;
+		width: 100%;
+		max-width: 1000px;
+		border-collapse: collapse;
+		border-radius: 5px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		overflow: hidden;
+		margin: 0 auto;
 
-    .user-image {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-    }
+		.user-image {
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+		}
 
-    thead {
-      border-bottom: 2px solid $green1;
-    }
+		thead {
+			border-bottom: 2px solid $green1;
+		}
 
-    tr {
-      position: relative;
-    }
-  }
+		tr {
+			position: relative;
+		}
+	}
 
-  th {
-    font-weight: bold;
-  }
+	th {
+		font-weight: bold;
+	}
 
-  tbody tr:nth-child(even) {
-    background-color: $green6;
-    color: $clr1;
+	tbody tr:nth-child(even) {
+		background-color: $green6;
+		color: $clr1;
 
-    &:hover {
-      background-color: $green4;
-      cursor: pointer;
-    }
-  }
+		&:hover {
+			background-color: $green4;
+			cursor: pointer;
+		}
+	}
 
-  tbody tr:nth-child(odd) {
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.1);
-      cursor: pointer;
-    }
-  }
+	tbody tr:nth-child(odd) {
+		&:hover {
+			background-color: rgba(0, 0, 0, 0.1);
+			cursor: pointer;
+		}
+	}
 
-  @include for-mobile {
-    display: none;
-  }
+	@include for-mobile {
+		display: none;
+	}
 }
 
 .mobile-orders-container {
-  display: none;
+	display: none;
 
-  @include for-mobile {
-    display: block;
-    margin-top: 115px;
-    height: 750px;
-    background-color: rgb(252, 255, 252);
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
-    width: 100vw;
-  }
+	@include for-mobile {
+		display: block;
+		margin-top: 115px;
+		height: 1350px;
+		background: #76b852; /* fallback for old browsers */
+		background: -webkit-linear-gradient(
+			to bottom,
+			#8dc26f,
+			#76b852
+		); /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to bottom, #8dc26f, #76b852);
+		border-top-right-radius: 15px;
+		border-top-left-radius: 15px;
+		box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+		width: 100vw;
+	}
 }
 
 .mobile-orders-header {
-  color: rgb(37, 37, 37);
-  font-size: 23px;
-  position: absolute;
-  left: 15px;
-  margin-top: 15px;
+	color: rgb(37, 37, 37);
+	font-size: 23px;
+	position: absolute;
+	left: 15px;
+	margin-top: 15px;
 }
 
 .mobile-orders-sort {
-  color: rgb(37, 37, 37);
-  font-size: 20px;
-  position: absolute;
-  right: 30px;
-  margin-top: 15px;
-  margin-right: 10px;
+	color: rgb(37, 37, 37);
+	font-size: 20px;
+	position: absolute;
+	right: 30px;
+	margin-top: 15px;
+	margin-right: 10px;
 }
 
 .mobile-orders-slider {
-  font-size: 30px;
-  position: absolute;
-  margin-top: -7px;
-  margin-left: 4px;
+	font-size: 30px;
+	position: absolute;
+	margin-top: -7px;
+	margin-left: 4px;
 }
 
 .mobile-orders-list-container {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 15px;
-  max-height: 800px;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	padding: 15px;
+	max-height: 800px;
 
-  .mobile-order-card:first-child {
-    margin-top: 45px;
-  }
+	.mobile-order-card:first-child {
+		margin-top: 45px;
+	}
 
-  .mobile-order-card {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    background-color: rgb(248, 253, 243);
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgb(203, 209, 198);
+	.mobile-order-card {
+		display: flex;
+		align-items: center;
+		padding: 10px;
+		background-color: #f4f4f4;
+		border-radius: 8px;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		border: 1px solid rgb(203, 209, 198);
 
-    .order-info {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-    }
+		.order-info {
+			display: flex;
+			flex-direction: column;
+			gap: 5px;
+		}
 
-    .order-number,
-    .buyer-name,
-    .gig-title,
-    .order-date,
-    .order-price,
-    .order-status {
-      font-size: 17px;
-      font-weight: 600;
-      color: #3f3f27;
-    }
+		.order-number,
+		.buyer-name,
+		.gig-title,
+		.order-date,
+		.order-price,
+		.order-status {
+			font-size: 17px;
+			font-weight: 600;
+			color: #3f3f27;
+		}
 
-    .order-price {
-      font-size: 20px;
-      color: rgb(10, 85, 48);
-      font-family: "Courier New", Courier, monospace;
-    }
-  }
+		.order-price {
+			font-size: 20px;
+			color: rgb(10, 85, 48);
+			font-family: 'Courier New', Courier, monospace;
+		}
+	}
 }
 
 .mobile-order-card .order-info {
-  width: 80%;
-  display: inline-block;
+	width: 80%;
+	display: inline-block;
 }
 
 .mobile-order-card .order-status {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 153px;
-  height: 50px;
-  text-align: center;
-  margin-left: 15px;
-  border-radius: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 153px;
+	height: 50px;
+	text-align: center;
+	margin-left: 15px;
+	border-radius: 15px;
 }
 
 .order-status {
-  border-radius: 5px;
-  padding: 5px;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  margin-left: 3px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	padding: 13px;
+	font-size: 12px;
+	font-weight: 600;
+	text-transform: uppercase;
+	margin-left: 3px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .mobile-order-card .order-status.pending {
-  background-color: rgb(255, 196, 0);
-  padding-top: 7px;
-  color: rgb(255, 255, 255);
+	background-color: rgb(255, 196, 0);
+	padding: 13px;
+	color: rgb(255, 255, 255);
+	height: 60px;
 }
 
 .mobile-order-card .order-status.completed {
-  background-color: rgb(41, 214, 41);
-  padding-top: 7px;
-  color: rgb(255, 255, 255);
+	background-color: $green1;
+	padding: 13px;
+	color: rgb(255, 255, 255);
+	height: 60px;
 }
 
 .mobile-order-card .order-status.reject {
-  background-color: rgb(235, 26, 26);
-  padding-top: 7px;
-  color: rgb(255, 255, 255);
+	background-color: crimson;
+	padding: 13px;
+	color: rgb(255, 255, 255);
+	height: 60px;
+}
+.mobile-order-card .order-status.progress {
+	background-color: $yellow1;
+	padding: 13px;
+	color: rgb(255, 255, 255);
+	height: 60px;
 }
 
 .order-price {
-  font-size: 20px;
-  color: rgb(10, 85, 48);
-  position: absolute;
-  left: 335px;
-  margin-block-start: 118px;
+	@include for-mobile {
+		font-size: 20px;
+		color: rgb(10, 85, 48);
+		position: absolute;
+		left: 335px;
+		margin-block-start: 118px;
+	}
+}
+
+.mobile-buyer-image {
+	display: none;
+	@include for-mobile {
+		display: inline-block;
+		border-radius: 10px 20px 30px 40px/30px;
+		width: 60px;
+	}
+}
+
+.buyer-name {
+	@include for-mobile {
+		position: absolute;
+		left: 335px;
+	}
+}
+
+.order-date {
+	@include for-mobile {
+		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	}
 }

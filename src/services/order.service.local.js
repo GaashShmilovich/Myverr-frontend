@@ -5,54 +5,55 @@ import { utilService } from './util.service.js'
 const STORAGE_KEY = 'order'
 
 export const orderService = {
-    query,
-    getById,
-    save,
-    remove,
-    getEmptyOrder,
+	query,
+	getById,
+	save,
+	remove,
+	getEmptyOrder,
 }
 window.cs = orderService
 
-
 async function query(filterBy = { buyer: '', seller: '' }) {
-    var orders = await storageService.query(STORAGE_KEY)
-    if (filterBy.txt) {
-        const regex = new RegExp(filterBy.txt, 'i')
-        orders = orders.filter(order => regex.test(order.buyer) || regex.test(order.seller))
-    }
-    return orders
+	var orders = await storageService.query(STORAGE_KEY)
+	if (filterBy.txt) {
+		const regex = new RegExp(filterBy.txt, 'i')
+		orders = orders.filter(
+			(order) => regex.test(order.buyer) || regex.test(order.seller)
+		)
+	}
+	return orders
 }
 
 function getById(orderId) {
-    return storageService.get(STORAGE_KEY, orderId)
+	return storageService.get(STORAGE_KEY, orderId)
 }
 
 async function remove(orderId) {
-    await storageService.remove(STORAGE_KEY, orderId)
+	await storageService.remove(STORAGE_KEY, orderId)
 }
 
 async function save(order) {
-    var savedOrder
-    if (order._id) {
-        savedOrder = await storageService.put(STORAGE_KEY, order)
-    } else {
-        // Later, owner is set by the backend
-        // order.buyer = userService.getLoggedinUser()
-        savedOrder = await storageService.post(STORAGE_KEY, order)
-    }
-    return savedOrder
+	var savedOrder
+	if (order._id) {
+		savedOrder = await storageService.put(STORAGE_KEY, order)
+	} else {
+		// Later, owner is set by the backend
+		// order.buyer = userService.getLoggedinUser()
+		savedOrder = await storageService.post(STORAGE_KEY, order)
+	}
+	return savedOrder
 }
 
 function getEmptyOrder() {
-    return {
-        _id: utilService.makeId(),
-        createdAt: moment().format("MMMM Do YYYY, h:mm:ss a"),
-        buyer: '',
-        seller: '',
-        gig: {},
-        packageType: '',
-        status: ''
-    }
+	return {
+		_id: utilService.makeId(),
+		createdAt: moment().format('MMMM Do YYYY, h:mm:ss a'),
+		buyer: '',
+		seller: '',
+		gig: {},
+		packageType: '',
+		status: '',
+	}
 }
 
 // Initial data
@@ -90,14 +91,12 @@ function getEmptyOrder() {
 //     })
 // })()
 
-
-
 const orders = [
-    {
-        "_id": "o1225",
-        "buyer": "mini-user",
-        "seller": "mini-user",
-        "gig": { "_id": "i101", "name": "Design Logo", "imgUrl": "", "price": 20 },
-        "status": "pending"
-    }
+	{
+		_id: 'o1225',
+		buyer: 'mini-user',
+		seller: 'mini-user',
+		gig: { _id: 'i101', name: 'Design Logo', imgUrl: '', price: 20 },
+		status: 'pending',
+	},
 ]
