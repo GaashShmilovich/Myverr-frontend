@@ -19,5 +19,8 @@ export default {
     orders: Array,
   },
   methods: {},
+  created() {
+    console.log(this.orders);
+  },
 };
 </script>
