@@ -24,8 +24,6 @@
           <th></th>
           <th>Buyer</th>
           <th>Gig</th>
-          <th>Order date</th>
-          <th>Total</th>
           <th>Status</th>
         </tr>
       </thead>
@@ -38,15 +36,13 @@
           <th scope="row">{{ i + 1 }}</th>
           <td>{{ order.buyer.username }}</td>
           <td>{{ order.gig.title }}</td>
-          <td>{{ order.createdAt }}</td>
-          <td>${{ order.gig.price }}</td>
           <td>{{ order.status }}</td>
         </tr>
       </tbody>
     </table>
   </section>
   <CustomModal
-    :show="modalVisible"
+    v-if="modalVisible"
     :order="selectedOrder"
     @close="modalVisible = false"
   />
@@ -55,6 +51,7 @@
 <script>
 import CustomModal from "./CustomModal.vue";
 import moment from "moment";
+
 export default {
   components: { CustomModal },
   props: { user: Object },
@@ -65,32 +62,27 @@ export default {
     orders() {
       return this.$store.getters.orders;
     },
-    // monthlyRevenue() {
-    //   const currentDate = moment().format("MMMM Do YYYY, h:mm:ss a");
-    //   const currentMonth = currentDate;
-    //   return this.orders.reduce((total, order) => {
-    //     const orderDate = moment().format("MMMM Do YYYY, h:mm:ss a")(
-    //       order.createdAt
-    //     );
-    //     if (orderDate.getMonth() === currentMonth) {
-    //       return total + order.gig.price;
-    //     }
-    //     return total;
-    //   }, 0);
-    // },
-    // annualRevenue() {
-    //   const currentDate = moment().format("MMMM Do YYYY, h:mm:ss a");
-    //   const currentYear = currentDate;
-    //   return this.orders.reduce((total, order) => {
-    //     const orderDate = moment().format("MMMM Do YYYY, h:mm:ss a")(
-    //       order.createdAt
-    //     );
-    //     if (orderDate.getFullYear() === currentYear) {
-    //       return total + order.gig.price;
-    //     }
-    //     return total;
-    //   }, 0);
-    // },
+    monthlyRevenue() {
+      const currentMonth = moment().format("MMMM");
+      return this.orders.reduce((total, order) => {
+        const orderMonth = moment(order.createdAt).format("MMMM");
+        if (orderMonth === currentMonth) {
+          return total + order.gig.price;
+        }
+        return total;
+      }, 0);
+    },
+
+    annualRevenue() {
+      const currentYear = moment().format("YYYY");
+      return this.orders.reduce((total, order) => {
+        const orderYear = moment(order.createdAt).format("YYYY");
+        if (orderYear === currentYear) {
+          return total + order.gig.price;
+        }
+        return total;
+      }, 0);
+    },
     pendingOrdersCount() {
       return this.orders.filter((order) => order.status === "pending").length;
     },
@@ -111,8 +103,9 @@ export default {
       }
     },
     openModal(order) {
+      console.log("Clicked on order:", order);
+
       this.selectedOrder = order;
-      // console.log("order", order);
       this.modalVisible = true;
     },
     async onStatusChange(status) {
@@ -122,12 +115,8 @@ export default {
           status: status,
         };
         console.log(payload);
-        // console.log('status changed to', status);
         await this.$store.dispatch({ type: "updateOrder", payload });
         // this.$store.commit("updateOrderStatus", {
-        //   orderId: this.selectedOrder._id,
-        //   newStatus: status,
-        // });
       } catch (err) {
         console.log("Error updating order status:", err);
       }

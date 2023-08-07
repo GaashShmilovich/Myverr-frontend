@@ -114,6 +114,8 @@
       margin-top: 10px;
       margin-bottom: 20px;
       text-align: center;
+      display: flex;
+      justify-content: center;
     }
     .btn-pay {
       text-align: center;
@@ -136,6 +138,9 @@
       height: 35px;
       width: 250px;
       font-size: rem(11px);
+      display: flex;
+      align-items: center;
+      gap: 5px;
       span {
         font-family: macanBold;
         font-size: rem(20px);

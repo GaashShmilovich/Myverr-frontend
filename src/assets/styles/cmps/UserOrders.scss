@@ -1,0 +1,34 @@
+.order-list {
+  list-style: none;
+  padding: 0;
+  margin-block-start: rem(35px);
+}
+
+.order-card {
+  cursor: pointer;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: rem(20px);
+  //   background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  //   border: 2px solid $green1;
+  border-radius: 5px;
+  color: $clr1;
+  background: linear-gradient(45deg, #1dbf73, #00a986);
+  &:hover {
+    transform: scale(1.01); /* Apply scale effect on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Add a little bit of drop shadow on hover */
+  }
+}
+
+.order-title {
+  font-size: 18px;
+}
+
+.order-seller {
+  font-size: rem(20px);
+  font-family: macanBold;
+}

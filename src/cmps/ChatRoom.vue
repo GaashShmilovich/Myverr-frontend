@@ -1,18 +1,17 @@
 <template>
   <div class="chat-room-container">
-    <h3 v-if="typingUser">{{ typingUser }} is typing...</h3>
     <div class="seller-info-container">
       <button class="close-chat-button" @click="toggleChatRoom">X</button>
       <div class="seller-info">
         <div class="avatar"><img :src="owner?.imgUrl" alt="" /></div>
         <div class="content">
-          <p>Message {{ owner?.fullname }}</p>
-          <!-- <span>Available &#183 Avg. response time: -->
-            <!-- <span class="time-to-make"> {{ gig.daysToMake }} Hour</span> -->
-          <!-- </span> -->
+          <p>Message {{ owner.fullname }}</p>
+          <span>Available &#183 Avg. response time: 1 hour
+          </span>
         </div>
       </div>
     </div>
+    <h3 v-if="typingUser">{{ typingUser }} is typing...</h3>
     <div class="chat-list">
       <p v-for="(msg, idx) in msgs" :key="idx" class="chat-msg">
         {{ msg.fullname }}: {{ msg.txt }}

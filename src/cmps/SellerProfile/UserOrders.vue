@@ -2,30 +2,22 @@
   <div>
     <ul class="order-list">
       <li v-for="order in orders" :key="order._id">
-        <pre>{{ order }}</pre>
-        <!-- <OrderPreview :order="order" @delete="removeOrder" @edit="editOrder"></OrderPreview> -->
+        <div class="order-card">
+          <div class="order-seller">{{ order?.seller.username }}</div>
+          <div class="order-title">{{ order?.gig.title }}</div>
+          <div class="order-price">${{ order?.gig.price }}</div>
+        </div>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-// import OrderPreview from "./OrderPreviewSeller.vue";
-
 export default {
-  components: {
-    // OrderPreview,
-  },
+  components: {},
   props: {
     orders: Array,
   },
-  methods: {
-    removeOrder(order) {
-      this.$emit("remove-order", order);
-    },
-    editOrder(order) {
-      this.$emit("edit-order", order);
-    },
-  },
+  methods: {},
 };
 </script>

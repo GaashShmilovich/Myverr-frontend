@@ -8,7 +8,6 @@
         <p><span class="name">{{ user.username }}</span>
         <p class="country">{{ user.country }}</p>
         </p>
-        <button>Add details</button>
       </section>
 
       <section class="payment-info">
