@@ -63,6 +63,7 @@ export const orderStore = {
             console.log(newOrder);
             newOrder.status = status
             commit('setOrderStatus', { order, status})
+            socketService.emit('order-updated', newOrder)
             console.log(newOrder);
             return await orderService.save(newOrder)
         },

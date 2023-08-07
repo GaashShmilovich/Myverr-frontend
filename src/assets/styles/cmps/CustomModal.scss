@@ -1,17 +1,87 @@
-.modal-status {
-	width: rem(400px);
-	padding: 15px 25px;
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex-direction: column;
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50% -50%);
-	background-color: white;
+	z-index: 1000;
 
-	@include for-mobile {
-		display: none;
+	.modal-status {
+		width: 500px;
+		padding: 20px;
+		background-color: #fff;
+		border-radius: 10px;
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+		text-align: center;
+		@include for-mobile-layout {
+			width: 100%;
+			border-radius: 0; /* No rounded corners on mobile */
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow all around */
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			transition: transform 0.3s ease;
+		}
+
+		h2 {
+			margin-bottom: 50px;
+			font-size: 1.5rem;
+			color: #333;
+		}
+
+		.modal-buttons {
+			display: flex;
+			justify-content: center;
+			gap: 10px;
+
+			.status-button {
+				padding: 10px 20px;
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+				font-size: 1rem;
+				font-weight: bold;
+				text-transform: uppercase;
+				color: $clr1;
+				background-color: transparent;
+				transition: color, background-color, border 0.3s ease;
+
+				&.complete {
+					background-color: $green1;
+					border: 1px solid $green1;
+					&:hover {
+						color: $green1;
+						background-color: $clr1;
+						border: 1px solid $green1;
+					}
+				}
+
+				&.reject {
+					background-color: crimson;
+					border: 1px solid crimson;
+					&:hover {
+						color: crimson;
+						background-color: $clr1;
+						border: 1px solid crimson;
+					}
+				}
+
+				&.cancel {
+					background-color: #3498db;
+					border: 1px solid #3498db;
+					&:hover {
+						color: #3498db;
+						background-color: $clr1;
+						border: 1px solid #3498db;
+					}
+				}
+			}
+		}
 	}
 }
+
+/* Mobile layout */

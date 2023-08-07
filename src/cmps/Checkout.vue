@@ -99,6 +99,7 @@ import { gigService } from "../services/gig.service";
 // import { gigService } from "../services/gig.service.local";
 import { userService } from "../services/user.service";
 import { showSuccessMsg } from "../services/event-bus.service";
+import { socketService } from "../services/socket.service";
 // import { userService } from "../services/user.service.local";
 
 export default {
@@ -151,11 +152,9 @@ export default {
           packageType: this.package.level,
           status: "pending",
         };
-        console.log(createdOrder.createdAt);
-        console.log("createdOrder-frontend", createdOrder);
-        await this.$store.dispatch({ type: "addOrder", createdOrder });
-
-        console.log(this.$store.getters.orders);
+        const readyOrder = await this.$store.dispatch({ type: "addOrder", createdOrder });
+        console.log(readyOrder);
+          socketService.emit('order-added',readyOrder)
       } catch (err) {
         console.error(err);
         console.log(err);
