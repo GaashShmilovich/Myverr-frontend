@@ -11,7 +11,7 @@ import { showErrorMsg, showSuccessMsg } from "../../services/event-bus.service";
 import { orderService } from "../../services/order.service";
 // import { userService } from "../../services/user.service.local";
 import { userService } from "../../services/user.service";
-
+import { socketService } from "../../services/socket.service";
 import BuyerOrders from "./BuyerOrders.vue";
 export default {
   components: {
@@ -44,7 +44,13 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch("loadOrders", { buyerId: this.user._id });
+    this.$store.dispatch("loadOrders", { buyerId: this.user._id }); 
+
+    socketService.on('on-order-updated', (order) => {
+      console.log(order);
+      this.$store.commit('setOrderStatus', { order, status: order.status})
+      // this.$store.dispatch("loadOrders", { buyerId: this.user._id });
+    })
   },
 };
 </script>

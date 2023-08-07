@@ -20,6 +20,7 @@
 
 <script>
 // import { orderService } from "../../services/order.service";
+import { socketService } from "../../services/socket.service";
 
 export default {
   props: {
@@ -35,13 +36,12 @@ export default {
 
     async changeStatus(status) {
       const order = this.order;
-      await this.$store.dispatch("changeOrderStatus", { order, status });
+      const updatedOrder = await this.$store.dispatch("changeOrderStatus", { order, status });
       console.log(order);
-
-      const orders = this.$store.getters.orders;
-      console.log(orders);
-      const updatedOrder = orders.find((o) => o._id === order._id);
-
+      
+      console.log(updatedOrder);
+      // const orders = this.$store.getters.orders;
+      
       this.closeModal();
     },
   },

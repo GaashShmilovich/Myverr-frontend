@@ -153,6 +153,7 @@ export default {
           status: "pending",
         };
         const readyOrder = await this.$store.dispatch({ type: "addOrder", createdOrder });
+        console.log(readyOrder);
           socketService.emit('order-added',readyOrder)
       } catch (err) {
         console.error(err);

@@ -10,7 +10,7 @@
   <div class="chat-button-container" @click="showChatRoom = !showChatRoom">
     <div class="avatar"><img :src="findUserOnOtherSide.imgUrl" alt=""></div>
     <div class="content">
-      <p>Message {{ userOnOtherSide.fullname }}</p>
+      <p>Message {{ findUserOnOtherSide.fullname }}</p>
       <span v-if="loggedinUser.isSeller">Your costumer</span>
       <span v-else>The owner of your order</span>
       <!-- <span>Available &#183 Avg. response time:
@@ -20,7 +20,7 @@
   </div>
 
   <section class="chat-room">
-    <ChatRoom v-if="showChatRoom"         :userOnOtherSide="findUserOnOtherSide"
+    <ChatRoom v-if="showChatRoom" :userOnOtherSide="findUserOnOtherSide"
  :msgHistory="gig?.msgs || []" @toggle-chat-room="toggleChatRoom" />
   </section>
 </template>
@@ -36,8 +36,6 @@ export default {
   data() {
     return {
       showChatRoom: false,
-      // userOnOtherSide: this.findUserOnOtherSide,
-      userOnOtherSide: {},
       userLoggedIn: this.loggedinUser,
     };
   },
@@ -57,12 +55,12 @@ export default {
       if (this.loggedinUser.isSeller) {
         // console.log(this.loggedinUser);
         // console.log('send buyer');
-        this.userOnOtherSide = { _id: '64cd02e1856dea9794a616a4', fullname: 'Oryan', imgUrl: 'https://res.cloudinary.com/djm30uwim/image/upload/v1691300650/T04U05NLZ2M-U055TJHS215-337363a46142-512_g7aibi.jpg' }
+        // this.userOnOtherSide = { _id: '64cd02e1856dea9794a616a4', fullname: 'Oryan', imgUrl: 'https://res.cloudinary.com/djm30uwim/image/upload/v1691300650/T04U05NLZ2M-U055TJHS215-337363a46142-512_g7aibi.jpg' }
         return { _id: '64cd02e1856dea9794a616a4', fullname: 'Oryan', imgUrl: 'https://res.cloudinary.com/djm30uwim/image/upload/v1691300650/T04U05NLZ2M-U055TJHS215-337363a46142-512_g7aibi.jpg' }
       } else {
         // console.log(this.loggedinUser);
         // console.log('send seller');
-        this.userOnOtherSide = { _id: '64cd35578f0ee9ee8c823586', fullname: 'Gaash Shmilovich', imgUrl: 'https://res.cloudinary.com/djm30uwim/image/upload/v1691300560/T04U05NLZ2M-U0511SL2JAE-5a79c2b1c487-512_nu9lgh.png', isSeller: true }
+        // this.userOnOtherSide = { _id: '64cd35578f0ee9ee8c823586', fullname: 'Gaash Shmilovich', imgUrl: 'https://res.cloudinary.com/djm30uwim/image/upload/v1691300560/T04U05NLZ2M-U0511SL2JAE-5a79c2b1c487-512_nu9lgh.png', isSeller: true }
         return { _id: '64cd35578f0ee9ee8c823586', fullname: 'Gaash Shmilovich', imgUrl: 'https://res.cloudinary.com/djm30uwim/image/upload/v1691300560/T04U05NLZ2M-U0511SL2JAE-5a79c2b1c487-512_nu9lgh.png', isSeller: true }
       }
     },

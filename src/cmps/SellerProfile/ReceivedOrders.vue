@@ -113,19 +113,21 @@ export default {
       this.selectedOrder = order;
       this.modalVisible = true;
     },
-    async onStatusChange(status) {
-      try {
-        const payload = {
-          order: this.selectedOrder,
-          status: status,
-        };
-        console.log(payload);
-        await this.$store.dispatch({ type: "updateOrder", payload });
-        // this.$store.commit("updateOrderStatus", {
-      } catch (err) {
-        console.log("Error updating order status:", err);
-      }
-    },
+    // async onStatusChange(status) {
+    //   try {
+    //     const payload = {
+    //       order: this.selectedOrder,
+    //       status: status,
+    //     };
+    //     console.log(payload);
+    //     // await this.$store.dispatch({ type: "updateOrder", payload });
+    //     const updatedOrder = await this.$store.dispatch({ type: "changeOrderStatus", payload });
+    //     console.log(updatedOrder);
+    //     socketService.emit('order-updated',updatedOrder)
+    //   } catch (err) {
+    //     console.log("Error updating order status:", err);
+    //   }
+    // },
   },
 };
 </script>

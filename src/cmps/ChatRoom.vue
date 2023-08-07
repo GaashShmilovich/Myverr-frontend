@@ -68,7 +68,6 @@ export default {
   },
   created() {
     console.log('chat rendered');
-    socketService.emit(SOCKET_EMIT_SET_TOPIC, this.gigId);
     socketService.emit(SOCKET_EMIT_SET_TOPIC, this.socketType);
     socketService.on(SOCKET_EVENT_ADD_MSG, this.addMsg);
     socketService.on(SOCKET_EVENT_USER_IS_TYPING, (fullname) => {
