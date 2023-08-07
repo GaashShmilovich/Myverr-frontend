@@ -49,6 +49,7 @@
 </template>
 
 <script>
+import { socketService } from "../../services/socket.service";
 import CustomModal from "./CustomModal.vue";
 import moment from "moment";
 
@@ -90,8 +91,13 @@ export default {
       return orders;
     },
   },
-  mounted() {
+  created() {
     this.loadOrders();
+    socketService.on('on-order-added', (order) => {
+      // this.$store.commit({type:'addOrder',newOrder:order})
+      this.loadOrders()
+    })
+
   },
   methods: {
     async loadOrders() {
