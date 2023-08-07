@@ -5,7 +5,7 @@
         <div class="order-card">
           <div class="order-seller">{{ order?.seller.username }}</div>
           <div class="order-title">{{ order?.gig.title }}</div>
-          <div class="order-price">${{ order?.gig.price }}</div>
+          <div class="order-price">{{ order?.status }}</div>
         </div>
       </li>
     </ul>

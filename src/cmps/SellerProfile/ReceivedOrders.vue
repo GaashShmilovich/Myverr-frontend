@@ -60,6 +60,7 @@ export default {
   },
   computed: {
     orders() {
+      // this.loadOrders();
       return this.$store.getters.orders;
     },
     monthlyRevenue() {
@@ -95,6 +96,8 @@ export default {
   },
   methods: {
     async loadOrders() {
+      // return this.$store.getters.orders;
+
       try {
         await this.$store.dispatch({ type: "loadOrders" });
         console.log(this.orders);

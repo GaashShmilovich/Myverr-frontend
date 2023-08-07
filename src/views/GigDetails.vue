@@ -65,7 +65,7 @@
       <ChatRoom
         v-if="showChatRoom"
         :gigId="gig._id"
-        :owner="gig.owner"
+        :userOnOtherSide="gig.owner"
         :msgHistory="gig?.msgs || []"
         @toggle-chat-room="toggleChatRoom"
       />
