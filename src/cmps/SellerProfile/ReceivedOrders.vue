@@ -56,7 +56,7 @@ export default {
   components: { CustomModal },
   props: { user: Object },
   data() {
-    return { modalVisible: false, selectedOrder: null };
+    return { modalVisible: true, selectedOrder: null };
   },
   computed: {
     orders() {

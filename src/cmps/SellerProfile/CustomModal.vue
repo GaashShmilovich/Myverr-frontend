@@ -1,6 +1,6 @@
 <template>
-  <div v-if="show" class="modal-overlay" @click="closeModal">
-    <div class="modal-status" :class="{ show: modalVisible }">
+  <!-- <div v-if="show" class="modal-overlay" @click="closeModal"> -->
+    <div class="modal-status" >
       <h2>Change Order Status</h2>
       <div class="modal-buttons">
         <button class="complete" @click="changeStatus('complete')">
@@ -10,7 +10,7 @@
         <button class="cancel" @click="closeModal">Cancel</button>
       </div>
     </div>
-  </div>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -18,8 +18,12 @@ import { orderService } from "../../services/order.service";
 
 export default {
   props: {
-    show: Boolean,
     order: Object,
+  },
+  data(){
+    return {
+      show: true
+    }
   },
   methods: {
     closeModal() {

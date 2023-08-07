@@ -3,7 +3,7 @@
     <div class="seller-info-container">
       <button class="close-chat-button" @click="toggleChatRoom">X</button>
       <div class="seller-info">
-        <div class="avatar"><img :src="userOnOtherSide?.imgUrl" alt="" /></div>
+        <div class="avatar"><img :src="userOnOtherSide.imgUrl" alt="" /></div>
         <div class="content">
           <p>Message {{ userOnOtherSide.fullname }}</p>
           <span>Available &#183 Avg. response time: 1 hour
@@ -53,7 +53,7 @@ import { userService } from "../services/user.service";
 export default {
   name: "chat-room",
   props: {
-    gigId: String,
+    // gigId: String,
     msgHistory: Array,
     userOnOtherSide: Object,
     othersideUser: Object
