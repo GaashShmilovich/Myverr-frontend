@@ -38,6 +38,11 @@
   td {
     padding: 15px 20px;
     text-align: left;
+    &.buyer {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
   }
   table {
     position: relative;
@@ -49,6 +54,12 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     margin: 0 auto;
+
+    .user-image {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
 
     thead {
       border-bottom: 2px solid $green1;

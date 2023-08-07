@@ -118,6 +118,9 @@
         align-items: center;
         gap: 5px;
       }
+      svg {
+        fill: black;
+      }
       i {
         display: flex;
         align-items: center;
@@ -137,6 +140,7 @@
     line-height: rem(32px);
     z-index: 10;
     background-color: $clr1;
+    border-radius: 5px;
 
     h1 {
       font-size: rem(20px);

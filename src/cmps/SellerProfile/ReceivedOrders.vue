@@ -34,9 +34,17 @@
           @click="openModal(order)"
         >
           <th scope="row">{{ i + 1 }}</th>
-          <td>{{ order?.buyer.username }}</td>
+          <td class="buyer">
+            <img
+              class="user-image"
+              :src="getOrderBuyerImage(order)"
+              alt="Buyer Image"
+            />
+            {{ order?.buyer.username }}
+          </td>
           <td>{{ order?.gig.title }}</td>
           <td>{{ order?.status }}</td>
+          <td></td>
         </tr>
       </tbody>
     </table>
@@ -50,6 +58,7 @@
 
 <script>
 import { socketService } from "../../services/socket.service";
+import { userService } from "../../services/user.service";
 import CustomModal from "./CustomModal.vue";
 import moment from "moment";
 
@@ -57,27 +66,22 @@ export default {
   components: { CustomModal },
   props: { user: Object },
   data() {
-    return { modalVisible: false, selectedOrder: null };
+    return {
+      modalVisible: false,
+      selectedOrder: null,
+      users: [],
+    };
   },
   computed: {
     monthlyRevenue() {
-      const currentMonth = moment().format("MMMM");
       return this.orders.reduce((total, order) => {
-        const orderMonth = moment(order.createdAt).format("MMMM");
-        if (orderMonth === currentMonth) {
-          return total + order.gig.price;
-        }
-        return total;
+        return total + order.gig.price;
       }, 0);
     },
+
     annualRevenue() {
-      const currentYear = moment().format("YYYY");
       return this.orders.reduce((total, order) => {
-        const orderYear = moment(order.createdAt).format("YYYY");
-        if (orderYear === currentYear) {
-          return total + order.gig.price;
-        }
-        return total;
+        return total + order.gig.price;
       }, 0);
     },
     pendingOrdersCount() {
@@ -90,14 +94,21 @@ export default {
       const orders = this.$store.getters.orders;
       return orders;
     },
+    gigs() {
+      return this.$store.getters.gigs;
+    },
   },
-  created() {
-    this.loadOrders();
-    socketService.on('on-order-added', (order) => {
-      // this.$store.commit({type:'addOrder',newOrder:order})
-      this.loadOrders()
-    })
-
+  async created() {
+    await this.loadOrders();
+    socketService.on("on-order-added", (order) => {
+      this.loadOrders();
+    });
+    try {
+      this.users = await userService.getUsers();
+      console.log("users", this.users);
+    } catch (error) {
+      console.error("Error loading users:", error);
+    }
   },
   methods: {
     async loadOrders() {
@@ -113,6 +124,16 @@ export default {
       this.selectedOrder = order;
       this.modalVisible = true;
     },
+    getOrderBuyerImage(order) {
+      if (order && order.buyer) {
+        const buyer = this.users.find((user) => user._id === order.buyer._id);
+        if (buyer) {
+          return buyer.imgUrl;
+        }
+      }
+      return ""; // Return an empty string if no buyer or image URL is available
+    },
+
     // async onStatusChange(status) {
     //   try {
     //     const payload = {

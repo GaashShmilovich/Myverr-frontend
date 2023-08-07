@@ -17,6 +17,16 @@
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    position: relative;
+    button {
+      &.cancel {
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 18px;
+      }
+    }
+
     @include for-mobile-layout {
       width: 100%;
       border-radius: 0; /* No rounded corners on mobile */
@@ -28,8 +38,10 @@
     }
 
     h2 {
-      margin-bottom: 50px;
-      font-size: 1.5rem;
+      margin-block-end: 30px;
+      margin-block-start: 20px;
+      font-size: rem(26px);
+      font-family: macanBold;
       color: #333;
     }
 
@@ -70,13 +82,13 @@
           }
         }
 
-        &.cancel {
-          background-color: #3498db;
-          border: 1px solid #3498db;
+        &.accept {
+          background-color: $yellow1;
+          border: 1px solid $yellow1;
           &:hover {
-            color: #3498db;
+            color: $yellow1;
             background-color: $clr1;
-            border: 1px solid #3498db;
+            border: 1px solid $yellow1;
           }
         }
       }
