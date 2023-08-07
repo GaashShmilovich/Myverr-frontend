@@ -64,6 +64,7 @@
             <RouterLink class="explore" to="/explore">Explore</RouterLink>
             <RouterLink class="signin" to="/login">Sign in</RouterLink>
             <RouterLink to="/login"><span>Join</span></RouterLink>
+            <RouterLink v-if="notification" to="/login"><span>New Order</span></RouterLink>
           </div>
         </div>
       </nav>
@@ -121,6 +122,7 @@ import SearchBar from "./SearchBar.vue";
 import ProfileMenu from "./ProfileMenu.vue";
 // import { userService } from '../../services/user.service.local.js'
 import { userService } from "../../services/user.service.js";
+import { eventBus } from "../../services/event-bus.service";
 export default {
   data() {
     return {
@@ -130,6 +132,7 @@ export default {
       isHidden: true,
       isSticky: true,
       isProfileMenuOpen: false,
+      notification : null,
 
       categories: {
         "Graphics & Design": "Logo-Design",
@@ -152,6 +155,10 @@ export default {
         path: "/explore",
         query: { category, subCategory },
       });
+    },
+    showNotification(ev) {
+      this.notification = ev
+      console.log(this.notification);
     },
     toggleProfileMenu() {
       this.isProfileMenuOpen = !this.isProfileMenuOpen;
@@ -220,3 +227,35 @@ export default {
   },
 };
 </script>
+
+
+;(() => {
+  setTimeout(() => {
+  socketService.on(SOCKET_EVENT_ORDER_ADDED, (order) => {
+      alert('new order')
+      // AppHeader.showNotification('new order')
+      console.log('got from socket order added', order);
+      store.commit({type: 'addOrder', order})
+      showSuccessMsg(`There is a new order`)
+  })
+  socketService.on(SOCKET_EVENT_ORDER_FOR_YOU, (order) => {
+      // AppHeader.showNotification('new order')
+      alert('new order')
+      showSuccessMsg(`You recieved a new order`)
+      console.log(`You recieved a new order:`, order);
+      
+  })
+  socketService.on(SOCKET_EVENT_ORDER_UPDATED, (order) => {
+      alert('order updated')
+      showSuccessMsg(`order updated`)
+      store.commit({type: 'updateOrder', newOrder: order})
+      console.log('got from socket order order updated')
+  })
+  socketService.on(SOCKET_EVENT_YOUR_ORDER_UPDATED, (order) => {
+      alert('order updated')
+      showSuccessMsg('order updated')
+      store.commit({type: 'updateOrder', order})
+      console.log('Order status has changed from socket', order);
+  })
+  }, 0)
+})()

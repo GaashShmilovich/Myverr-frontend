@@ -26,7 +26,7 @@
           </span>
         </section>
 
-          <section class="credit-details" :class="{ 'hidden': paymentMethod === 'paypal' }">
+          <section class="credit-details" :class="{ 'hidden': paymentMethod === 'pp' }">
 
             <section class="card-number">
               <p>Card number</p>

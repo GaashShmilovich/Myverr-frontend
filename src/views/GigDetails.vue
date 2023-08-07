@@ -2,7 +2,8 @@
   <section v-if="gig" class="gig-details" :class="{ darkmode: darkMode }">
     <header class="gig-header">
       <p class="gig-category">
-        <i class="home-icon" v-html="$getSvg('home-icon')"></i>
+        
+        <RouterLink to="/"><i class="home-icon" v-html="$getSvg('home-icon')"></i> </RouterLink>
         <span>/</span>
         <p>logo-design</p>
         <span>/</span>

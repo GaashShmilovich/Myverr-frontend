@@ -3,6 +3,7 @@ import {  socketService, SOCKET_EVENT_ORDER_ADDED, SOCKET_EVENT_ORDER_FOR_YOU,
     SOCKET_EVENT_ORDER_UPDATED, SOCKET_EVENT_YOUR_ORDER_UPDATED } from './socket.service.js'
 import { showSuccessMsg } from './event-bus.service.js'
 import { store } from '../store/store.js'
+import AppHeader from '../cmps/HeaderCmps/AppHeader.vue'
 import { utilService } from './util.service.js'
 // import { orderService } from './order.service.js'
 
@@ -10,11 +11,13 @@ import { utilService } from './util.service.js'
     setTimeout(() => {
     socketService.on(SOCKET_EVENT_ORDER_ADDED, (order) => {
         alert('new order')
+        // AppHeader.showNotification('new order')
         console.log('got from socket order added', order);
         store.commit({type: 'addOrder', order})
         showSuccessMsg(`There is a new order`)
     })
     socketService.on(SOCKET_EVENT_ORDER_FOR_YOU, (order) => {
+        // AppHeader.showNotification('new order')
         alert('new order')
         showSuccessMsg(`You recieved a new order`)
         console.log(`You recieved a new order:`, order);

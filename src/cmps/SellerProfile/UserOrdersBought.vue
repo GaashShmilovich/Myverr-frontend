@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h2>hollas</h2>
+    <!-- <h2>hollas</h2> -->
     <UserOrders
       :orders="ordersToDisplay"
       @remove-order="removeOrder"

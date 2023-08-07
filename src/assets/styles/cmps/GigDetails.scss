@@ -58,6 +58,12 @@
     span {
       color: $clr12;
     }
+    p {
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
   }
 
   .gig-title {

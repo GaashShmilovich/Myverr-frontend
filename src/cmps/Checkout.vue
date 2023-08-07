@@ -58,7 +58,7 @@
             />
             Total delivery time
           </p>
-          <p class="days">3 days</p>
+          <p class="days">1 day</p>
         </section>
       </section>
       <!-- :class="{'cc':paymentMethod === 'cc', 'pp':paymentMethod === 'pp'}" -->
