@@ -25,8 +25,8 @@
     margin-block-start: auto; /* Add the margin only to the last div */
   }
 
-  .custom-textarea::placeholder {
-    text-align: center;
+  .is-typing {
+    padding-top: 20px;   
   }
 
   .seller-info-container {
@@ -87,7 +87,7 @@
 
   .chat-list {
     width: 100%;
-    max-height: 300px;
+    max-height: 400px;
     overflow-y: auto;
     margin-block: 10px;
 
@@ -95,8 +95,16 @@
       margin: 5px 0;
       padding: 5px;
       border-radius: 5px;
-      background-color: #f5f5f5;
     }
+      .user1 {
+        text-align: left;
+        background-color: $clr1;
+      }
+      .user2 {
+        // text-align: right;
+        padding-left: 40px;
+        background-color: $clr9;
+      }
   }
 
   .send-box {
@@ -120,8 +128,6 @@
       &::placeholder {
         /* Center the placeholder text vertically and horizontally */
         display: flex;
-        align-items: center;
-        justify-content: center;
         padding: 0; /* Reset padding to center properly */
         color: #aaa; /* Placeholder text color */
       }

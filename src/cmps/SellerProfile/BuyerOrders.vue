@@ -3,7 +3,7 @@
     <ul class="order-list">
       <li v-for="order in orders" :key="order._id">
         <div class="order-card">
-          <div class="order-seller">From: {{ order?.seller.username }}</div>
+          <div class="order-seller">Gig seller: {{ order?.seller.username }}</div>
           <!-- <div class="order-title">{{ order?.gig.title }}</div> -->
           <div class="order-price">Status: {{ order?.status }}</div>
         </div>

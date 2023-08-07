@@ -11,7 +11,7 @@
     <div class="avatar"><img :src="findUserOnOtherSide.imgUrl" alt=""></div>
     <div class="content">
       <p>Message {{ findUserOnOtherSide.fullname }}</p>
-      <span v-if="loggedinUser.isSeller">Your costumer</span>
+      <span v-if="loggedinUser.isSeller">Your customer</span>
       <span v-else>The owner of your order</span>
       <!-- <span>Available &#183 Avg. response time:
         <span class="time-to-make"> {{ gig?.daysToMake }} Hour</span>

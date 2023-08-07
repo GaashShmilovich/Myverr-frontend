@@ -94,10 +94,13 @@ export default {
   created() {
     this.loadOrders();
     socketService.on('on-order-added', (order) => {
-      // this.$store.commit({type:'addOrder',newOrder:order})
+      console.log('l;olgaga');
       this.loadOrders()
     })
 
+  },
+  unmounted(){
+    socketService.off('on-order-added')
   },
   methods: {
     async loadOrders() {
