@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: minmax(auto, 400px) minmax(auto, 1000px);
   column-gap: rem(20px);
+  min-height: rem(1030px);
 
   .gig-list {
     grid-template-columns: repeat(auto-fit, minmax(250px, auto));
