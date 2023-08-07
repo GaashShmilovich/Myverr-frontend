@@ -3,9 +3,9 @@
     <div class="seller-info-container">
       <button class="close-chat-button" @click="toggleChatRoom">X</button>
       <div class="seller-info">
-        <div class="avatar"><img :src="owner?.imgUrl" alt="" /></div>
+        <div class="avatar"><img :src="userOnOtherSide?.imgUrl" alt="" /></div>
         <div class="content">
-          <p>Message {{ owner.fullname }}</p>
+          <p>Message {{ userOnOtherSide.fullname }}</p>
           <span>Available &#183 Avg. response time: 1 hour
           </span>
         </div>
@@ -55,7 +55,7 @@ export default {
   props: {
     gigId: String,
     msgHistory: Array,
-    owner: Object,
+    userOnOtherSide: Object,
     othersideUser: Object
   },
   data() {

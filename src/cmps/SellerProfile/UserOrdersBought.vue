@@ -2,7 +2,7 @@
   <section>
     <!-- <h2>hollas</h2> -->
     <UserOrders
-      :orders="ordersToDisplay"
+      :orders="orders"
       @remove-order="removeOrder"
       @edit-order="updateOrder"
     ></UserOrders>
@@ -27,18 +27,15 @@ export default {
   },
   data() {
     return {
-      orderToAdd: orderService.getEmptyOrder(),
     };
   },
 
   computed: {
     orders() {
       return this.$store.getters.orders;
+      // return this.$store.dispatch("loadOrders",{buyerId:this.user._id});
     },
-    ordersToDisplay(){
-      const orders = this.$store.getters.orders
-      return orders
-    },
+   
     filteredOrders() {
       console.log(this.user);
       const orders = this.$store.getters.orders
@@ -53,7 +50,8 @@ export default {
     },
   },
   created() {
-     this.$store.dispatch("loadOrders",{buyerId:this.user._id});
+    return this.$store.getters.orders;
+    //  this.$store.dispatch("loadOrders",{buyerId:this.user._id});
   },
   // methods: {
   //   async addOrder() {
