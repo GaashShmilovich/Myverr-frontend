@@ -5,7 +5,7 @@
       <div class="seller-info">
         <div class="avatar"><img :src="owner?.imgUrl" alt="" /></div>
         <div class="content">
-          <p>Message {{ owner.fullname }}</p>
+          <p>Message {{ owner?.fullname }}</p>
           <span>Available &#183 Avg. response time: 1 hour
           </span>
         </div>
