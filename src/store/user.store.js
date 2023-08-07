@@ -9,7 +9,9 @@ export const userStore = {
         isLoading: false
     },
     getters: {
-        users({ users }) { return users },
+        users({ users }) {
+            return users
+        },
         loggedinUser({ loggedinUser }) { return loggedinUser },
         usersExcludeMe({ users, loggedinUser }) {
             return users.filter(u => u._id !== loggedinUser._id)
