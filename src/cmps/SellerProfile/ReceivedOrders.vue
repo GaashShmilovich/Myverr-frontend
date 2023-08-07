@@ -56,7 +56,7 @@ export default {
   components: { CustomModal },
   props: { user: Object },
   data() {
-    return { modalVisible: true, selectedOrder: null};
+    return { modalVisible: false, selectedOrder: null };
   },
   computed: {
     monthlyRevenue() {
@@ -85,33 +85,18 @@ export default {
     completedOrdersCount() {
       return this.orders.filter((order) => order.status === "completed").length;
     },
-     orders() {
-      // await this.$store.dispatch({ type: "loadOrders" })
-      const orders = this.$store.getters.orders
-      this.$store.commit('setOrders', orders)
-      console.log(orders.length);
-      return orders
+    orders() {
+      const orders = this.$store.getters.orders;
+      return orders;
     },
   },
   mounted() {
     this.loadOrders();
-    // this.$store.getters.orders;
-
   },
-  // created() {
-  //   return this.$store.getters.orders;
-  // },
   methods: {
-    orders() {
-      const orders = this.$store.getters.orders
-      console.log(orders.length);
-      this.$store.commit('setOrders', orders)
-      return orders
-    },
     async loadOrders() {
-      // return this.$store.getters.orders;
       try {
-         await this.$store.dispatch({ type: "loadOrders" });
+        await this.$store.dispatch({ type: "loadOrders" });
       } catch (err) {
         console.log("Error loading orders:", err);
       }

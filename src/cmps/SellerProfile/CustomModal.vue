@@ -5,7 +5,7 @@
       <div class="modal-buttons">
         <button
           class="status-button complete"
-          @click="changeStatus('complete')"
+          @click="changeStatus('completed')"
         >
           Complete
         </button>
