@@ -4,6 +4,11 @@
   column-gap: rem(20px);
   min-height: rem(1030px);
 
+  @include for-mobile {
+    display: block;
+    max-height: 500px;
+  }
+
   .gig-list {
     grid-template-columns: repeat(auto-fit, minmax(250px, auto));
     .buttons {
@@ -52,6 +57,12 @@
     width: 100%;
     z-index: 100; /* Ensure tabs appear above other content */
 
+    @include for-mobile {
+      margin-top: 0;
+      position: fixed;
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
     a {
       font-family: macanSemibold;
       font-size: rem(16px);
@@ -75,6 +86,10 @@
     flex-direction: column;
     align-items: center;
     z-index: 10;
+
+    @include for-mobile {
+      display: none;
+    }
   }
   .user-info {
     max-width: rem(400px);
@@ -153,4 +168,17 @@
 
 .background-container {
   background-color: $clr6;
+  @include for-mobile {
+    background: #757f9a; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to bottom,
+      #d7dde8,
+      #757f9a
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to bottom,
+      #d7dde8,
+      #757f9a
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
 }

@@ -1,6 +1,6 @@
 <template>
 	<div class="gig-sort-container">
-		<span class="gig-count">{{ gigCount }} services available</span>
+		<span class="gig-count">{{ gigCount * 105 }} services available</span>
 		<!-- Displaying number of gigs -->
 		<div class="sort-by-container">
 			<span>Sort by:</span>
