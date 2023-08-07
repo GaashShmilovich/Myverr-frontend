@@ -56,13 +56,9 @@ export default {
   components: { CustomModal },
   props: { user: Object },
   data() {
-    return { modalVisible: true, selectedOrder: null };
+    return { modalVisible: true, selectedOrder: null};
   },
   computed: {
-    orders() {
-      // this.loadOrders();
-      return this.$store.getters.orders;
-    },
     monthlyRevenue() {
       const currentMonth = moment().format("MMMM");
       return this.orders.reduce((total, order) => {
@@ -73,7 +69,6 @@ export default {
         return total;
       }, 0);
     },
-
     annualRevenue() {
       const currentYear = moment().format("YYYY");
       return this.orders.reduce((total, order) => {
@@ -90,17 +85,33 @@ export default {
     completedOrdersCount() {
       return this.orders.filter((order) => order.status === "completed").length;
     },
+     orders() {
+      // await this.$store.dispatch({ type: "loadOrders" })
+      const orders = this.$store.getters.orders
+      this.$store.commit('setOrders', orders)
+      console.log(orders.length);
+      return orders
+    },
   },
   mounted() {
     this.loadOrders();
+    // this.$store.getters.orders;
+
   },
+  // created() {
+  //   return this.$store.getters.orders;
+  // },
   methods: {
+    orders() {
+      const orders = this.$store.getters.orders
+      console.log(orders.length);
+      this.$store.commit('setOrders', orders)
+      return orders
+    },
     async loadOrders() {
       // return this.$store.getters.orders;
-
       try {
-        await this.$store.dispatch({ type: "loadOrders" });
-        console.log(this.orders);
+         await this.$store.dispatch({ type: "loadOrders" });
       } catch (err) {
         console.log("Error loading orders:", err);
       }

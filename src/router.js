@@ -5,16 +5,14 @@ import Chat from './views/Chat.vue'
 import GigIndex from './views/GigIndex.vue'
 import Login from './views/Login.vue'
 import Signup from './views/Signup.vue'
-// import UserDetails from './views/UserDetails.vue'
 import UserProfile from '../src/cmps/UserProfile.vue'
 import GigDetails from './views/GigDetails.vue'
 import GigEdit from './views/GigEdit.vue'
 import Payment from '../src/cmps/Payment.vue'
 import MyGigs from '../src/cmps/SellerProfile/MyGigs.vue'
-import UserOrders from '../src/cmps/SellerProfile/UserOrders.vue'
 import ReceivedOrders from '../src/cmps/SellerProfile/ReceivedOrders.vue'
 import SellerReviews from '../src/cmps/SellerProfile/SellerReviews.vue'
-import UserOrdersBought from '../src/cmps/SellerProfile/UserOrdersBought.vue'
+import BuyerOrdersList from '../src/cmps/SellerProfile/BuyerOrdersList.vue'
 
 const routes = [
   {
@@ -38,11 +36,6 @@ const routes = [
     component: GigEdit
   },
   {
-    path: '/chat',
-    name: 'Chat',
-    component: Chat
-  },
-  {
     path: '/login',
     name: 'Login',
     component: Login
@@ -52,11 +45,6 @@ const routes = [
     name: 'Signup',
     component: Signup
   },
-  // {
-  //   path: '/user/:id',
-  //   name: 'UserDetails',
-  //   component: UserDetails
-  // },
   {
     path: '/user/:id',
     name: 'UserProfile',
@@ -74,8 +62,8 @@ const routes = [
       },
       {
         path: 'buyerOrders',
-        name: 'BuyerOrders',
-        component: UserOrdersBought
+        name: 'BuyerOrdersList',
+        component: BuyerOrdersList
       },
 
       {
