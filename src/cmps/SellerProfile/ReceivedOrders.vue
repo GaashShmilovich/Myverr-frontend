@@ -34,9 +34,9 @@
           @click="openModal(order)"
         >
           <th scope="row">{{ i + 1 }}</th>
-          <td>{{ order.buyer.username }}</td>
-          <td>{{ order.gig.title }}</td>
-          <td>{{ order.status }}</td>
+          <td>{{ order?.buyer.username }}</td>
+          <td>{{ order?.gig.title }}</td>
+          <td>{{ order?.status }}</td>
         </tr>
       </tbody>
     </table>

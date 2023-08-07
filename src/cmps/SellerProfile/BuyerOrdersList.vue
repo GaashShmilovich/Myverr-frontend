@@ -1,11 +1,7 @@
 <template>
   <section>
     <!-- <h2>hollas</h2> -->
-    <BuyerOrders
-      :orders="orders"
-      @remove-order="removeOrder"
-      @edit-order="updateOrder"
-    ></BuyerOrders>
+    <BuyerOrders :orders="orders"></BuyerOrders>
   </section>
 </template>
 
@@ -26,34 +22,29 @@ export default {
     user: Object,
   },
   data() {
-    return {
-    };
+    return {};
   },
 
   computed: {
     orders() {
-      const orders= this.$store.getters.orders;
-      console.log(orders.length);
-      return orders
-      // return this.$store.dispatch("loadOrders",{buyerId:this.user._id});
+      // console.log(orders.length);
+      return this.$store.getters.orders;
     },
-   
+
     filteredOrders() {
       console.log(this.user);
-      const orders = this.$store.getters.orders
+      const orders = this.$store.getters.orders;
       console.log(orders);
       if (!this.user.isSeller) {
-         orders.filter(
-          (order) => order.buyer._id === this.user._id);
-          return orders
+        orders.filter((order) => order.buyer._id === this.user._id);
+        return orders;
       } else {
-        return orders
+        return orders;
       }
     },
   },
   created() {
-    return this.$store.getters.orders;
-    //  this.$store.dispatch("loadOrders",{buyerId:this.user._id});
+    this.$store.dispatch("loadOrders", { buyerId: this.user._id });
   },
-}
+};
 </script>
