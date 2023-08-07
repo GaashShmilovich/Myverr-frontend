@@ -88,7 +88,6 @@ export default {
      orders() {
       // await this.$store.dispatch({ type: "loadOrders" })
       const orders = this.$store.getters.orders
-      this.$store.commit('setOrders', orders)
       console.log(orders.length);
       return orders
     },
@@ -102,14 +101,13 @@ export default {
   //   return this.$store.getters.orders;
   // },
   methods: {
-    orders() {
-      const orders = this.$store.getters.orders
-      console.log(orders.length);
-      this.$store.commit('setOrders', orders)
-      return orders
-    },
+    // orders() {
+    //   const orders = this.$store.getters.orders
+    //   console.log(orders.length);
+    //   // this.$store.commit('setOrders', orders)
+    //   return orders
+    // },
     async loadOrders() {
-      // return this.$store.getters.orders;
       try {
          await this.$store.dispatch({ type: "loadOrders" });
       } catch (err) {

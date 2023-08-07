@@ -19,6 +19,7 @@ import { utilService } from './util.service.js'
     socketService.on(SOCKET_EVENT_ORDER_FOR_YOU, (order) => {
         // AppHeader.showNotification('new order')
         alert('new order')
+        store.commit({type: 'addOrder', order})
         showSuccessMsg(`You recieved a new order`)
         console.log(`You recieved a new order:`, order);
         
