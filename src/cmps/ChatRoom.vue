@@ -15,7 +15,7 @@
     <div class="chat-list">
       <p v-for="(msg, idx) in msgs" :key="idx" class="chat-msg" 
       :class="{'user1' : msg.fullname === 'Oryan Hachamoff', 'user2' : msg.fullname === 'Gaash Shmilovich'}">
-        {{ msg.fullname }}: {{ msg.txt }}
+        {{ msg.fullname }}: <span>{{ msg.txt }}</span> 
       </p>
     </div>
     <div class="send-box flex">
