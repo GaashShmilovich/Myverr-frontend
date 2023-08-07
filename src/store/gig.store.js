@@ -31,10 +31,11 @@ export const gigStore = {
 	state: {
 		gigs: [],
 		filterBy: {
-			budget: { min: 0, max: 10000 },
+			budget: { min: 0, max: 100 },
 			delivery: 9999,
 			subCategory: null,
 			txt: '',
+			sortBy: 'Highest Rating',
 		},
 	},
 	getters: {

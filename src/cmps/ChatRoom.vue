@@ -3,7 +3,7 @@
     <div class="seller-info-container">
       <button class="close-chat-button" @click="toggleChatRoom">X</button>
       <div class="seller-info">
-        <div class="avatar"><img :src="owner.imgUrl" alt="" /></div>
+        <div class="avatar"><img :src="owner?.imgUrl" alt="" /></div>
         <div class="content">
           <p>Message {{ owner.fullname }}</p>
           <span>Available &#183 Avg. response time: 1 hour
@@ -25,7 +25,9 @@
         rows="10"
         v-model="msgTxt"
         @input="onType"
+        @keyup.enter="sendMsg"
         placeholder="Write your message"
+        class="custom-textarea"
       ></textarea>
       <button @click="sendMsg" class="btn">
         <i class="send" v-html="$getSvg('send-msg')"></i>
@@ -46,6 +48,7 @@ import {
   SOCKET_EMIT_USER_IS_TYPING,
 } from "../services/socket.service.js";
 import { utilService } from "../../src/services/util.service.js";
+import { userService } from "../services/user.service";
 
 export default {
   name: "chat-room",
@@ -53,20 +56,26 @@ export default {
     gigId: String,
     msgHistory: Array,
     owner: Object,
+    othersideUser: Object
   },
   data() {
     return {
       msgTxt: "",
       msgs: [...this.msgHistory],
       typingUser: "",
+      socketType: 'room1',
+      otherUser: this.GetOtherUser
     };
   },
   created() {
-    socketService.emit(SOCKET_EMIT_SET_TOPIC, this.gigId);
+    console.log('chat rendered');
+    // socketService.emit(SOCKET_EMIT_SET_TOPIC, this.gigId);
+    socketService.emit(SOCKET_EMIT_SET_TOPIC, this.socketType);
     socketService.on(SOCKET_EVENT_ADD_MSG, this.addMsg);
     socketService.on(SOCKET_EVENT_USER_IS_TYPING, (fullname) => {
       this.typingUser = fullname;
     });
+    
   },
   computed: {
     user() {
@@ -75,6 +84,11 @@ export default {
     },
   },
   methods: {
+    GetOtherUser() {
+      const user = userService.getById(this.othersideUser.id)
+      console.log(user);
+      return user
+    },
     toggleChatRoom() {
       this.$emit("toggle-chat-room");
     },

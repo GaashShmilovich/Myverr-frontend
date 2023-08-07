@@ -18,7 +18,7 @@
         <span class="level">{{ gig.owner.level }} |</span>
 
         <section class="gig-owner-rate">
-          <span v-for="i in gig.owner.rate || 1">
+          <span v-for="i in Math.ceil(gig.owner.rate) || 1">
             <font-awesome-icon class="star yellow" icon="fa-solid fa-star" />
           </span>
         </section>
@@ -35,7 +35,7 @@
 
     <div class="gig-about">
       <p class="about-title">About this gig </p>
-      <VoiceInput />
+      <!-- <VoiceInput /> -->
       <div class="about">{{ gig.description.title }}</div>
       <p class="des-question">{{ questions[0] }}</p>
       <ul>
@@ -76,7 +76,7 @@
   </section>
 
   <section v-else>
-    loading..
+    <Loader />
   </section>
 </template>
 <script>
@@ -88,7 +88,7 @@ import FAQ from '../cmps/FAQ.vue'
 import AboutSeller from '../cmps/AboutSeller.vue'
 import VoiceInput from '../cmps/VoiceInput.vue'
 import ChatRoom from '../cmps/ChatRoom.vue'
-// import Chat from './Chat.vue'
+import Loader from '../cmps/Loader.vue'
 
 // import { gigService } from '../services/gig.service.local.js'
 import { gigService } from '../services/gig.service.js'
@@ -146,7 +146,7 @@ export default {
     AboutSeller,
     VoiceInput,
     ChatRoom,
-    // Chat
+    Loader
   },
 }
 </script>

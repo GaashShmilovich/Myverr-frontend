@@ -26,6 +26,20 @@
     margin-block-start: auto; /* Add the margin only to the last div */
   }
 
+  .custom-textarea::placeholder {
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    justify-items: center;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    text-align: center;
+    padding: 10px;
+    place-items: center;
+    
+  }
+
   .seller-info-container {
     display: flex;
     flex-direction: row-reverse;

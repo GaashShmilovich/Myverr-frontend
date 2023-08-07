@@ -45,6 +45,7 @@
 <script>
 import { RouterLink, RouterView } from "vue-router";
 import { gigService } from "../services/gig.service";
+
 // import { gigService } from "../services/gig.service.local";
 
 export default {

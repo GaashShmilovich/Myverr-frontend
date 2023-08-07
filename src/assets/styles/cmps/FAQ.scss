@@ -3,6 +3,7 @@
 
     }
 
+
     h2 {
         margin-top: rem(60px);
         font-size: rem(20px);
@@ -30,6 +31,7 @@
         padding: rem(20px) 0;
         font-size: rem(16px);
         font-family: macanSemibold;
+
         &:hover {
             cursor: pointer;
         }
@@ -39,15 +41,19 @@
         margin-bottom: 20px;
         max-height: 0;
         overflow: hidden;
-        transition: 400ms;
+        transition: 800ms;
     }
+    
+   
 
     .show {
         // height: max-content;
+        
         max-height: 500px;
     }
     
     .faq-item {
+        transition: 800ms;
         border-top: 1px solid $clr6;
         &:first-of-type {
             border-top: none;

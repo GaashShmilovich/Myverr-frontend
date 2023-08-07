@@ -7,7 +7,7 @@
           <p class="moto">{{ gig.owner?.moto }}</p>
 
           <section class="gig-owner-rate">
-            <span v-for="i in gig.owner.rate || 1">
+            <span v-for="i in Math.ceil(gig.owner.rate) || 1">
               <font-awesome-icon class="star yellow" icon="fa-solid fa-star" />
             </span>
             <span class="rate-number yellow">{{ gig.owner.rate }}</span> <span>({{ gig.reviews.length }})</span>
