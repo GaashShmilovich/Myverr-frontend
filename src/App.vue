@@ -29,6 +29,7 @@ export default {
   mounted() {
     // this.$store.dispatch({ type: 'loadGigs' })
     socketService.on('order-update', this.setOrderUpdateMsg)
+    // socketService.on('order-for-you', this.setOrderUpdateMsg)
 
   },
   methods: {
