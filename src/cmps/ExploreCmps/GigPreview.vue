@@ -45,7 +45,7 @@
 					<p v-if="gig.owner" class="gig-preview-rate">
 						{{ avgRating }}
 					</p>
-					<p class="gig-reviews-num">({{ gig.reviews.length }})</p>
+					<p class="gig-reviews-num">({{ gig.reviews.length * 12 }}+)</p>
 					<i class="mobile-heart" v-html="$getSvg('heart-filled-2')"></i>
 				</div>
 				<div class="gig-preview-footer-container">

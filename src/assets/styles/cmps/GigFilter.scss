@@ -5,14 +5,12 @@
 	display: flex;
 	align-items: center;
 	background-color: #fff;
-	border-radius: 5px;
 	font-size: 1em;
 	font-weight: 600;
 	font-family: 'macanRegular';
 	gap: 10px;
 	padding: 5px;
 	padding-left: 0;
-	// flex-wrap: wrap;
 
 	@include for-narrower-layout-grid {
 		padding: 5px;
