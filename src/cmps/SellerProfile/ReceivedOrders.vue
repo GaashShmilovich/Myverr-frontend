@@ -92,11 +92,11 @@ export default {
       return orders
     },
   },
-  mounted() {
-    this.loadOrders();
-    // this.$store.getters.orders;
+  // mounted() {
+  //   this.loadOrders();
+  //   // this.$store.getters.orders;
 
-  },
+  // },
   // created() {
   //   return this.$store.getters.orders;
   // },
@@ -107,13 +107,13 @@ export default {
     //   // this.$store.commit('setOrders', orders)
     //   return orders
     // },
-    async loadOrders() {
-      try {
-         await this.$store.dispatch({ type: "loadOrders" });
-      } catch (err) {
-        console.log("Error loading orders:", err);
-      }
-    },
+    // async loadOrders() {
+    //   try {
+    //      await this.$store.dispatch({ type: "loadOrders" });
+    //   } catch (err) {
+    //     console.log("Error loading orders:", err);
+    //   }
+    // },
     openModal(order) {
       console.log("Clicked on order:", order);
 
