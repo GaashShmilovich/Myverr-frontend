@@ -1,11 +1,6 @@
 <template>
   <section>
-    <h2>hollas</h2>
-    <UserOrders
-      :orders="ordersToDisplay"
-      @remove-order="removeOrder"
-      @edit-order="updateOrder"
-    ></UserOrders>
+    <UserOrders :orders="ordersToDisplay"></UserOrders>
   </section>
 </template>
 
@@ -35,25 +30,24 @@ export default {
     orders() {
       return this.$store.getters.orders;
     },
-    ordersToDisplay(){
-      const orders = this.$store.getters.orders
-      return orders
+    ordersToDisplay() {
+      const orders = this.$store.getters.orders;
+      return orders;
     },
     filteredOrders() {
       console.log(this.user);
-      const orders = this.$store.getters.orders
+      const orders = this.$store.getters.orders;
       console.log(orders);
       if (!this.user.isSeller) {
-         orders.filter(
-          (order) => order.buyer._id === this.user._id);
-          return orders
+        orders.filter((order) => order.buyer._id === this.user._id);
+        return orders;
       } else {
-        return orders
+        return orders;
       }
     },
   },
   created() {
-     this.$store.dispatch("loadOrders",{buyerId:this.user._id});
+    this.$store.dispatch("loadOrders", { buyerId: this.user._id });
   },
   // methods: {
   //   async addOrder() {

@@ -12,11 +12,9 @@ async function addOrder() {
         }
         await this.$store.dispatch({ type: 'addOrder', createdOrder })
 
-
         //  Send to Backend: 
 
         await storageService.post(STORAGE_KEY, order)
-
 
         // Backend:
 
@@ -24,7 +22,6 @@ async function addOrder() {
         await collection.insertOne(recievedOrder)
 
         socketService.emitToUser({ type: 'order-for-you', data: order, userId: order.seller._id })
-
 
             ; (() => {
                 setTimeout(() => {
@@ -35,10 +32,7 @@ async function addOrder() {
                 }, 0)
             })()
 
-
-
         //  Display the Orders:
-
 
         const criteria = _buildCriteria(filterBy)
 

@@ -33,9 +33,7 @@
     </div>
     <div class="seller-section">
       <div class="tabs">
-        <RouterLink :class="{ active: activeTab }" :to="userOrdersLink"
-          >My orders</RouterLink
-        >
+        <RouterLink :to="userOrdersLink">My orders</RouterLink>
       </div>
       <div class="main-gigs">
         <RouterView :user="user" />
@@ -56,7 +54,6 @@ export default {
   data() {
     return {
       gigToAdd: gigService.getEmptyGig(),
-      activeTab: 0,
     };
   },
   computed: {

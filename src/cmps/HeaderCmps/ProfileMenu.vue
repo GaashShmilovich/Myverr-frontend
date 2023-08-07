@@ -3,9 +3,15 @@
     <ul class="profile-menu-list">
       <li>
         <RouterLink
-          v-if="loggedInUser"
+          v-if="loggedInUser.isSeller"
           @click="isMenuOpen = false"
           :to="`/user/${loggedInUser._id}/gigs`"
+          >Profile</RouterLink
+        >
+        <RouterLink
+          v-else
+          @click="isMenuOpen = false"
+          :to="`/user/${loggedInUser._id}/buyerOrders`"
           >Profile</RouterLink
         >
       </li>

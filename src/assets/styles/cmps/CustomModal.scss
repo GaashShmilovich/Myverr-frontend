@@ -1,55 +1,19 @@
 .modal-overlay {
-  position: relative;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  opacity: 0;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease-in-out; /* Add transition for smooth fade */
 
-  .modal-status {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    background-color: white;
-    margin-block-start: rem(10px);
-    padding: 10px;
-    width: auto;
-    right: 0;
-    top: 0;
-    border-radius: 5px;
-    text-align: center;
-
-    h2 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      color: #404145;
-    }
-
-    p {
-      margin: 0;
-    }
-    .modal-buttons {
-      display: flex;
-      justify-content: space-between;
-
-      button {
-        padding: 8px 16px;
-        border: none;
-        border-radius: 3px;
-        font-size: rem(14px);
-        font-family: macanRegular;
-        cursor: pointer;
-      }
-
-      .complete:hover {
-        background-color: $green1;
-        color: $clr1;
-      }
-      .reject:hover {
-        background-color: crimson;
-        color: $clr1;
-      }
-      .cancel:hover {
-        color: $clr2;
-      }
-    }
+  &.show {
+    /* Add styles for when the modal is visible */
+    opacity: 1;
   }
 }

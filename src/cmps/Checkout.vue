@@ -67,7 +67,7 @@
           v-if="paymentMethod === 'cc'"
           class="btn-pay cc"
           @click="addOrder"
-          :to="'/user/' + user._id"
+          :to="`/user/${user._id}/buyerOrders`"
         >
           Confirm & Pay
         </RouterLink>
@@ -75,7 +75,7 @@
           v-else
           class="btn-pay pp"
           @click="addOrder"
-          :to="'/user/' + user._id"
+          :to="`/user/${user._id}/buyerOrders`"
         >
           <!-- <i class="paypal-icon" v-html="$getSvg('paypal')"></i>  -->
           <span> PayPal</span> Checkout
