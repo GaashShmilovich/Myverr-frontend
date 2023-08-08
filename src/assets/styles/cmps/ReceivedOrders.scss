@@ -181,13 +181,13 @@
     display: block;
     margin-top: 115px;
     height: 1350px;
-    background: #76b852; /* fallback for old browsers */
+    background: $clr1; /* fallback for old browsers */
     background: -webkit-linear-gradient(
       to bottom,
-      #8dc26f,
-      #76b852
+      $clr1,
+      $clr1
     ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #8dc26f, #76b852);
+    // background: linear-gradient(to bottom, #8dc26f, #76b852);
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
@@ -246,20 +246,18 @@
     }
 
     .order-number,
-    .buyer-name,
     .gig-title,
-    .order-date,
     .order-price,
     .order-status {
       font-size: 17px;
       font-weight: 600;
-      color: #3f3f27;
+      color: $clr2;
     }
 
     .order-price {
       font-size: 20px;
-      color: rgb(10, 85, 48);
-      font-family: "Courier New", Courier, monospace;
+      color: $green1;
+      font-family: macanRegular;
     }
   }
 }
@@ -320,10 +318,10 @@
 .order-price {
   @include for-mobile {
     font-size: 20px;
-    color: rgb(10, 85, 48);
+    color: $green1;
     position: absolute;
-    left: 335px;
-    margin-block-start: 118px;
+    left: 165px;
+    margin-block-start: 126px;
   }
 }
 
@@ -331,20 +329,27 @@
   display: none;
   @include for-mobile {
     display: inline-block;
-    border-radius: 10px 20px 30px 40px/30px;
+    border-radius: 50%;
     width: 60px;
   }
 }
 
 .buyer-name {
   @include for-mobile {
+    color: $clr4;
     position: absolute;
-    left: 335px;
+    left: 160px;
+    margin-block-start: 15px;
+    font-size: 18px;
+    font-weight: 600;
   }
 }
 
 .order-date {
   @include for-mobile {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: macanBold;
+    font-size: 17px;
+    font-weight: 600;
+    color: $clr4;
   }
 }
