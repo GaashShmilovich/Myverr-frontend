@@ -279,6 +279,7 @@
 }
 
 .order-status {
+<<<<<<< HEAD
 	border-radius: 5px;
 	padding: 13px;
 	font-size: 12px;
@@ -286,6 +287,17 @@
 	text-transform: uppercase;
 	margin-left: 3px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+=======
+  border-radius: 5px;
+  padding: 13px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-left: 3px;
+  margin-block-end: 85px;
+  margin-inline-end: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+>>>>>>> b311912d45b4f5b3b4a9d98d5f362123d572e32f
 }
 
 .mobile-order-card .order-status.pending {
@@ -346,10 +358,20 @@
 }
 
 .order-date {
+<<<<<<< HEAD
 	@include for-mobile {
 		font-family: macanBold;
 		font-size: 17px;
 		font-weight: 600;
 		color: $clr4;
 	}
+=======
+  @include for-mobile {
+    font-family: macanBold;
+    font-size: 17px;
+    font-weight: 600;
+    color: $clr4;
+    margin-block-start: 2px;
+  }
+>>>>>>> b311912d45b4f5b3b4a9d98d5f362123d572e32f
 }
