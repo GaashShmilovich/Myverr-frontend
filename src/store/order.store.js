@@ -19,20 +19,20 @@ export const orderStore = {
             state.orders = state.orders.filter(order => order._id !== orderId)
         },
         updateOrder(state, { newOrder }) {
-            console.log(newOrder);
+            console.log(newOrder)
             const idx = state.orders.findIndex(o => o._id === newOrder._id)
             state.orders.splice(idx, 1, newOrder)
         },
         setOrderStatus(state, { order, status }) {
             const idx = state.orders.findIndex(o => o._id === order._id)
-                console.log(order);
-                order.status = status
-                console.log(order);
-                state.orders.splice(idx, 1, order)
-                // return order
-            
-          },
-    
+            console.log(order)
+            order.status = status
+            console.log(order)
+            state.orders.splice(idx, 1, order)
+            // return order
+
+        },
+
     },
     actions: {
         async addOrder(context, { createdOrder }) {
@@ -47,30 +47,31 @@ export const orderStore = {
         },
         async updateOrder(context, order) {
             try {
-                console.log(order);
+                console.log(order)
                 const newOrder = await orderService.save(order)
-                console.log(newOrder);
-                context.commit({ type: 'updateOrder', newOrder})
+                console.log(newOrder)
+                context.commit({ type: 'updateOrder', newOrder })
                 return newOrder
             } catch (err) {
                 console.log('orderStore: Error in updateOrder', err)
                 throw err
             }
         },
-        async changeOrderStatus({ commit }, { order, status}) {
-            console.log(order);
+        async changeOrderStatus({ commit }, { order, status }) {
+            console.log(order)
             const newOrder = JSON.parse(JSON.stringify(order))
-            console.log(newOrder);
+            console.log(newOrder)
             newOrder.status = status
-            commit('setOrderStatus', { order, status})
+            commit('setOrderStatus', { order, status })
+            console.log(newOrder)
+            const newOrder2 = await orderService.save(newOrder)
             socketService.emit('order-updated', newOrder)
-            console.log(newOrder);
-            return await orderService.save(newOrder)
+            return newOrder2
         },
-        async loadOrders(context,{buyerId}) {
+        async loadOrders(context, { buyerId }) {
             console.log("🚀 ~ file: order.store.js:67 ~ loadOrders ~ buyerId:", buyerId)
             const filterBy = {}
-            if(buyerId) filterBy.buyerId = buyerId
+            if (buyerId) filterBy.buyerId = buyerId
             try {
                 const orders = await orderService.query(filterBy)
                 context.commit({ type: 'setOrders', orders })

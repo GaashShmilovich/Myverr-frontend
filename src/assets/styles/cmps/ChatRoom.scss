@@ -2,7 +2,7 @@
   position: fixed;
   width: rem(450px);
   height: rem(555px);
-  //   bottom: 4px;
+  left: 0;
   bottom: 0.5rem;
   background-color: $clr1;
   padding: 10px;
@@ -20,6 +20,18 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #fff;
+
+  @include for-mobile {
+    width: 100%;
+    border-radius: 0; /* No rounded corners on mobile */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow all around */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    transform: translate(0 0);
+    transition: transform 0.3s ease;
+  }
 
   div:last-child {
     margin-block-start: auto; /* Add the margin only to the last div */
@@ -164,7 +176,7 @@
       }
 
       &:hover {
-        background-color: #0056b3;
+        background-color: #1ecc7b;
       }
     }
   }
@@ -184,9 +196,8 @@
   bottom: rem(33px);
   margin-inline-start: rem(33px);
   z-index: 100;
-
   @include for-mobile {
-    bottom: 33px;
+    bottom: 65px;
     left: -20px;
     z-index: 100;
     opacity: 0.9;
