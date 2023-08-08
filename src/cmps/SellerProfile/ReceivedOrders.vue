@@ -35,16 +35,17 @@
         >
           <th scope="row">{{ i + 1 }}</th>
           <td class="buyer">
-            <img
-              class="user-image"
-              :src="getOrderBuyerImage(order)"
-              alt="Buyer Image"
-            />
-            {{ order?.buyer.username }}
+            <div class="buyer-content">
+              <img
+                class="user-image"
+                :src="getOrderBuyerImage(order)"
+                alt="Buyer Image"
+              />
+              <span class="username">{{ order?.buyer.username }}</span>
+            </div>
           </td>
           <td>{{ order?.gig.title }}</td>
           <td>{{ order?.status }}</td>
-          <td></td>
         </tr>
       </tbody>
     </table>

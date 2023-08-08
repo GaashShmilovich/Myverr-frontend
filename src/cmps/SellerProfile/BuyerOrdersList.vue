@@ -44,13 +44,14 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch("loadOrders", { buyerId: this.user._id }); 
+    console.log("this.user", this.user);
+    this.$store.dispatch("loadOrders", { buyerId: this.user._id });
 
-    socketService.on('on-order-updated', (order) => {
+    socketService.on("on-order-updated", (order) => {
       console.log(order);
-      this.$store.commit('setOrderStatus', { order, status: order.status})
+      this.$store.commit("setOrderStatus", { order, status: order.status });
       // this.$store.dispatch("loadOrders", { buyerId: this.user._id });
-    })
+    });
   },
 };
 </script>

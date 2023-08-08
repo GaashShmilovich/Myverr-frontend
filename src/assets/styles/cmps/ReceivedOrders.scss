@@ -62,17 +62,13 @@
   align-items: center;
   margin-block: rem(20px);
   max-width: 100%;
-  overflow-x: auto;
-  th,
-  td {
-    padding: 15px 20px;
-    text-align: left;
-    &.buyer {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+
+  &.buyer {
+    gap: 10px;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
   }
+
   table {
     position: relative;
     background-color: $clr1;
@@ -81,13 +77,66 @@
     border-collapse: collapse;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
     margin: 0 auto;
+
+    th,
+    td {
+      padding: 15px 20px;
+      text-align: left;
+      vertical-align: middle; /* Center content vertically within all cells */
+    }
+    .buyer {
+      .buyer-content {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+
+    .user-image,
+    .gig-image {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .gig-imgs {
+      .gig-images-container {
+        flex-direction: row-reverse;
+        // align-items: center;
+        white-space: nowrap;
+        margin-block-start: 10px;
+        gap: 5px;
+
+        .gig-image-1 {
+          /* ... (styles for image with index 1) ... */
+          transform: translateX(-10px);
+        }
+        .gig-image-2 {
+          transform: translateX(-20px);
+
+          /* ... (styles for image with index 2) ... */
+        }
+        .gig-image {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+        }
+      }
+    }
 
     .user-image {
       width: 40px;
       height: 40px;
       border-radius: 50%;
+    }
+
+    .gig-imgs {
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
     }
 
     thead {
