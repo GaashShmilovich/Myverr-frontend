@@ -2,8 +2,8 @@
   position: fixed;
   width: rem(450px);
   height: rem(555px);
+  //   bottom: 4px;
   bottom: 0.5rem;
-  left: 0;
   background-color: $clr1;
   padding: 10px;
   border-radius: 4px;
@@ -14,6 +14,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  // justify-content: space-between;
   margin: 20px;
   padding: 20px;
   border: 1px solid #ccc;
@@ -24,8 +25,8 @@
     margin-block-start: auto; /* Add the margin only to the last div */
   }
 
-  .custom-textarea::placeholder {
-    text-align: center;
+  .is-typing {
+    padding-top: 20px;
   }
 
   .seller-info-container {
@@ -86,15 +87,31 @@
 
   .chat-list {
     width: 100%;
-    max-height: 300px;
+    max-height: 400px;
     overflow-y: auto;
     margin-block: 10px;
 
     .chat-msg {
-      margin: 5px 0;
+      margin: 10px 0;
       padding: 5px;
       border-radius: 5px;
-      background-color: #f5f5f5;
+      font-family: macanBold;
+      color: $clr4;
+      background-color: lighten($clr9, 20%);
+      padding-left: 15px;
+    }
+    span {
+      font-size: rem(16px);
+      font-family: macanRegular;
+      padding-left: 2px;
+    }
+    .user1 {
+      text-align: left;
+    }
+    .user2 {
+      background-color: lighten($green1, 50%);
+      // text-align: right;
+      margin-left: 30px;
     }
   }
 
@@ -119,8 +136,6 @@
       &::placeholder {
         /* Center the placeholder text vertically and horizontally */
         display: flex;
-        align-items: center;
-        justify-content: center;
         padding: 0; /* Reset padding to center properly */
         color: #aaa; /* Placeholder text color */
       }
@@ -166,6 +181,19 @@
   bottom: rem(33px);
   margin-inline-start: rem(33px);
   z-index: 100;
+
+  @include for-mobile {
+    bottom: 33px;
+    left: -20px;
+    z-index: 100;
+    opacity: 0.9;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
   .avatar {
     width: 48px;
     height: 48px;

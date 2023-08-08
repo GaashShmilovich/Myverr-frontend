@@ -9,7 +9,7 @@
       <section class="type-package">
         <section class="header">
           <span class="title">{{ package.title }}</span>
-          <span class="price">₪{{ package.price }}</span>
+          <span class="price">${{ package.price }}</span>
         </section>
 
         <ul class="specials">
@@ -58,7 +58,7 @@
             />
             Total delivery time
           </p>
-          <p class="days">1 day</p>
+          <p class="days">{{ package.benefit1 }}</p>
         </section>
       </section>
       <!-- :class="{'cc':paymentMethod === 'cc', 'pp':paymentMethod === 'pp'}" -->
@@ -154,7 +154,7 @@ export default {
         };
         const readyOrder = await this.$store.dispatch({ type: "addOrder", createdOrder });
         console.log(readyOrder);
-          socketService.emit('order-added',readyOrder)
+        socketService.emit('order-added',readyOrder)
       } catch (err) {
         console.error(err);
         console.log(err);

@@ -62,9 +62,10 @@ import { socketService } from "../../services/socket.service";
 import { userService } from "../../services/user.service";
 import CustomModal from "./CustomModal.vue";
 import moment from "moment";
+import exploreFooter from "../ExploreCmps/ExploreFooter.vue";
 
 export default {
-  components: { CustomModal },
+  components: { CustomModal, exploreFooter },
   props: { user: Object },
   data() {
     return {
@@ -111,6 +112,9 @@ export default {
       console.error("Error loading users:", error);
     }
   },
+  unmounted() {
+    socketService.off("on-order-added");
+  },
   methods: {
     async loadOrders() {
       try {
@@ -118,6 +122,12 @@ export default {
       } catch (err) {
         console.log("Error loading orders:", err);
       }
+    },
+    formatDate(dateString) {
+      // Specify the format in which the date string is given
+      if (!moment(dateString, "MMMM Do YYYY, h:mm:ss a").isValid())
+        return "N/A";
+      return moment(dateString, "MMMM Do YYYY, h:mm:ss a").format("YYYY-MM-DD");
     },
     openModal(order) {
       console.log("Clicked on order:", order);
@@ -134,22 +144,6 @@ export default {
       }
       return ""; // Return an empty string if no buyer or image URL is available
     },
-
-    // async onStatusChange(status) {
-    //   try {
-    //     const payload = {
-    //       order: this.selectedOrder,
-    //       status: status,
-    //     };
-    //     console.log(payload);
-    //     // await this.$store.dispatch({ type: "updateOrder", payload });
-    //     const updatedOrder = await this.$store.dispatch({ type: "changeOrderStatus", payload });
-    //     console.log(updatedOrder);
-    //     socketService.emit('order-updated',updatedOrder)
-    //   } catch (err) {
-    //     console.log("Error updating order status:", err);
-    //   }
-    // },
   },
 };
 </script>
