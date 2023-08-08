@@ -1,35 +1,4 @@
 .chat-room-container {
-<<<<<<< HEAD
-	position: fixed;
-	width: rem(450px);
-	height: rem(555px);
-	//   bottom: 4px;
-	bottom: 0.5rem;
-	background-color: $clr1;
-	padding: 10px;
-	border-radius: 4px;
-	box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.05);
-	border: 1px solid #e4e5e7;
-	z-index: 100;
-
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	// justify-content: space-between;
-	margin: 20px;
-	padding: 20px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	background-color: #fff;
-
-	div:last-child {
-		margin-block-start: auto; /* Add the margin only to the last div */
-	}
-
-	.is-typing {
-		padding-top: 20px;
-	}
-=======
   position: fixed;
   width: rem(450px);
   height: rem(555px);
@@ -72,7 +41,6 @@
     margin-top: 435px;
     position: absolute;
   }
->>>>>>> b311912d45b4f5b3b4a9d98d5f362123d572e32f
 
 	.seller-info-container {
 		display: flex;
@@ -130,37 +98,6 @@
 		margin-bottom: 10px;
 	}
 
-<<<<<<< HEAD
-	.chat-list {
-		width: 100%;
-		max-height: 400px;
-		overflow-y: auto;
-		margin-block: 10px;
-
-		.chat-msg {
-			margin: 10px 0;
-			padding: 5px;
-			border-radius: 5px;
-			font-family: macanBold;
-			color: $clr4;
-			background-color: lighten($clr9, 20%);
-			padding-left: 15px;
-		}
-		span {
-			font-size: rem(16px);
-			font-family: macanRegular;
-			padding-left: 2px;
-		}
-		.user1 {
-			text-align: left;
-		}
-		.user2 {
-			background-color: lighten($green1, 50%);
-			// text-align: right;
-			margin-left: 30px;
-		}
-	}
-=======
   .chat-list {
     width: 100%;
     max-height: 400px;
@@ -193,7 +130,6 @@
       margin-left: 80px;
     }
   }
->>>>>>> b311912d45b4f5b3b4a9d98d5f362123d572e32f
 
 	.send-box {
 		width: 100%;
@@ -240,36 +176,6 @@
 				font-size: 15px;
 			}
 
-<<<<<<< HEAD
-			&:hover {
-				background-color: #0056b3;
-			}
-		}
-	}
-}
-
-.chat-button-container {
-	background-color: $clr1;
-	display: flex;
-	border-radius: 68px;
-	cursor: pointer;
-	padding: 8px 24px 8px 8px;
-	width: fit-content;
-	box-shadow: 0 0 2.17382px rgba(0, 0, 0, 0.049),
-		0 1.75px 6.01034px rgba(0, 0, 0, 0.07),
-		0 3.63px 14.4706px rgba(0, 0, 0, 0.091), 0 22px 48px rgba(0, 0, 0, 0.14);
-	position: fixed;
-	bottom: rem(33px);
-	margin-inline-start: rem(33px);
-	z-index: 100;
-
-	@include for-mobile {
-		bottom: 33px;
-		left: -20px;
-		z-index: 100;
-		opacity: 0.9;
-		transition: opacity 0.3s;
-=======
       &:hover {
         background-color: #1ecc7b;
       }
@@ -297,7 +203,6 @@
     z-index: 100;
     opacity: 0.9;
     transition: opacity 0.3s;
->>>>>>> b311912d45b4f5b3b4a9d98d5f362123d572e32f
 
 		&:hover {
 			opacity: 1;
