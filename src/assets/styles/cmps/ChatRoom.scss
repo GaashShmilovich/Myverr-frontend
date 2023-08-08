@@ -103,6 +103,7 @@
     max-height: 400px;
     overflow-y: auto;
     margin-block: 10px;
+    overflow-x: hidden;
 
     .chat-msg {
       margin: 10px 0;
