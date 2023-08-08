@@ -11,13 +11,13 @@
         </div>
       </div>
     </div>
-    <h3 class="is-typing" v-if="typingUser">{{ typingUser }} is typing...</h3>
     <div class="chat-list">
       <p v-for="(msg, idx) in msgs" :key="idx" class="chat-msg" 
       :class="{'user1' : msg.fullname === 'Oryan Hachamoff', 'user2' : msg.fullname === 'Gaash Shmilovich'}">
-        {{ msg.fullname }}: <span>{{ msg.txt }}</span> 
-      </p>
-    </div>
+      {{ msg.fullname }}: <span>{{ msg.txt }}</span> 
+    </p>
+  </div>
+  <h3 class="is-typing" v-if="typingUser">{{ typingUser }} is typing...</h3>
     <div class="send-box flex">
       <textarea
         name=""
@@ -111,7 +111,7 @@ export default {
     },
     clearTyping: utilService.debounce(() => {
       socketService.emit(SOCKET_EMIT_USER_IS_TYPING, "");
-    }, 1500),
+    }, 1000),
   },
 
   unmounted() {
