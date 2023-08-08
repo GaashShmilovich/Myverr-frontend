@@ -47,7 +47,7 @@ export default {
           image:
             "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/7ead3b2056987e6fa3aad69cf897a50b-1690383161257/logo-design-2x.png",
           title: "Build your brand",
-          content: "Logo Design",
+          content: "Digital Marketing",
         },
         {
           image:

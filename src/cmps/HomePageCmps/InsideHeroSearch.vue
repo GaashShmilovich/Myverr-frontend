@@ -18,7 +18,7 @@
           <a @click="navigateToExplore('WordPress')">WordPress</a>
         </li>
         <li>
-          <a @click="navigateToExplore('Logo Design')">Logo Design</a>
+          <a @click="navigateToExplore('Logo Design')">Digital Marketing</a>
         </li>
         <li>
           <a @click="navigateToExplore('AI Services')">AI Services</a>
