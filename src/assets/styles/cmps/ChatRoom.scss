@@ -1,233 +1,233 @@
 .chat-room-container {
-  position: fixed;
-  width: rem(450px);
-  height: rem(555px);
-  //   bottom: 4px;
-  bottom: 0.5rem;
-  background-color: $clr1;
-  padding: 10px;
-  border-radius: 4px;
-  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.05);
-  border: 1px solid #e4e5e7;
-  z-index: 100;
+	position: fixed;
+	width: rem(450px);
+	height: rem(555px);
+	//   bottom: 4px;
+	bottom: 0.5rem;
+	background-color: $clr1;
+	padding: 10px;
+	border-radius: 4px;
+	box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.05);
+	border: 1px solid #e4e5e7;
+	z-index: 100;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  // justify-content: space-between;
-  margin: 20px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	// justify-content: space-between;
+	margin: 20px;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background-color: #fff;
 
-  div:last-child {
-    margin-block-start: auto; /* Add the margin only to the last div */
-  }
+	div:last-child {
+		margin-block-start: auto; /* Add the margin only to the last div */
+	}
 
-  .is-typing {
-    padding-top: 20px;
-  }
+	.is-typing {
+		padding-top: 20px;
+	}
 
-  .seller-info-container {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    width: 100%;
-    border-bottom: 1px solid $clr6;
+	.seller-info-container {
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: space-between;
+		width: 100%;
+		border-bottom: 1px solid $clr6;
 
-    .close-chat-button {
-      padding: 0;
-      margin: 0;
-      align-self: start;
-      font-size: rem(25px);
-    }
+		.close-chat-button {
+			padding: 0;
+			margin: 0;
+			align-self: start;
+			font-size: rem(25px);
+		}
 
-    .seller-info {
-      display: flex;
-      margin-block-end: rem(10px);
-    }
+		.seller-info {
+			display: flex;
+			margin-block-end: rem(10px);
+		}
 
-    .avatar {
-      width: 48px;
-      display: flex;
+		.avatar {
+			width: 48px;
+			display: flex;
 
-      img {
-        border-radius: 50%;
-      }
-    }
+			img {
+				border-radius: 50%;
+			}
+		}
 
-    .content {
-      font-size: rem(14px);
-      line-height: rem(21px);
-      padding-inline-start: rem(16px);
-      display: flex;
-      flex-direction: column;
-      margin-block-start: 0;
-      justify-content: center;
-      p {
-        margin: 0;
-        font-size: rem(18px);
-        font-family: macanSemibold;
-        color: #404145;
-      }
-    }
-  }
+		.content {
+			font-size: rem(14px);
+			line-height: rem(21px);
+			padding-inline-start: rem(16px);
+			display: flex;
+			flex-direction: column;
+			margin-block-start: 0;
+			justify-content: center;
+			p {
+				margin: 0;
+				font-size: rem(18px);
+				font-family: macanSemibold;
+				color: #404145;
+			}
+		}
+	}
 
-  h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
+	h2 {
+		font-size: 24px;
+		margin-bottom: 10px;
+	}
 
-  h3 {
-    font-size: 16px;
-    color: #888;
-    margin-bottom: 10px;
-  }
+	h3 {
+		font-size: 16px;
+		color: #888;
+		margin-bottom: 10px;
+	}
 
-  .chat-list {
-    width: 100%;
-    max-height: 400px;
-    overflow-y: auto;
-    margin-block: 10px;
+	.chat-list {
+		width: 100%;
+		max-height: 400px;
+		overflow-y: auto;
+		margin-block: 10px;
 
-    .chat-msg {
-      margin: 10px 0;
-      padding: 5px;
-      border-radius: 5px;
-      font-family: macanBold;
-      color: $clr4;
-      background-color: lighten($clr9, 20%);
-      padding-left: 15px;
-    }
-    span {
-      font-size: rem(16px);
-      font-family: macanRegular;
-      padding-left: 2px;
-    }
-    .user1 {
-      text-align: left;
-    }
-    .user2 {
-      background-color: lighten($green1, 50%);
-      // text-align: right;
-      margin-left: 30px;
-    }
-  }
+		.chat-msg {
+			margin: 10px 0;
+			padding: 5px;
+			border-radius: 5px;
+			font-family: macanBold;
+			color: $clr4;
+			background-color: lighten($clr9, 20%);
+			padding-left: 15px;
+		}
+		span {
+			font-size: rem(16px);
+			font-family: macanRegular;
+			padding-left: 2px;
+		}
+		.user1 {
+			text-align: left;
+		}
+		.user2 {
+			background-color: lighten($green1, 50%);
+			// text-align: right;
+			margin-left: 30px;
+		}
+	}
 
-  .send-box {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+	.send-box {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		gap: 10px;
 
-    textarea {
-      flex: 1;
-      padding: 11px 24px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      resize: vertical;
-      height: rem(40px);
-      font-family: inherit;
-      outline: none;
-      resize: none;
-      display: flex;
-      align-items: center;
-      &::placeholder {
-        /* Center the placeholder text vertically and horizontally */
-        display: flex;
-        padding: 0; /* Reset padding to center properly */
-        color: #aaa; /* Placeholder text color */
-      }
-    }
+		textarea {
+			flex: 1;
+			padding: 11px 24px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			resize: vertical;
+			height: rem(40px);
+			font-family: inherit;
+			outline: none;
+			resize: none;
+			display: flex;
+			align-items: center;
+			&::placeholder {
+				/* Center the placeholder text vertically and horizontally */
+				display: flex;
+				padding: 0; /* Reset padding to center properly */
+				color: #aaa; /* Placeholder text color */
+			}
+		}
 
-    .btn {
-      padding: 10px 16px;
-      border: none;
-      border-radius: 5px;
-      background-color: $green1;
-      color: #fff;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      font-family: macanSemibold;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      p {
-        padding: 0;
-        margin-inline-start: 8px;
-        margin-block: 0;
-        font-size: 15px;
-      }
+		.btn {
+			padding: 10px 16px;
+			border: none;
+			border-radius: 5px;
+			background-color: $green1;
+			color: #fff;
+			cursor: pointer;
+			transition: background-color 0.3s;
+			font-family: macanSemibold;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			p {
+				padding: 0;
+				margin-inline-start: 8px;
+				margin-block: 0;
+				font-size: 15px;
+			}
 
-      &:hover {
-        background-color: #0056b3;
-      }
-    }
-  }
+			&:hover {
+				background-color: #0056b3;
+			}
+		}
+	}
 }
 
 .chat-button-container {
-  background-color: $clr1;
-  display: flex;
-  border-radius: 68px;
-  cursor: pointer;
-  padding: 8px 24px 8px 8px;
-  width: fit-content;
-  box-shadow: 0 0 2.17382px rgba(0, 0, 0, 0.049),
-    0 1.75px 6.01034px rgba(0, 0, 0, 0.07),
-    0 3.63px 14.4706px rgba(0, 0, 0, 0.091), 0 22px 48px rgba(0, 0, 0, 0.14);
-  position: fixed;
-  bottom: rem(33px);
-  margin-inline-start: rem(33px);
-  z-index: 100;
+	background-color: $clr1;
+	display: flex;
+	border-radius: 68px;
+	cursor: pointer;
+	padding: 8px 24px 8px 8px;
+	width: fit-content;
+	box-shadow: 0 0 2.17382px rgba(0, 0, 0, 0.049),
+		0 1.75px 6.01034px rgba(0, 0, 0, 0.07),
+		0 3.63px 14.4706px rgba(0, 0, 0, 0.091), 0 22px 48px rgba(0, 0, 0, 0.14);
+	position: fixed;
+	bottom: rem(33px);
+	margin-inline-start: rem(33px);
+	z-index: 100;
 
-  @include for-mobile {
-    bottom: 33px;
-    left: -20px;
-    z-index: 100;
-    opacity: 0.9;
-    transition: opacity 0.3s;
+	@include for-mobile {
+		bottom: 33px;
+		left: -20px;
+		z-index: 100;
+		opacity: 0.9;
+		transition: opacity 0.3s;
 
-    &:hover {
-      opacity: 1;
-    }
-  }
+		&:hover {
+			opacity: 1;
+		}
+	}
 
-  .avatar {
-    width: 48px;
-    height: 48px;
-    img {
-      border-radius: 50%;
-    }
-  }
-  .content {
-    font-size: rem(14px);
-    line-height: rem(21px);
-    padding-inline-start: rem(16px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    p {
-      font-family: macanSemibold;
-      font-size: rem(16px);
-      display: flex;
-      align-items: center;
-      margin: 0;
-      color: #404145;
-    }
-    span {
-      display: inline-flex;
-      align-items: center;
-      margin-block-start: rem(2px);
-      white-space: nowrap;
-      font-size: rem(12px);
-      line-height: rem(20px);
-      color: #62646a;
-      .time-to-make {
-        font-family: macanSemibold;
-        margin-inline-start: rem(4px);
-      }
-    }
-  }
+	.avatar {
+		width: 48px;
+		height: 48px;
+		img {
+			border-radius: 50%;
+		}
+	}
+	.content {
+		font-size: rem(14px);
+		line-height: rem(21px);
+		padding-inline-start: rem(16px);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		p {
+			font-family: macanSemibold;
+			font-size: rem(16px);
+			display: flex;
+			align-items: center;
+			margin: 0;
+			color: #404145;
+		}
+		span {
+			display: inline-flex;
+			align-items: center;
+			margin-block-start: rem(2px);
+			white-space: nowrap;
+			font-size: rem(12px);
+			line-height: rem(20px);
+			color: #62646a;
+			.time-to-make {
+				font-family: macanSemibold;
+				margin-inline-start: rem(4px);
+			}
+		}
+	}
 }
