@@ -57,9 +57,7 @@
   />
   <section class="mobile-orders-container">
     <h1 class="mobile-orders-header">My Orders</h1>
-    <p class="mobile-orders-sort">
-      Sort Sort <i class="mobile-orders-slider">≡</i>
-    </p>
+    <p class="mobile-orders-sort">Sort <i class="mobile-orders-slider">≡</i></p>
     <section class="mobile-orders-list-container">
       <div
         v-for="(order, i) in orders"
