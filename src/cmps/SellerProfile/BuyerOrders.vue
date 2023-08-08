@@ -23,7 +23,7 @@
               <span class="username">{{ order?.seller.username }}</span>
             </div>
           </td>
-          <td>{{ order?.gig.title }}</td>
+          <td v-if="order?.gig?.title">{{ order?.gig.title }}</td>
           <td class="gig-imgs">
             <div class="gig-images-container">
               <img
