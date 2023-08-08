@@ -138,7 +138,9 @@ export default {
       }
     },
     totalPrice() {
-      return this.package.price + 11.73 + 8.5;
+      const service = 11.73
+      const VAT = 8.50
+      return +this.package.price + (service + VAT);
     },
     async addOrder() {
       try {
